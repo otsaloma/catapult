@@ -1,6 +1,8 @@
 Catapult Launcher
 =================
 
+[![Test](https://github.com/otsaloma/catapult/workflows/Test/badge.svg)](https://github.com/otsaloma/catapult/actions)
+
 Catapult is currently developed and tested on X/GNOME. It will likely
 work on other desktop environments, but is unlikely to work as-is on
 Wayland. PRs are welcome.
