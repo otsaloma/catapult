@@ -22,7 +22,7 @@
   background-color: #000000;
   border-radius: 9999px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  margin: 24px;
+  margin: 12px;
 }
 
 .catapult-input {
@@ -30,6 +30,7 @@
   border: none;
   box-shadow: none;
   color: #cbcbcb;
+  font-family: "@input-font";
   font-size: 200%;
   margin: 24px 27px;
 }

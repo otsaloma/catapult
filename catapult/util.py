@@ -42,4 +42,4 @@ def list_themes():
 def read_theme(theme):
     path = find_theme(theme)
     with open(path, "r") as f:
-        return f.read()
+        return f.read().replace("@input-font", catapult.conf.input_font)

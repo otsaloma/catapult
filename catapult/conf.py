@@ -20,6 +20,7 @@ import json
 import os
 
 DEFAULTS = {
+    "input_font": "monospace",
     "theme": "dark",
 }
 
