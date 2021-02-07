@@ -24,14 +24,14 @@
 @define-color selected-fg-color #fafafa;
 
 .catapult-body {
-  background-color: @bg-color;
+  background-color: alpha(@bg-color, 0.95);
   border-radius: 9999px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   margin: 12px;
 }
 
 .catapult-input {
-  background-color: @bg-color;
+  background-color: transparent;
   border: none;
   box-shadow: none;
   color: #cbcbcb;
