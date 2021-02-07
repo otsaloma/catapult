@@ -23,12 +23,17 @@ gi.require_version("Gtk", "3.0")
 
 from catapult.paths import CONFIG_HOME_DIR # noqa
 from catapult.paths import DATA_DIR # noqa
+from catapult.paths import DATA_DIRS # noqa
+from catapult.paths import DATA_HOME_DIR # noqa
+from catapult.conf import ConfigurationStore # noqa
 from catapult import util # noqa
 from catapult.window import Window # noqa
 from catapult.app import Application # noqa
 
 
 def main(args):
-    global app
+    global app, conf
+    conf = ConfigurationStore()
+    conf.read()
     app = Application(args)
     raise SystemExit(app.run())

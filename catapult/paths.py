@@ -24,6 +24,12 @@ def get_config_home_directory_xdg():
     directory = os.path.join(directory, "catapult")
     return os.path.abspath(directory)
 
+def get_data_home_directory_xdg():
+    directory = os.path.join(os.path.expanduser("~"), ".local", "share")
+    directory = os.environ.get("XDG_DATA_HOME", directory)
+    directory = os.path.join(directory, "catapult")
+    return os.path.abspath(directory)
+
 def get_data_directory_source():
     directory = os.path.dirname(os.path.abspath(__file__))
     directory = os.path.abspath(os.path.join(directory, ".."))
@@ -32,3 +38,9 @@ def get_data_directory_source():
 
 CONFIG_HOME_DIR = get_config_home_directory_xdg()
 DATA_DIR = get_data_directory_source()
+DATA_HOME_DIR = get_data_home_directory_xdg()
+DATA_LOCAL_DIR = None
+
+# In order of priority so that themes etc. can be overridden.
+DATA_DIRS = [DATA_HOME_DIR, DATA_LOCAL_DIR, DATA_DIR]
+DATA_DIRS = list(filter(None, DATA_DIRS))

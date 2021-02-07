@@ -37,5 +37,4 @@ class Application(Gtk.Application):
         window.present()
 
     def _on_shutdown(self, app):
-        # TODO: Write config files etc.
-        pass
+        catapult.conf.write()
