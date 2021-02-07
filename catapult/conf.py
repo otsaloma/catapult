@@ -22,6 +22,7 @@ import os
 DEFAULTS = {
     "input_font": "monospace",
     "theme": "dark",
+    "toggle_key": "<Control>space",
 }
 
 

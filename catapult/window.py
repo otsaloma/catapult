@@ -19,8 +19,10 @@
 import catapult
 
 from gi.repository import Gdk
+from gi.repository import GLib
 from gi.repository import GObject
 from gi.repository import Gtk
+from gi.repository import Keybinder
 
 
 class Window(Gtk.ApplicationWindow):
@@ -29,6 +31,7 @@ class Window(Gtk.ApplicationWindow):
         GObject.GObject.__init__(self)
         self._body = None
         self._input_entry = None
+        self._toggle_key = None
         self._init_properties()
         self._init_visual()
         self._init_widgets()
@@ -36,6 +39,7 @@ class Window(Gtk.ApplicationWindow):
         self._init_css_classes()
         self._init_css()
         self._init_signal_handlers()
+        self._init_keys()
 
     def _init_css(self):
         css = catapult.util.read_theme(catapult.conf.theme)
@@ -49,6 +53,10 @@ class Window(Gtk.ApplicationWindow):
     def _init_css_classes(self):
         self._body.get_style_context().add_class("catapult-body")
         self._input_entry.get_style_context().add_class("catapult-input")
+
+    def _init_keys(self):
+        Keybinder.init()
+        GLib.idle_add(self.bind_toggle_key, catapult.conf.toggle_key)
 
     def _init_position(self):
         window_width, window_height = self.get_size()
@@ -88,6 +96,11 @@ class Window(Gtk.ApplicationWindow):
         self._body.show_all()
         self.add(self._body)
 
+    def bind_toggle_key(self, key):
+        self.unbind_toggle_key()
+        Keybinder.bind(key, self.toggle)
+        self._toggle_key = key
+
     def get_query(self):
         return self._input_entry.get_text().lower().strip()
 
@@ -97,3 +110,16 @@ class Window(Gtk.ApplicationWindow):
                 return self.destroy()
         if event.keyval == Gdk.KEY_Escape:
             return self.hide()
+
+    def show(self):
+        self._input_entry.set_text("")
+        self._input_entry.grab_focus()
+        super().show()
+
+    def toggle(self, *args, **kwargs):
+        self.hide() if self.is_visible() else self.show()
+
+    def unbind_toggle_key(self):
+        if not self._toggle_key: return
+        Keybinder.unbind(self._toggle_key)
+        self._toggle_key = None

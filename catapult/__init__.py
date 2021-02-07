@@ -20,6 +20,7 @@ __version__ = "0.0.1"
 import gi
 gi.require_version("Gdk", "3.0")
 gi.require_version("Gtk", "3.0")
+gi.require_version("Keybinder", "3.0")
 
 from catapult.paths import CONFIG_HOME_DIR # noqa
 from catapult.paths import DATA_DIR # noqa

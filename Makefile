@@ -9,6 +9,7 @@ clean:
 	rm -rf dist
 	rm -rf __pycache__
 	rm -rf */__pycache__
+	rm -rf */*/__pycache__
 
 test:
 	py.test .
