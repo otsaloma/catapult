@@ -2,6 +2,7 @@ TODO
 ====
 
 * Base
+* Keybinder
 * Dbus toggle
 * Proper icon
 * App plugin

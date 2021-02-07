@@ -10,4 +10,7 @@ clean:
 	rm -rf __pycache__
 	rm -rf */__pycache__
 
-.PHONY: check clean
+test:
+	py.test .
+
+.PHONY: check clean test

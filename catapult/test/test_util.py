@@ -15,25 +15,26 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-__version__ = "0.0.1"
-
-import gi
-gi.require_version("Gdk", "3.0")
-gi.require_version("Gtk", "3.0")
-
-from catapult.paths import CONFIG_HOME_DIR # noqa
-from catapult.paths import DATA_DIR # noqa
-from catapult.paths import DATA_DIRS # noqa
-from catapult.paths import DATA_HOME_DIR # noqa
-from catapult.conf import ConfigurationStore # noqa
-conf = ConfigurationStore()
-from catapult import util # noqa
-from catapult.window import Window # noqa
-from catapult.app import Application # noqa
+import catapult.test
+import os
 
 
-def main(args):
-    global app
-    conf.read()
-    app = Application(args)
-    raise SystemExit(app.run())
+class TestUtil(catapult.test.TestCase):
+
+    def test_find_theme(self):
+        path = catapult.util.find_theme("dark")
+        assert os.path.isfile(path)
+
+    def test_get_data_path(self):
+        path = catapult.util.get_data_path("themes", "dark.css")
+        assert os.path.isfile(path)
+
+    def test_list_themes(self):
+        themes = list(catapult.util.list_themes())
+        assert "dark" in [x[0] for x in themes]
+        for theme, path in themes:
+            assert os.path.isfile(path)
+
+    def test_read_theme(self):
+        css = catapult.util.read_theme("dark")
+        assert "@input-font" not in css

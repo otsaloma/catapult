@@ -15,25 +15,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-__version__ = "0.0.1"
-
-import gi
-gi.require_version("Gdk", "3.0")
-gi.require_version("Gtk", "3.0")
-
-from catapult.paths import CONFIG_HOME_DIR # noqa
-from catapult.paths import DATA_DIR # noqa
-from catapult.paths import DATA_DIRS # noqa
-from catapult.paths import DATA_HOME_DIR # noqa
-from catapult.conf import ConfigurationStore # noqa
-conf = ConfigurationStore()
-from catapult import util # noqa
-from catapult.window import Window # noqa
-from catapult.app import Application # noqa
+import catapult.test
 
 
-def main(args):
-    global app
-    conf.read()
-    app = Application(args)
-    raise SystemExit(app.run())
+class TestWindow(catapult.test.TestCase):
+
+    def setup_method(self, method):
+        self.window = catapult.Window()
