@@ -6,5 +6,5 @@ Icon=io.otsaloma.catapult
 Exec=catapult
 Categories=Utility;GTK;
 # TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-Keywords=launch;
+Keywords=launch;launcher;
 StartupNotify=true
