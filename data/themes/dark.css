@@ -18,19 +18,29 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
+@define-color bg-color #000000;
+@define-color fg-color #cbcbcb;
+@define-color selected-bg-color #1b6acb;
+@define-color selected-fg-color #fafafa;
+
 .catapult-body {
-  background-color: #000000;
+  background-color: @bg-color;
   border-radius: 9999px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   margin: 12px;
 }
 
 .catapult-input {
-  background-color: #000000;
+  background-color: @bg-color;
   border: none;
   box-shadow: none;
   color: #cbcbcb;
   font-family: "@input-font";
   font-size: 200%;
   margin: 24px 27px;
+}
+
+.catapult-input *:selected, .catapult-input *:focus {
+    background-color: alpha(@selected-bg-color, 0.9);
+    color: @selected-fg-color;
 }
