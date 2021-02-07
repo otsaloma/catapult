@@ -35,6 +35,7 @@ class Window(Gtk.ApplicationWindow):
         self._init_position()
         self._init_css_classes()
         self._init_css()
+        self._init_signal_handlers()
 
     def _init_css(self):
         css = catapult.util.read_theme(catapult.conf.theme)
@@ -69,6 +70,9 @@ class Window(Gtk.ApplicationWindow):
         self.set_skip_pager_hint(True)
         self.set_skip_taskbar_hint(True)
 
+    def _init_signal_handlers(self):
+        self._input_entry.connect("key-press-event", self._on_input_entry_key_press_event)
+
     def _init_visual(self):
         # Make window transparent to allow rounded corners.
         screen = Gdk.Screen.get_default()
@@ -83,3 +87,13 @@ class Window(Gtk.ApplicationWindow):
         self._body.pack_start(self._input_entry, expand=True, fill=True, padding=0)
         self._body.show_all()
         self.add(self._body)
+
+    def get_query(self):
+        return self._input_entry.get_text().lower().strip()
+
+    def _on_input_entry_key_press_event(self, entry, event):
+        if event.keyval in (Gdk.KEY_Return, Gdk.KEY_KP_Enter):
+            if self.get_query() in ["q", "quit"]:
+                return self.destroy()
+        if event.keyval == Gdk.KEY_Escape:
+            return self.hide()
