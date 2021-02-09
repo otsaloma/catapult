@@ -16,10 +16,15 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult.test
+import inspect
 import os
 
 
 class TestUtil(catapult.test.TestCase):
+
+    def test_find_plugin(self):
+        module = catapult.util.find_plugin("apps")
+        assert inspect.ismodule(module)
 
     def test_find_theme(self):
         path = catapult.util.find_theme("dark")
@@ -29,12 +34,22 @@ class TestUtil(catapult.test.TestCase):
         path = catapult.util.get_data_path("themes", "dark.css")
         assert os.path.isfile(path)
 
+    def test_list_plugins(self):
+        plugins = list(catapult.util.list_plugins())
+        assert "apps" in [x[0] for x in plugins]
+        for name, module in plugins:
+            assert inspect.ismodule(module) or os.path.isfile(module)
+
     def test_list_themes(self):
         themes = list(catapult.util.list_themes())
         assert "dark" in [x[0] for x in themes]
-        for theme, path in themes:
+        for name, path in themes:
             assert os.path.isfile(path)
 
-    def test_read_theme(self):
-        css = catapult.util.read_theme("dark")
+    def test_load_plugin(self):
+        plugin = catapult.util.load_plugin("apps")
+        assert isinstance(plugin, catapult.Plugin)
+
+    def test_load_theme(self):
+        css = catapult.util.load_theme("dark")
         assert "@input-font" not in css

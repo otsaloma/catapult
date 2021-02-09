@@ -16,16 +16,40 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult
+import importlib
+import inspect
 import os
 
 
-def find_theme(theme):
+def find_plugin(name):
+    for candidate, module in list_plugins():
+        if candidate == name:
+            return module
+
+def find_theme(name):
     for candidate, path in list_themes():
-        if candidate == theme:
+        if candidate == name:
             return path
 
 def get_data_path(*paths):
     return os.path.join(catapult.DATA_DIR, *paths)
+
+def list_plugins():
+    found = set()
+    for name, module in inspect.getmembers(
+            catapult.plugins, inspect.ismodule):
+        if name in found: continue
+        yield name, module
+        found.add(name)
+    for data_directory in catapult.DATA_DIRS:
+        directory = os.path.join(data_directory, "plugins")
+        if not os.path.isdir(directory): continue
+        for fname in os.listdir(directory):
+            if not fname.endswith(".py"): continue
+            name = fname.rsplit(".", maxsplit=1)[0]
+            if name in found: continue
+            yield name, os.path.join(directory, fname)
+            found.add(name)
 
 def list_themes():
     found = set()
@@ -34,12 +58,23 @@ def list_themes():
         if not os.path.isdir(directory): continue
         for fname in os.listdir(directory):
             if not fname.endswith(".css"): continue
-            theme = fname.rsplit(".", maxsplit=1)[0]
-            if theme in found: continue
-            yield theme, os.path.join(directory, fname)
-            found.add(theme)
+            name = fname.rsplit(".", maxsplit=1)[0]
+            if name in found: continue
+            yield name, os.path.join(directory, fname)
+            found.add(name)
 
-def read_theme(theme):
-    path = find_theme(theme)
+def load_plugin(name):
+    module = find_plugin(name)
+    if not inspect.ismodule(module):
+        loader = importlib.machinery.SourceFileLoader(name, module)
+        module = loader.load_module(name)
+    for name, cls in inspect.getmembers(
+            module, lambda x: (
+                inspect.isclass(x) and
+                issubclass(x, catapult.Plugin))):
+        return cls()
+
+def load_theme(name):
+    path = find_theme(name)
     with open(path, "r") as f:
         return f.read().replace("@input-font", catapult.conf.input_font)

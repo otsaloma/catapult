@@ -29,6 +29,8 @@ from catapult.paths import DATA_HOME_DIR # noqa
 from catapult.conf import ConfigurationStore # noqa
 conf = ConfigurationStore()
 from catapult import util # noqa
+from catapult.plugin import Plugin # noqa
+from catapult import plugins # noqa
 from catapult.window import Window # noqa
 from catapult.app import Application # noqa
 

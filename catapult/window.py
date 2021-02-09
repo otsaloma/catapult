@@ -42,7 +42,7 @@ class Window(Gtk.ApplicationWindow):
         self._init_keys()
 
     def _init_css(self):
-        css = catapult.util.read_theme(catapult.conf.theme)
+        css = catapult.util.load_theme(catapult.conf.theme)
         provider = Gtk.CssProvider()
         provider.load_from_data(bytes(css.encode()))
         style = self.get_style_context()
