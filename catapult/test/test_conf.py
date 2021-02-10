@@ -19,13 +19,15 @@ import catapult.test
 import os
 import tempfile
 
+from pathlib import Path
+
 
 class TestConfigurationStore(catapult.test.TestCase):
 
     def setup_method(self, method):
         self.conf = catapult.ConfigurationStore()
         handle, self.temp_path = tempfile.mkstemp(prefix="catapult-", suffix=".json")
-        self.conf.path = self.temp_path
+        self.conf.path = Path(self.temp_path)
 
     def teardown_method(self, method):
         os.remove(self.temp_path)

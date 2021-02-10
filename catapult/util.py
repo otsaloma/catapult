@@ -18,7 +18,6 @@
 import catapult
 import importlib
 import inspect
-import os
 
 
 def find_plugin(name):
@@ -31,9 +30,6 @@ def find_theme(name):
         if candidate == name:
             return path
 
-def get_data_path(*paths):
-    return os.path.join(catapult.DATA_DIR, *paths)
-
 def list_plugins():
     found = set()
     for name, module in inspect.getmembers(
@@ -42,26 +38,22 @@ def list_plugins():
         yield name, module
         found.add(name)
     for data_directory in catapult.DATA_DIRS:
-        directory = os.path.join(data_directory, "plugins")
-        if not os.path.isdir(directory): continue
-        for fname in os.listdir(directory):
-            if not fname.endswith(".py"): continue
-            name = fname.rsplit(".", maxsplit=1)[0]
-            if name in found: continue
-            yield name, os.path.join(directory, fname)
-            found.add(name)
+        directory = data_directory / "plugins"
+        if not directory.exists(): continue
+        for fname in directory.glob("*.py"):
+            if fname.stem in found: continue
+            yield fname.stem, fname.resolve()
+            found.add(fname.stem)
 
 def list_themes():
     found = set()
     for data_directory in catapult.DATA_DIRS:
-        directory = os.path.join(data_directory, "themes")
-        if not os.path.isdir(directory): continue
-        for fname in os.listdir(directory):
-            if not fname.endswith(".css"): continue
-            name = fname.rsplit(".", maxsplit=1)[0]
-            if name in found: continue
-            yield name, os.path.join(directory, fname)
-            found.add(name)
+        directory = data_directory / "themes"
+        if not directory.exists(): continue
+        for fname in directory.glob("*.css"):
+            if fname.stem in found: continue
+            yield fname.stem, fname.resolve()
+            found.add(fname.stem)
 
 def load_plugin(name):
     module = find_plugin(name)
@@ -75,6 +67,5 @@ def load_plugin(name):
         return cls()
 
 def load_theme(name):
-    path = find_theme(name)
-    with open(path, "r") as f:
-        return f.read().replace("@input-font", catapult.conf.input_font)
+    css = find_theme(name).read_text()
+    return css.replace("@input-font", catapult.conf.input_font)

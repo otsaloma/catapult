@@ -17,7 +17,6 @@
 
 import catapult
 import json
-import os
 
 DEFAULTS = {
     "input_font": "monospace",
@@ -29,22 +28,21 @@ DEFAULTS = {
 
 class ConfigurationStore:
 
-    path = os.path.join(catapult.CONFIG_HOME_DIR, "catapult.json")
+    path = catapult.CONFIG_HOME_DIR / "catapult.json"
 
     def __init__(self):
         for key, value in DEFAULTS.items():
             setattr(self, key, value)
 
     def read(self):
-        if not os.path.isfile(self.path): return
+        if not self.path.exists(): return
         with open(self.path, "r") as f:
             for key, value in json.load(f).items():
                 if key not in DEFAULTS: continue
                 setattr(self, key, value)
 
     def write(self):
-        directory = os.path.dirname(self.path)
-        os.makedirs(directory, exist_ok=True)
+        self.path.parent.mkdir(parents=True, exist_ok=True)
         blob = {x: getattr(self, x) for x in DEFAULTS}
         blob["version"] = catapult.__version__
         blob = json.dumps(blob, ensure_ascii=False, indent=2, sort_keys=True)

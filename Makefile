@@ -12,6 +12,6 @@ clean:
 	rm -rf */*/__pycache__
 
 test:
-	py.test .
+	py.test -xs .
 
 .PHONY: check clean test

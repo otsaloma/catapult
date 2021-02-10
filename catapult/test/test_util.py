@@ -17,7 +17,6 @@
 
 import catapult.test
 import inspect
-import os
 
 
 class TestUtil(catapult.test.TestCase):
@@ -28,23 +27,19 @@ class TestUtil(catapult.test.TestCase):
 
     def test_find_theme(self):
         path = catapult.util.find_theme("dark")
-        assert os.path.isfile(path)
-
-    def test_get_data_path(self):
-        path = catapult.util.get_data_path("themes", "dark.css")
-        assert os.path.isfile(path)
+        assert path.exists()
 
     def test_list_plugins(self):
         plugins = list(catapult.util.list_plugins())
         assert "apps" in [x[0] for x in plugins]
         for name, module in plugins:
-            assert inspect.ismodule(module) or os.path.isfile(module)
+            assert inspect.ismodule(module) or module.exists()
 
     def test_list_themes(self):
         themes = list(catapult.util.list_themes())
         assert "dark" in [x[0] for x in themes]
         for name, path in themes:
-            assert os.path.isfile(path)
+            assert path.exists()
 
     def test_load_plugin(self):
         plugin = catapult.util.load_plugin("apps")

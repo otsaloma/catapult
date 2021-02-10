@@ -22,10 +22,19 @@ gi.require_version("Gdk", "3.0")
 gi.require_version("Gtk", "3.0")
 gi.require_version("Keybinder", "3.0")
 
-from catapult.paths import CONFIG_HOME_DIR # noqa
-from catapult.paths import DATA_DIR # noqa
-from catapult.paths import DATA_DIRS # noqa
-from catapult.paths import DATA_HOME_DIR # noqa
+from pathlib import Path
+from xdg import xdg_config_home
+from xdg import xdg_data_home
+
+CONFIG_HOME_DIR = xdg_config_home() / "catapult"
+DATA_HOME_DIR = xdg_data_home() / "catapult"
+
+# Defaults to the source directory, overwritten when installing.
+DATA_DIR = Path(__file__).parent.parent.joinpath("data").resolve()
+
+# In order of priority so that themes etc. can be overridden.
+DATA_DIRS = [DATA_HOME_DIR, Path("/usr/local/share/catapult"), DATA_DIR]
+
 from catapult.conf import ConfigurationStore # noqa
 conf = ConfigurationStore()
 from catapult import util # noqa
