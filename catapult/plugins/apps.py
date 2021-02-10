@@ -17,9 +17,11 @@
 
 import catapult
 
-from xdg import xdg_data_dirs
+from pathlib import Path
+from xdg import BaseDirectory
 
-DESKTOP_DIRS = [x / "applications" for x in xdg_data_dirs()]
+DESKTOP_DIRS = [Path(x) / "applications" for x in
+                BaseDirectory.xdg_data_dirs]
 
 
 class AppsPlugin(catapult.Plugin):
