@@ -24,7 +24,7 @@
 @define-color selected-fg-color #fafafa;
 
 .catapult-body {
-  background-color: alpha(@bg-color, 0.95);
+  background-color: alpha(@bg-color, 0.9);
   border-radius: 9999px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   margin: 12px;
