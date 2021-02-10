@@ -23,11 +23,10 @@ gi.require_version("Gtk", "3.0")
 gi.require_version("Keybinder", "3.0")
 
 from pathlib import Path
-from xdg import xdg_config_home
-from xdg import xdg_data_home
+from xdg import BaseDirectory
 
-CONFIG_HOME_DIR = xdg_config_home() / "catapult"
-DATA_HOME_DIR = xdg_data_home() / "catapult"
+CONFIG_HOME_DIR = Path(BaseDirectory.xdg_config_home) / "catapult"
+DATA_HOME_DIR = Path(BaseDirectory.xdg_data_home) / "catapult"
 
 # Defaults to the source directory, overwritten when installing.
 DATA_DIR = Path(__file__).parent.parent.joinpath("data").resolve()
