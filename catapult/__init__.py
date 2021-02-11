@@ -19,20 +19,22 @@ __version__ = "0.0.1"
 
 import gi
 gi.require_version("Gdk", "3.0")
+gi.require_version("Gio", "2.0")
+gi.require_version("GObject", "2.0")
 gi.require_version("Gtk", "3.0")
 gi.require_version("Keybinder", "3.0")
 
 from pathlib import Path
 from xdg import BaseDirectory
 
-CONFIG_HOME_DIR = Path(BaseDirectory.xdg_config_home) / "catapult"
-DATA_HOME_DIR = Path(BaseDirectory.xdg_data_home) / "catapult"
+CONFIG_HOME = Path(BaseDirectory.xdg_config_home) / "catapult"
+DATA_HOME = Path(BaseDirectory.xdg_data_home) / "catapult"
 
 # Defaults to the source directory, overwritten when installing.
 DATA_DIR = Path(__file__).parent.parent.joinpath("data").resolve()
 
-# In order of priority so that themes etc. can be overridden.
-DATA_DIRS = [DATA_HOME_DIR, Path("/usr/local/share/catapult"), DATA_DIR]
+# In order of priority for loading plugins and themes.
+DATA_DIRS = [DATA_DIR, DATA_HOME, Path("/usr/local/share/catapult")]
 
 from catapult.conf import ConfigurationStore # noqa
 conf = ConfigurationStore()

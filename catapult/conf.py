@@ -28,7 +28,7 @@ DEFAULTS = {
 
 class ConfigurationStore:
 
-    path = catapult.CONFIG_HOME_DIR / "catapult.json"
+    path = catapult.CONFIG_HOME / "catapult.json"
 
     def __init__(self):
         for key, value in DEFAULTS.items():
