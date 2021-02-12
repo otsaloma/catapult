@@ -25,7 +25,7 @@ from gi.repository import Gtk
 from gi.repository import Keybinder
 
 
-class Window(Gtk.ApplicationWindow):
+class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
 
     def __init__(self):
         GObject.GObject.__init__(self)
@@ -40,6 +40,7 @@ class Window(Gtk.ApplicationWindow):
         self._init_css()
         self._init_signal_handlers()
         self._init_keys()
+        self.debug("Initialization complete")
 
     def _init_css(self):
         css = catapult.util.load_theme(catapult.conf.theme)
@@ -98,6 +99,7 @@ class Window(Gtk.ApplicationWindow):
 
     def bind_toggle_key(self, key):
         self.unbind_toggle_key()
+        self.debug(f"Binding toggle key {key}")
         Keybinder.bind(key, self.toggle)
         self._toggle_key = key
 
@@ -121,5 +123,6 @@ class Window(Gtk.ApplicationWindow):
 
     def unbind_toggle_key(self):
         if not self._toggle_key: return
+        self.debug(f"Unbinding toggle key {self._toggle_key}")
         Keybinder.unbind(self._toggle_key)
         self._toggle_key = None

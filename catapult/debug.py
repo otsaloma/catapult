@@ -16,12 +16,15 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult
+import time
+
+START = time.time()
 
 
-class Plugin(catapult.DebugMixin):
+class DebugMixin:
 
-    def __init__(self):
-        pass
-
-    def search(self, query):
-        raise NotImplementedError
+    def debug(self, *args, **kwargs):
+        if not catapult.DEBUG: return
+        clock = time.time() - START
+        name = self.__class__.__name__
+        print(f"{clock:.3f} {name}:", *args, **kwargs)
