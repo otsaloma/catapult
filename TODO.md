@@ -1,10 +1,10 @@
 TODO
 ====
 
-* --debug flag
 * Apps plugin
 * Files plugin
 * Calculator plugin
+* Learning search
 * Dbus toggle
 * Proper icon
 * i18n

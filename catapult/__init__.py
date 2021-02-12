@@ -36,8 +36,11 @@ DATA_DIR = Path(__file__).parent.parent.joinpath("data").resolve()
 # In order of priority for loading plugins and themes.
 DATA_DIRS = [DATA_DIR, DATA_HOME, Path("/usr/local/share/catapult")]
 
+DEBUG = False
+
 from catapult.conf import ConfigurationStore # noqa
 conf = ConfigurationStore()
+from catapult import i18n # noqa
 from catapult import util # noqa
 from catapult.plugin import Plugin # noqa
 from catapult import plugins # noqa

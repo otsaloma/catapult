@@ -15,8 +15,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
+import argparse
 import catapult
 
+from catapult.i18n import _
 from gi.repository import Gio
 from gi.repository import GObject
 from gi.repository import Gtk
@@ -32,9 +34,25 @@ class Application(Gtk.Application):
         self.connect("shutdown", self._on_shutdown)
 
     def _on_activate(self, app, args):
+        self._parse_arguments(args)
         window = catapult.Window()
         self.add_window(window)
         window.present()
 
     def _on_shutdown(self, app):
         catapult.conf.write()
+
+    def _parse_arguments(self, args):
+        parser = argparse.ArgumentParser(usage=_("catapult [OPTION...]"))
+        parser.add_argument("--debug",
+                            action="store_true",
+                            dest="debug",
+                            default=False,
+                            help=_("print details of indexing and search results"))
+
+        parser.add_argument("--version",
+                            action="version",
+                            version=f"catapult {catapult.__version__}")
+
+        args = parser.parse_args()
+        catapult.DEBUG = args.debug
