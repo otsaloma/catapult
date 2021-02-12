@@ -15,9 +15,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-import argparse
 import catapult
 
+from argparse import ArgumentParser
 from catapult.i18n import _
 from gi.repository import Gio
 from gi.repository import GObject
@@ -43,7 +43,7 @@ class Application(Gtk.Application):
         catapult.conf.write()
 
     def _parse_arguments(self, args):
-        parser = argparse.ArgumentParser(usage=_("catapult [OPTION...]"))
+        parser = ArgumentParser(usage=_("catapult [OPTION...]"))
         parser.add_argument("--debug",
                             action="store_true",
                             dest="debug",
