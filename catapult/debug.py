@@ -28,3 +28,9 @@ class DebugMixin:
         clock = time.time() - START
         name = self.__class__.__name__
         print(f"{clock:.3f} {name}:", *args, **kwargs)
+
+    def tick(self):
+        self.__tick = time.time()
+
+    def tock(self):
+        return 1000 * (time.time() - self.__tick)

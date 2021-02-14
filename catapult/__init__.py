@@ -18,6 +18,7 @@
 __version__ = "0.0.1"
 
 import gi
+
 gi.require_version("Gdk", "3.0")
 gi.require_version("Gio", "2.0")
 gi.require_version("GObject", "2.0")
@@ -43,6 +44,8 @@ conf = ConfigurationStore()
 from catapult import i18n # noqa
 from catapult import util # noqa
 from catapult.debug import DebugMixin # noqa
+from catapult.search import SearchManager # noqa
+from catapult.search import SearchResult # noqa
 from catapult.plugin import Plugin # noqa
 from catapult import plugins # noqa
 from catapult.window import Window # noqa

@@ -31,6 +31,9 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         GObject.GObject.__init__(self)
         self._body = None
         self._input_entry = None
+        self._plugins = {}
+        self._prev_query = ""
+        self._search_manager = catapult.SearchManager()
         self._toggle_key = None
         self._init_properties()
         self._init_visual()
@@ -40,6 +43,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._init_css()
         self._init_signal_handlers()
         self._init_keys()
+        self._init_plugins()
         self.debug("Initialization complete")
 
     def _init_css(self):
@@ -58,6 +62,11 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
     def _init_keys(self):
         Keybinder.init()
         GLib.idle_add(self.bind_toggle_key, catapult.conf.toggle_key)
+
+    def _init_plugins(self):
+        for name in catapult.conf.plugins:
+            self.debug(f"Initializing plugin {name}")
+            self._plugins[name] = catapult.util.load_plugin(name)
 
     def _init_position(self):
         window_width, window_height = self.get_size()
@@ -81,6 +90,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
 
     def _init_signal_handlers(self):
         self._input_entry.connect("key-press-event", self._on_input_entry_key_press_event)
+        self._input_entry.connect("notify::text", self._on_input_entry_notify_text)
 
     def _init_visual(self):
         # Make window transparent to allow rounded corners.
@@ -112,6 +122,12 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
                 return self.destroy()
         if event.keyval == Gdk.KEY_Escape:
             return self.hide()
+
+    def _on_input_entry_notify_text(self, *args, **kwargs):
+        query = self.get_query()
+        if query == self._prev_query: return
+        self._prev_query = query
+        self._search_manager.search(self._plugins, query)
 
     def show(self):
         self._input_entry.set_text("")
