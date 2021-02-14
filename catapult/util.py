@@ -19,6 +19,8 @@ import catapult
 import importlib
 import inspect
 
+from gi.repository import Gdk
+
 
 def find_plugin(name):
     for candidate, module in list_plugins():
@@ -29,6 +31,12 @@ def find_theme(name):
     for candidate, path in list_themes():
         if candidate == name:
             return path
+
+def get_screen_size():
+    display = Gdk.Display.get_default()
+    monitor = display.get_primary_monitor()
+    rect = monitor.get_geometry()
+    return rect.width, rect.height
 
 def list_plugins():
     found = set()

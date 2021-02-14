@@ -20,6 +20,7 @@ import json
 
 DEFAULTS = {
     "input_font": "monospace",
+    "max_results": 20,
     "plugins": ["apps"],
     "theme": "dark",
     "toggle_key": "<Control>space",

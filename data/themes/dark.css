@@ -25,7 +25,7 @@
 
 .catapult-body {
   background-color: alpha(@bg-color, 0.9);
-  border-radius: 9999px;
+  border-radius: 12px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   margin: 12px;
 }
@@ -37,10 +37,40 @@
   color: #cbcbcb;
   font-family: "@input-font";
   font-size: 200%;
-  margin: 24px 27px;
+  margin: 24px 24px 24px 66px;
 }
 
 .catapult-input *:selected, .catapult-input *:focus {
     background-color: alpha(@selected-bg-color, 0.9);
     color: @selected-fg-color;
+}
+
+.catapult-search-result-list {
+  background-color: transparent;
+  padding-bottom: 12px;
+}
+
+.catapult-search-result {
+  background-color: transparent;
+  padding-left: 6px;
+}
+
+.catapult-search-result-icon {
+  background-color: transparent;
+  padding: 3px 12px;
+}
+
+.catapult-search-result-title {
+  background-color: transparent;
+  color: @fg-color;
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 120%;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.catapult-search-result-description {
+  background-color: transparent;
+  color: alpha(@fg-color, 0.7);
+  font-family: "@input-font";
 }

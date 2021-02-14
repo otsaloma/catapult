@@ -17,12 +17,42 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult
+import itertools
 
 from gi.repository import Gdk
+from gi.repository import Gio
 from gi.repository import GLib
 from gi.repository import GObject
 from gi.repository import Gtk
 from gi.repository import Keybinder
+from gi.repository import Pango
+
+
+class SearchResultRow(Gtk.ListBoxRow):
+
+    def __init__(self):
+        GObject.GObject.__init__(self)
+        self.icon = Gtk.Image()
+        self.icon.set_pixel_size(48)
+        self.title_label = Gtk.Label()
+        self.title_label.set_xalign(0)
+        self.title_label.set_yalign(1)
+        self.title_label.set_ellipsize(Pango.EllipsizeMode.END)
+        self.description_label = Gtk.Label()
+        self.description_label.set_xalign(0)
+        self.description_label.set_yalign(0)
+        self.description_label.set_ellipsize(Pango.EllipsizeMode.END)
+        self.get_style_context().add_class("catapult-search-result")
+        self.icon.get_style_context().add_class("catapult-search-result-icon")
+        self.title_label.get_style_context().add_class("catapult-search-result-title")
+        self.description_label.get_style_context().add_class("catapult-search-result-description")
+        hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
+        hbox.pack_start(self.icon, expand=False, fill=False, padding=0)
+        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
+        vbox.pack_start(self.title_label, expand=True, fill=True, padding=0)
+        vbox.pack_start(self.description_label, expand=True, fill=True, padding=0)
+        hbox.pack_start(vbox, expand=True, fill=True, padding=0)
+        self.add(hbox)
 
 
 class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
@@ -30,16 +60,18 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
     def __init__(self):
         GObject.GObject.__init__(self)
         self._body = None
-        self._input_entry = None
+        self._input_entry = Gtk.Entry()
         self._plugins = {}
         self._prev_query = ""
+        self._result_list = Gtk.ListBox()
+        self._result_rows = []
+        self._result_scroller = Gtk.ScrolledWindow()
         self._search_manager = catapult.SearchManager()
         self._toggle_key = None
         self._init_properties()
         self._init_visual()
         self._init_widgets()
         self._init_position()
-        self._init_css_classes()
         self._init_css()
         self._init_signal_handlers()
         self._init_keys()
@@ -55,10 +87,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         priority = Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         style.add_provider_for_screen(screen, provider, priority)
 
-    def _init_css_classes(self):
-        self._body.get_style_context().add_class("catapult-body")
-        self._input_entry.get_style_context().add_class("catapult-input")
-
     def _init_keys(self):
         Keybinder.init()
         GLib.idle_add(self.bind_toggle_key, catapult.conf.toggle_key)
@@ -70,10 +98,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
 
     def _init_position(self):
         window_width, window_height = self.get_size()
-        display = Gdk.Display.get_default()
-        monitor = display.get_primary_monitor()
-        rect = monitor.get_geometry()
-        screen_width, screen_height = rect.width, rect.height
+        screen_width, screen_height = catapult.util.get_screen_size()
         x = int(0.50 * (screen_width - window_width))
         y = int(0.25 * (screen_height - window_height))
         self.move(x, y)
@@ -101,10 +126,23 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self.set_visual(visual)
 
     def _init_widgets(self):
-        self._input_entry = Gtk.Entry()
+        screen_width, screen_height = catapult.util.get_screen_size()
+        self._input_entry.get_style_context().add_class("catapult-input")
         self._body = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
+        self._body.get_style_context().add_class("catapult-body")
         self._body.pack_start(self._input_entry, expand=True, fill=True, padding=0)
+        self._result_scroller.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
+        self._result_scroller.set_max_content_height(int(0.5 * screen_height))
+        self._result_scroller.set_propagate_natural_height(True)
+        self._result_list.get_style_context().add_class("catapult-search-result-list")
+        for i in range(catapult.conf.max_results):
+            result = SearchResultRow()
+            self._result_list.add(result)
+            self._result_rows.append(result)
+        self._result_scroller.add(self._result_list)
+        self._body.pack_start(self._result_scroller, expand=True, fill=True, padding=0)
         self._body.show_all()
+        self._result_scroller.hide()
         self.add(self._body)
 
     def bind_toggle_key(self, key):
@@ -127,7 +165,15 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         query = self.get_query()
         if query == self._prev_query: return
         self._prev_query = query
-        self._search_manager.search(self._plugins, query)
+        results = self._search_manager.search(self._plugins, query)
+        for result, row in itertools.zip_longest(results, self._result_rows):
+            row.set_visible(result is not None)
+            if result is None: continue
+            icon = result.icon or Gio.ThemedIcon.new("application-x-executable")
+            row.icon.set_from_gicon(icon, Gtk.IconSize.DIALOG)
+            row.title_label.set_text(result.title or "")
+            row.description_label.set_text(result.description or "")
+        self._result_scroller.set_visible(bool(results))
 
     def show(self):
         self._input_entry.set_text("")

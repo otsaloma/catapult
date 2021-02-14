@@ -37,7 +37,8 @@ class AppsPlugin(catapult.Plugin):
 
     def _get_description(self, app):
         description = app.get_commandline()
-        description = re.sub(r"\b%\w\b", "", description)
+        description = re.sub(r" %\w\b", "", description)
+        description = re.sub(r" --$", "", description)
         return description.strip()
 
     def _get_offset(self, app, query):

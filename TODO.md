@@ -4,6 +4,7 @@ TODO
 * Apps plugin
 * Files plugin
 * Calculator plugin
+* System plugin
 * Debounce
 * Learning search
 * Builtins (:q etc)
