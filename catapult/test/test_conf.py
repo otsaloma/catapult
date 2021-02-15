@@ -33,11 +33,8 @@ class TestConfigurationStore(catapult.test.TestCase):
         os.remove(self.temp_path)
 
     def test_read_write(self):
-        self.conf.input_font = "1"
         self.conf.theme = "1"
         self.conf.write()
-        self.conf.input_font = "2"
         self.conf.theme = "2"
         self.conf.read()
-        assert self.conf.input_font == "1"
         assert self.conf.theme == "1"

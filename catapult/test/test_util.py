@@ -46,5 +46,4 @@ class TestUtil(catapult.test.TestCase):
         assert isinstance(plugin, catapult.Plugin)
 
     def test_load_theme(self):
-        css = catapult.util.load_theme("dark")
-        assert "@input-font" not in css
+        assert catapult.util.load_theme("dark")

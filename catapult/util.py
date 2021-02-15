@@ -75,5 +75,4 @@ def load_plugin(name):
         return cls()
 
 def load_theme(name):
-    css = find_theme(name).read_text()
-    return css.replace("@input-font", catapult.conf.input_font)
+    return find_theme(name).read_text()

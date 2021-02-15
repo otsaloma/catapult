@@ -19,7 +19,6 @@ import catapult
 import json
 
 DEFAULTS = {
-    "input_font": "monospace",
     "max_results": 20,
     "plugins": ["apps"],
     "theme": "dark",

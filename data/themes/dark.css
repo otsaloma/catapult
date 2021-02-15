@@ -34,15 +34,15 @@
   background-color: transparent;
   border: none;
   box-shadow: none;
-  color: #cbcbcb;
-  font-family: "@input-font";
+  color: @fg-color;
+  font-family: "Cascadia Code", monospace;
   font-size: 200%;
-  margin: 24px 24px 24px 66px;
+  padding: 24px 24px 24px 78px;
 }
 
-.catapult-input *:selected, .catapult-input *:focus {
-    background-color: alpha(@selected-bg-color, 0.9);
-    color: @selected-fg-color;
+.catapult-input:selected {
+  background-color: alpha(@selected-bg-color, 0.9);
+  color: @selected-fg-color;
 }
 
 .catapult-search-result-list {
@@ -53,6 +53,15 @@
 .catapult-search-result {
   background-color: transparent;
   padding-left: 6px;
+}
+
+.catapult-search-result:selected {
+  background-color: alpha(@selected-bg-color, 0.9);
+  outline: none;
+}
+
+.catapult-search-result:selected * {
+  color: @selected-fg-color;
 }
 
 .catapult-search-result-icon {
@@ -72,5 +81,5 @@
 .catapult-search-result-description {
   background-color: transparent;
   color: alpha(@fg-color, 0.7);
-  font-family: "@input-font";
+  font-family: "Cascadia Code", monospace;
 }
