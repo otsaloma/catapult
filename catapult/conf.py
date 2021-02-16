@@ -19,7 +19,8 @@ import catapult
 import json
 
 DEFAULTS = {
-    "max_results": 20,
+    "max_results": 24,
+    "max_results_visible": 8,
     "plugins": ["apps"],
     "theme": "dark",
     "toggle_key": "<Control>space",
@@ -44,6 +45,10 @@ class ConfigurationStore:
     def write(self):
         self.path.parent.mkdir(parents=True, exist_ok=True)
         blob = {x: getattr(self, x) for x in DEFAULTS}
+        for key, value in list(blob.items()):
+            # Comment out keys with default value.
+            if value == DEFAULTS[key]:
+                blob[f"# {key}"] = blob.pop(key)
         blob["version"] = catapult.__version__
         blob = json.dumps(blob, ensure_ascii=False, indent=2, sort_keys=True)
         with open(self.path, "w") as f:

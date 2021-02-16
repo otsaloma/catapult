@@ -65,6 +65,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._position = (0, 0)
         self._prev_query = ""
         self._result_list = Gtk.ListBox()
+        self._result_list_height_set = False
         self._result_rows = []
         self._result_scroller = Gtk.ScrolledWindow()
         self._search_manager = catapult.SearchManager()
@@ -175,7 +176,20 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             row.icon.set_from_gicon(icon, Gtk.IconSize.DIALOG)
             row.title_label.set_text(result.title or "")
             row.description_label.set_text(result.description or "")
+            self._set_result_list_height(row)
         self._result_scroller.set_visible(bool(results))
+
+    def _set_result_list_height(self, row):
+        if self._result_list_height_set: return
+        row_height = row.get_preferred_height()[1]
+        if not row_height: return
+        screen_height = catapult.util.get_screen_size()[1]
+        row_count = (0.5 * screen_height) // row_height
+        row_count = min(row_count, catapult.conf.max_results_visible)
+        total_height = row_count * row_height
+        self.debug(f"Setting result list height to {row_count} items, {total_height} pixels")
+        self._result_scroller.set_max_content_height(total_height)
+        self._result_list_height_set = True
 
     def show(self):
         self._input_entry.set_text("")
