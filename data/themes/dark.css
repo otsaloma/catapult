@@ -28,6 +28,7 @@
   border-radius: 12px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   margin: 12px;
+  padding: 12px 0;
 }
 
 .catapult-input {
@@ -37,7 +38,7 @@
   color: @fg-color;
   font-family: "Cascadia Code", monospace;
   font-size: 200%;
-  padding: 24px 24px 24px 78px;
+  padding: 12px 24px 12px 78px;
 }
 
 .catapult-input:selected {
@@ -47,7 +48,6 @@
 
 .catapult-search-result-list {
   background-color: transparent;
-  padding-bottom: 12px;
 }
 
 .catapult-search-result {
