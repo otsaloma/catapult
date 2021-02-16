@@ -62,6 +62,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._body = None
         self._input_entry = Gtk.Entry()
         self._plugins = {}
+        self._position = (0, 0)
         self._prev_query = ""
         self._result_list = Gtk.ListBox()
         self._result_rows = []
@@ -101,6 +102,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         screen_width, screen_height = catapult.util.get_screen_size()
         x = int(0.50 * (screen_width - window_width))
         y = int(0.25 * (screen_height - window_height))
+        self._position = (x, y)
         self.move(x, y)
 
     def _init_properties(self):
@@ -178,6 +180,8 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
     def show(self):
         self._input_entry.set_text("")
         self._input_entry.grab_focus()
+        self._result_scroller.hide()
+        self.move(*self._position)
         super().show()
 
     def toggle(self, *args, **kwargs):
