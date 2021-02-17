@@ -59,5 +59,5 @@ class SearchManager(catapult.DebugMixin):
             self._adjust_score(result)
         results.sort(key=lambda x: (-x.score, x.title, x.description))
         for i, result in enumerate(results[:10]):
-            self.debug(f"{i+1:2d}. {result.plugin}: {result.title} {result.score:.3f}")
+            self.debug(f"{i+1}. {result.plugin}: {result.title} {result.score:.3f}")
         return results[:catapult.conf.max_results]

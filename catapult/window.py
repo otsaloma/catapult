@@ -117,6 +117,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self.set_skip_taskbar_hint(True)
 
     def _init_signal_handlers(self):
+        self.connect("key-press-event", self._on_key_press_event)
         self._input_entry.connect("key-press-event", self._on_input_entry_key_press_event)
         self._input_entry.connect("notify::text", self._on_input_entry_notify_text)
 
@@ -160,9 +161,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
     def _on_input_entry_key_press_event(self, entry, event):
         if event.keyval in (Gdk.KEY_Return, Gdk.KEY_KP_Enter):
             if self.get_query() in ["q", "quit"]:
-                return self.destroy()
-        if event.keyval == Gdk.KEY_Escape:
-            return self.hide()
+                self.destroy()
 
     def _on_input_entry_notify_text(self, *args, **kwargs):
         query = self.get_query()
@@ -177,7 +176,18 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             row.title_label.set_text(result.title or "")
             row.description_label.set_text(result.description or "")
             self._set_result_list_height(row)
+        self._result_list.unselect_all()
         self._result_scroller.set_visible(bool(results))
+
+    def _on_key_press_event(self, window, event):
+        if event.keyval == Gdk.KEY_Up:
+            row = self._result_list.get_selected_row()
+            if row and row.get_index() == 0:
+                self._result_list.unselect_all()
+                self._input_entry.grab_focus()
+                self._input_entry.set_position(-1)
+        if event.keyval == Gdk.KEY_Escape:
+            self.hide()
 
     def _set_result_list_height(self, row):
         if self._result_list_height_set: return
@@ -191,9 +201,15 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._result_scroller.set_max_content_height(total_height)
         self._result_list_height_set = True
 
+    def hide(self):
+        self._result_list.unselect_all()
+        catapult.util.iterate_main()
+        super().hide()
+
     def show(self):
         self._input_entry.set_text("")
         self._input_entry.grab_focus()
+        self._result_list.unselect_all()
         self._result_scroller.hide()
         self.move(*self._position)
         super().show()

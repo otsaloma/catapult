@@ -20,6 +20,7 @@ import importlib
 import inspect
 
 from gi.repository import Gdk
+from gi.repository import Gtk
 
 
 def find_plugin(name):
@@ -37,6 +38,10 @@ def get_screen_size():
     monitor = display.get_primary_monitor()
     rect = monitor.get_geometry()
     return rect.width, rect.height
+
+def iterate_main():
+    while Gtk.events_pending():
+        Gtk.main_iteration()
 
 def list_plugins():
     found = set()

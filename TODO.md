@@ -2,9 +2,9 @@ TODO
 ====
 
 * Apps plugin
+* System plugin?
 * Files plugin
 * Calculator plugin
-* System plugin
 * Debounce
 * Learning search
 * Builtins (:q etc)
