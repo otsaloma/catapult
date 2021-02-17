@@ -28,7 +28,7 @@
   border-radius: 12px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   margin: 12px;
-  padding: 12px 0;
+  padding: 12px 0 15px 0;
 }
 
 .catapult-input {
@@ -38,7 +38,7 @@
   color: @fg-color;
   font-family: "Cascadia Code", monospace;
   font-size: 200%;
-  padding: 12px 24px 12px 78px;
+  padding: 12px 24px 9px 78px;
 }
 
 .catapult-input:selected {
