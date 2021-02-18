@@ -22,14 +22,18 @@ from dataclasses import dataclass
 
 @dataclass
 class SearchResult:
+
     description: str
     fuzzy: bool
     icon: object
     id: str
     offset: int
-    plugin: str
+    plugin: catapult.Plugin
     score: float
     title: str
+
+    def launch(self):
+        self.plugin.launch(self.id)
 
 
 class SearchManager(catapult.DebugMixin):
@@ -59,5 +63,5 @@ class SearchManager(catapult.DebugMixin):
             self._adjust_score(result)
         results.sort(key=lambda x: (-x.score, x.title, x.description))
         for i, result in enumerate(results[:10]):
-            self.debug(f"{i+1}. {result.plugin}: {result.title} {result.score:.3f}")
+            self.debug(f"{i+1}. {result.plugin.name}: {result.title} {result.score:.3f}")
         return results[:catapult.conf.max_results]

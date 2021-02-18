@@ -45,6 +45,12 @@ class AppsPlugin(catapult.Plugin):
         offset = app.get_name().lower().find(query)
         return offset if offset >= 0 else 1000
 
+    def launch(self, id):
+        if not id in self._index: return
+        app = self._index[id]
+        self.debug(f"Launching {id}")
+        app.launch_uris(uris=None, context=None)
+
     def _on_app_info_monitor_changed(self, *args, **kwargs):
         self.debug("Marking changed")
         self._changed = True
@@ -63,7 +69,7 @@ class AppsPlugin(catapult.Plugin):
                     icon=app.get_icon(),
                     id=app.get_id(),
                     offset=self._get_offset(app, query),
-                    plugin=self.__class__.__module__.split(".")[-1],
+                    plugin=self,
                     score=0.9**i,
                     title=app.get_name(),
                 )

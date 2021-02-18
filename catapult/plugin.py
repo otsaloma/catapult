@@ -23,5 +23,12 @@ class Plugin(catapult.DebugMixin):
     def __init__(self):
         pass
 
+    def launch(self, id):
+        raise NotImplementedError
+
+    @property
+    def name(self):
+        return self.__class__.__module__.split(".")[-1]
+
     def search(self, query):
         raise NotImplementedError

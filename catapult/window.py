@@ -32,6 +32,7 @@ class SearchResultRow(Gtk.ListBoxRow):
 
     def __init__(self):
         GObject.GObject.__init__(self)
+        self.result = None
         self.icon = Gtk.Image()
         self.icon.set_pixel_size(48)
         self.title_label = Gtk.Label()
@@ -164,12 +165,19 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         catapult.util.iterate_main()
         super().hide()
 
+    def launch_selected(self):
+        row = self._result_list.get_selected_row()
+        if row is None: return
+        row.result.launch()
+        self.hide()
+
     def _on_input_entry_notify_text(self, *args, **kwargs):
         query = self.get_query()
         if query == self._prev_query: return
         self._prev_query = query
         results = self._search_manager.search(self._plugins, query)
         for result, row in itertools.zip_longest(results, self._result_rows):
+            row.result = result
             row.set_visible(result is not None)
             if result is None: continue
             icon = result.icon or Gio.ThemedIcon.new("application-x-executable")
@@ -194,6 +202,8 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             if self.get_query() in ["q", "quit"]:
                 self.destroy()
                 return True
+            self.launch_selected()
+            return True
 
     def select_next_result(self):
         if not self._result_scroller.is_visible(): return

@@ -45,10 +45,10 @@ conf = ConfigurationStore()
 from catapult import i18n # noqa
 from catapult import util # noqa
 from catapult.debug import DebugMixin # noqa
-from catapult.search import SearchManager # noqa
-from catapult.search import SearchResult # noqa
 from catapult.plugin import Plugin # noqa
 from catapult import plugins # noqa
+from catapult.search import SearchManager # noqa
+from catapult.search import SearchResult # noqa
 from catapult.window import Window # noqa
 from catapult.app import Application # noqa
 
