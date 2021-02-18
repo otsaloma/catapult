@@ -118,7 +118,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
 
     def _init_signal_handlers(self):
         self.connect("key-press-event", self._on_key_press_event)
-        self._input_entry.connect("key-press-event", self._on_input_entry_key_press_event)
         self._input_entry.connect("notify::text", self._on_input_entry_notify_text)
 
     def _init_visual(self):
@@ -138,9 +137,11 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._result_scroller.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         self._result_scroller.set_max_content_height(int(0.5 * screen_height))
         self._result_scroller.set_propagate_natural_height(True)
+        self._result_list.set_can_focus(False)
         self._result_list.get_style_context().add_class("catapult-search-result-list")
         for i in range(catapult.conf.max_results):
             result = SearchResultRow()
+            result.set_can_focus(False)
             self._result_list.add(result)
             self._result_rows.append(result)
         self._result_scroller.add(self._result_list)
@@ -158,10 +159,10 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
     def get_query(self):
         return self._input_entry.get_text().lower().strip()
 
-    def _on_input_entry_key_press_event(self, entry, event):
-        if event.keyval in (Gdk.KEY_Return, Gdk.KEY_KP_Enter):
-            if self.get_query() in ["q", "quit"]:
-                self.destroy()
+    def hide(self):
+        self._result_list.unselect_all()
+        catapult.util.iterate_main()
+        super().hide()
 
     def _on_input_entry_notify_text(self, *args, **kwargs):
         query = self.get_query()
@@ -176,18 +177,47 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             row.title_label.set_text(result.title or "")
             row.description_label.set_text(result.description or "")
             self._set_result_list_height(row)
-        self._result_list.unselect_all()
+        self._result_list.select_row(self._result_rows[0])
         self._result_scroller.set_visible(bool(results))
 
     def _on_key_press_event(self, window, event):
         if event.keyval == Gdk.KEY_Up:
-            row = self._result_list.get_selected_row()
-            if row and row.get_index() == 0:
-                self._result_list.unselect_all()
-                self._input_entry.grab_focus()
-                self._input_entry.set_position(-1)
+            self.select_previous_result()
+            return True
+        if event.keyval == Gdk.KEY_Down:
+            self.select_next_result()
+            return True
         if event.keyval == Gdk.KEY_Escape:
             self.hide()
+            return True
+        if event.keyval in [Gdk.KEY_Return, Gdk.KEY_KP_Enter]:
+            if self.get_query() in ["q", "quit"]:
+                self.destroy()
+                return True
+
+    def select_next_result(self):
+        if not self._result_scroller.is_visible(): return
+        row = self._result_list.get_selected_row()
+        index = row.get_index() if row else -1
+        index = min(len(self._result_rows) - 1, index + 1)
+        row = self._result_rows[index]
+        if not row.is_visible(): return
+        self._result_list.select_row(row)
+        row.grab_focus()
+        self._input_entry.grab_focus()
+        self._input_entry.set_position(-1)
+
+    def select_previous_result(self):
+        if not self._result_scroller.is_visible(): return
+        row = self._result_list.get_selected_row()
+        index = row.get_index() if row else 1
+        index = max(0, index - 1)
+        row = self._result_rows[index]
+        if not row.is_visible(): return
+        self._result_list.select_row(row)
+        row.grab_focus()
+        self._input_entry.grab_focus()
+        self._input_entry.set_position(-1)
 
     def _set_result_list_height(self, row):
         if self._result_list_height_set: return
@@ -200,11 +230,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self.debug(f"Setting result list height to {row_count} items, {total_height} pixels")
         self._result_scroller.set_max_content_height(total_height)
         self._result_list_height_set = True
-
-    def hide(self):
-        self._result_list.unselect_all()
-        catapult.util.iterate_main()
-        super().hide()
 
     def show(self):
         self._input_entry.set_text("")
