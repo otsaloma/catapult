@@ -1,16 +1,15 @@
 TODO
 ====
 
-* Apps plugin
-* System plugin?
 * Files plugin
 * Calculator plugin
-* Debounce
+* Debounce?
 * Learning search
 * Builtins (:q etc)
-* Dbus toggle
+* Dbus toggle?
 * Proper icon
 * i18n
+* setup.py
 * AppData file
 * Flatpak
 * Man page
