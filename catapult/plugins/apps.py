@@ -75,10 +75,12 @@ class AppsPlugin(catapult.Plugin):
                 )
 
     def _update_index(self):
-        self._index.clear()
+        index = {}
         sort_key = lambda x: x.get_filename().lower()
         for app in sorted(Gio.AppInfo.get_all(), key=sort_key):
             if not app.should_show(): continue
             self.debug(f"Indexing {app.get_filename()}")
-            self._index[app.get_id()] = app
+            index[app.get_id()] = app
+        self.debug(f"{len(index)} item in index")
+        self._index = index
         self._changed = False

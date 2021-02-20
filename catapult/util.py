@@ -18,9 +18,11 @@
 import catapult
 import importlib
 import inspect
+import re
 
 from gi.repository import Gdk
 from gi.repository import Gtk
+from pathlib import Path
 
 
 def find_plugin(name):
@@ -38,6 +40,12 @@ def get_screen_size():
     monitor = display.get_primary_monitor()
     rect = monitor.get_geometry()
     return rect.width, rect.height
+
+def is_path(location):
+    return Path(location).is_absolute()
+
+def is_uri(location):
+    return re.match(r"^[a-z]+://", location) is not None
 
 def iterate_main():
     while Gtk.events_pending():

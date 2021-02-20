@@ -15,5 +15,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-from . import apps # noqa
-from . import files # noqa
+import catapult.test
+
+
+class TestFilesPlugin(catapult.test.TestCase):
+
+    def setup_method(self, method):
+        self.plugin = catapult.plugins.files.FilesPlugin()
+
+    def test_search(self):
+        self.plugin.search("t")
+        self.plugin.search("te")
+        self.plugin.search("tes")
+        self.plugin.search("test")

@@ -33,6 +33,14 @@ class TestUtil(catapult.test.TestCase):
         width, height = catapult.util.get_screen_size()
         assert width and height
 
+    def test_is_path(self):
+        assert catapult.util.is_path("/home/osmo/.bashrc")
+        assert not catapult.util.is_path("file:///home/osmo/.bashrc")
+
+    def test_is_uri(self):
+        assert catapult.util.is_uri("file:///home/osmo/.bashrc")
+        assert not catapult.util.is_uri("/home/osmo/.bashrc")
+
     def test_list_plugins(self):
         plugins = list(catapult.util.list_plugins())
         assert "apps" in [x[0] for x in plugins]
