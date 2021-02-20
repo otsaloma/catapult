@@ -118,6 +118,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
 
     def _init_signal_handlers(self):
         self.connect("key-press-event", self._on_key_press_event)
+        self.connect("notify::has-toplevel-focus", self._on_notify_has_toplevel_focus)
         self._input_entry.connect("notify::text", self._on_input_entry_notify_text)
 
     def _init_visual(self):
@@ -202,6 +203,10 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
                 return True
             self.launch_selected()
             return True
+
+    def _on_notify_has_toplevel_focus(self, *args, **kwargs):
+        if not self.has_toplevel_focus():
+            self.hide()
 
     def select_next_result(self):
         if not self._result_scroller.is_visible(): return
