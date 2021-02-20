@@ -20,7 +20,6 @@ import catapult
 import itertools
 
 from gi.repository import Gdk
-from gi.repository import Gio
 from gi.repository import GLib
 from gi.repository import GObject
 from gi.repository import Gtk
@@ -62,7 +61,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         GObject.GObject.__init__(self)
         self._body = None
         self._input_entry = Gtk.Entry()
-        self._plugins = {}
+        self._plugins = []
         self._position = (0, 0)
         self._prev_query = ""
         self._result_list = Gtk.ListBox()
@@ -97,7 +96,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
     def _init_plugins(self):
         for name in catapult.conf.plugins:
             self.debug(f"Initializing plugin {name}")
-            self._plugins[name] = catapult.util.load_plugin(name)
+            self._plugins.append(catapult.util.load_plugin(name))
 
     def _init_position(self):
         window_width, window_height = self.get_size()
@@ -180,8 +179,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             row.result = result
             row.set_visible(result is not None)
             if result is None: continue
-            icon = result.icon or Gio.ThemedIcon.new("application-x-executable")
-            row.icon.set_from_gicon(icon, Gtk.IconSize.DIALOG)
+            row.icon.set_from_gicon(result.icon, Gtk.IconSize.DIALOG)
             row.title_label.set_text(result.title or "")
             row.description_label.set_text(result.description or "")
             self._set_result_list_height(row)
@@ -242,11 +240,14 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._result_list_height_set = True
 
     def show(self):
-        self._input_entry.set_text("")
-        self._input_entry.grab_focus()
+        self.set_sensitive(True)
+        self.present()
+        self.move(*self._position)
         self._result_list.unselect_all()
         self._result_scroller.hide()
-        self.move(*self._position)
+        self._prev_query = ""
+        self._input_entry.set_text("")
+        self._input_entry.grab_focus()
         super().show()
 
     def toggle(self, *args, **kwargs):

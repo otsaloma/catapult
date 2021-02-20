@@ -29,6 +29,10 @@ class TestUtil(catapult.test.TestCase):
         path = catapult.util.find_theme("dark")
         assert path.exists()
 
+    def test_get_screen_size(self):
+        width, height = catapult.util.get_screen_size()
+        assert width and height
+
     def test_list_plugins(self):
         plugins = list(catapult.util.list_plugins())
         assert "apps" in [x[0] for x in plugins]

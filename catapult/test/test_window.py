@@ -22,3 +22,31 @@ class TestWindow(catapult.test.TestCase):
 
     def setup_method(self, method):
         self.window = catapult.Window()
+
+    def test_bind_toggle_key(self):
+        self.window.bind_toggle_key("<Shift><Control><Alt>F12")
+
+    def test_get_query(self):
+        self.window._input_entry.set_text("Test ")
+        assert self.window.get_query() == "test"
+
+    def test_hide(self):
+        self.window.show()
+        self.window.hide()
+
+    def test_select_next_result(self):
+        self.window.select_next_result()
+
+    def test_select_previous_result(self):
+        self.window.select_previous_result()
+
+    def test_show(self):
+        self.window.hide()
+        self.window.show()
+
+    def test_toggle(self):
+        self.window.toggle()
+        self.window.toggle()
+
+    def test_unbind_toggle_key(self):
+        self.window.unbind_toggle_key()

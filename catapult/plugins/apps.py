@@ -66,7 +66,7 @@ class AppsPlugin(catapult.Plugin):
                 yield catapult.SearchResult(
                     description=self._get_description(app),
                     fuzzy=self._get_fuzzy(app, query),
-                    icon=app.get_icon(),
+                    icon=app.get_icon() or Gio.ThemedIcon.new("application-x-executable"),
                     id=app.get_id(),
                     offset=self._get_offset(app, query),
                     plugin=self,

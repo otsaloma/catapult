@@ -18,6 +18,7 @@
 import catapult
 
 from dataclasses import dataclass
+from gi.repository import Gio
 
 
 @dataclass
@@ -25,7 +26,7 @@ class SearchResult:
 
     description: str
     fuzzy: bool
-    icon: object
+    icon: Gio.Icon
     id: str
     offset: int
     plugin: catapult.Plugin
@@ -47,12 +48,12 @@ class SearchManager(catapult.DebugMixin):
             result.score *= 1.1
 
     def _get_results(self, plugins, query):
-        for name, plugin in plugins.items():
+        for plugin in plugins:
             self.tick()
             results = plugin.search(query)
             elapsed = self.tock()
             yield from results
-            self.debug(f"{name} plugin delivered in {elapsed:.0f} ms")
+            self.debug(f"{plugin.name} delivered in {elapsed:.0f} ms")
 
     def search(self, plugins, query):
         if not query: return []
