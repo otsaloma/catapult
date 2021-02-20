@@ -88,10 +88,13 @@ class FilesPlugin(catapult.Plugin):
                 title = os.path.basename(path)
                 index.append(File(icon=icon, location=path, title=title))
         for uri in ["computer:///", "recent:///", "trash:///"]:
-            self.debug(f"Indexing {uri}")
-            info = self._get_file_info(uri)
-            icon = info.get_icon()
-            title = info.get_display_name()
-            index.append(File(icon=icon, location=uri, title=title))
+            try:
+                self.debug(f"Indexing {uri}")
+                info = self._get_file_info(uri)
+                icon = info.get_icon()
+                title = info.get_display_name()
+                index.append(File(icon=icon, location=uri, title=title))
+            except Exception as error:
+                self.debug(f"Failed to index {uri}: {str(error)}")
         self.debug(f"{len(index)} item in index")
         self._index = index
