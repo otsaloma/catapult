@@ -44,7 +44,7 @@ class SearchManager(catapult.DebugMixin):
             result.score *= 0.5
         if result.offset > 0:
             result.score *= 0.5
-        if result.plugin == "apps":
+        if result.plugin.name == "apps":
             result.score *= 1.1
 
     def _get_results(self, plugins, query):
@@ -63,6 +63,6 @@ class SearchManager(catapult.DebugMixin):
         for result in results:
             self._adjust_score(result)
         results.sort(key=lambda x: (-x.score, x.title, x.description))
-        for i, result in enumerate(results[:10]):
+        for i, result in enumerate(results[:catapult.conf.max_results_visible]):
             self.debug(f"{i+1}. {result.plugin.name}: {result.title} {result.score:.3f}")
         return results[:catapult.conf.max_results]
