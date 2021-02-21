@@ -16,6 +16,7 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult
+import fnmatch
 import glob
 import os
 
@@ -75,12 +76,17 @@ class FilesPlugin(catapult.Plugin):
                 title=file.title,
             )
 
+    def _should_exclude(self, path):
+        return any(os.path.basename(path) == x or fnmatch.fnmatch(path, x)
+                   for x in catapult.conf.files_exclude)
+
     def _update_index(self):
         index = []
         for pattern in catapult.conf.files_include:
             pattern = os.path.expanduser(pattern)
             for path in glob.iglob(pattern, recursive=True):
                 path = path.rstrip(os.sep)
+                if self._should_exclude(path): continue
                 self.debug(f"Indexing {path}")
                 uri = Path(path).as_uri()
                 info = self._get_file_info(uri)
