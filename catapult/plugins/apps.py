@@ -17,29 +17,31 @@
 
 import catapult
 import re
+import time
 
 from gi.repository import Gio
+from threading import Thread
 
 
 class AppsPlugin(catapult.Plugin):
 
     def __init__(self):
         super().__init__()
-        self._changed = True
         self._index = {}
-        self._update_index()
+        self._time_updated = -1
+        self._update_index_async()
         monitor = Gio.AppInfoMonitor.get()
         monitor.connect("changed", self._on_app_info_monitor_changed)
         self.debug("Initialization complete")
-
-    def _get_fuzzy(self, app, query):
-        return query not in app.get_name().lower()
 
     def _get_description(self, app):
         description = app.get_commandline()
         description = re.sub(r" %\w\b", "", description)
         description = re.sub(r" --$", "", description)
         return description.strip()
+
+    def _get_fuzzy(self, app, query):
+        return query not in app.get_name().lower()
 
     def _get_offset(self, app, query):
         offset = app.get_name().lower().find(query)
@@ -52,11 +54,15 @@ class AppsPlugin(catapult.Plugin):
         app.launch_uris(uris=None, context=None)
 
     def _on_app_info_monitor_changed(self, *args, **kwargs):
-        self.debug("Marking changed")
-        self._changed = True
+        self._time_updated = -1
+
+    def on_window_hide(self):
+        self._update_index_async_maybe()
+
+    def on_window_show(self):
+        self._update_index_async_maybe()
 
     def search(self, query):
-        if self._changed: self._update_index()
         results = Gio.DesktopAppInfo.search(query)
         for i, batch in enumerate(results):
             for id in batch:
@@ -83,4 +89,12 @@ class AppsPlugin(catapult.Plugin):
             index[app.get_id()] = app
         self.debug(f"{len(index)} item in index")
         self._index = index
-        self._changed = False
+        self._time_updated = time.time()
+
+    def _update_index_async(self):
+        Thread(target=self._update_index, daemon=True).start()
+
+    def _update_index_async_maybe(self):
+        elapsed = time.time() - self._time_updated
+        if elapsed > catapult.conf.apps_scan_interval:
+            self._update_index_async()

@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Files plugin
 * Calculator plugin
 * Debounce?
 * Learning search

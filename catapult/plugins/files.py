@@ -57,6 +57,7 @@ class FilesPlugin(catapult.Plugin):
     def launch(self, id):
         file = Gio.File.new_for_uri(id)
         app = file.query_default_handler()
+        self.debug(f"Launching {id}")
         app.launch_uris(uris=[id], context=None)
 
     def on_window_hide(self):

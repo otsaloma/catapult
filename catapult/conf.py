@@ -19,6 +19,7 @@ import catapult
 import json
 
 DEFAULTS = {
+    "apps_scan_interval": 900, # s
     "files_exclude": ["lost+found"],
     "files_include": ["~/*"],
     "files_scan_interval": 900, # s

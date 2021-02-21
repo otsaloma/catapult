@@ -16,12 +16,23 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult.test
+import time
 
 
 class TestAppsPlugin(catapult.test.TestCase):
 
     def setup_method(self, method):
         self.plugin = catapult.plugins.apps.AppsPlugin()
+
+    def teardown_method(self, method):
+        # Wait for threads to terminate.
+        time.sleep(1)
+
+    def test_on_window_hide(self):
+        self.plugin.on_window_hide()
+
+    def test_on_window_show(self):
+        self.plugin.on_window_show()
 
     def test_search(self):
         self.plugin.search("t")
