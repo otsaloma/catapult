@@ -1,0 +1,12 @@
+/* -*- coding: utf-8-unix -*- */
+
+@import "@dark@";
+
+@define-color bg-color #f6f5f4;
+@define-color fg-color #2e3436;
+@define-color selected-bg-color #3584e4;
+@define-color selected-fg-color #ffffff;
+
+.catapult-body {
+  background-color: alpha(@bg-color, 0.95);
+}

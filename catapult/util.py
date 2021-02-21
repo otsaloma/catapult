@@ -88,4 +88,8 @@ def load_plugin(name):
         return cls()
 
 def load_theme(name):
-    return find_theme(name).read_text()
+    css = find_theme(name).read_text()
+    for name, path in list_themes():
+        # Change import references to absolute paths.
+        css = css.replace(f"@{name}@", str(path))
+    return css
