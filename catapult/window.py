@@ -161,6 +161,8 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         return self._input_entry.get_text().lower().strip()
 
     def hide(self):
+        for plugin in self._plugins:
+            plugin.on_window_show()
         self._result_list.unselect_all()
         catapult.util.iterate_main()
         super().hide()
@@ -245,6 +247,8 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._result_list_height_set = True
 
     def show(self):
+        for plugin in self._plugins:
+            plugin.on_window_show()
         self.set_sensitive(True)
         self.present()
         self.move(*self._position)

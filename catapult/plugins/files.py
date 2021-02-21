@@ -19,6 +19,7 @@ import catapult
 import fnmatch
 import glob
 import os
+import time
 
 from dataclasses import dataclass
 from gi.repository import Gio
@@ -45,6 +46,7 @@ class FilesPlugin(catapult.Plugin):
     def __init__(self):
         super().__init__()
         self._index = []
+        self._time_updated = -1
         self._update_index_async()
         self.debug("Initialization complete")
 
@@ -56,6 +58,12 @@ class FilesPlugin(catapult.Plugin):
         file = Gio.File.new_for_uri(id)
         app = file.query_default_handler()
         app.launch_uris(uris=[id], context=None)
+
+    def on_window_hide(self):
+        self._update_index_async_maybe()
+
+    def on_window_show(self):
+        self._update_index_async_maybe()
 
     def search(self, query):
         for file in self._index:
@@ -105,6 +113,12 @@ class FilesPlugin(catapult.Plugin):
                 self.debug(f"Failed to index {uri}: {str(error)}")
         self.debug(f"{len(index)} item in index")
         self._index = index
+        self._time_updated = time.time()
 
     def _update_index_async(self):
         Thread(target=self._update_index, daemon=True).start()
+
+    def _update_index_async_maybe(self):
+        elapsed = time.time() - self._time_updated
+        if elapsed > catapult.conf.files_scan_interval:
+            self._update_index_async()

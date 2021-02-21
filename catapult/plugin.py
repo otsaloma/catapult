@@ -30,5 +30,11 @@ class Plugin(catapult.DebugMixin):
     def name(self):
         return self.__class__.__module__.split(".")[-1]
 
+    def on_window_hide(self):
+        pass
+
+    def on_window_show(self):
+        pass
+
     def search(self, query):
         raise NotImplementedError
