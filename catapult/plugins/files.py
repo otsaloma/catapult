@@ -23,6 +23,7 @@ import os
 from dataclasses import dataclass
 from gi.repository import Gio
 from pathlib import Path
+from threading import Thread
 
 
 @dataclass
@@ -44,7 +45,7 @@ class FilesPlugin(catapult.Plugin):
     def __init__(self):
         super().__init__()
         self._index = []
-        self._update_index()
+        self._update_index_async()
         self.debug("Initialization complete")
 
     def _get_file_info(self, uri):
@@ -104,3 +105,6 @@ class FilesPlugin(catapult.Plugin):
                 self.debug(f"Failed to index {uri}: {str(error)}")
         self.debug(f"{len(index)} item in index")
         self._index = index
+
+    def _update_index_async(self):
+        Thread(target=self._update_index, daemon=True).start()
