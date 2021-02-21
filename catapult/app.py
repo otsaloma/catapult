@@ -37,7 +37,8 @@ class Application(Gtk.Application):
         self._parse_arguments(args)
         window = catapult.Window()
         self.add_window(window)
-        window.present()
+        print(_("Catapult ready, use {} to engage")
+              .format(catapult.conf.toggle_key))
 
     def _on_shutdown(self, app):
         catapult.conf.write()
