@@ -60,9 +60,6 @@ class FilesPlugin(catapult.Plugin):
         self.debug(f"Launching {id}")
         app.launch_uris(uris=[id], context=None)
 
-    def on_window_hide(self):
-        self._update_index_async_maybe()
-
     def on_window_show(self):
         self._update_index_async_maybe()
 

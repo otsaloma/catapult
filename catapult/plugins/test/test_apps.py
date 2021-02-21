@@ -28,9 +28,6 @@ class TestAppsPlugin(catapult.test.TestCase):
         # Wait for threads to terminate.
         time.sleep(1)
 
-    def test_on_window_hide(self):
-        self.plugin.on_window_hide()
-
     def test_on_window_show(self):
         self.plugin.on_window_show()
 

@@ -56,9 +56,6 @@ class AppsPlugin(catapult.Plugin):
     def _on_app_info_monitor_changed(self, *args, **kwargs):
         self._time_updated = -1
 
-    def on_window_hide(self):
-        self._update_index_async_maybe()
-
     def on_window_show(self):
         self._update_index_async_maybe()
 
