@@ -25,6 +25,11 @@ from gi.repository import Gtk
 from pathlib import Path
 
 
+def copy_text_to_clipboard(text):
+    clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
+    clipboard.set_text(text, -1)
+    clipboard.store()
+
 def find_plugin(name):
     for candidate, module in list_plugins():
         if candidate == name:

@@ -20,6 +20,7 @@ jobs:
           python3-gi
           python3-pytest
           python3-xdg
+          qalc
           xvfb
       - name: Run linter
         run: make check
