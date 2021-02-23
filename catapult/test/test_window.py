@@ -27,7 +27,7 @@ class TestWindow(catapult.test.TestCase):
         self.window.bind_toggle_key("<Shift><Control><Alt>F12")
 
     def test_get_query(self):
-        self.window._input_entry.set_text("Test ")
+        self.window._input_entry.set_text("test")
         assert self.window.get_query() == "test"
 
     def test_hide(self):

@@ -158,7 +158,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._toggle_key = key
 
     def get_query(self):
-        return self._input_entry.get_text().lower().strip()
+        return self._input_entry.get_text()
 
     def hide(self):
         for plugin in self._plugins:

@@ -64,6 +64,7 @@ class FilesPlugin(catapult.Plugin):
         self._update_index_async_maybe()
 
     def search(self, query):
+        query = query.lower().strip()
         for file in self._index:
             offset = file.title.lower().find(query)
             if offset < 0: continue

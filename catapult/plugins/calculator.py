@@ -51,6 +51,7 @@ class CalculatorPlugin(catapult.Plugin):
         catapult.util.copy_text_to_clipboard(id)
 
     def search(self, query):
+        query = query.strip()
         if re.match(PATTERN, query) is None: return
         command = COMMAND.format(query.replace("'", r"\'"))
         process = subprocess.run(command, shell=True, capture_output=True)

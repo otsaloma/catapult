@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Calculator plugin
 * Session plugin?
 * Debounce?
 * Learning search

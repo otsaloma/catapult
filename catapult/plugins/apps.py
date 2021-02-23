@@ -60,6 +60,7 @@ class AppsPlugin(catapult.Plugin):
         self._update_index_async_maybe()
 
     def search(self, query):
+        query = query.lower().strip()
         results = Gio.DesktopAppInfo.search(query)
         for i, batch in enumerate(results):
             for id in batch:
