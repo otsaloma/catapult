@@ -29,6 +29,9 @@ class TestUtil(catapult.test.TestCase):
         path = catapult.util.find_theme("dark")
         assert path.exists()
 
+    def test_get_desktop_environment(self):
+        catapult.util.get_desktop_environment()
+
     def test_get_screen_size(self):
         width, height = catapult.util.get_screen_size()
         assert width and height

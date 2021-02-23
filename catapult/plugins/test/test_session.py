@@ -15,7 +15,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-from . import apps # noqa
-from . import calculator # noqa
-from . import files # noqa
-from . import session # noqa
+import catapult.test
+
+
+class TestSessionPlugin(catapult.test.TestCase):
+
+    def setup_method(self, method):
+        self.plugin = catapult.plugins.session.SessionPlugin()
+
+    def test_search(self):
+        self.plugin.search("t")
+        self.plugin.search("te")
+        self.plugin.search("tes")
+        self.plugin.search("test")

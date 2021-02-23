@@ -18,6 +18,7 @@
 import catapult
 import importlib
 import inspect
+import os
 import re
 
 from gi.repository import Gdk
@@ -39,6 +40,9 @@ def find_theme(name):
     for candidate, path in list_themes():
         if candidate == name:
             return path
+
+def get_desktop_environment():
+    return os.getenv("XDG_CURRENT_DESKTOP", "")
 
 def get_screen_size():
     display = Gdk.Display.get_default()

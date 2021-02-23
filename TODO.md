@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Session plugin?
 * Debounce?
 * Learning search
 * Builtins (:quit, :update etc)
