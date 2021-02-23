@@ -20,6 +20,7 @@ import catapult
 import itertools
 
 from gi.repository import Gdk
+from gi.repository import Gio
 from gi.repository import GLib
 from gi.repository import GObject
 from gi.repository import Gtk
@@ -53,6 +54,14 @@ class SearchResultRow(Gtk.ListBoxRow):
         vbox.pack_start(self.description_label, expand=True, fill=True, padding=0)
         hbox.pack_start(vbox, expand=True, fill=True, padding=0)
         self.add(hbox)
+
+    def set_icon(self, icon):
+        size = Gtk.IconSize.DIALOG
+        if isinstance(icon, str):
+            return self.icon.set_from_icon_name(icon, size)
+        if isinstance(icon, Gio.Icon):
+            return self.icon.set_from_gicon(icon, size)
+        raise TypeError(type(icon))
 
 
 class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
@@ -182,7 +191,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             row.result = result
             row.set_visible(result is not None)
             if result is None: continue
-            row.icon.set_from_gicon(result.icon, Gtk.IconSize.DIALOG)
+            row.set_icon(result.icon or "")
             row.title_label.set_text(result.title or "")
             row.description_label.set_text(result.description or "")
             self._set_result_list_height(row)

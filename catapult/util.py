@@ -98,3 +98,10 @@ def load_theme(name):
         # Change import references to absolute paths.
         css = css.replace(f"@{name}@", str(path))
     return css
+
+def lookup_icon(*names):
+    theme = Gtk.IconTheme.get_default()
+    all_names = set(theme.list_icons())
+    for name in names:
+        if name in all_names:
+            return name

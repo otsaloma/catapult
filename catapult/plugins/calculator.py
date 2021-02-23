@@ -19,8 +19,6 @@ import catapult
 import re
 import subprocess
 
-from gi.repository import Gio
-
 COMMAND = " ".join((
     "qalc",
     "-s 'decimal comma off'",
@@ -64,7 +62,10 @@ class CalculatorPlugin(catapult.Plugin):
         yield catapult.SearchResult(
             description=expression,
             fuzzy=False,
-            icon=Gio.ThemedIcon.new("org.gnome.Calculator"),
+            icon=catapult.util.lookup_icon(
+                "org.gnome.Calculator",
+                "application-x-executable",
+            ),
             id=result,
             offset=0,
             plugin=self,

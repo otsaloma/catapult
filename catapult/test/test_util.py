@@ -59,3 +59,7 @@ class TestUtil(catapult.test.TestCase):
 
     def test_load_theme(self):
         assert catapult.util.load_theme("dark")
+
+    def test_lookup_icon(self):
+        catapult.util.lookup_icon("folder")
+        catapult.util.lookup_icon("xxx")

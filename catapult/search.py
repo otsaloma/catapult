@@ -18,7 +18,6 @@
 import catapult
 
 from dataclasses import dataclass
-from gi.repository import Gio
 
 
 @dataclass
@@ -26,7 +25,7 @@ class SearchResult:
 
     description: str
     fuzzy: bool
-    icon: Gio.Icon
+    icon: object
     id: str
     offset: int
     plugin: catapult.Plugin
