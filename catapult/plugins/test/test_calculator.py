@@ -28,11 +28,6 @@ class TestCalculatorPlugin(catapult.test.TestCase):
         assert result.description == "pi * 2"
         assert result.title == "6.28319"
 
-    def test_search_currency_conversion(self):
-        result = next(self.plugin.search("1 USD to EUR"))
-        assert result.description == "1 * dollar"
-        assert result.title.startswith("€") or result.title.endswith("€")
-
     def test_search_function(self):
         result = next(self.plugin.search("sqrt(2)"))
         assert result.description == "sqrt(2)"
