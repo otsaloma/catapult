@@ -40,10 +40,6 @@ PATTERN = "^({})".format("|".join((
 
 class CalculatorPlugin(catapult.Plugin):
 
-    def __init__(self):
-        super().__init__()
-        self.debug("Initialization complete")
-
     def launch(self, id):
         self.debug(f"Copying {id!r} to the clipboard")
         catapult.util.copy_text_to_clipboard(id)
@@ -69,6 +65,6 @@ class CalculatorPlugin(catapult.Plugin):
             id=result,
             offset=0,
             plugin=self,
-            score=1,
+            score=2,
             title=result,
         )

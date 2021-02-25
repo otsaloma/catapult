@@ -43,15 +43,12 @@ class SearchManager(catapult.DebugMixin):
             result.score *= 0.5
         if result.offset > 0:
             result.score *= 0.5
-        if result.plugin.name == "apps":
-            result.score *= 1.1
 
     def _get_results(self, plugins, query):
         for plugin in plugins:
             self.tick()
-            results = plugin.search(query)
+            yield from plugin.search(query)
             elapsed = self.tock()
-            yield from results
             self.debug(f"{plugin.name} delivered in {elapsed:.0f} ms")
 
     def search(self, plugins, query):

@@ -7,8 +7,8 @@ based on GTK, but heavily themed, so it should fit any desktop
 environment. Custom plugins and themes can be loaded dynamically.
 
 Catapult is currently developed and tested on X/GNOME. It should work on
-other desktop environments as well, but is unlikely to work as-is on
-Wayland. PRs are welcome.
+other desktop environments running X as well, but is unlikely to work
+as-is on Wayland. PRs are welcome.
 
 Catapult is Free Software released under the GNU General Public License
 (GPL), see the file [`COPYING`](COPYING) for details. Small parts of the

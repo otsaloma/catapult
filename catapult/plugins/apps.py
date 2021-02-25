@@ -70,11 +70,11 @@ class AppsPlugin(catapult.Plugin):
                 yield catapult.SearchResult(
                     description=self._get_description(app),
                     fuzzy=self._get_fuzzy(app, query),
-                    icon=app.get_icon() or catapult.util.lookup_icon("application-x-executable"),
+                    icon=app.get_icon() or "application-x-executable",
                     id=app.get_id(),
                     offset=self._get_offset(app, query),
                     plugin=self,
-                    score=0.9**i,
+                    score=1.1*0.9**i,
                     title=app.get_name(),
                 )
 
@@ -86,8 +86,8 @@ class AppsPlugin(catapult.Plugin):
             self.debug(f"Indexing {app.get_filename()}")
             index[app.get_id()] = app
         self.debug(f"{len(index)} item in index")
-        self._index = index
         self._time_updated = time.time()
+        self._index = index
 
     def _update_index_async(self):
         Thread(target=self._update_index, daemon=True).start()

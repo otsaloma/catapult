@@ -27,6 +27,9 @@ from gi.repository import Gtk
 from gi.repository import Keybinder
 from gi.repository import Pango
 
+ICON_SIZE = Gtk.IconSize.DIALOG
+ICON_SIZE_PX = 48
+
 
 class SearchResultRow(Gtk.ListBoxRow):
 
@@ -34,7 +37,7 @@ class SearchResultRow(Gtk.ListBoxRow):
         GObject.GObject.__init__(self)
         self.result = None
         self.icon = Gtk.Image()
-        self.icon.set_pixel_size(48)
+        self.icon.set_pixel_size(ICON_SIZE_PX)
         self.title_label = Gtk.Label()
         self.title_label.set_xalign(0)
         self.title_label.set_yalign(1)
@@ -56,12 +59,8 @@ class SearchResultRow(Gtk.ListBoxRow):
         self.add(hbox)
 
     def set_icon(self, icon):
-        size = Gtk.IconSize.DIALOG
-        if isinstance(icon, str):
-            return self.icon.set_from_icon_name(icon, size)
-        if isinstance(icon, Gio.Icon):
-            return self.icon.set_from_gicon(icon, size)
-        raise TypeError(type(icon))
+        (self.icon.set_from_gicon if isinstance(icon, Gio.Icon)
+         else self.icon.set_from_icon_name)(icon, ICON_SIZE)
 
 
 class Window(Gtk.ApplicationWindow, catapult.DebugMixin):

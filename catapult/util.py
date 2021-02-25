@@ -104,6 +104,8 @@ def load_theme(name):
     return css
 
 def lookup_icon(*names):
+    # Note that this does not check if a sufficient size is found,
+    # but usually that shouldn't be an issue.
     theme = Gtk.IconTheme.get_default()
     all_names = set(theme.list_icons())
     for name in names:

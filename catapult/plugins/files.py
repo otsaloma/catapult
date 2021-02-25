@@ -50,8 +50,16 @@ class FilesPlugin(catapult.Plugin):
         self._update_index_async()
         self.debug("Initialization complete")
 
-    def _get_file_info(self, uri):
-        file = Gio.File.new_for_uri(uri)
+    def _get_file(self, location):
+        info = self._get_file_info(location)
+        icon = info.get_icon()
+        title = info.get_display_name()
+        return File(icon=icon, location=location, title=title)
+
+    def _get_file_info(self, location):
+        if catapult.util.is_path(location):
+            location = Path(location).as_uri()
+        file = Gio.File.new_for_uri(location)
         return file.query_info("*", Gio.FileQueryInfoFlags.NONE, None)
 
     def launch(self, id):
@@ -96,23 +104,16 @@ class FilesPlugin(catapult.Plugin):
                 path = path.rstrip(os.sep)
                 if self._should_exclude(path): continue
                 self.debug(f"Indexing {path}")
-                uri = Path(path).as_uri()
-                info = self._get_file_info(uri)
-                icon = info.get_icon()
-                title = os.path.basename(path)
-                index.append(File(icon=icon, location=path, title=title))
+                index.append(self._get_file(path))
         for uri in ["computer:///", "recent:///", "trash:///"]:
             try:
                 self.debug(f"Indexing {uri}")
-                info = self._get_file_info(uri)
-                icon = info.get_icon()
-                title = info.get_display_name()
-                index.append(File(icon=icon, location=uri, title=title))
+                index.append(self._get_file(uri))
             except Exception as error:
                 self.debug(f"Failed to index {uri}: {str(error)}")
         self.debug(f"{len(index)} item in index")
-        self._index = index
         self._time_updated = time.time()
+        self._index = index
 
     def _update_index_async(self):
         Thread(target=self._update_index, daemon=True).start()

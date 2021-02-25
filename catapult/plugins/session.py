@@ -20,49 +20,47 @@ import subprocess
 
 from catapult.i18n import _
 
-COMMANDS = {
-    "GNOME": {
-        "lock-screen": "gnome-screensaver-command --lock",
-        "log-out": "gnome-session-quit --logout",
-        "power-off": "gnome-session-quit --power-off",
-        "reboot": "gnome-session-quit --reboot",
-    },
-}
-
-TITLES = {
-    "lock-screen": _("Lock Screen"),
-    "log-out": _("Log Out"),
-    "power-off": _("Power Off"),
-    "reboot": _("Reboot"),
-}
+ACTIONS = [{
+    "desktops": ["GNOME"],
+    "titles": [_("Lock Screen")],
+    "command": "gnome-screensaver-command --lock",
+}, {
+    "desktops": ["GNOME"],
+    "titles": [_("Log Out"), _("Log Off")],
+    "command": "gnome-session-quit --logout",
+}, {
+    "desktops": ["GNOME"],
+    "titles": [_("Power Off"), _("Shutdown")],
+    "command": "gnome-session-quit --power-off",
+}, {
+    "desktops": ["GNOME"],
+    "titles": [_("Reboot"), _("Restart")],
+    "command": "gnome-session-quit --reboot",
+}]
 
 
 class SessionPlugin(catapult.Plugin):
 
-    def __init__(self):
-        super().__init__()
-        self.debug("Initialization complete")
-
     def launch(self, id):
-        desktop = catapult.util.get_desktop_environment()
-        command = COMMANDS[desktop][id]
-        self.debug(f"Launching {command}")
-        subprocess.run(command, shell=True)
+        self.debug(f"Launching {id}")
+        subprocess.run(id, shell=True)
 
     def search(self, query):
         query = query.lower().strip()
         desktop = catapult.util.get_desktop_environment()
-        if desktop not in COMMANDS: return
-        for key, title in TITLES.items():
-            offset = title.lower().find(query)
-            if offset < 0: continue
+        for action in ACTIONS:
+            if desktop not in action["desktops"]: continue
+            offsets = [x.lower().find(query) for x in action["titles"]]
+            offsets = [x for x in offsets if x >= 0]
+            if not offsets: continue
+            title = action["titles"][0]
             self.debug(f"Found {title} for {query!r}")
             yield catapult.SearchResult(
-                description=COMMANDS[desktop][key],
+                description=action["command"],
                 fuzzy=False,
                 icon=catapult.util.lookup_icon("application-x-executable"),
-                id=key,
-                offset=offset,
+                id=action["command"],
+                offset=min(offsets),
                 plugin=self,
                 score=1,
                 title=title,
