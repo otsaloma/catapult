@@ -34,6 +34,9 @@ class TestWindow(catapult.test.TestCase):
         self.window.show()
         self.window.hide()
 
+    def test__on_icon_theme_changed(self):
+        self.window._icon_theme.emit("changed")
+
     def test_select_next_result(self):
         self.window.select_next_result()
 

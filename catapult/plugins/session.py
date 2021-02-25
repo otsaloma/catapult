@@ -58,7 +58,7 @@ class SessionPlugin(catapult.Plugin):
             yield catapult.SearchResult(
                 description=action["command"],
                 fuzzy=False,
-                icon=catapult.util.lookup_icon("application-x-executable"),
+                icon="application-x-executable",
                 id=action["command"],
                 offset=min(offsets),
                 plugin=self,

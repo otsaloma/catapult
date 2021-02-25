@@ -68,6 +68,8 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
     def __init__(self):
         GObject.GObject.__init__(self)
         self._body = None
+        self._icon_theme = Gtk.IconTheme.get_default()
+        self._icon_theme_handler_id = None
         self._input_entry = Gtk.Entry()
         self._plugins = []
         self._position = (0, 0)
@@ -128,6 +130,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self.connect("key-press-event", self._on_key_press_event)
         self.connect("notify::has-toplevel-focus", self._on_notify_has_toplevel_focus)
         self._input_entry.connect("notify::text", self._on_input_entry_notify_text)
+        self._icon_theme_handler_id = self._icon_theme.connect("changed", self._on_icon_theme_changed)
 
     def _init_visual(self):
         # Make window transparent to allow rounded corners.
@@ -180,6 +183,13 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         if row is None: return
         row.result.launch()
         self.hide()
+
+    def _on_icon_theme_changed(self, icon_theme):
+        self.debug("Icon theme changed")
+        self._icon_theme.disconnect(self._icon_theme_handler_id)
+        self._icon_theme = icon_theme
+        self._icon_theme_handler_id = self._icon_theme.connect("changed", self._on_icon_theme_changed)
+        catapult.util.lookup_icon.cache_clear()
 
     def _on_input_entry_notify_text(self, *args, **kwargs):
         query = self.get_query()

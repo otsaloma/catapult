@@ -16,6 +16,7 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult
+import functools
 import importlib
 import inspect
 import os
@@ -103,6 +104,7 @@ def load_theme(name):
         css = css.replace(f"@{name}@", str(path))
     return css
 
+@functools.lru_cache(256)
 def lookup_icon(*names):
     # Note that this does not check if a sufficient size is found,
     # but usually that shouldn't be an issue.
