@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Debounce?
 * Learning search
 * Builtins (:quit, :update etc)
 * Proper icon

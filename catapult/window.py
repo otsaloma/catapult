@@ -192,6 +192,9 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         catapult.util.lookup_icon.cache_clear()
 
     def _on_input_entry_notify_text(self, *args, **kwargs):
+        GLib.idle_add(self._on_input_entry_notify_text_do)
+
+    def _on_input_entry_notify_text_do(self, *args, **kwargs):
         query = self.get_query()
         if query == self._prev_query: return
         self._prev_query = query
