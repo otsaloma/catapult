@@ -173,8 +173,9 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         return self._input_entry.get_text()
 
     def hide(self):
+        self._search_manager.history.write_maybe()
         for plugin in self._plugins:
-            plugin.on_window_show()
+            plugin.on_window_hide()
         self._result_list.unselect_all()
         catapult.util.iterate_main()
         super().hide()

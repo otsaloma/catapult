@@ -27,6 +27,8 @@ class History(catapult.DebugMixin):
 
     def __init__(self):
         self._items = {}
+        self._saved_count = 0
+        self._saved_time = -1
 
     def add(self, query, result):
         self.debug(f"Adding {query!r} → {result.plugin.name}: {result.id}")
@@ -84,6 +86,8 @@ class History(catapult.DebugMixin):
         with open(self.path, "r", encoding="utf_8") as f:
             self._items = json.load(f)
         self.debug(f"Read {self.count} items")
+        self._saved_count = self.count
+        self._saved_time = time.time()
 
     def write(self):
         self.prune()
@@ -92,3 +96,11 @@ class History(catapult.DebugMixin):
         with open(self.path, "w", encoding="utf_8") as f:
             f.write(blob + "\n")
         self.debug(f"Wrote {self.count} items")
+        self._saved_count = self.count
+        self._saved_time = time.time()
+
+    def write_maybe(self):
+        # Allow writing history at semi-regular intervals.
+        if (time.time() - self._saved_time > 3600 or
+            self.count - self._saved_count > 100):
+            self.write()
