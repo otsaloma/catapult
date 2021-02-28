@@ -41,7 +41,7 @@ class ConfigurationStore:
 
     def read(self):
         if not self.path.exists(): return
-        with open(self.path, "r") as f:
+        with open(self.path, "r", encoding="utf_8") as f:
             for key, value in json.load(f).items():
                 if key not in DEFAULTS: continue
                 setattr(self, key, value)
@@ -55,5 +55,5 @@ class ConfigurationStore:
                 blob[f"# {key}"] = blob.pop(key)
         blob["version"] = catapult.__version__
         blob = json.dumps(blob, ensure_ascii=False, indent=2, sort_keys=True)
-        with open(self.path, "w") as f:
+        with open(self.path, "w", encoding="utf_8") as f:
             f.write(blob + "\n")
