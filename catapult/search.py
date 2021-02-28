@@ -38,11 +38,17 @@ class SearchResult:
 
 class SearchManager(catapult.DebugMixin):
 
-    def _adjust_score(self, result):
+    def __init__(self):
+        self.history = catapult.History()
+        self.history.read()
+
+    def _adjust_score(self, query, result):
         if result.fuzzy:
             result.score *= 0.5
         if result.offset > 0:
             result.score *= 0.5
+        if result.plugin.save_history:
+            result.score *= self.history.get_score_factor(query, result)
 
     def _get_results(self, plugins, query):
         for plugin in plugins:
@@ -51,14 +57,22 @@ class SearchManager(catapult.DebugMixin):
             elapsed = self.tock()
             self.debug(f"{plugin.name} delivered in {elapsed:.0f} ms")
 
+    def launch(self, query, result):
+        if result.plugin.save_history:
+            self.history.add(query, result)
+        result.launch()
+
     def search(self, plugins, query):
         if not query: return []
         self.debug(f"Starting search for {query!r}")
         results = list(self._get_results(plugins, query))
         self.debug(f"Found {len(results)} results")
+        self.tick()
         for result in results:
-            self._adjust_score(result)
+            self._adjust_score(query, result)
         results.sort(key=lambda x: (-x.score, x.title, x.description))
+        elapsed = self.tock()
+        self.debug(f"Adjusted scores in {elapsed:.0f} ms")
         for i, result in enumerate(results[:catapult.conf.max_results_visible]):
             self.debug(f"{i+1}. {result.plugin.name}: {result.title} {result.score:.3f}")
         return results[:catapult.conf.max_results]

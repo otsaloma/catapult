@@ -35,6 +35,7 @@ class SearchResultRow(Gtk.ListBoxRow):
 
     def __init__(self):
         GObject.GObject.__init__(self)
+        self.query = None
         self.result = None
         self.icon = Gtk.Image()
         self.icon.set_pixel_size(ICON_SIZE_PX)
@@ -181,7 +182,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
     def launch_selected(self):
         row = self._result_list.get_selected_row()
         if row is None: return
-        row.result.launch()
+        self._search_manager.launch(row.query, row.result)
         self.hide()
 
     def _on_icon_theme_changed(self, icon_theme):
@@ -200,6 +201,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._prev_query = query
         results = self._search_manager.search(self._plugins, query)
         for result, row in itertools.zip_longest(results, self._result_rows):
+            row.query = query
             row.result = result
             row.set_visible(result is not None)
             if result is None: continue
@@ -222,7 +224,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             return True
         if event.keyval in [Gdk.KEY_Return, Gdk.KEY_KP_Enter]:
             if self.get_query() in ["q", "quit"]:
-                self.destroy()
+                self.quit()
                 return True
             self.launch_selected()
             return True
@@ -230,6 +232,11 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
     def _on_notify_has_toplevel_focus(self, *args, **kwargs):
         if not self.has_toplevel_focus():
             self.hide()
+
+    def quit(self):
+        self._search_manager.history.write()
+        catapult.conf.write()
+        self.destroy()
 
     def select_next_result(self):
         if not self._result_scroller.is_visible(): return

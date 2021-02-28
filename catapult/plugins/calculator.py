@@ -40,6 +40,8 @@ PATTERN = "^({})".format("|".join((
 
 class CalculatorPlugin(catapult.Plugin):
 
+    save_history = False
+
     def launch(self, id):
         self.debug(f"Copying {id!r} to the clipboard")
         catapult.util.copy_text_to_clipboard(id)

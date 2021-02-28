@@ -31,7 +31,6 @@ class Application(Gtk.Application):
         self.set_application_id("io.otsaloma.catapult")
         self.set_flags(Gio.ApplicationFlags.FLAGS_NONE)
         self.connect("activate", self._on_activate, args)
-        self.connect("shutdown", self._on_shutdown)
 
     def _on_activate(self, app, args):
         self._parse_arguments(args)
@@ -39,9 +38,6 @@ class Application(Gtk.Application):
         self.add_window(window)
         print(_("Catapult ready, use {} to engage")
               .format(catapult.conf.toggle_key))
-
-    def _on_shutdown(self, app):
-        catapult.conf.write()
 
     def _parse_arguments(self, args):
         parser = ArgumentParser(usage=_("catapult [OPTION...]"))

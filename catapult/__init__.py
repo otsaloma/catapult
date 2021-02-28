@@ -47,6 +47,7 @@ from catapult import util # noqa
 from catapult.debug import DebugMixin # noqa
 from catapult.plugin import Plugin # noqa
 from catapult import plugins # noqa
+from catapult.history import History # noqa
 from catapult.search import SearchManager # noqa
 from catapult.search import SearchResult # noqa
 from catapult.window import Window # noqa

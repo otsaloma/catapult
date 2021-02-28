@@ -20,6 +20,8 @@ import catapult
 
 class Plugin(catapult.DebugMixin):
 
+    save_history = True
+
     def __init__(self):
         pass
 
