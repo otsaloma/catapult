@@ -54,6 +54,8 @@ class ConfigurationStore:
             if value == DEFAULTS[key]:
                 blob[f"# {key}"] = blob.pop(key)
         blob["version"] = catapult.__version__
-        blob = json.dumps(blob, ensure_ascii=False, indent=2, sort_keys=True)
+        keys = sorted(blob, key=lambda x: x.lstrip("# "))
+        blob = {x: blob[x] for x in keys}
+        blob = json.dumps(blob, ensure_ascii=False, indent=2)
         with open(self.path, "w", encoding="utf_8") as f:
             f.write(blob + "\n")
