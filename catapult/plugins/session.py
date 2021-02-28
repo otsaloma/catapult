@@ -22,20 +22,20 @@ from catapult.i18n import _
 
 ACTIONS = [{
     "desktops": ["GNOME"],
-    "titles": [_("Lock Screen")],
-    "command": "gnome-screensaver-command --lock",
+    "titles":   [_("Lock Screen")],
+    "command":  "gnome-screensaver-command --lock",
 }, {
     "desktops": ["GNOME"],
-    "titles": [_("Log Out"), _("Log Off")],
-    "command": "gnome-session-quit --logout",
+    "titles":   [_("Log Out"), _("Log Off")],
+    "command":  "gnome-session-quit --logout",
 }, {
     "desktops": ["GNOME"],
-    "titles": [_("Power Off"), _("Shutdown")],
-    "command": "gnome-session-quit --power-off",
+    "titles":   [_("Power Off"), _("Shutdown")],
+    "command":  "gnome-session-quit --power-off",
 }, {
     "desktops": ["GNOME"],
-    "titles": [_("Reboot"), _("Restart")],
-    "command": "gnome-session-quit --reboot",
+    "titles":   [_("Reboot"), _("Restart")],
+    "command":  "gnome-session-quit --reboot",
 }]
 
 
