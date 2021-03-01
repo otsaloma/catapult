@@ -47,7 +47,7 @@ class AppsPlugin(catapult.Plugin):
         offset = app.get_name().lower().find(query)
         return offset if offset >= 0 else 1000
 
-    def launch(self, id):
+    def launch(self, window, id):
         if not id in self._index: return
         app = self._index[id]
         self.debug(f"Launching {id}")
@@ -77,6 +77,9 @@ class AppsPlugin(catapult.Plugin):
                     score=1.1*0.9**i,
                     title=app.get_name(),
                 )
+
+    def update(self):
+        self._update_index_async()
 
     def _update_index(self):
         index = {}

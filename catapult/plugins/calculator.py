@@ -42,7 +42,7 @@ class CalculatorPlugin(catapult.Plugin):
 
     save_history = False
 
-    def launch(self, id):
+    def launch(self, window, id):
         self.debug(f"Copying {id!r} to the clipboard")
         catapult.util.copy_text_to_clipboard(id)
 

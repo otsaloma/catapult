@@ -15,31 +15,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-import catapult
+import catapult.test
 
 
-class Plugin(catapult.DebugMixin):
+class TestBuiltinsPlugin(catapult.test.TestCase):
 
-    save_history = True
+    def setup_method(self, method):
+        self.plugin = catapult.plugins.builtins.BuiltinsPlugin()
 
-    def __init__(self):
-        pass
-
-    def launch(self, window, id):
-        raise NotImplementedError
-
-    @property
-    def name(self):
-        return self.__class__.__module__.split(".")[-1]
-
-    def on_window_hide(self):
-        pass
-
-    def on_window_show(self):
-        pass
-
-    def search(self, query):
-        raise NotImplementedError
-
-    def update(self):
-        pass
+    def test_search(self):
+        self.plugin.search(":")
+        self.plugin.search(":q")
+        self.plugin.search(":qu")
+        self.plugin.search(":qui")
+        self.plugin.search(":quit")

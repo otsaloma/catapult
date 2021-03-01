@@ -62,7 +62,7 @@ class FilesPlugin(catapult.Plugin):
         file = Gio.File.new_for_uri(location)
         return file.query_info("*", Gio.FileQueryInfoFlags.NONE, None)
 
-    def launch(self, id):
+    def launch(self, window, id):
         file = Gio.File.new_for_uri(id)
         app = file.query_default_handler()
         self.debug(f"Launching {id}")
@@ -95,6 +95,9 @@ class FilesPlugin(catapult.Plugin):
     def _should_exclude(self, path):
         return any(os.path.basename(path) == x or fnmatch.fnmatch(path, x)
                    for x in catapult.conf.files_exclude)
+
+    def update(self):
+        self._update_index_async()
 
     def _update_index(self):
         index = []

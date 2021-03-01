@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Builtins (:quit, :update etc)
 * Hamburger menu?
 * About dialog
 * Preferences dialog

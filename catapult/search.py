@@ -32,8 +32,8 @@ class SearchResult:
     score: float
     title: str
 
-    def launch(self):
-        self.plugin.launch(self.id)
+    def launch(self, window):
+        self.plugin.launch(window, self.id)
 
 
 class SearchManager(catapult.DebugMixin):
@@ -57,14 +57,16 @@ class SearchManager(catapult.DebugMixin):
             elapsed = self.tock()
             self.debug(f"{plugin.name} delivered in {elapsed:.0f} ms")
 
-    def launch(self, query, result):
+    def launch(self, window, query, result):
         if result.plugin.save_history:
             self.history.add(query, result)
-        result.launch()
+        result.launch(window)
 
     def search(self, plugins, query):
         if not query: return []
         self.debug(f"Starting search for {query!r}")
+        if query.strip().startswith(":"):
+            plugins = [x for x in plugins if x.name == "builtins"]
         results = list(self._get_results(plugins, query))
         self.debug(f"Found {len(results)} results")
         self.tick()

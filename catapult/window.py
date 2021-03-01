@@ -183,7 +183,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
     def launch_selected(self):
         row = self._result_list.get_selected_row()
         if row is None: return
-        self._search_manager.launch(row.query, row.result)
+        self._search_manager.launch(self, row.query, row.result)
         self.hide()
 
     def _on_icon_theme_changed(self, icon_theme):
@@ -224,9 +224,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             self.hide()
             return True
         if event.keyval in [Gdk.KEY_Return, Gdk.KEY_KP_Enter]:
-            if self.get_query() in ["q", "quit"]:
-                self.quit()
-                return True
             self.launch_selected()
             return True
 
@@ -296,3 +293,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self.debug(f"Unbinding toggle key {self._toggle_key}")
         Keybinder.unbind(self._toggle_key)
         self._toggle_key = None
+
+    def update(self):
+        for plugin in self._plugins:
+            plugin.update()

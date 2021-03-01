@@ -25,7 +25,7 @@ DEFAULTS = {
     "files_scan_interval": 900, # s
     "max_results": 24,
     "max_results_visible": 8,
-    "plugins": ["apps", "calculator", "files", "session"],
+    "plugins": ["apps", "builtins", "calculator", "files", "session"],
     "theme": "dark",
     "toggle_key": "<Control>space",
 }

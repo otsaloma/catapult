@@ -16,6 +16,7 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 from . import apps # noqa
+from . import builtins # noqa
 from . import calculator # noqa
 from . import files # noqa
 from . import session # noqa
