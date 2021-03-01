@@ -32,7 +32,7 @@ class TestFilesPlugin(catapult.test.TestCase):
         self.plugin.on_window_show()
 
     def test_search(self):
-        self.plugin.search("t")
-        self.plugin.search("te")
-        self.plugin.search("tes")
-        self.plugin.search("test")
+        list(self.plugin.search("t"))
+        list(self.plugin.search("te"))
+        list(self.plugin.search("tes"))
+        list(self.plugin.search("test"))

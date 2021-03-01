@@ -24,10 +24,10 @@ class TestSessionPlugin(catapult.test.TestCase):
         self.plugin = catapult.plugins.session.SessionPlugin()
 
     def test_search(self):
-        self.plugin.search("l")
-        self.plugin.search("lo")
-        self.plugin.search("log")
-        self.plugin.search("log ")
-        self.plugin.search("log o")
-        self.plugin.search("log ou")
-        self.plugin.search("log out")
+        list(self.plugin.search("l"))
+        list(self.plugin.search("lo"))
+        list(self.plugin.search("log"))
+        list(self.plugin.search("log "))
+        list(self.plugin.search("log o"))
+        list(self.plugin.search("log ou"))
+        list(self.plugin.search("log out"))

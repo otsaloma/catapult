@@ -24,8 +24,8 @@ class TestBuiltinsPlugin(catapult.test.TestCase):
         self.plugin = catapult.plugins.builtins.BuiltinsPlugin()
 
     def test_search(self):
-        self.plugin.search(":")
-        self.plugin.search(":q")
-        self.plugin.search(":qu")
-        self.plugin.search(":qui")
-        self.plugin.search(":quit")
+        assert list(self.plugin.search(":"))
+        assert list(self.plugin.search(":q"))
+        assert list(self.plugin.search(":qu"))
+        assert list(self.plugin.search(":qui"))
+        assert list(self.plugin.search(":quit"))
