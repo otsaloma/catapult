@@ -226,6 +226,10 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         if event.keyval in [Gdk.KEY_Return, Gdk.KEY_KP_Enter]:
             self.launch_selected()
             return True
+        if event.keyval == Gdk.KEY_F1:
+            self._input_entry.set_text(":")
+            self._input_entry.set_position(-1)
+            return True
 
     def _on_notify_has_toplevel_focus(self, *args, **kwargs):
         if not self.has_toplevel_focus():
