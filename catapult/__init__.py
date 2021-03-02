@@ -50,6 +50,7 @@ from catapult import plugins # noqa
 from catapult.history import History # noqa
 from catapult.search import SearchManager # noqa
 from catapult.search import SearchResult # noqa
+from catapult.about import AboutDialog # noqa
 from catapult.window import Window # noqa
 from catapult.app import Application # noqa
 

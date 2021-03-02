@@ -1,9 +1,8 @@
 TODO
 ====
 
-* Hamburger menu?
-* About dialog
-* Preferences dialog
+* About dialog (:about)
+* Preferences dialog (:preferences)
 * Proper icon
 * i18n
 * setup.py

@@ -231,6 +231,13 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         if not self.has_toplevel_focus():
             self.hide()
 
+    def open_about_dialog(self):
+        def on_response(dialog, response):
+            dialog.destroy()
+        dialog = catapult.AboutDialog(self)
+        dialog.connect("response", on_response)
+        dialog.run()
+
     def quit(self):
         self._search_manager.history.write()
         catapult.conf.write()
@@ -278,6 +285,8 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self.set_sensitive(True)
         self.present()
         self.move(*self._position)
+        timestamp = Keybinder.get_current_event_time()
+        self.present_with_time(timestamp)
         self._result_list.unselect_all()
         self._result_scroller.hide()
         self._prev_query = ""

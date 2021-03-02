@@ -24,6 +24,8 @@ class BuiltinsPlugin(catapult.Plugin):
 
     def launch(self, window, id):
         self.debug(f"Launching {id}")
+        if id == ":about":
+            return window.open_about_dialog()
         if id == ":quit":
             return window.quit()
         if id == ":update":
@@ -32,7 +34,22 @@ class BuiltinsPlugin(catapult.Plugin):
     def search(self, query):
         query = query.lower().strip()
         if not query.startswith(":"): return
-        icon = catapult.util.lookup_icon("catapult", "application-x-executable")
+        icon = catapult.util.lookup_icon(
+            "io.otsaloma.catapult",
+            "application-x-executable",
+        )
+        if ":about".startswith(query):
+            self.debug(f"Found :about for {query!r}")
+            yield catapult.SearchResult(
+                description=_("About Catapult"),
+                fuzzy=False,
+                icon=icon,
+                id=":about",
+                offset=0,
+                plugin=self,
+                score=1,
+                title=":about",
+            )
         if ":quit".startswith(query):
             self.debug(f"Found :quit for {query!r}")
             yield catapult.SearchResult(
