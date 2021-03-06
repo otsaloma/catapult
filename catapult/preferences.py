@@ -335,8 +335,8 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
 
     ITEMS = [
         Theme,
-        MaxResults,
-        MaxResultsVisible,
+        # MaxResults,
+        # MaxResultsVisible,
         ToggleKey,
         Apps,
         AppsScanInterval,
