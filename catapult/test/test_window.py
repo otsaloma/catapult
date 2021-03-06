@@ -23,6 +23,12 @@ class TestWindow(catapult.test.TestCase):
     def setup_method(self, method):
         self.window = catapult.Window()
 
+    def test_activate_deactivate_plugin(self):
+        self.window.activate_plugin("apps")
+        self.window.deactivate_plugin("apps")
+        self.window.activate_plugin("apps")
+        self.window.deactivate_plugin("apps")
+
     def test_bind_toggle_key(self):
         self.window.bind_toggle_key("<Shift><Control><Alt>F12")
 
@@ -42,6 +48,12 @@ class TestWindow(catapult.test.TestCase):
 
     def test_select_previous_result(self):
         self.window.select_previous_result()
+
+    def test_set_plugin_active(self):
+        self.window.set_plugin_active("apps", True)
+        self.window.set_plugin_active("apps", False)
+        self.window.set_plugin_active("apps", True)
+        self.window.set_plugin_active("apps", False)
 
     def test_show(self):
         self.window.hide()

@@ -69,6 +69,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
     def __init__(self):
         GObject.GObject.__init__(self)
         self._body = None
+        self._css_provider = None
         self._icon_theme = Gtk.IconTheme.get_default()
         self._icon_theme_handler_id = None
         self._input_entry = Gtk.Entry()
@@ -85,24 +86,18 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._init_visual()
         self._init_widgets()
         self._init_position()
-        self._init_css()
         self._init_signal_handlers()
         self._init_keys()
         self._init_plugins()
+        self.load_css()
         self.debug("Initialization complete")
-
-    def _init_css(self):
-        css = catapult.util.load_theme(catapult.conf.theme)
-        provider = Gtk.CssProvider()
-        provider.load_from_data(bytes(css.encode()))
-        style = self.get_style_context()
-        screen = Gdk.Screen.get_default()
-        priority = Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-        style.add_provider_for_screen(screen, provider, priority)
 
     def _init_keys(self):
         Keybinder.init()
-        GLib.idle_add(self.bind_toggle_key, catapult.conf.toggle_key)
+        def bind_toggle_key(self, key):
+            self.bind_toggle_key(key)
+            return False # to not be called again.
+        GLib.idle_add(bind_toggle_key, self, catapult.conf.toggle_key)
 
     def _init_plugins(self):
         for name in catapult.conf.plugins:
@@ -163,11 +158,28 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._result_scroller.hide()
         self.add(self._body)
 
+    def activate_plugin(self, name):
+        if name in [x.name for x in self._plugins]: return
+        self.debug(f"Activating plugin {name}")
+        self._plugins.append(catapult.util.load_plugin(name))
+
     def bind_toggle_key(self, key):
         self.unbind_toggle_key()
         self.debug(f"Binding toggle key {key}")
-        Keybinder.bind(key, self.toggle)
-        self._toggle_key = key
+        success = Keybinder.bind(key, self.toggle)
+        if success:
+            self._toggle_key = key
+            return success
+        else:
+            self.debug(f"Failed to bind toggle key {key}")
+            return success
+
+    def deactivate_plugin(self, name):
+        if name not in [x.name for x in self._plugins]: return
+        self.debug(f"Deactivating plugin {name}")
+        for i in reversed(range(len(self._plugins))):
+            if self._plugins[i].name == name:
+                del self._plugins[i]
 
     def get_query(self):
         return self._input_entry.get_text()
@@ -185,6 +197,17 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         if row is None: return
         self._search_manager.launch(self, row.query, row.result)
         self.hide()
+
+    def load_css(self):
+        style = self.get_style_context()
+        screen = Gdk.Screen.get_default()
+        priority = Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        if self._css_provider is not None:
+            style.remove_provider_for_screen(screen, self._css_provider)
+        css = catapult.util.load_theme(catapult.conf.theme)
+        self._css_provider = Gtk.CssProvider()
+        self._css_provider.load_from_data(bytes(css.encode()))
+        style.add_provider_for_screen(screen, self._css_provider, priority)
 
     def _on_icon_theme_changed(self, icon_theme):
         self.debug("Icon theme changed")
@@ -242,10 +265,22 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         dialog.connect("response", on_response)
         dialog.run()
 
+    def open_preferences_dialog(self):
+        def on_response(dialog, response):
+            dialog.load(self)
+            catapult.conf.write()
+            dialog.destroy()
+        dialog = catapult.PreferencesDialog(self)
+        dialog.connect("response", on_response)
+        dialog.run()
+
     def quit(self):
         self._search_manager.history.write()
         catapult.conf.write()
         self.destroy()
+
+    def reset_list_height(self):
+        self._result_list_height_set = False
 
     def select_next_result(self):
         if not self._result_scroller.is_visible(): return
@@ -270,6 +305,11 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         row.grab_focus()
         self._input_entry.grab_focus()
         self._input_entry.set_position(-1)
+
+    def set_plugin_active(self, name, active):
+        if active:
+            return self.activate_plugin(name)
+        self.deactivate_plugin(name)
 
     def _set_result_list_height(self, row):
         if self._result_list_height_set: return

@@ -15,29 +15,20 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
+import catapult.preferences
 import catapult.test
-import os
-import tempfile
-
-from pathlib import Path
 
 
-class TestConfigurationStore(catapult.test.TestCase):
+class TestPreferencesDialog(catapult.test.TestCase):
+
+    def run_dialog(self):
+        self.dialog.run()
 
     def setup_method(self, method):
-        self.conf = catapult.ConfigurationStore()
-        handle, self.temp_path = tempfile.mkstemp(prefix="catapult-", suffix=".json")
-        self.conf.path = Path(self.temp_path)
+        self.window = catapult.Window()
+        self.dialog = catapult.PreferencesDialog(self.window)
 
-    def teardown_method(self, method):
-        os.remove(self.temp_path)
-
-    def test_read_write(self):
-        self.conf.theme = "1"
-        self.conf.write()
-        self.conf.theme = "2"
-        self.conf.read()
-        assert self.conf.theme == "1"
-
-    def test_to_dict(self):
-        assert self.conf.to_dict()
+    def test_load(self):
+        conf = catapult.conf.to_dict()
+        self.dialog.load(self.window)
+        assert catapult.conf.to_dict() == conf

@@ -26,6 +26,8 @@ class BuiltinsPlugin(catapult.Plugin):
         self.debug(f"Launching {id}")
         if id == ":about":
             return window.open_about_dialog()
+        if id == ":preferences":
+            return window.open_preferences_dialog()
         if id == ":quit":
             return window.quit()
         if id == ":update":
@@ -49,6 +51,18 @@ class BuiltinsPlugin(catapult.Plugin):
                 plugin=self,
                 score=1,
                 title=":about",
+            )
+        if ":preferences".startswith(query):
+            self.debug(f"Found :preferences for {query!r}")
+            yield catapult.SearchResult(
+                description=_("Catapult preferences"),
+                fuzzy=False,
+                icon=icon,
+                id=":preferences",
+                offset=0,
+                plugin=self,
+                score=1,
+                title=":preferences",
             )
         if ":quit".startswith(query):
             self.debug(f"Found :quit for {query!r}")

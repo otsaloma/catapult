@@ -16,6 +16,7 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult
+import copy
 import json
 
 DEFAULTS = {
@@ -45,6 +46,9 @@ class ConfigurationStore:
             for key, value in json.load(f).items():
                 if key not in DEFAULTS: continue
                 setattr(self, key, value)
+
+    def to_dict(self):
+        return copy.deepcopy({x: getattr(self, x) for x in DEFAULTS})
 
     def write(self):
         self.path.parent.mkdir(parents=True, exist_ok=True)
