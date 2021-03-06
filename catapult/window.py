@@ -154,9 +154,13 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             self._result_rows.append(result)
         self._result_scroller.add(self._result_list)
         self._body.pack_start(self._result_scroller, expand=True, fill=True, padding=0)
-        self._body.show_all()
         self._result_scroller.hide()
-        self.add(self._body)
+        event_box = Gtk.EventBox()
+        # Catch mouse press events anywhere on the edges of the window.
+        event_box.connect("button-press-event", self._on_button_press_event)
+        event_box.add(self._body)
+        event_box.show_all()
+        self.add(event_box)
 
     def activate_plugin(self, name):
         if name in [x.name for x in self._plugins]: return
@@ -208,6 +212,10 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._css_provider = Gtk.CssProvider()
         self._css_provider.load_from_data(bytes(css.encode()))
         style.add_provider_for_screen(screen, self._css_provider, priority)
+
+    def _on_button_press_event(self, *args, **kwargs):
+        self._input_entry.set_text(":")
+        self._input_entry.set_position(-1)
 
     def _on_icon_theme_changed(self, icon_theme):
         self.debug("Icon theme changed")
