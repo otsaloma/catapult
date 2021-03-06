@@ -108,7 +108,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         window_width, window_height = self.get_size()
         screen_width, screen_height = catapult.util.get_screen_size()
         x = int(0.50 * (screen_width - window_width))
-        y = int(0.25 * (screen_height - window_height))
+        y = int(0.25 * screen_height)
         self._position = (x, y)
         self.move(x, y)
 
