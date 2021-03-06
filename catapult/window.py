@@ -277,6 +277,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         def on_response(dialog, response):
             dialog.load(self)
             catapult.conf.write()
+            self.update()
             dialog.destroy()
         dialog = catapult.PreferencesDialog(self)
         dialog.connect("response", on_response)
