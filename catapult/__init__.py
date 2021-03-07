@@ -26,11 +26,11 @@ gi.require_version("Gtk", "3.0")
 gi.require_version("Keybinder", "3.0")
 gi.require_version("Pango", "1.0")
 
+from gi.repository import GLib
 from pathlib import Path
-from xdg import BaseDirectory
 
-CONFIG_HOME = Path(BaseDirectory.xdg_config_home) / "catapult"
-DATA_HOME = Path(BaseDirectory.xdg_data_home) / "catapult"
+CONFIG_HOME = Path(GLib.get_user_config_dir()) / "catapult"
+DATA_HOME = Path(GLib.get_user_data_dir()) / "catapult"
 
 # Defaults to the source directory, overwritten when installing.
 DATA_DIR = Path(__file__).parent.parent.joinpath("data").resolve()
