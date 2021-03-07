@@ -24,12 +24,9 @@ class TestFilesPlugin(catapult.test.TestCase):
     def setup_method(self, method):
         self.plugin = catapult.plugins.files.FilesPlugin()
 
-    def teardown_method(self, method):
-        # Wait for threads to terminate.
-        time.sleep(1)
-
     def test_on_window_show(self):
         self.plugin.on_window_show()
+        time.sleep(1)
 
     def test_search(self):
         list(self.plugin.search("t"))
