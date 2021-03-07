@@ -32,7 +32,7 @@ Catapult requires the following.
 | Python       | ≥ 3.6   |
 | PyGObject    |         |
 | GLib         |         |
-| Gtk          | ≥ 3.18  |
+| GTK          | ≥ 3.18  |
 | Keybinder    |         |
 | Pango        |         |
 | libqalculate |         |
