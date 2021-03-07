@@ -16,3 +16,38 @@ code have been adapted from [Ulauncher][], likewise GPL. These are
 indicated file-wise in the license headers of individual files.
 
 [Ulauncher]: https://github.com/Ulauncher/Ulauncher
+
+## Installing
+
+### Flatpak
+
+Coming soon!
+
+### Source
+
+Catapult requires the following.
+
+| Dependency   | Version |
+| :----------- | :------ |
+| Python       | ≥ 3.6   |
+| PyGObject    |         |
+| GLib         |         |
+| Gtk          | ≥ 3.18  |
+| Keybinder    |         |
+| Pango        |         |
+| libqalculate |         |
+
+On Debian/Ubuntu you can install these with the following command.
+
+    sudo apt install gir1.2-glib-2.0 \
+                     gir1.2-gtk-3.0 \
+                     gir1.2-keybinder-3.0 \
+                     gir1.2-pango-1.0 \
+                     python3 \
+                     python3-dev \
+                     python3-gi \
+                     qalc
+
+Then, to install Catapult, run command
+
+    TODO
