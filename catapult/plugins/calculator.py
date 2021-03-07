@@ -52,6 +52,7 @@ class CalculatorPlugin(catapult.Plugin):
         command = COMMAND.format(query.replace("'", r"\'"))
         process = subprocess.run(command, shell=True, capture_output=True)
         output = process.stdout.decode("utf-8")
+        if not output: return
         self.debug(f"Got {output!r} for {query!r}")
         output = output.splitlines()[0].strip()
         if output.startswith("error:"): return
