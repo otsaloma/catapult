@@ -18,11 +18,12 @@
 import catapult
 import copy
 import json
+import os
 
 DEFAULTS = {
     "apps_scan_interval": 900, # s
     "files_exclude": ["lost+found"],
-    "files_include": ["~/*"],
+    "files_include": [os.path.expanduser("~/*")],
     "files_scan_interval": 900, # s
     "max_results": 24,
     "max_results_visible": 8,
