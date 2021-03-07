@@ -17,13 +17,13 @@
 
 import catapult
 import functools
-import importlib
 import inspect
 import os
 import re
 
 from gi.repository import Gdk
 from gi.repository import Gtk
+from importlib.machinery import SourceFileLoader
 from pathlib import Path
 
 
@@ -71,25 +71,25 @@ def list_plugins():
     for data_directory in catapult.DATA_DIRS:
         directory = data_directory / "plugins"
         if not directory.exists(): continue
-        for fname in directory.glob("*.py"):
-            if fname.stem in found: continue
-            yield fname.stem, fname.resolve()
-            found.add(fname.stem)
+        for path in directory.glob("*.py"):
+            if path.stem in found: continue
+            yield path.stem, path.resolve()
+            found.add(path.stem)
 
 def list_themes():
     found = set()
     for data_directory in catapult.DATA_DIRS:
         directory = data_directory / "themes"
         if not directory.exists(): continue
-        for fname in directory.glob("*.css"):
-            if fname.stem in found: continue
-            yield fname.stem, fname.resolve()
-            found.add(fname.stem)
+        for path in directory.glob("*.css"):
+            if path.stem in found: continue
+            yield path.stem, path.resolve()
+            found.add(path.stem)
 
 def load_plugin(name):
     module = find_plugin(name)
     if not inspect.ismodule(module):
-        loader = importlib.machinery.SourceFileLoader(name, module)
+        loader = SourceFileLoader(name, module)
         module = loader.load_module(name)
     for name, cls in inspect.getmembers(
             module, lambda x: (
