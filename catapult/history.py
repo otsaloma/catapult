@@ -83,7 +83,7 @@ class History(catapult.DebugMixin):
 
     def read(self):
         if not self.path.exists(): return
-        with open(self.path, "r", encoding="utf_8") as f:
+        with open(self.path, "r", encoding="utf-8") as f:
             self._items = json.load(f)
         self.debug(f"Read {self.count} items")
         self._saved_count = self.count
@@ -93,7 +93,7 @@ class History(catapult.DebugMixin):
         self.prune()
         self.path.parent.mkdir(parents=True, exist_ok=True)
         blob = json.dumps(self._items, ensure_ascii=False, indent=2, sort_keys=True)
-        with open(self.path, "w", encoding="utf_8") as f:
+        with open(self.path, "w", encoding="utf-8") as f:
             f.write(blob + "\n")
         self.debug(f"Wrote {self.count} items")
         self._saved_count = self.count
