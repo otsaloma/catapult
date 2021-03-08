@@ -27,8 +27,7 @@ class History(catapult.DebugMixin):
 
     def __init__(self):
         self._items = {}
-        self._saved_count = 0
-        self._saved_time = -1
+        self._time_saved = -1
 
     def add(self, query, result):
         self.debug(f"Adding {query!r} → {result.plugin.name}: {result.id}")
@@ -46,7 +45,7 @@ class History(catapult.DebugMixin):
 
     @property
     def count(self):
-        return sum(1 for x in self.items())
+        return len(list(self.items()))
 
     def get_score_factor(self, query, result):
         item = self._items
@@ -73,7 +72,10 @@ class History(catapult.DebugMixin):
                     times = self._items[query][plugin][id]
                     times = sorted(x for x in times if x > threshold)[-5:]
                     self._items[query][plugin][id] = times
-                    # Remove resulting empty branches.
+        # Remove resulting empty branches.
+        for query in list(self._items):
+            for plugin in list(self._items[query]):
+                for id in list(self._items[query][plugin]):
                     if not self._items[query][plugin][id]:
                         del self._items[query][plugin][id]
                 if not self._items[query][plugin]:
@@ -86,8 +88,7 @@ class History(catapult.DebugMixin):
         with open(self.path, "r", encoding="utf-8") as f:
             self._items = json.load(f)
         self.debug(f"Read {self.count} items")
-        self._saved_count = self.count
-        self._saved_time = time.time()
+        self._time_saved = time.time()
 
     def write(self):
         self.prune()
@@ -96,11 +97,10 @@ class History(catapult.DebugMixin):
         with open(self.path, "w", encoding="utf-8") as f:
             f.write(blob + "\n")
         self.debug(f"Wrote {self.count} items")
-        self._saved_count = self.count
-        self._saved_time = time.time()
+        self._time_saved = time.time()
 
     def write_maybe(self):
         # Allow writing history at semi-regular intervals.
-        if (time.time() - self._saved_time > 3600 or
-            self.count - self._saved_count > 100):
-            self.write()
+        elapsed = time.time() - self._time_saved
+        if elapsed < 3600: return
+        self.write()
