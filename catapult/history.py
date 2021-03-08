@@ -45,7 +45,7 @@ class History(catapult.DebugMixin):
 
     @property
     def count(self):
-        return len(list(self.items()))
+        return sum(1 for x in self.items())
 
     def get_score_factor(self, query, result):
         item = self._items
