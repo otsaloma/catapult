@@ -24,16 +24,17 @@ from gi.repository import GObject
 from gi.repository import Gtk
 
 
-class TextEditDialog(Gtk.Dialog):
+class PatternEditDialog(Gtk.Dialog):
 
     def __init__(self, parent, text=""):
         GObject.GObject.__init__(self, use_header_bar=True)
         self.add_button(_("_Cancel"), Gtk.ResponseType.CANCEL)
         self.add_button(_("_OK"), Gtk.ResponseType.OK)
         self.set_default_response(Gtk.ResponseType.OK)
-        self.set_modal(True)
-        self.set_title(_("Edit"))
         self.set_transient_for(parent)
+        header = self.get_header_bar()
+        header.set_title(_("Edit File Patterns"))
+        header.set_subtitle(_("Use shell-style wildcards * and **"))
         self.text_view = Gtk.TextView()
         self.text_view.set_accepts_tab(False)
         self.text_view.set_bottom_margin(6)
@@ -101,41 +102,6 @@ class Theme(PreferencesItem):
         if not theme in self.themes: return
         catapult.conf.theme = theme
         window.load_css()
-
-
-class MaxResults(PreferencesItem):
-
-    def __init__(self):
-        self.label = Gtk.Label(_("Maximum results"))
-        self.widget = Gtk.SpinButton()
-        self.widget.set_increments(1, 5)
-        self.widget.set_range(1, 100)
-
-    def dump(self):
-        value = catapult.conf.max_results
-        self.widget.set_value(value)
-
-    def load(self, window):
-        value = self.widget.get_value_as_int()
-        catapult.conf.max_results = value
-
-
-class MaxResultsVisible(PreferencesItem):
-
-    def __init__(self):
-        self.label = Gtk.Label(_("Maximum results visible"))
-        self.widget = Gtk.SpinButton()
-        self.widget.set_increments(1, 5)
-        self.widget.set_range(1, 100)
-
-    def dump(self):
-        value = catapult.conf.max_results_visible
-        self.widget.set_value(value)
-
-    def load(self, window):
-        value = self.widget.get_value_as_int()
-        catapult.conf.max_results_visible = value
-        window.reset_list_height()
 
 
 class ToggleKey(PreferencesItem):
@@ -260,7 +226,7 @@ class FilesInclude(PreferencesItem):
     def _on_clicked(self, *args, **kwargs):
         text = "\n".join(catapult.conf.files_include)
         parent = self.widget.get_ancestor(Gtk.Window)
-        dialog = TextEditDialog(parent, text)
+        dialog = PatternEditDialog(parent, text)
         dialog.connect("response", self._on_response)
         dialog.run()
 
@@ -283,7 +249,7 @@ class FilesExclude(PreferencesItem):
     def _on_clicked(self, *args, **kwargs):
         text = "\n".join(catapult.conf.files_exclude)
         parent = self.widget.get_ancestor(Gtk.Window)
-        dialog = TextEditDialog(parent, text)
+        dialog = PatternEditDialog(parent, text)
         dialog.connect("response", self._on_response)
         dialog.run()
 
@@ -335,8 +301,6 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
 
     ITEMS = [
         Theme,
-        # MaxResults,
-        # MaxResultsVisible,
         ToggleKey,
         Apps,
         AppsScanInterval,
@@ -353,6 +317,7 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
         self.items = []
         self.set_border_width(18)
         self.set_title(_("Preferences"))
+        self.set_transient_for(parent)
         grid = Gtk.Grid()
         grid.set_column_spacing(18)
         grid.set_row_spacing(12)
