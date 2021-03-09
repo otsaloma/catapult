@@ -17,6 +17,8 @@
 
 import catapult
 
+from threading import Thread
+
 
 class Plugin(catapult.DebugMixin):
 
@@ -43,3 +45,6 @@ class Plugin(catapult.DebugMixin):
 
     def update(self):
         pass
+
+    def update_async(self):
+        Thread(target=self.update, daemon=True).start()

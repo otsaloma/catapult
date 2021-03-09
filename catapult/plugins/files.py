@@ -16,15 +16,16 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult
+import contextlib
 import fnmatch
 import glob
+import itertools
 import os
 import time
 
 from dataclasses import dataclass
 from gi.repository import Gio
 from pathlib import Path
-from threading import Thread
 
 
 @dataclass
@@ -47,7 +48,7 @@ class FilesPlugin(catapult.Plugin):
         super().__init__()
         self._index = []
         self._time_updated = -1
-        self._update_index_async()
+        self.update_async()
         self.debug("Initialization complete")
 
     def _get_file(self, location):
@@ -68,8 +69,25 @@ class FilesPlugin(catapult.Plugin):
         self.debug(f"Launching {id}")
         app.launch_uris(uris=[id], context=None)
 
+    def _list_files(self):
+        for pattern in catapult.conf.files_include:
+            pattern = os.path.expanduser(pattern)
+            for path in glob.iglob(pattern, recursive=True):
+                path = path.rstrip(os.sep)
+                if self._should_exclude(path): continue
+                self.debug(f"Indexing {path}")
+                yield self._get_file(path)
+
+    def _list_special(self):
+        for uri in ["computer:///", "recent:///", "trash:///"]:
+            with contextlib.suppress(Exception):
+                self.debug(f"Indexing {uri}")
+                yield self._get_file(uri)
+
     def on_window_show(self):
-        self._update_index_async_maybe()
+        elapsed = time.time() - self._time_updated
+        if elapsed < catapult.conf.files_scan_interval: return
+        self.update_async()
 
     def search(self, query):
         query = query.lower().strip()
@@ -97,31 +115,6 @@ class FilesPlugin(catapult.Plugin):
                    for x in catapult.conf.files_exclude)
 
     def update(self):
-        self._update_index_async()
-
-    def _update_index(self):
-        index = []
-        for pattern in catapult.conf.files_include:
-            pattern = os.path.expanduser(pattern)
-            for path in glob.iglob(pattern, recursive=True):
-                path = path.rstrip(os.sep)
-                if self._should_exclude(path): continue
-                self.debug(f"Indexing {path}")
-                index.append(self._get_file(path))
-        for uri in ["computer:///", "recent:///", "trash:///"]:
-            try:
-                self.debug(f"Indexing {uri}")
-                index.append(self._get_file(uri))
-            except Exception as error:
-                self.debug(f"Failed to index {uri}: {str(error)}")
-        self.debug(f"{len(index)} item in index")
         self._time_updated = time.time()
-        self._index = index
-
-    def _update_index_async(self):
-        Thread(target=self._update_index, daemon=True).start()
-
-    def _update_index_async_maybe(self):
-        elapsed = time.time() - self._time_updated
-        if elapsed > catapult.conf.files_scan_interval:
-            self._update_index_async()
+        self._index = list(itertools.chain(self._list_files(), self._list_special()))
+        self.debug(f"{len(self._index)} items in index")

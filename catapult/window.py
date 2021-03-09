@@ -358,4 +358,4 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
 
     def update(self):
         for plugin in self._plugins:
-            plugin.update()
+            plugin.update_async()

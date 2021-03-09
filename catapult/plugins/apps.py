@@ -20,7 +20,6 @@ import re
 import time
 
 from gi.repository import Gio
-from threading import Thread
 
 
 class AppsPlugin(catapult.Plugin):
@@ -29,7 +28,7 @@ class AppsPlugin(catapult.Plugin):
         super().__init__()
         self._index = {}
         self._time_updated = -1
-        self._update_index_async()
+        self.update_async()
         monitor = Gio.AppInfoMonitor.get()
         monitor.connect("changed", self._on_app_info_monitor_changed)
         self.debug("Initialization complete")
@@ -53,11 +52,20 @@ class AppsPlugin(catapult.Plugin):
         self.debug(f"Launching {id}")
         app.launch_uris(uris=None, context=None)
 
+    def _list_apps(self):
+        key = lambda x: x.get_filename().lower()
+        for app in sorted(Gio.AppInfo.get_all(), key=key):
+            if not app.should_show(): continue
+            self.debug(f"Indexing {app.get_filename()}")
+            yield app.get_id(), app
+
     def _on_app_info_monitor_changed(self, *args, **kwargs):
         self._time_updated = -1
 
     def on_window_show(self):
-        self._update_index_async_maybe()
+        elapsed = time.time() - self._time_updated
+        if elapsed < catapult.conf.apps_scan_interval: return
+        self.update_async()
 
     def search(self, query):
         query = query.lower().strip()
@@ -79,23 +87,6 @@ class AppsPlugin(catapult.Plugin):
                 )
 
     def update(self):
-        self._update_index_async()
-
-    def _update_index(self):
-        index = {}
-        sort_key = lambda x: x.get_filename().lower()
-        for app in sorted(Gio.AppInfo.get_all(), key=sort_key):
-            if not app.should_show(): continue
-            self.debug(f"Indexing {app.get_filename()}")
-            index[app.get_id()] = app
-        self.debug(f"{len(index)} item in index")
         self._time_updated = time.time()
-        self._index = index
-
-    def _update_index_async(self):
-        Thread(target=self._update_index, daemon=True).start()
-
-    def _update_index_async_maybe(self):
-        elapsed = time.time() - self._time_updated
-        if elapsed > catapult.conf.apps_scan_interval:
-            self._update_index_async()
+        self._index = dict(self._list_apps())
+        self.debug(f"{len(self._index)} items in index")
