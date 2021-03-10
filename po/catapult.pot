@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-10 22:41+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: catapult/about.py:31 data/io.otsaloma.catapult.appdata.xml.in:7
+msgid "App launcher"
+msgstr ""
+
+#: catapult/about.py:37 catapult/plugins/builtins.py:46
+msgid "About Catapult"
+msgstr ""
+
+#. TRANSLATORS: This is a special message that shouldn't be translated
+#. literally. It is used in the about dialog to give credits to the
+#. translators. Thus, you should translate it to your name and email
+#. address. You can also include other translators who have contributed
+#. to this translation; in that case, please write them on separate
+#. lines seperated by newlines (\n).
+#: catapult/about.py:49
+msgid "translator-credits"
+msgstr ""
+
+#: catapult/app.py:39
+msgid "Catapult ready, use {} to engage"
+msgstr ""
+
+#: catapult/app.py:43
+msgid "catapult [OPTION...]"
+msgstr ""
+
+#: catapult/app.py:48
+msgid "print details of indexing and search results"
+msgstr ""
+
+#: catapult/preferences.py:31
+msgid "_Cancel"
+msgstr ""
+
+#: catapult/preferences.py:32
+msgid "_OK"
+msgstr ""
+
+#: catapult/preferences.py:36
+msgid "Edit File Patterns"
+msgstr ""
+
+#: catapult/preferences.py:37
+msgid "Use shell-style wildcards * and **"
+msgstr ""
+
+#: catapult/preferences.py:88
+msgid "Theme"
+msgstr ""
+
+#: catapult/preferences.py:110
+msgid "Activation key"
+msgstr ""
+
+#: catapult/preferences.py:155
+msgid "Apps plugin"
+msgstr ""
+
+#: catapult/preferences.py:170
+msgid "Apps scan interval"
+msgstr ""
+
+#: catapult/preferences.py:174 catapult/preferences.py:271
+msgid "minutes"
+msgstr ""
+
+#: catapult/preferences.py:191
+msgid "Session plugin"
+msgstr ""
+
+#: catapult/preferences.py:206
+msgid "Files plugin"
+msgstr ""
+
+#: catapult/preferences.py:221
+msgid "Files include patterns"
+msgstr ""
+
+#: catapult/preferences.py:223 catapult/preferences.py:246
+msgid "Edit"
+msgstr ""
+
+#: catapult/preferences.py:244
+msgid "Files exclude patterns"
+msgstr ""
+
+#: catapult/preferences.py:267
+msgid "Files scan interval"
+msgstr ""
+
+#: catapult/preferences.py:288
+msgid "Calculator plugin"
+msgstr ""
+
+#: catapult/preferences.py:319
+msgid "Preferences"
+msgstr ""
+
+#: catapult/plugins/builtins.py:58
+msgid "Catapult preferences"
+msgstr ""
+
+#: catapult/plugins/builtins.py:70
+msgid "Quit Catapult"
+msgstr ""
+
+#: catapult/plugins/builtins.py:82
+msgid "Update search index"
+msgstr ""
+
+#: catapult/plugins/session.py:25
+msgid "Lock Screen"
+msgstr ""
+
+#: catapult/plugins/session.py:29
+msgid "Log Out"
+msgstr ""
+
+#: catapult/plugins/session.py:29
+msgid "Log Off"
+msgstr ""
+
+#: catapult/plugins/session.py:33
+msgid "Power Off"
+msgstr ""
+
+#: catapult/plugins/session.py:33
+msgid "Shutdown"
+msgstr ""
+
+#: catapult/plugins/session.py:37
+msgid "Reboot"
+msgstr ""
+
+#: catapult/plugins/session.py:37
+msgid "Restart"
+msgstr ""
+
+#: data/io.otsaloma.catapult.appdata.xml.in:6
+#: data/io.otsaloma.catapult.desktop.in:4
+msgid "Catapult"
+msgstr ""
+
+#: data/io.otsaloma.catapult.appdata.xml.in:9
+msgid ""
+"Catapult is a launcher that ships with basic plugins to launch apps, open "
+"files/folders and a calculator. The user interface is based on GTK, but "
+"heavily themed, so it should fit any desktop environment. Custom plugins and "
+"themes can be loaded dynamically."
+msgstr ""
+
+#: data/io.otsaloma.catapult.appdata.xml.in:30
+msgid "Main window"
+msgstr ""
+
+#: data/io.otsaloma.catapult.desktop.in:5
+msgid "Launch apps and open files"
+msgstr ""
+
+#. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/io.otsaloma.catapult.desktop.in:10
+msgid "launcher;"
+msgstr ""

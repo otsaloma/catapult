@@ -15,5 +15,32 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
+import catapult
+import contextlib
+import gettext
+import locale
+
+translation = gettext.NullTranslations()
+
+
+def bind(localedir=catapult.LOCALE_DIR):
+    global translation
+    with contextlib.suppress(Exception):
+        # Set locale to the user's default setting.
+        # Might fail on misconfigured systems.
+        locale.setlocale(locale.LC_ALL, "")
+    # Make translations available to the gettext module.
+    gettext.bindtextdomain("catapult", localedir)
+    gettext.textdomain("catapult")
+    with contextlib.suppress(Exception):
+        # Make translations available to GTK as well.
+        # Not available on all platforms.
+        locale.bindtextdomain("catapult", localedir)
+        locale.textdomain("catapult")
+    translation = gettext.translation("catapult", localedir, fallback=True)
+
 def _(message):
-    return message
+    return translation.gettext(message)
+
+def n_(singular, plural, n):
+    return translation.ngettext(singular, plural, n)

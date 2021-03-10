@@ -32,8 +32,9 @@ from pathlib import Path
 CONFIG_HOME = Path(GLib.get_user_config_dir()) / "catapult"
 DATA_HOME = Path(GLib.get_user_data_dir()) / "catapult"
 
-# Defaults to the source directory, overwritten when installing.
+# Default to the source directory, overwritten when installing.
 DATA_DIR = Path(__file__).parent.parent.joinpath("data").resolve()
+LOCALE_DIR = Path(__file__).parent.parent.joinpath("locale").resolve()
 
 # In order of priority for loading plugins and themes.
 DATA_DIRS = [DATA_DIR, DATA_HOME, Path("/usr/local/share/catapult")]
@@ -59,5 +60,6 @@ from catapult.app import Application # noqa
 def main(args):
     global app
     conf.read()
+    i18n.bind()
     app = Application(args)
     raise SystemExit(app.run())
