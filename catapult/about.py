@@ -37,8 +37,8 @@ class AboutDialog(Gtk.AboutDialog):
         self.set_title(_("About Catapult"))
         self.set_transient_for(parent)
         self.set_version(catapult.__version__)
-        self.set_website("https://otsaloma.io/catapult/")
-        self.set_website_label("https://otsaloma.io/catapult/")
+        self.set_website("https://otsaloma.io/catapult")
+        self.set_website_label("https://otsaloma.io/catapult")
 
         # TRANSLATORS: This is a special message that shouldn't be translated
         # literally. It is used in the about dialog to give credits to the
