@@ -148,10 +148,10 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._result_list.set_can_focus(False)
         self._result_list.get_style_context().add_class("catapult-search-result-list")
         for i in range(catapult.conf.max_results):
-            result = SearchResultRow()
-            result.set_can_focus(False)
-            self._result_list.add(result)
-            self._result_rows.append(result)
+            row = SearchResultRow()
+            row.set_can_focus(False)
+            self._result_list.add(row)
+            self._result_rows.append(row)
         self._result_scroller.add(self._result_list)
         self._body.pack_start(self._result_scroller, expand=True, fill=True, padding=0)
         self._result_scroller.hide()
@@ -251,15 +251,15 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         if event.keyval == Gdk.KEY_Down:
             self.select_next_result()
             return True
-        if event.keyval == Gdk.KEY_Escape:
-            self.hide()
-            return True
         if event.keyval in [Gdk.KEY_Return, Gdk.KEY_KP_Enter]:
             self.launch_selected()
             return True
         if event.keyval == Gdk.KEY_F1:
             self._input_entry.set_text(":")
             self._input_entry.set_position(-1)
+            return True
+        if event.keyval == Gdk.KEY_Escape:
+            self.hide()
             return True
 
     def _on_notify_has_toplevel_focus(self, *args, **kwargs):

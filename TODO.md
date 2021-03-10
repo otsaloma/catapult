@@ -2,7 +2,7 @@ TODO
 ====
 
 * i18n
+* CONTRIBUTING.md
 * AppData file
-* Man page
-* setup.py
+* Makefile/setup.py
 * Flatpak
