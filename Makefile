@@ -5,6 +5,9 @@ PREFIX    = /usr/local
 DATADIR   = $(DESTDIR)$(PREFIX)/share
 LOCALEDIR = $(DESTDIR)$(PREFIX)/share/locale
 
+# EDITOR must wait!
+EDITOR = nano
+
 check:
 	flake8 .
 	flake8 bin/*
@@ -46,6 +49,22 @@ install:
 	--template data/io.otsaloma.catapult.appdata.xml.in \
 	-o $(DATADIR)/metainfo/io.otsaloma.catapult.appdata.xml
 
+# Interactive!
+release:
+	$(MAKE) check test clean
+	@echo "BUMP VERSION NUMBER"
+	$(EDITOR) catapult/__init__.py
+	@echo "ADD RELEASE NOTES"
+	$(EDITOR) TODO.md
+	$(EDITOR) NEWS.md
+	$(EDITOR) data/io.otsaloma.catapult.appdata.xml.in
+	killall catapult
+	sudo $(MAKE) PREFIX=/usr/local install clean
+	/usr/local/bin/catapult --debug
+	tools/release
+	@echo "REMEMBER TO UPDATE FLATPAK"
+	@echo "REMEMBER TO UPDATE WEBSITE"
+
 test:
 	py.test -xs .
 
@@ -53,4 +72,4 @@ test:
 translations:
 	tools/update-translations
 
-.PHONY: check clean install test translations
+.PHONY: check clean install release test translations
