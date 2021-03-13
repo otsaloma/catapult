@@ -56,6 +56,7 @@ class AppsPlugin(catapult.Plugin):
         key = lambda x: x.get_filename().lower()
         for app in sorted(Gio.AppInfo.get_all(), key=key):
             if not app.should_show(): continue
+            if app.get_id() == "io.otsaloma.catapult.desktop": continue
             self.debug(f"Indexing {app.get_filename()}")
             yield app.get_id(), app
 
