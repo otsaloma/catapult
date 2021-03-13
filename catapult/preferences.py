@@ -297,6 +297,22 @@ class Calculator(PreferencesItem):
         self.set_plugin_active(window, "calculator", active)
 
 
+class CustomPlugin(PreferencesItem):
+
+    def __init__(self, plugin):
+        self.label = Gtk.Label(_("{} plugin").format(plugin.title()))
+        self.plugin = plugin
+        self.widget = Gtk.Switch()
+
+    def dump(self):
+        active = self.plugin in catapult.conf.plugins
+        self.widget.set_active(active)
+
+    def load(self, window):
+        active = self.widget.get_active()
+        self.set_plugin_active(window, self.plugin, active)
+
+
 class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
 
     ITEMS = [
@@ -321,8 +337,13 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
         grid = Gtk.Grid()
         grid.set_column_spacing(18)
         grid.set_row_spacing(12)
-        for i, item in enumerate(self.ITEMS):
-            item = item()
+        items = [x() for x in self.ITEMS]
+        # Add switches for all custom plugins found.
+        # TODO: We'll probably eventually want to put these on
+        # a separate page of a Gtk.StackSwitcher or something.
+        for name, module in catapult.util.list_custom_plugins():
+            items.append(CustomPlugin(name))
+        for i, item in enumerate(items):
             item.dump()
             item.label.set_xalign(1)
             item.label.get_style_context().add_class("dim-label")

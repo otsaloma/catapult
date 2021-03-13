@@ -44,6 +44,9 @@ class TestUtil(catapult.test.TestCase):
         assert catapult.util.is_uri("file:///home/osmo/.bashrc")
         assert not catapult.util.is_uri("/home/osmo/.bashrc")
 
+    def test_list_custom_plugins(self):
+        catapult.util.list_custom_plugins()
+
     def test_list_plugins(self):
         plugins = list(catapult.util.list_plugins())
         assert "apps" in [x[0] for x in plugins]

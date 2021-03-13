@@ -61,6 +61,11 @@ def iterate_main():
     while Gtk.events_pending():
         Gtk.main_iteration()
 
+def list_custom_plugins():
+    for name, module in list_plugins():
+        if not inspect.ismodule(module):
+            yield name, module
+
 def list_plugins():
     found = set()
     for name, module in inspect.getmembers(
@@ -89,7 +94,7 @@ def list_themes():
 def load_plugin(name):
     module = find_plugin(name)
     if not inspect.ismodule(module):
-        loader = SourceFileLoader(name, module)
+        loader = SourceFileLoader(name, str(module))
         module = loader.load_module(name)
     for name, cls in inspect.getmembers(
             module, lambda x: (
