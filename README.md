@@ -46,3 +46,8 @@ On Debian/Ubuntu you can install these with the following command.
 Then, to install Catapult, run command
 
     sudo make PREFIX=/usr/local install
+
+## Documentation
+
+* [Writing Plugins](https://github.com/otsaloma/catapult/blob/master/doc/plugins.md)
+* [Writing Themes](https://github.com/otsaloma/catapult/blob/master/doc/themes.md)
