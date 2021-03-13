@@ -28,6 +28,12 @@ class BuiltinsPlugin(catapult.Plugin):
             return window.open_about_dialog()
         if id == ":preferences":
             return window.open_preferences_dialog()
+        if id == ":reload-plugins":
+            for plugin in catapult.conf.plugins:
+                window.deactivate_plugin(plugin)
+                window.activate_plugin(plugin)
+        if id == ":reload-theme":
+            return window.load_css()
         if id == ":quit":
             return window.quit()
         if id == ":update":
@@ -63,6 +69,30 @@ class BuiltinsPlugin(catapult.Plugin):
                 plugin=self,
                 score=1,
                 title=":preferences",
+            )
+        if ":reload-plugins".startswith(query):
+            self.debug(f"Found :reload-plugins for {query!r}")
+            yield catapult.SearchResult(
+                description=_("Reload plugins"),
+                fuzzy=False,
+                icon=icon,
+                id=":reload-plugins",
+                offset=0,
+                plugin=self,
+                score=1,
+                title=":reload-plugins",
+            )
+        if ":reload-theme".startswith(query):
+            self.debug(f"Found :reload-theme for {query!r}")
+            yield catapult.SearchResult(
+                description=_("Reload theme"),
+                fuzzy=False,
+                icon=icon,
+                id=":reload-theme",
+                offset=0,
+                plugin=self,
+                score=1,
+                title=":reload-theme",
             )
         if ":quit".startswith(query):
             self.debug(f"Found :quit for {query!r}")
