@@ -49,4 +49,8 @@ install:
 test:
 	py.test -xs .
 
-.PHONY: check clean install test
+# Interactive!
+translations:
+	tools/update-translations
+
+.PHONY: check clean install test translations

@@ -1,47 +1,17 @@
-#!/bin/sh
-
+#!/bin/bash
+set -e
 cd "$(dirname "$0")/.." || exit 1
-truncate -s0 po/catapult.pot
-
-# Python code
-xgettext \
-    --output=po/catapult.pot \
-    --join-existing \
-    --from-code=UTF-8 \
-    --language=Python \
-    --keyword=_:1 \
-    --keyword=n_:1,2 \
-    --add-comments=TRANSLATORS: \
-    catapult/*.py \
-    catapult/*/*.py
-
-# AppData XML file
-xgettext \
-    --output=po/catapult.pot \
-    --join-existing \
-    --from-code=UTF-8 \
-    data/io.otsaloma.catapult.appdata.xml.in
-
-# Desktop file
-xgettext \
-    --output=po/catapult.pot \
-    --join-existing \
-    --from-code=UTF-8 \
-    --language=Desktop \
-    --keyword= \
-    --keyword=Comment \
-    --keyword=Keywords \
-    --add-comments=TRANSLATORS: \
-    data/io.otsaloma.catapult.desktop.in
-
-# XXX: Fix charset=CHARSET which causes msggrep to fail.
-sed -i s/charset=CHARSET/charset=UTF-8/ po/catapult.pot
-
-# Remove AppData entries that shouldn't be translated.
-msggrep \
-    --invert-match \
-    --msgid \
-    --regexp="^Catapult$" \
-    --regexp="^Osmo Salomaa$" \
-    --output-file=po/tmp.pot \
-    po/catapult.pot && mv -f po/tmp.pot po/catapult.pot
+tools/extract-translations
+tx push -s
+tx pull -a --minimum-perc=50
+emacs1 po/fi.po
+tx push -tf --no-interactive -l fi
+for PO in po/*.po; do
+    LANG=$(basename $PO .po)
+    tools/check-translations $LANG
+    read -p "Keep? [Y/n] "
+    [ "$REPLY" = "n" ] && rm -fv $PO
+done
+rm -f po/LINGUAS
+ls po/*.po | cut -d/ -f2 | cut -d. -f1 > po/LINGUAS
+git status
