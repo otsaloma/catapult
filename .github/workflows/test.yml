@@ -28,6 +28,6 @@ jobs:
         run: xvfb-run py.test-3 .
       - name: Install
         run: |
-          make PREFIX=/usr/local install
-          make DESTDIR=pkg PREFIX=/usr install
-          make clean
+          sudo make PREFIX=/usr/local install
+          sudo make DESTDIR=pkg PREFIX=/usr install
+          sudo make clean
