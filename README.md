@@ -19,12 +19,6 @@ indicated file-wise in the license headers of individual files.
 
 ## Installing
 
-### Flatpak
-
-Coming soon!
-
-### Source
-
 Catapult requires the following.
 
 | Dependency   | Version |
