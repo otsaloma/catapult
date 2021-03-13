@@ -29,7 +29,6 @@ xgettext \
     --from-code=UTF-8 \
     --language=Desktop \
     --keyword= \
-    --keyword=Name \
     --keyword=Comment \
     --keyword=Keywords \
     --add-comments=TRANSLATORS: \
@@ -42,6 +41,7 @@ sed -i s/charset=CHARSET/charset=UTF-8/ po/catapult.pot
 msggrep \
     --invert-match \
     --msgid \
+    --regexp="^Catapult$" \
     --regexp="^Osmo Salomaa$" \
     --output-file=po/tmp.pot \
     po/catapult.pot && mv -f po/tmp.pot po/catapult.pot

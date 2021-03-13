@@ -39,7 +39,8 @@ Catapult requires the following.
 
 On Debian/Ubuntu you can install these with the following command.
 
-    sudo apt install gir1.2-glib-2.0 \
+    sudo apt install gettext \
+                     gir1.2-glib-2.0 \
                      gir1.2-gtk-3.0 \
                      gir1.2-keybinder-3.0 \
                      gir1.2-pango-1.0 \
@@ -50,4 +51,4 @@ On Debian/Ubuntu you can install these with the following command.
 
 Then, to install Catapult, run command
 
-    TODO
+    sudo make PREFIX=/usr/local install

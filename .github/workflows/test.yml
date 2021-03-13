@@ -11,6 +11,7 @@ jobs:
         run: >
           sudo apt-get install -y
           flake8
+          gettext
           gir1.2-glib-2.0
           gir1.2-gtk-3.0
           gir1.2-keybinder-3.0
@@ -25,3 +26,8 @@ jobs:
         run: make check
       - name: Run unit tests
         run: xvfb-run py.test-3 .
+      - name: Install
+        run: |
+          make PREFIX=/usr/local install
+          make DESTDIR=pkg PREFIX=/usr install
+          make clean

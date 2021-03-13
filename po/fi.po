@@ -1,29 +1,29 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Finnish translations for PACKAGE package.
+# Copyright (C) 2021 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Osmo Salomaa <otsaloma@iki.fi>, 2021.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-13 02:30+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2021-03-13 02:36+0200\n"
+"Last-Translator: Osmo Salomaa <otsaloma@iki.fi>\n"
+"Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: catapult/about.py:31 data/io.otsaloma.catapult.appdata.xml.in:7
 msgid "App launcher"
-msgstr ""
+msgstr "Sovelluskäynnistin"
 
 #: catapult/about.py:37 catapult/plugins/builtins.py:46
 msgid "About Catapult"
-msgstr ""
+msgstr "Tietoja Catapultista"
 
 #. TRANSLATORS: This is a special message that shouldn't be translated
 #. literally. It is used in the about dialog to give credits to the
@@ -33,143 +33,141 @@ msgstr ""
 #. lines seperated by newlines (\n).
 #: catapult/about.py:49
 msgid "translator-credits"
-msgstr ""
+msgstr "Osmo Salomaa <otsaloma@iki.fi>"
 
 #: catapult/app.py:39
 msgid "Catapult ready, use {} to engage"
-msgstr ""
+msgstr "Catapult valmis, paina {} edetäksesi"
 
 #: catapult/app.py:43
 msgid "catapult [OPTION...]"
-msgstr ""
+msgstr "catapult [VALITSIN...]"
 
 #: catapult/app.py:48
 msgid "print details of indexing and search results"
-msgstr ""
+msgstr "tulosta yksityiskohtia indeksoinnista ja hakutuloksista"
 
 #: catapult/preferences.py:31
 msgid "_Cancel"
-msgstr ""
+msgstr "_Peruuta"
 
 #: catapult/preferences.py:32
 msgid "_OK"
-msgstr ""
+msgstr "_OK"
 
 #: catapult/preferences.py:36
 msgid "Edit File Patterns"
-msgstr ""
+msgstr "Muokkaa tiedostojen hakulausekkeita"
 
 #: catapult/preferences.py:37
 msgid "Use shell-style wildcards * and **"
-msgstr ""
+msgstr "Käytä komentotulkin hakumerkkejä * ja **"
 
 #: catapult/preferences.py:88
 msgid "Theme"
-msgstr ""
+msgstr "Teema"
 
 #: catapult/preferences.py:110
 msgid "Activation key"
-msgstr ""
+msgstr "Aktivointinäppäin"
 
 #: catapult/preferences.py:155
 msgid "Apps plugin"
-msgstr ""
+msgstr "Sovellusplugin"
 
 #: catapult/preferences.py:170
 msgid "Apps scan interval"
-msgstr ""
+msgstr "Sovellusten päivitysväli"
 
 #: catapult/preferences.py:174 catapult/preferences.py:271
 msgid "minutes"
-msgstr ""
+msgstr "minuuttia"
 
 #: catapult/preferences.py:191
 msgid "Session plugin"
-msgstr ""
+msgstr "Sessioplugin"
 
 #: catapult/preferences.py:206
 msgid "Files plugin"
-msgstr ""
+msgstr "Tiedostoplugin"
 
 #: catapult/preferences.py:221
 msgid "Files include patterns"
-msgstr ""
+msgstr "Tiedostojen sisällytyslausekkeet"
 
 #: catapult/preferences.py:223 catapult/preferences.py:246
 msgid "Edit"
-msgstr ""
+msgstr "Muokkaa"
 
 #: catapult/preferences.py:244
 msgid "Files exclude patterns"
-msgstr ""
+msgstr "Tiedostojen ohituslausekkeet"
 
 #: catapult/preferences.py:267
 msgid "Files scan interval"
-msgstr ""
+msgstr "Tiedostojen päivitysväli"
 
 #: catapult/preferences.py:288
 msgid "Calculator plugin"
-msgstr ""
+msgstr "Laskinplugin"
 
 #: catapult/preferences.py:319
 msgid "Preferences"
-msgstr ""
+msgstr "Asetukset"
 
 #: catapult/plugins/builtins.py:58
 msgid "Catapult preferences"
-msgstr ""
+msgstr "Catapultin asetukset"
 
 #: catapult/plugins/builtins.py:70
 msgid "Quit Catapult"
-msgstr ""
+msgstr "Lopeta Catapult"
 
 #: catapult/plugins/builtins.py:82
 msgid "Update search index"
-msgstr ""
+msgstr "Päivitä hakuindeksi"
 
 #: catapult/plugins/session.py:25
 msgid "Lock Screen"
-msgstr ""
+msgstr "Lukitse näyttö"
 
 #: catapult/plugins/session.py:29
 msgid "Log Out"
-msgstr ""
+msgstr "Kirjaudu ulos"
 
 #: catapult/plugins/session.py:29
 msgid "Log Off"
-msgstr ""
+msgstr "Kirjaudu ulos"
 
 #: catapult/plugins/session.py:33
 msgid "Power Off"
-msgstr ""
+msgstr "Sammuta"
 
 #: catapult/plugins/session.py:33
 msgid "Shutdown"
-msgstr ""
+msgstr "Sammuta"
 
 #: catapult/plugins/session.py:37
 msgid "Reboot"
-msgstr ""
+msgstr "Uudelleenkäynnistä"
 
 #: catapult/plugins/session.py:37
 msgid "Restart"
-msgstr ""
+msgstr "Uudelleenkäynnistä"
 
 #: data/io.otsaloma.catapult.appdata.xml.in:9
-msgid ""
-"Catapult allows you to easily launch apps, open files and do basic "
-"calculations with a keyboard-driven user interface."
-msgstr ""
+msgid "Catapult allows you to easily launch apps, open files and do basic calculations with a keyboard-driven user interface."
+msgstr "Catapult mahdollistaa helpon sovellusten käynnistämisen, tiedostojen avaamisen ja pienten laskujen tekemisen näppäimistöpohjaisella käyttöliittymällä."
 
 #: data/io.otsaloma.catapult.appdata.xml.in:27
 msgid "Main window"
-msgstr ""
+msgstr "Pääikkuna"
 
 #: data/io.otsaloma.catapult.desktop.in:5
 msgid "Launch apps and open files"
-msgstr ""
+msgstr "Käynnistä sovelluksia ja avaa tiedostoja"
 
 #. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.otsaloma.catapult.desktop.in:10
 msgid "launcher;"
-msgstr ""
+msgstr "käynnistin;"
