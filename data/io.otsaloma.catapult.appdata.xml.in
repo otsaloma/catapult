@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2021 Osmo Salomaa <otsaloma@iki.fi> -->
 <component type="desktop-application">
-  <id>io.otsaloma.catapult.desktop</id>
+  <id>io.otsaloma.catapult</id>
   <metadata_license>CC0-1.0</metadata_license>
   <name>Catapult</name>
   <summary>App launcher</summary>
@@ -18,6 +18,7 @@
   <url type="translate">https://www.transifex.com/otsaloma/catapult/</url>
   <launchable type="desktop-id">io.otsaloma.catapult.desktop</launchable>
   <releases>
+    <release version="0.0" date="3000-01-01"/>
   </releases>
   <project_license>GPL-3.0+</project_license>
   <developer_name>Osmo Salomaa</developer_name>
@@ -27,7 +28,7 @@
       <caption>Main window</caption>
     </screenshot>
   </screenshots>
-  <update_contact>otsaloma@iki.fi</update_contact>
   <translation type="gettext">catapult</translation>
   <content_rating type="oars-1.1"/>
+  <update_contact>otsaloma@iki.fi</update_contact>
 </component>
