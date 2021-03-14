@@ -10,6 +10,7 @@
     </rdf:RDF>
   </metadata>
   <defs id="defs9" />
+  <rect ry="8.5" rx="8" y="14" x="12" height="102" width="103.99991" id="rect941" style="display:inline;fill:#813d9c;fill-opacity:1;stroke:none;stroke-width:8.27198;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal;enable-background:new" />
   <rect style="fill:#ffffff;stroke-width:0.15317;paint-order:markers fill stroke;stop-color:#000000" id="rect8" width="80" height="80" x="24" y="24" ry="1.2946061e-16" />
-  <path id="rect43-3" style="opacity:1;fill:#c061cb;fill-opacity:1;stroke-width:0.990339;marker:none" d="M 20.7217,12 C 15.89025,12 12,15.81812 12,20.556639 v 1.993166 82.900385 1.99317 C 12,112.18188 15.89025,116 20.7217,116 h 86.5566 C 112.10975,116 116,112.18188 116,107.44336 V 105.45019 22.549805 20.556639 C 116,15.81812 112.10975,12 107.2783,12 Z M 44.5,38 v -6.5 h 39 V 38 H 90 V 57.5 H 77 v -13 H 51 v 39 h 26 v -13 H 90 V 90 h -6.5 v 6.5 h -39 V 90 H 38 V 38 Z" />
+  <path id="rect43-3" style="opacity:1;fill:#c061cb;fill-opacity:1;stroke-width:0.98077;marker:none" d="M 20.7217,12 C 15.89025,12 12,15.744695 12,20.392088 v 1.954836 81.306146 1.95484 C 12,110.25531 15.89025,114 20.7217,114 h 86.5566 C 112.10975,114 116,110.25531 116,105.60791 V 103.65307 22.346924 20.392088 C 116,15.744695 112.10975,12 107.2783,12 Z M 44.5,37.5 v -6.375 h 39 V 37.5 H 90 V 56.625 H 77 V 43.875 H 51 v 38.25 H 77 V 69.375 H 90 V 88.5 h -6.5 v 6.375 h -39 V 88.5 H 38 v -51 z" />
 </svg>
