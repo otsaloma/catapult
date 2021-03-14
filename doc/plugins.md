@@ -5,7 +5,7 @@ To write a custom plugin for Catapult, put the following Python code
 into file `~/.local/share/catapult/plugins/hello.py`. Then in Catapult,
 type `:preferences` to get to the preferences dialog and you should be
 able to activate the plugin by flipping the "Hello plugin" switch at the
-bottom of the dialog. When developing your plugin, use `:reload-plugin`
+bottom of the dialog. When developing your plugin, use `:reload-plugins`
 to apply your changes. Use `self.debug` calls and run Catapult with
 `catapult --debug` to see what's happening.
 
