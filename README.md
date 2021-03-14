@@ -1,7 +1,7 @@
 Catapult Launcher
 =================
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/otsaloma/catapult)
+[![Gitter](https://badges.gitter.im/otsaloma/catapult.svg)](https://gitter.im/otsaloma/catapult)
 
 Catapult is an app launcher for Linux. It ships with basic plugins to
 launch apps, open files/folders and a calculator. The user interface is
