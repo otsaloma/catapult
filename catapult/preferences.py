@@ -300,7 +300,8 @@ class Calculator(PreferencesItem):
 class CustomPlugin(PreferencesItem):
 
     def __init__(self, plugin):
-        self.label = Gtk.Label(_("{} plugin").format(plugin.title()))
+        title = plugin.replace("_", " ").title()
+        self.label = Gtk.Label(_("{} plugin").format(title))
         self.plugin = plugin
         self.widget = Gtk.Switch()
 
