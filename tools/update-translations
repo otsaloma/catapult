@@ -3,7 +3,7 @@ set -e
 cd "$(dirname "$0")/.." || exit 1
 tools/extract-translations
 tx push -s
-tx pull -a --minimum-perc=50
+tx pull -af --minimum-perc=50
 emacs1 po/fi.po
 tx push -tf --no-interactive -l fi
 for PO in po/*.po; do
