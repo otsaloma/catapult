@@ -23,5 +23,5 @@ to select your new "hello" theme. When developing your theme, use
 
 ## References
 
-* https://github.com/otsaloma/catapult/tree/master/catapult/themes
+* https://github.com/otsaloma/catapult/tree/master/data/themes
 * https://developer.gnome.org/gtk3/stable/theming.html
