@@ -62,7 +62,6 @@ release:
 	sudo $(MAKE) PREFIX=/usr/local install clean
 	/usr/local/bin/catapult --debug
 	tools/release
-	@echo "REMEMBER TO UPDATE FLATPAK"
 	@echo "REMEMBER TO UPDATE WEBSITE"
 
 test:
