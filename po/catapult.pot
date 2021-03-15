@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-14 02:42+0200\n"
+"POT-Creation-Date: 2021-03-15 22:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,16 +35,20 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 
-#: catapult/app.py:39
+#: catapult/app.py:41
 msgid "Catapult ready, use {} to engage"
 msgstr ""
 
-#: catapult/app.py:43
+#: catapult/app.py:45
 msgid "catapult [OPTION...]"
 msgstr ""
 
-#: catapult/app.py:48
+#: catapult/app.py:50
 msgid "print details of indexing and search results"
+msgstr ""
+
+#: catapult/app.py:56
+msgid "show window immediately"
 msgstr ""
 
 #: catapult/preferences.py:31
