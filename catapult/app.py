@@ -33,9 +33,11 @@ class Application(Gtk.Application):
         self.connect("activate", self._on_activate, args)
 
     def _on_activate(self, app, args):
-        self._parse_arguments(args)
+        args = self._parse_arguments(args)
         window = catapult.Window()
         self.add_window(window)
+        if args.show:
+            window.show()
         print(_("Catapult ready, use {} to engage")
               .format(catapult.conf.toggle_key))
 
@@ -47,9 +49,16 @@ class Application(Gtk.Application):
                             default=False,
                             help=_("print details of indexing and search results"))
 
+        parser.add_argument("--show",
+                            action="store_true",
+                            dest="show",
+                            default=False,
+                            help=_("show window immediately"))
+
         parser.add_argument("--version",
                             action="version",
                             version=f"catapult {catapult.__version__}")
 
         args = parser.parse_args()
         catapult.DEBUG = args.debug
+        return args
