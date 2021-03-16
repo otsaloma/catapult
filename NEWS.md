@@ -1,4 +1,4 @@
-PENDING: Catapult 0.1
-=====================
+2021-03-16: Catapult 0.1
+========================
 
 * Initial release
