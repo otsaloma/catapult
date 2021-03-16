@@ -85,7 +85,7 @@ class PreferencesItem:
 class Theme(PreferencesItem):
 
     def __init__(self):
-        self.label = Gtk.Label(_("Theme"))
+        self.label = Gtk.Label(label=_("Theme"))
         self.widget = Gtk.ComboBoxText()
         themes = catapult.util.list_themes()
         self.themes = sorted(x[0] for x in themes)
@@ -107,7 +107,7 @@ class Theme(PreferencesItem):
 class ToggleKey(PreferencesItem):
 
     def __init__(self):
-        self.label = Gtk.Label(_("Activation key"))
+        self.label = Gtk.Label(label=_("Activation key"))
         self.widget = Gtk.Entry()
         self.widget.catapult_key = None
         self.widget.connect("key-press-event", self._on_key_press_event)
@@ -152,7 +152,7 @@ class ToggleKey(PreferencesItem):
 class Apps(PreferencesItem):
 
     def __init__(self):
-        self.label = Gtk.Label(_("Apps plugin"))
+        self.label = Gtk.Label(label=_("Apps plugin"))
         self.widget = Gtk.Switch()
 
     def dump(self):
@@ -167,11 +167,11 @@ class Apps(PreferencesItem):
 class AppsScanInterval(PreferencesItem):
 
     def __init__(self):
-        self.label = Gtk.Label(_("Apps scan interval"))
+        self.label = Gtk.Label(label=_("Apps scan interval"))
         self.spin = Gtk.SpinButton()
         self.spin.set_increments(1, 5)
         self.spin.set_range(1, 1440)
-        self.unit = Gtk.Label(_("minutes"))
+        self.unit = Gtk.Label(label=_("minutes"))
         self.widget = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
         self.widget.pack_start(self.spin, expand=False, fill=False, padding=0)
         self.widget.pack_start(self.unit, expand=False, fill=False, padding=0)
@@ -188,7 +188,7 @@ class AppsScanInterval(PreferencesItem):
 class Session(PreferencesItem):
 
     def __init__(self):
-        self.label = Gtk.Label(_("Session plugin"))
+        self.label = Gtk.Label(label=_("Session plugin"))
         self.widget = Gtk.Switch()
 
     def dump(self):
@@ -203,7 +203,7 @@ class Session(PreferencesItem):
 class Files(PreferencesItem):
 
     def __init__(self):
-        self.label = Gtk.Label(_("Files plugin"))
+        self.label = Gtk.Label(label=_("Files plugin"))
         self.widget = Gtk.Switch()
 
     def dump(self):
@@ -218,7 +218,7 @@ class Files(PreferencesItem):
 class FilesInclude(PreferencesItem):
 
     def __init__(self):
-        self.label = Gtk.Label(_("Files include patterns"))
+        self.label = Gtk.Label(label=_("Files include patterns"))
         self.widget = Gtk.Button()
         self.widget.set_label(_("Edit"))
         self.widget.connect("clicked", self._on_clicked)
@@ -241,7 +241,7 @@ class FilesInclude(PreferencesItem):
 class FilesExclude(PreferencesItem):
 
     def __init__(self):
-        self.label = Gtk.Label(_("Files exclude patterns"))
+        self.label = Gtk.Label(label=_("Files exclude patterns"))
         self.widget = Gtk.Button()
         self.widget.set_label(_("Edit"))
         self.widget.connect("clicked", self._on_clicked)
@@ -264,11 +264,11 @@ class FilesExclude(PreferencesItem):
 class FilesScanInterval(PreferencesItem):
 
     def __init__(self):
-        self.label = Gtk.Label(_("Files scan interval"))
+        self.label = Gtk.Label(label=_("Files scan interval"))
         self.spin = Gtk.SpinButton()
         self.spin.set_increments(1, 5)
         self.spin.set_range(1, 1440)
-        self.unit = Gtk.Label(_("minutes"))
+        self.unit = Gtk.Label(label=_("minutes"))
         self.widget = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
         self.widget.pack_start(self.spin, expand=False, fill=False, padding=0)
         self.widget.pack_start(self.unit, expand=False, fill=False, padding=0)
@@ -285,7 +285,7 @@ class FilesScanInterval(PreferencesItem):
 class Calculator(PreferencesItem):
 
     def __init__(self):
-        self.label = Gtk.Label(_("Calculator plugin"))
+        self.label = Gtk.Label(label=_("Calculator plugin"))
         self.widget = Gtk.Switch()
 
     def dump(self):
@@ -301,7 +301,7 @@ class CustomPlugin(PreferencesItem):
 
     def __init__(self, plugin):
         title = plugin.replace("_", " ").title()
-        self.label = Gtk.Label(_("{} plugin").format(title))
+        self.label = Gtk.Label(label=_("{} plugin").format(title))
         self.plugin = plugin
         self.widget = Gtk.Switch()
 
