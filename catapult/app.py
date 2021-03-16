@@ -33,6 +33,9 @@ class Application(Gtk.Application):
         self.connect("activate", self._on_activate, args)
 
     def _on_activate(self, app, args):
+        if self.get_windows():
+            # If already running, show the existing window.
+            return self.get_active_window().show()
         args = self._parse_arguments(args)
         window = catapult.Window()
         self.add_window(window)
