@@ -3,10 +3,9 @@ Catapult Launcher
 
 [![Gitter](https://badges.gitter.im/otsaloma/catapult.svg)](https://gitter.im/otsaloma/catapult)
 
-Catapult is an app launcher for Linux. It ships with basic plugins to
-launch apps, open files/folders and a calculator. The user interface is
-based on GTK, but heavily themed, so it should fit any desktop
-environment. Custom plugins and themes can be loaded dynamically.
+Catapult is an app launcher for Linux. It allows you to easily launch
+apps, open files and do basic calculations with a keyboard-driven user
+interface. Custom plugins and themes can be loaded dynamically.
 
 Catapult is currently developed and tested on X/GNOME. It should work on
 other desktop environments running X as well, but is unlikely to work
