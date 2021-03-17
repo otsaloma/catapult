@@ -314,7 +314,7 @@ class CustomPlugin(PreferencesItem):
         self.set_plugin_active(window, self.plugin, active)
 
 
-class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
+class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
 
     ITEMS = [
         Theme,
@@ -334,7 +334,6 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
         self.items = []
         self.set_border_width(18)
         self.set_title(_("Preferences"))
-        self.set_transient_for(parent)
         grid = Gtk.Grid()
         grid.set_column_spacing(18)
         grid.set_row_spacing(12)
@@ -356,6 +355,7 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
         content = self.get_content_area()
         content.add(grid)
         self.show_all()
+        self.set_position_offset(0.5, 0.2)
 
     def load(self, window):
         for item in self.items:

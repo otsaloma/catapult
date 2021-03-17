@@ -34,3 +34,14 @@ class DebugMixin:
 
     def tock(self):
         return 1000 * (time.time() - self.__tick)
+
+
+class WindowMixin:
+
+    def set_position_offset(self, xoffset, yoffset):
+        window_width, window_height = self.get_size()
+        screen_width, screen_height = catapult.util.get_screen_size()
+        x = int(xoffset * (screen_width - window_width))
+        y = int(yoffset * screen_height)
+        self._position = (x, y)
+        self.move(x, y)

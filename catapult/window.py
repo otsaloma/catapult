@@ -64,7 +64,7 @@ class SearchResultRow(Gtk.ListBoxRow):
          else self.icon.set_from_icon_name)(icon, ICON_SIZE)
 
 
-class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
+class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
 
     def __init__(self):
         GObject.GObject.__init__(self)
@@ -85,11 +85,11 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._init_properties()
         self._init_visual()
         self._init_widgets()
-        self._init_position()
         self._init_signal_handlers()
         self._init_keys()
         self._init_plugins()
         self.load_css()
+        self.set_position_offset(0.5, 0.25)
         self.debug("Initialization complete")
 
     def _init_keys(self):
@@ -103,14 +103,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         for name in catapult.conf.plugins:
             self.debug(f"Initializing plugin {name}")
             self._plugins.append(catapult.util.load_plugin(name))
-
-    def _init_position(self):
-        window_width, window_height = self.get_size()
-        screen_width, screen_height = catapult.util.get_screen_size()
-        x = int(0.50 * (screen_width - window_width))
-        y = int(0.25 * screen_height)
-        self._position = (x, y)
-        self.move(x, y)
 
     def _init_properties(self):
         self.set_icon_name("io.otsaloma.catapult")
@@ -269,6 +261,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
     def open_about_dialog(self):
         def on_response(dialog, response):
             dialog.destroy()
+        self.hide()
         dialog = catapult.AboutDialog(self)
         dialog.connect("response", on_response)
         dialog.run()
@@ -279,6 +272,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             catapult.conf.write()
             self.update()
             dialog.destroy()
+        self.hide()
         dialog = catapult.PreferencesDialog(self)
         dialog.connect("response", on_response)
         dialog.run()
