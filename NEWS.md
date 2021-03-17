@@ -1,5 +1,5 @@
-PENDING: Catapult 0.1.1
-=======================
+2021-03-17: Catapult 0.1.1
+==========================
 
 * Fix about and preferences dialog modality and positioning
 

@@ -18,7 +18,8 @@
   <url type="translate">https://www.transifex.com/otsaloma/catapult/</url>
   <launchable type="desktop-id">io.otsaloma.catapult.desktop</launchable>
   <releases>
-    <release version="0.1" date="2021-03-16"/>
+    <release version="0.1.1" date="2021-03-17"/>
+    <release version="0.1"   date="2021-03-16"/>
   </releases>
   <project_license>GPL-3.0+</project_license>
   <developer_name>Osmo Salomaa</developer_name>
