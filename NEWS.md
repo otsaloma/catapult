@@ -1,5 +1,5 @@
-PENDING: Catapult 0.1.2
-=======================
+2021-03-18: Catapult 0.1.2
+==========================
 
 * Fix result list initial scroll position
 
