@@ -28,7 +28,7 @@ class HelloPlugin(catapult.Plugin):
                 fuzzy=False,
                 icon="application-x-executable",
                 id="hello",
-                offset=0,
+                offset="hello".index(query),
                 plugin=self,
                 score=1,
                 title="Hello",
