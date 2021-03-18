@@ -234,6 +234,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
             row.description_label.set_text(result.description or "")
             self._set_result_list_height(row)
         self._result_list.select_row(self._result_rows[0])
+        self._result_scroller.get_vadjustment().set_value(0)
         self._result_scroller.set_visible(bool(results))
 
     def _on_key_press_event(self, window, event):
