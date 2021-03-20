@@ -17,9 +17,19 @@
 
 import catapult.test
 import inspect
+import tempfile
+
+from pathlib import Path
 
 
 class TestUtil(catapult.test.TestCase):
+
+    def test_atomic_write(self):
+        path = Path(tempfile.mkstemp()[1])
+        catapult.util.atomic_write(path, "Hello", "utf-8")
+        assert path.exists()
+        assert path.read_text("utf-8") == "Hello"
+        path.unlink()
 
     def test_find_plugin(self):
         module = catapult.util.find_plugin("apps")

@@ -95,7 +95,7 @@ class History(catapult.DebugMixin):
         self.path.parent.mkdir(parents=True, exist_ok=True)
         blob = json.dumps(self._items, ensure_ascii=False, indent=2, sort_keys=True)
         try:
-            self.path.write_text(blob + "\n", "utf-8")
+            catapult.util.atomic_write(self.path, blob + "\n", "utf-8")
         except OSError as error:
             return print(f"Writing {str(self.path)} failed: {str(error)}")
         self.debug(f"Wrote {self.count} items")

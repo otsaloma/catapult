@@ -27,6 +27,12 @@ from importlib.machinery import SourceFileLoader
 from pathlib import Path
 
 
+def atomic_write(path, text, encoding):
+    path = path.resolve()
+    temp_path = path.with_name(path.name + ".new")
+    temp_path.write_text(text, encoding)
+    temp_path.replace(path)
+
 def copy_text_to_clipboard(text):
     clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
     clipboard.set_text(text, -1)
