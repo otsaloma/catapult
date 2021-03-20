@@ -33,7 +33,7 @@ DEFAULTS = {
 }
 
 
-class ConfigurationStore:
+class ConfigurationStore(catapult.DebugMixin):
 
     path = catapult.CONFIG_HOME / "catapult.json"
 
@@ -43,10 +43,11 @@ class ConfigurationStore:
 
     def read(self):
         if not self.path.exists(): return
-        with open(self.path, "r", encoding="utf-8") as f:
-            for key, value in json.load(f).items():
-                if key not in DEFAULTS: continue
-                setattr(self, key, value)
+        text = self.path.read_text("utf-8")
+        for key, value in json.loads(text).items():
+            if key not in DEFAULTS: continue
+            setattr(self, key, value)
+        self.debug("Read configuration")
 
     def to_dict(self):
         return copy.deepcopy({x: getattr(self, x) for x in DEFAULTS})
@@ -62,5 +63,8 @@ class ConfigurationStore:
         keys = sorted(blob, key=lambda x: x.lstrip("# "))
         blob = {x: blob[x] for x in keys}
         blob = json.dumps(blob, ensure_ascii=False, indent=2)
-        with open(self.path, "w", encoding="utf-8") as f:
-            f.write(blob + "\n")
+        try:
+            self.path.write_text(blob + "\n", "utf-8")
+        except OSError as error:
+            return print(f"Writing {str(self.path)} failed: {str(error)}")
+        self.debug("Wrote configuration")

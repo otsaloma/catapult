@@ -85,8 +85,8 @@ class History(catapult.DebugMixin):
 
     def read(self):
         if not self.path.exists(): return
-        with open(self.path, "r", encoding="utf-8") as f:
-            self._items = json.load(f)
+        text = self.path.read_text("utf-8")
+        self._items = json.loads(text)
         self.debug(f"Read {self.count} items")
         self._time_saved = time.time()
 
@@ -94,8 +94,10 @@ class History(catapult.DebugMixin):
         self.prune()
         self.path.parent.mkdir(parents=True, exist_ok=True)
         blob = json.dumps(self._items, ensure_ascii=False, indent=2, sort_keys=True)
-        with open(self.path, "w", encoding="utf-8") as f:
-            f.write(blob + "\n")
+        try:
+            self.path.write_text(blob + "\n", "utf-8")
+        except OSError as error:
+            return print(f"Writing {str(self.path)} failed: {str(error)}")
         self.debug(f"Wrote {self.count} items")
         self._time_saved = time.time()
 
