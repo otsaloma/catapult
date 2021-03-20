@@ -1,6 +1,7 @@
 TODO
 ====
 
-* Better icon
-* Preferences dialog layout
 * Wayland
+* Better icon
+* Plugin preferences
+* Preferences dialog layout

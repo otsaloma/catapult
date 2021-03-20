@@ -50,5 +50,16 @@ Then, to install Catapult, run command
 
 ## Documentation
 
+### Starting Automatically
+
+Use tools provided by your desktop/distro to set Catapult to start
+automatically when you log in to your desktop. You can also create the
+autostart file manually, usually under `~/.config/autostart`.
+
+* [GNOME](https://help.gnome.org/users/gnome-help/stable/shell-apps-auto-start.html.en)
+* [Ubuntu](https://help.ubuntu.com/stable/ubuntu-help/startup-applications.html.en)
+
+### Developers
+
 * [Writing Plugins](https://github.com/otsaloma/catapult/blob/master/doc/plugins.md)
 * [Writing Themes](https://github.com/otsaloma/catapult/blob/master/doc/themes.md)
