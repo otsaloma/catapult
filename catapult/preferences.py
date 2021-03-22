@@ -232,7 +232,7 @@ class FilesInclude(PreferencesItem):
 
     def _on_response(self, dialog, response):
         if response == Gtk.ResponseType.OK:
-            patterns = dialog.get_text().splitlines()
+            patterns = dialog.get_text().strip().splitlines()
             patterns = [x.strip() for x in patterns]
             catapult.conf.files_include = patterns
         dialog.destroy()
@@ -255,7 +255,7 @@ class FilesExclude(PreferencesItem):
 
     def _on_response(self, dialog, response):
         if response == Gtk.ResponseType.OK:
-            patterns = dialog.get_text().splitlines()
+            patterns = dialog.get_text().strip().splitlines()
             patterns = [x.strip() for x in patterns]
             catapult.conf.files_exclude = patterns
         dialog.destroy()
