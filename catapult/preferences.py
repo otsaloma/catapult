@@ -67,7 +67,7 @@ class PreferencesItem:
         self.label = None
         self.widget = None
 
-    def dump(self):
+    def dump(self, window):
         pass
 
     def load(self, window):
@@ -92,7 +92,7 @@ class Theme(PreferencesItem):
         for name in self.themes:
             self.widget.append_text(name)
 
-    def dump(self):
+    def dump(self, window):
         if catapult.conf.theme not in self.themes: return
         index = self.themes.index(catapult.conf.theme)
         self.widget.set_active(index)
@@ -112,25 +112,27 @@ class ToggleKey(PreferencesItem):
         self.widget.catapult_key = None
         self.widget.connect("key-press-event", self._on_key_press_event)
 
-    def dump(self):
+    def dump(self, window):
         keyval, mods = Gtk.accelerator_parse(catapult.conf.toggle_key)
         label = Gtk.accelerator_get_label(keyval, mods)
         self.widget.catapult_key = catapult.conf.toggle_key
         self.widget.set_text(label)
         self.widget.set_position(-1)
+        if window is not None:
+            # Avoid the main window popping up.
+            window.unbind_toggle_key()
 
     def load(self, window):
         key = self.widget.catapult_key
-        if key == catapult.conf.toggle_key: return
         success = window.bind_toggle_key(key)
         if not success: return
         catapult.conf.toggle_key = key
 
-    def _on_key_press_event(self, window, event):
+    def _on_key_press_event(self, widget, event):
         if event.keyval in [Gdk.KEY_Tab, Gdk.KEY_Escape]:
             return False
         if event.keyval in [Gdk.KEY_BackSpace, Gdk.KEY_Delete]:
-            self.dump()
+            self.dump(None)
             return True
         mods = event.state
         # Allow Mod1, which is usually Alt, remove the rest.
@@ -155,7 +157,7 @@ class Apps(PreferencesItem):
         self.label = Gtk.Label(label=_("Apps plugin"))
         self.widget = Gtk.Switch()
 
-    def dump(self):
+    def dump(self, window):
         active = "apps" in catapult.conf.plugins
         self.widget.set_active(active)
 
@@ -176,7 +178,7 @@ class AppsScanInterval(PreferencesItem):
         self.widget.pack_start(self.spin, expand=False, fill=False, padding=0)
         self.widget.pack_start(self.unit, expand=False, fill=False, padding=0)
 
-    def dump(self):
+    def dump(self, window):
         value = catapult.conf.apps_scan_interval
         self.spin.set_value(int(round(value / 60)))
 
@@ -191,7 +193,7 @@ class Session(PreferencesItem):
         self.label = Gtk.Label(label=_("Session plugin"))
         self.widget = Gtk.Switch()
 
-    def dump(self):
+    def dump(self, window):
         active = "session" in catapult.conf.plugins
         self.widget.set_active(active)
 
@@ -206,7 +208,7 @@ class Files(PreferencesItem):
         self.label = Gtk.Label(label=_("Files plugin"))
         self.widget = Gtk.Switch()
 
-    def dump(self):
+    def dump(self, window):
         active = "files" in catapult.conf.plugins
         self.widget.set_active(active)
 
@@ -273,7 +275,7 @@ class FilesScanInterval(PreferencesItem):
         self.widget.pack_start(self.spin, expand=False, fill=False, padding=0)
         self.widget.pack_start(self.unit, expand=False, fill=False, padding=0)
 
-    def dump(self):
+    def dump(self, window):
         value = catapult.conf.files_scan_interval
         self.spin.set_value(int(round(value / 60)))
 
@@ -288,7 +290,7 @@ class Calculator(PreferencesItem):
         self.label = Gtk.Label(label=_("Calculator plugin"))
         self.widget = Gtk.Switch()
 
-    def dump(self):
+    def dump(self, window):
         active = "calculator" in catapult.conf.plugins
         self.widget.set_active(active)
 
@@ -305,7 +307,7 @@ class CustomPlugin(PreferencesItem):
         self.plugin = plugin
         self.widget = Gtk.Switch()
 
-    def dump(self):
+    def dump(self, window):
         active = self.plugin in catapult.conf.plugins
         self.widget.set_active(active)
 
@@ -329,7 +331,7 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
         Calculator,
     ]
 
-    def __init__(self, parent):
+    def __init__(self, window):
         GObject.GObject.__init__(self)
         self.items = []
         self.set_border_width(18)
@@ -344,7 +346,7 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
         for name, module in catapult.util.list_custom_plugins():
             items.append(CustomPlugin(name))
         for i, item in enumerate(items):
-            item.dump()
+            item.dump(window)
             item.label.set_xalign(1)
             item.label.get_style_context().add_class("dim-label")
             grid.attach(item.label, 0, i, 1, 1)
