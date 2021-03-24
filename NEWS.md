@@ -1,3 +1,10 @@
+2021-03-24: Catapult 0.1.3
+==========================
+
+* Handle errors writing configuration files
+* Write configuration files atomically
+* Avoid the main window popping up when editing toggle key
+
 2021-03-18: Catapult 0.1.2
 ==========================
 
