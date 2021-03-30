@@ -39,8 +39,9 @@ class DebugMixin:
 class WindowMixin:
 
     def set_position_offset(self, xoffset, yoffset):
+        self._monitor = catapult.util.get_monitor()
         window_width, window_height = self.get_size()
-        screen_width, screen_height = catapult.util.get_screen_size()
+        screen_width, screen_height = catapult.util.get_screen_size(self._monitor)
         x = int(xoffset * (screen_width - window_width))
         y = int(yoffset * screen_height)
         self._position = (x, y)

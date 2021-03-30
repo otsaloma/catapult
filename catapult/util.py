@@ -51,9 +51,12 @@ def find_theme(name):
 def get_desktop_environment():
     return os.getenv("XDG_CURRENT_DESKTOP", "")
 
-def get_screen_size():
+def get_monitor():
     display = Gdk.Display.get_default()
-    monitor = display.get_primary_monitor()
+    return display.get_primary_monitor()
+
+def get_screen_size(monitor=None):
+    monitor = monitor or get_monitor()
     rect = monitor.get_geometry()
     return rect.width, rect.height
 

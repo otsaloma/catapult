@@ -29,6 +29,8 @@ from gi.repository import Pango
 
 ICON_SIZE = Gtk.IconSize.DIALOG
 ICON_SIZE_PX = 48
+XOFFSET = 0.50
+YOFFSET = 0.25
 
 
 class SearchResultRow(Gtk.ListBoxRow):
@@ -89,7 +91,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         self._init_keys()
         self._init_plugins()
         self.load_css()
-        self.set_position_offset(0.5, 0.25)
+        self.set_position_offset(XOFFSET, YOFFSET)
         self.debug("Initialization complete")
 
     def _init_keys(self):
@@ -332,6 +334,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
             plugin.on_window_show()
         self.set_sensitive(True)
         self.present()
+        self._update_position()
         self.move(*self._position)
         timestamp = Keybinder.get_current_event_time()
         self.present_with_time(timestamp)
@@ -354,3 +357,8 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
     def update(self):
         for plugin in self._plugins:
             plugin.update_async()
+
+    def _update_position(self):
+        if self._monitor.is_primary(): return
+        self.debug("Primary monitor changed, updating position")
+        self.set_position_offset(XOFFSET, YOFFSET)
