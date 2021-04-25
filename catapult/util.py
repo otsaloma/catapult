@@ -52,8 +52,16 @@ def get_desktop_environment():
     return os.getenv("XDG_CURRENT_DESKTOP", "")
 
 def get_monitor():
+    # No monitor reported as primary by GDK under Wayland
+    # https://gitlab.gnome.org/GNOME/gtk/-/issues/1028
     display = Gdk.Display.get_default()
-    return display.get_primary_monitor()
+    monitor = display.get_primary_monitor()
+    if monitor is not None:
+        return monitor
+    for i in range(display.get_n_monitors()):
+        monitor = display.get_monitor(i)
+        if monitor is not None:
+            return monitor
 
 def get_screen_size(monitor=None):
     monitor = monitor or get_monitor()

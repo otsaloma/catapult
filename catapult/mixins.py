@@ -40,6 +40,7 @@ class WindowMixin:
 
     def set_position_offset(self, xoffset, yoffset):
         self._monitor = catapult.util.get_monitor()
+        self._monitor_was_primary = self._monitor.is_primary()
         window_width, window_height = self.get_size()
         screen_width, screen_height = catapult.util.get_screen_size(self._monitor)
         x = int(xoffset * (screen_width - window_width))

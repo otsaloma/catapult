@@ -359,6 +359,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
             plugin.update_async()
 
     def _update_position(self):
-        if self._monitor.is_primary(): return
-        self.debug("Primary monitor changed, updating position")
-        self.set_position_offset(XOFFSET, YOFFSET)
+        if self._monitor.is_primary() != self._monitor_was_primary:
+            self.debug("Primary monitor changed, updating position")
+            self.set_position_offset(XOFFSET, YOFFSET)
