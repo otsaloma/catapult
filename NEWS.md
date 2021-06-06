@@ -1,5 +1,5 @@
-PENDING: Catapult 0.1.4
-=======================
+2021-06-06: Catapult 0.1.4
+==========================
 
 * Update window position if primary monitor changed
 
