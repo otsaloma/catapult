@@ -7,10 +7,6 @@ Catapult is an app launcher for Linux. It allows you to easily launch
 apps, open files and do basic calculations with a keyboard-driven user
 interface. Custom plugins and themes can be loaded dynamically.
 
-Catapult is currently developed and tested on X/GNOME. It should work on
-other desktop environments running X as well, but is unlikely to work
-as-is on Wayland. PRs are welcome.
-
 Catapult is Free Software released under the GNU General Public License
 (GPL), see the file [`COPYING`](COPYING) for details. Small parts of the
 code have been adapted from [Ulauncher][], likewise GPL. These are
@@ -58,6 +54,18 @@ autostart file manually, usually under `~/.config/autostart`.
 
 * [GNOME](https://help.gnome.org/users/gnome-help/stable/shell-apps-auto-start.html.en)
 * [Ubuntu](https://help.ubuntu.com/stable/ubuntu-help/startup-applications.html.en)
+
+### Known Issues on Wayland
+
+* Catapult cannot do a global toggle keybinding (Control+Space by
+  default) for you, instead you need to do it yourself in your
+  desktop/distro settings. Catapult is a single-instance app, so simply
+  executing `catapult` will show the existing instance and that is the
+  command you can bind to your key of choice.
+
+* Window positioning might not work, which means that the catapult
+  window will be positioned on your screen wherever your window manager
+  defaults to or considers appropriate.
 
 ### Developers
 

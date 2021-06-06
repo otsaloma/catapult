@@ -46,4 +46,6 @@ class WindowMixin:
         x = int(xoffset * (screen_width - window_width))
         y = int(yoffset * screen_height)
         self._position = (x, y)
+        # Moving a window will not work with all window managers.
+        # On stock GNOME, it works with X, not with Wayland.
         self.move(x, y)
