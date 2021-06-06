@@ -18,6 +18,7 @@
 __version__ = "0.1.3"
 
 import gi
+import os
 
 gi.require_version("Gdk", "3.0")
 gi.require_version("Gio", "2.0")
@@ -40,6 +41,8 @@ LOCALE_DIR = Path(__file__).parent.parent.joinpath("locale").resolve()
 DATA_DIRS = [DATA_DIR, DATA_HOME, Path("/usr/local/share/catapult")]
 
 DEBUG = False
+WAYLAND = (os.getenv("XDG_SESSION_TYPE", "") == "wayland" or
+           os.getenv("WAYLAND_DISPLAY", ""))
 
 from catapult import i18n # noqa
 from catapult import util # noqa
