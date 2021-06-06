@@ -63,7 +63,7 @@ autostart file manually, usually under `~/.config/autostart`.
   executing `catapult` will show the existing instance and that is the
   command you can bind to your key of choice.
 
-* Window positioning might not work, which means that the catapult
+* Window positioning might not work, which means that the Catapult
   window will be positioned on your screen wherever your window manager
   defaults to or considers appropriate.
 
