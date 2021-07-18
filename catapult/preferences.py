@@ -17,48 +17,12 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult
+import itertools
 
 from catapult.i18n import _
 from gi.repository import Gdk
 from gi.repository import GObject
 from gi.repository import Gtk
-
-
-class PatternEditDialog(Gtk.Dialog):
-
-    def __init__(self, parent, text=""):
-        GObject.GObject.__init__(self, use_header_bar=True)
-        self.add_button(_("_Cancel"), Gtk.ResponseType.CANCEL)
-        self.add_button(_("_OK"), Gtk.ResponseType.OK)
-        self.set_default_response(Gtk.ResponseType.OK)
-        self.set_transient_for(parent)
-        header = self.get_header_bar()
-        header.set_title(_("Edit File Patterns"))
-        header.set_subtitle(_("Use shell-style wildcards * and **"))
-        self.text_view = Gtk.TextView()
-        self.text_view.set_accepts_tab(False)
-        self.text_view.set_bottom_margin(6)
-        self.text_view.set_left_margin(6)
-        self.text_view.set_pixels_below_lines(6)
-        self.text_view.set_right_margin(6)
-        self.text_view.set_top_margin(6)
-        self.text_view.set_wrap_mode(Gtk.WrapMode.NONE)
-        self.text_view.get_style_context().add_class("monospace")
-        scroller = Gtk.ScrolledWindow()
-        scroller.set_policy(*((Gtk.PolicyType.AUTOMATIC,)*2))
-        scroller.set_shadow_type(Gtk.ShadowType.NONE)
-        scroller.set_size_request(600, 371)
-        scroller.add(self.text_view)
-        content = self.get_content_area()
-        content.add(scroller)
-        text_buffer = self.text_view.get_buffer()
-        text_buffer.set_text(text)
-        self.show_all()
-
-    def get_text(self):
-        text_buffer = self.text_view.get_buffer()
-        start, end = text_buffer.get_bounds()
-        return text_buffer.get_text(start, end, False)
 
 
 class PreferencesItem:
@@ -151,154 +115,6 @@ class ToggleKey(PreferencesItem):
         return True
 
 
-class Apps(PreferencesItem):
-
-    def __init__(self):
-        self.label = Gtk.Label(label=_("Apps plugin"))
-        self.widget = Gtk.Switch()
-
-    def dump(self, window):
-        active = "apps" in catapult.conf.plugins
-        self.widget.set_active(active)
-
-    def load(self, window):
-        active = self.widget.get_active()
-        self.set_plugin_active(window, "apps", active)
-
-
-class AppsScanInterval(PreferencesItem):
-
-    def __init__(self):
-        self.label = Gtk.Label(label=_("Apps scan interval"))
-        self.spin = Gtk.SpinButton()
-        self.spin.set_increments(1, 5)
-        self.spin.set_range(1, 1440)
-        self.unit = Gtk.Label(label=_("minutes"))
-        self.widget = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
-        self.widget.pack_start(self.spin, expand=False, fill=False, padding=0)
-        self.widget.pack_start(self.unit, expand=False, fill=False, padding=0)
-
-    def dump(self, window):
-        value = catapult.conf.apps_scan_interval
-        self.spin.set_value(int(round(value / 60)))
-
-    def load(self, window):
-        value = self.spin.get_value_as_int()
-        catapult.conf.apps_scan_interval = value * 60
-
-
-class Session(PreferencesItem):
-
-    def __init__(self):
-        self.label = Gtk.Label(label=_("Session plugin"))
-        self.widget = Gtk.Switch()
-
-    def dump(self, window):
-        active = "session" in catapult.conf.plugins
-        self.widget.set_active(active)
-
-    def load(self, window):
-        active = self.widget.get_active()
-        self.set_plugin_active(window, "session", active)
-
-
-class Files(PreferencesItem):
-
-    def __init__(self):
-        self.label = Gtk.Label(label=_("Files plugin"))
-        self.widget = Gtk.Switch()
-
-    def dump(self, window):
-        active = "files" in catapult.conf.plugins
-        self.widget.set_active(active)
-
-    def load(self, window):
-        active = self.widget.get_active()
-        self.set_plugin_active(window, "files", active)
-
-
-class FilesInclude(PreferencesItem):
-
-    def __init__(self):
-        self.label = Gtk.Label(label=_("Files include patterns"))
-        self.widget = Gtk.Button()
-        self.widget.set_label(_("Edit"))
-        self.widget.connect("clicked", self._on_clicked)
-
-    def _on_clicked(self, *args, **kwargs):
-        text = "\n".join(catapult.conf.files_include)
-        parent = self.widget.get_ancestor(Gtk.Window)
-        dialog = PatternEditDialog(parent, text)
-        dialog.connect("response", self._on_response)
-        dialog.run()
-
-    def _on_response(self, dialog, response):
-        if response == Gtk.ResponseType.OK:
-            patterns = dialog.get_text().strip().splitlines()
-            patterns = [x.strip() for x in patterns]
-            catapult.conf.files_include = patterns
-        dialog.destroy()
-
-
-class FilesExclude(PreferencesItem):
-
-    def __init__(self):
-        self.label = Gtk.Label(label=_("Files exclude patterns"))
-        self.widget = Gtk.Button()
-        self.widget.set_label(_("Edit"))
-        self.widget.connect("clicked", self._on_clicked)
-
-    def _on_clicked(self, *args, **kwargs):
-        text = "\n".join(catapult.conf.files_exclude)
-        parent = self.widget.get_ancestor(Gtk.Window)
-        dialog = PatternEditDialog(parent, text)
-        dialog.connect("response", self._on_response)
-        dialog.run()
-
-    def _on_response(self, dialog, response):
-        if response == Gtk.ResponseType.OK:
-            patterns = dialog.get_text().strip().splitlines()
-            patterns = [x.strip() for x in patterns]
-            catapult.conf.files_exclude = patterns
-        dialog.destroy()
-
-
-class FilesScanInterval(PreferencesItem):
-
-    def __init__(self):
-        self.label = Gtk.Label(label=_("Files scan interval"))
-        self.spin = Gtk.SpinButton()
-        self.spin.set_increments(1, 5)
-        self.spin.set_range(1, 1440)
-        self.unit = Gtk.Label(label=_("minutes"))
-        self.widget = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
-        self.widget.pack_start(self.spin, expand=False, fill=False, padding=0)
-        self.widget.pack_start(self.unit, expand=False, fill=False, padding=0)
-
-    def dump(self, window):
-        value = catapult.conf.files_scan_interval
-        self.spin.set_value(int(round(value / 60)))
-
-    def load(self, window):
-        value = self.spin.get_value_as_int()
-        catapult.conf.files_scan_interval = value * 60
-
-
-class Calculator(PreferencesItem):
-
-    def __init__(self):
-        self.label = Gtk.Label(label=_("Calculator plugin"))
-        self.widget = Gtk.Switch()
-
-    def dump(self, window):
-        active = "calculator" in catapult.conf.plugins
-        self.widget.set_active(active)
-
-    def load(self, window):
-        active = self.widget.get_active()
-        self.set_plugin_active(window, "calculator", active)
-
-
 class CustomPlugin(PreferencesItem):
 
     def __init__(self, plugin):
@@ -318,19 +134,6 @@ class CustomPlugin(PreferencesItem):
 
 class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
 
-    ITEMS = [
-        Theme,
-        ToggleKey,
-        Apps,
-        AppsScanInterval,
-        Session,
-        Files,
-        FilesInclude,
-        FilesExclude,
-        FilesScanInterval,
-        Calculator,
-    ]
-
     def __init__(self, window):
         GObject.GObject.__init__(self)
         self.items = []
@@ -339,7 +142,7 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
         grid = Gtk.Grid()
         grid.set_column_spacing(18)
         grid.set_row_spacing(12)
-        items = [x() for x in self.ITEMS]
+        items = [x() for x in self.get_items()]
         # Add switches for all custom plugins found.
         # TODO: We'll probably eventually want to put these on
         # a separate page of a Gtk.StackSwitcher or something.
@@ -358,6 +161,15 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
         content.add(grid)
         self.show_all()
         self.set_position_offset(0.5, 0.2)
+
+    def get_items(self):
+        yield from itertools.chain(
+            [Theme, ToggleKey],
+            catapult.util.get_plugin_preferences("apps"),
+            catapult.util.get_plugin_preferences("session"),
+            catapult.util.get_plugin_preferences("files"),
+            catapult.util.get_plugin_preferences("calculator"),
+        )
 
     def load(self, window):
         for item in self.items:

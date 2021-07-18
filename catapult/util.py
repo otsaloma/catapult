@@ -63,6 +63,11 @@ def get_monitor():
         if monitor is not None:
             return monitor
 
+def get_plugin_preferences(name):
+    plugin = find_plugin(name)
+    if not plugin: return []
+    return getattr(plugin, "PREFERENCES_ITEMS", [])
+
 def get_screen_size(monitor=None):
     monitor = monitor or get_monitor()
     rect = monitor.get_geometry()

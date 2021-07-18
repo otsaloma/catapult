@@ -45,6 +45,10 @@ class TestUtil(catapult.test.TestCase):
     def test_get_monitor(self):
         assert catapult.util.get_monitor()
 
+    def test_get_plugin_preferences(self):
+        assert catapult.util.get_plugin_preferences("apps")
+        assert not catapult.util.get_plugin_preferences("xxx")
+
     def test_get_screen_size(self):
         width, height = catapult.util.get_screen_size()
         assert width and height
