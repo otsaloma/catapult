@@ -202,10 +202,11 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         priority = Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         if self._css_provider is not None:
             style.remove_provider_for_screen(screen, self._css_provider)
-        css = catapult.util.load_theme(catapult.conf.theme)
+        css = "\n".join((
+            catapult.util.load_theme(catapult.conf.theme),
+            (catapult.DATA_DIR / "catapult.css").read_text("utf-8"),
+        ))
         self._css_provider = Gtk.CssProvider()
-        self._css_provider.load_from_data(bytes(css.encode()))
-        css = (catapult.DATA_DIR / "catapult.css").read_text("utf-8")
         self._css_provider.load_from_data(bytes(css.encode()))
         style.add_provider_for_screen(screen, self._css_provider, priority)
 
