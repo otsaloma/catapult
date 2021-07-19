@@ -53,6 +53,9 @@ class TestUtil(catapult.test.TestCase):
         assert catapult.util.is_path("/home/osmo/.bashrc")
         assert not catapult.util.is_path("file:///home/osmo/.bashrc")
 
+    def test_is_plugin_class(self):
+        assert catapult.util.is_plugin_class(catapult.plugins.apps.AppsPlugin)
+
     def test_is_uri(self):
         assert catapult.util.is_uri("file:///home/osmo/.bashrc")
         assert not catapult.util.is_uri("/home/osmo/.bashrc")
@@ -75,6 +78,14 @@ class TestUtil(catapult.test.TestCase):
     def test_load_plugin(self):
         plugin = catapult.util.load_plugin("apps")
         assert isinstance(plugin, catapult.Plugin)
+
+    def test_load_plugin_class(self):
+        cls = catapult.util.load_plugin_class("apps")
+        assert catapult.util.is_plugin_class(cls)
+
+    def test_load_plugin_module(self):
+        module = catapult.util.load_plugin_module("apps")
+        assert inspect.ismodule(module)
 
     def test_load_theme(self):
         assert catapult.util.load_theme("dark")

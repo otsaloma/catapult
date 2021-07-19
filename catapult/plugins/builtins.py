@@ -22,6 +22,8 @@ from catapult.i18n import _
 
 class BuiltinsPlugin(catapult.Plugin):
 
+    title = "Builtins"
+
     def launch(self, window, id):
         self.debug(f"Launching {id}")
         if id == ":about":

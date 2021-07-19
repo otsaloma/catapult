@@ -19,6 +19,8 @@ import catapult
 import re
 import subprocess
 
+from catapult.i18n import _
+
 COMMAND = " ".join((
     "qalc",
     "-s 'decimal comma off'",
@@ -41,6 +43,7 @@ PATTERN = "^({})".format("|".join((
 class CalculatorPlugin(catapult.Plugin):
 
     save_history = False
+    title = _("Calculator")
 
     def launch(self, window, id):
         self.debug(f"Copying {id!r} to the clipboard")

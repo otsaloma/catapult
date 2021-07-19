@@ -41,6 +41,8 @@ ACTIONS = [{
 
 class SessionPlugin(catapult.Plugin):
 
+    title = _("Session")
+
     def launch(self, window, id):
         self.debug(f"Launching {id}")
         subprocess.run(id, shell=True)

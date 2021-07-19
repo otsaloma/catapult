@@ -205,6 +205,8 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         css = catapult.util.load_theme(catapult.conf.theme)
         self._css_provider = Gtk.CssProvider()
         self._css_provider.load_from_data(bytes(css.encode()))
+        css = (catapult.DATA_DIR / "catapult.css").read_text("utf-8")
+        self._css_provider.load_from_data(bytes(css.encode()))
         style.add_provider_for_screen(screen, self._css_provider, priority)
 
     def _on_button_press_event(self, *args, **kwargs):

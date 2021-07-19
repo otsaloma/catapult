@@ -1,5 +1,4 @@
 TODO
 ====
 
-* Plugin preferences
-* Preferences dialog layout
+* Error handling when loading plugins

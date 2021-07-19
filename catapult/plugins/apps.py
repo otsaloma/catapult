@@ -19,10 +19,36 @@ import catapult
 import re
 import time
 
+from catapult.i18n import _
 from gi.repository import Gio
+from gi.repository import Gtk
+
+
+class AppsScanInterval(catapult.PreferencesItem):
+
+    def __init__(self):
+        self.label = Gtk.Label(label=_("Scan interval"))
+        self.spin = Gtk.SpinButton()
+        self.spin.set_increments(1, 5)
+        self.spin.set_range(1, 1440)
+        self.unit = Gtk.Label(label=_("minutes"))
+        self.widget = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
+        self.widget.pack_start(self.spin, expand=False, fill=False, padding=0)
+        self.widget.pack_start(self.unit, expand=False, fill=False, padding=0)
+
+    def dump(self, window):
+        value = catapult.conf.apps_scan_interval
+        self.spin.set_value(int(round(value / 60)))
+
+    def load(self, window):
+        value = self.spin.get_value_as_int()
+        catapult.conf.apps_scan_interval = value * 60
 
 
 class AppsPlugin(catapult.Plugin):
+
+    preferences_items = [AppsScanInterval]
+    title = _("Apps")
 
     def __init__(self):
         super().__init__()

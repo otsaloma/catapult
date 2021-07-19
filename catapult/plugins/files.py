@@ -23,9 +23,116 @@ import itertools
 import os
 import time
 
+from catapult.i18n import _
 from dataclasses import dataclass
 from gi.repository import Gio
+from gi.repository import GObject
+from gi.repository import Gtk
 from pathlib import Path
+
+
+class PatternEditDialog(Gtk.Dialog):
+
+    def __init__(self, parent, text=""):
+        GObject.GObject.__init__(self, use_header_bar=True)
+        self.add_button(_("_Cancel"), Gtk.ResponseType.CANCEL)
+        self.add_button(_("_OK"), Gtk.ResponseType.OK)
+        self.set_default_response(Gtk.ResponseType.OK)
+        self.set_transient_for(parent)
+        header = self.get_header_bar()
+        header.set_title(_("Edit File Patterns"))
+        header.set_subtitle(_("Use shell-style wildcards * and **"))
+        self.text_view = Gtk.TextView()
+        self.text_view.set_accepts_tab(False)
+        self.text_view.set_bottom_margin(6)
+        self.text_view.set_left_margin(6)
+        self.text_view.set_pixels_below_lines(6)
+        self.text_view.set_right_margin(6)
+        self.text_view.set_top_margin(6)
+        self.text_view.set_wrap_mode(Gtk.WrapMode.NONE)
+        self.text_view.get_style_context().add_class("monospace")
+        scroller = Gtk.ScrolledWindow()
+        scroller.set_policy(*((Gtk.PolicyType.AUTOMATIC,)*2))
+        scroller.set_shadow_type(Gtk.ShadowType.NONE)
+        scroller.set_size_request(600, 371)
+        scroller.add(self.text_view)
+        content = self.get_content_area()
+        content.add(scroller)
+        text_buffer = self.text_view.get_buffer()
+        text_buffer.set_text(text)
+        self.show_all()
+
+    def get_text(self):
+        text_buffer = self.text_view.get_buffer()
+        start, end = text_buffer.get_bounds()
+        return text_buffer.get_text(start, end, False)
+
+
+class FilesInclude(catapult.PreferencesItem):
+
+    def __init__(self):
+        self.label = Gtk.Label(label=_("Include patterns"))
+        self.widget = Gtk.Button()
+        self.widget.set_label(_("Edit"))
+        self.widget.connect("clicked", self._on_clicked)
+
+    def _on_clicked(self, *args, **kwargs):
+        text = "\n".join(catapult.conf.files_include)
+        parent = self.widget.get_ancestor(Gtk.Window)
+        dialog = PatternEditDialog(parent, text)
+        dialog.connect("response", self._on_response)
+        dialog.run()
+
+    def _on_response(self, dialog, response):
+        if response == Gtk.ResponseType.OK:
+            patterns = dialog.get_text().strip().splitlines()
+            patterns = [x.strip() for x in patterns]
+            catapult.conf.files_include = patterns
+        dialog.destroy()
+
+
+class FilesExclude(catapult.PreferencesItem):
+
+    def __init__(self):
+        self.label = Gtk.Label(label=_("Exclude patterns"))
+        self.widget = Gtk.Button()
+        self.widget.set_label(_("Edit"))
+        self.widget.connect("clicked", self._on_clicked)
+
+    def _on_clicked(self, *args, **kwargs):
+        text = "\n".join(catapult.conf.files_exclude)
+        parent = self.widget.get_ancestor(Gtk.Window)
+        dialog = PatternEditDialog(parent, text)
+        dialog.connect("response", self._on_response)
+        dialog.run()
+
+    def _on_response(self, dialog, response):
+        if response == Gtk.ResponseType.OK:
+            patterns = dialog.get_text().strip().splitlines()
+            patterns = [x.strip() for x in patterns]
+            catapult.conf.files_exclude = patterns
+        dialog.destroy()
+
+
+class FilesScanInterval(catapult.PreferencesItem):
+
+    def __init__(self):
+        self.label = Gtk.Label(label=_("Scan interval"))
+        self.spin = Gtk.SpinButton()
+        self.spin.set_increments(1, 5)
+        self.spin.set_range(1, 1440)
+        self.unit = Gtk.Label(label=_("minutes"))
+        self.widget = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
+        self.widget.pack_start(self.spin, expand=False, fill=False, padding=0)
+        self.widget.pack_start(self.unit, expand=False, fill=False, padding=0)
+
+    def dump(self, window):
+        value = catapult.conf.files_scan_interval
+        self.spin.set_value(int(round(value / 60)))
+
+    def load(self, window):
+        value = self.spin.get_value_as_int()
+        catapult.conf.files_scan_interval = value * 60
 
 
 @dataclass
@@ -43,6 +150,9 @@ class File:
 
 
 class FilesPlugin(catapult.Plugin):
+
+    preferences_items = [FilesInclude, FilesExclude, FilesScanInterval]
+    title = _("Files")
 
     def __init__(self):
         super().__init__()

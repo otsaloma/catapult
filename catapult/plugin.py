@@ -17,12 +17,15 @@
 
 import catapult
 
+from catapult.i18n import _
 from threading import Thread
 
 
 class Plugin(catapult.DebugMixin):
 
+    preferences_items = []
     save_history = True
+    title = _("Untitled")
 
     def __init__(self):
         pass

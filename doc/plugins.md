@@ -15,6 +15,8 @@ import catapult
 
 class HelloPlugin(catapult.Plugin):
 
+    title = "Hello"
+
     def launch(self, window, id):
         self.debug(f"Copying {id!r} to the clipboard")
         catapult.util.copy_text_to_clipboard(id)
