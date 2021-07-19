@@ -17,7 +17,7 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult
-import itertools
+import inspect
 
 from catapult.i18n import _
 from gi.repository import Gdk
@@ -36,14 +36,6 @@ class PreferencesItem:
 
     def load(self, window):
         pass
-
-    def set_plugin_active(self, window, plugin, active):
-        if active:
-            catapult.conf.plugins.append(plugin)
-        elif plugin in catapult.conf.plugins:
-            catapult.conf.plugins.remove(plugin)
-        catapult.conf.plugins = sorted(set(catapult.conf.plugins))
-        window.set_plugin_active(plugin, active)
 
 
 class Theme(PreferencesItem):
@@ -115,10 +107,9 @@ class ToggleKey(PreferencesItem):
         return True
 
 
-class CustomPlugin(PreferencesItem):
+class TogglePlugin(PreferencesItem):
 
-    def __init__(self, plugin):
-        title = plugin.replace("_", " ").title()
+    def __init__(self, plugin, title):
         self.label = Gtk.Label(label=_("{} plugin").format(title))
         self.plugin = plugin
         self.widget = Gtk.Switch()
@@ -131,45 +122,68 @@ class CustomPlugin(PreferencesItem):
         active = self.widget.get_active()
         self.set_plugin_active(window, self.plugin, active)
 
+    def set_plugin_active(self, window, plugin, active):
+        if active:
+            catapult.conf.plugins.append(plugin)
+        elif plugin in catapult.conf.plugins:
+            catapult.conf.plugins.remove(plugin)
+        catapult.conf.plugins = sorted(set(catapult.conf.plugins))
+        window.set_plugin_active(plugin, active)
+
 
 class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
 
     def __init__(self, window):
         GObject.GObject.__init__(self)
         self.items = []
-        self.set_border_width(18)
+        self.main_window = window
+        self.set_default_size(-1, 400)
         self.set_title(_("Preferences"))
+        stack = Gtk.Stack()
+        stack.set_border_width(18)
+        stack.set_homogeneous(True)
+        sidebar = Gtk.StackSidebar()
+        sidebar.set_stack(stack)
+        sidebar.set_vexpand(True)
+        sidebar.get_style_context().add_class("catapult-preferences-sidebar")
+        page = self.get_page([Theme, ToggleKey])
+        stack.add_titled(page, "general", _("General"))
+        for plugin in self.list_plugins():
+            cls = catapult.util.load_plugin_class(plugin)
+            toggle = TogglePlugin(plugin, cls.title)
+            page = self.get_page([toggle] + cls.preferences_items)
+            stack.add_titled(page, plugin, cls.title)
+        content = self.get_content_area()
+        content.add(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
         grid = Gtk.Grid()
+        grid.attach(sidebar, 0, 0, 1, 1)
+        grid.attach(stack, 1, 0, 1, 1)
+        content.add(grid)
+        self.show_all()
+        self.set_position_offset(0.5, 0.2)
+
+    def get_page(self, items):
+        grid = Gtk.Grid()
+        grid.set_column_homogeneous(True)
         grid.set_column_spacing(18)
         grid.set_row_spacing(12)
-        items = [x() for x in self.get_items()]
-        # Add switches for all custom plugins found.
-        # TODO: We'll probably eventually want to put these on
-        # a separate page of a Gtk.StackSwitcher or something.
-        for name, module in catapult.util.list_custom_plugins():
-            items.append(CustomPlugin(name))
         for i, item in enumerate(items):
-            item.dump(window)
+            if inspect.isclass(item):
+                item = item()
+            item.dump(self.main_window)
             item.label.set_xalign(1)
             item.label.get_style_context().add_class("dim-label")
             grid.attach(item.label, 0, i, 1, 1)
             box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
             box.pack_start(item.widget, expand=False, fill=False, padding=0)
-            grid.attach(box, 1, i, 1, 1)
+            grid.attach(box, 1, i, 2, 1)
             self.items.append(item)
-        content = self.get_content_area()
-        content.add(grid)
-        self.show_all()
-        self.set_position_offset(0.5, 0.2)
+        return grid
 
-    def get_items(self):
-        yield from itertools.chain(
-            [Theme, ToggleKey],
-            catapult.util.get_plugin_preferences("apps"),
-            catapult.util.get_plugin_preferences("session"),
-            catapult.util.get_plugin_preferences("files"),
-            catapult.util.get_plugin_preferences("calculator"),
-        )
+    def list_plugins(self):
+        yield from ["apps", "session", "files", "calculator"]
+        for name, module in catapult.util.list_custom_plugins():
+            yield name
 
     def load(self, window):
         for item in self.items:

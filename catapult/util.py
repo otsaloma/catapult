@@ -63,11 +63,6 @@ def get_monitor():
         if monitor is not None:
             return monitor
 
-def get_plugin_preferences(name):
-    plugin = find_plugin(name)
-    if not plugin: return []
-    return getattr(plugin, "PREFERENCES_ITEMS", [])
-
 def get_screen_size(monitor=None):
     monitor = monitor or get_monitor()
     rect = monitor.get_geometry()
@@ -75,6 +70,10 @@ def get_screen_size(monitor=None):
 
 def is_path(location):
     return Path(location).is_absolute()
+
+def is_plugin_class(obj):
+    return (inspect.isclass(obj) and
+            issubclass(obj, catapult.Plugin))
 
 def is_uri(location):
     return re.match(r"^[a-z]+://", location) is not None
@@ -114,15 +113,18 @@ def list_themes():
             found.add(path.stem)
 
 def load_plugin(name):
+    return load_plugin_class(name)()
+
+def load_plugin_class(name):
+    module = load_plugin_module(name)
+    for name, cls in inspect.getmembers(module, is_plugin_class):
+        return cls
+
+def load_plugin_module(name):
     module = find_plugin(name)
-    if not inspect.ismodule(module):
-        loader = SourceFileLoader(name, str(module))
-        module = loader.load_module(name)
-    for name, cls in inspect.getmembers(
-            module, lambda x: (
-                inspect.isclass(x) and
-                issubclass(x, catapult.Plugin))):
-        return cls()
+    if inspect.ismodule(module): return module
+    loader = SourceFileLoader(name, str(module))
+    return loader.load_module(name)
 
 def load_theme(name):
     css = find_theme(name).read_text()

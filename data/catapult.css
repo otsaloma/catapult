@@ -1,0 +1,8 @@
+/* -*- coding: utf-8-unix -*- */
+
+/* https://gitlab.gnome.org/GNOME/gtk/-/blob/master/gtk/theme/Default/_colors-public.scss */
+
+.catapult-preferences-sidebar > * {
+  background-color: @theme_base_color;
+  color: @theme_text_color;
+}

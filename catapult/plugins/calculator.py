@@ -20,7 +20,6 @@ import re
 import subprocess
 
 from catapult.i18n import _
-from gi.repository import Gtk
 
 COMMAND = " ".join((
     "qalc",
@@ -41,27 +40,10 @@ PATTERN = "^({})".format("|".join((
 )))
 
 
-class CalculatorToggle(catapult.PreferencesItem):
-
-    def __init__(self):
-        self.label = Gtk.Label(label=_("Calculator plugin"))
-        self.widget = Gtk.Switch()
-
-    def dump(self, window):
-        active = "calculator" in catapult.conf.plugins
-        self.widget.set_active(active)
-
-    def load(self, window):
-        active = self.widget.get_active()
-        self.set_plugin_active(window, "calculator", active)
-
-
-PREFERENCES_ITEMS = [CalculatorToggle]
-
-
 class CalculatorPlugin(catapult.Plugin):
 
     save_history = False
+    title = _("Calculator")
 
     def launch(self, window, id):
         self.debug(f"Copying {id!r} to the clipboard")

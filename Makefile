@@ -26,6 +26,7 @@ install:
 	./setup-partial.py install $(if $(DESTDIR),--root=$(DESTDIR),) --prefix=$(PREFIX)
 	@echo "INSTALLING DATA FILES..."
 	mkdir -p $(DATADIR)/catapult/themes
+	cp -f data/catapult.css $(DATADIR)/catapult
 	cp -f data/themes/*.css $(DATADIR)/catapult/themes
 	@echo "INSTALLING ICONS..."
 	mkdir -p $(DATADIR)/icons/hicolor/scalable/apps

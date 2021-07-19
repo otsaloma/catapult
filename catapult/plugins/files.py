@@ -68,25 +68,10 @@ class PatternEditDialog(Gtk.Dialog):
         return text_buffer.get_text(start, end, False)
 
 
-class FilesToggle(catapult.PreferencesItem):
-
-    def __init__(self):
-        self.label = Gtk.Label(label=_("Files plugin"))
-        self.widget = Gtk.Switch()
-
-    def dump(self, window):
-        active = "files" in catapult.conf.plugins
-        self.widget.set_active(active)
-
-    def load(self, window):
-        active = self.widget.get_active()
-        self.set_plugin_active(window, "files", active)
-
-
 class FilesInclude(catapult.PreferencesItem):
 
     def __init__(self):
-        self.label = Gtk.Label(label=_("Files include patterns"))
+        self.label = Gtk.Label(label=_("Include patterns"))
         self.widget = Gtk.Button()
         self.widget.set_label(_("Edit"))
         self.widget.connect("clicked", self._on_clicked)
@@ -109,7 +94,7 @@ class FilesInclude(catapult.PreferencesItem):
 class FilesExclude(catapult.PreferencesItem):
 
     def __init__(self):
-        self.label = Gtk.Label(label=_("Files exclude patterns"))
+        self.label = Gtk.Label(label=_("Exclude patterns"))
         self.widget = Gtk.Button()
         self.widget.set_label(_("Edit"))
         self.widget.connect("clicked", self._on_clicked)
@@ -132,7 +117,7 @@ class FilesExclude(catapult.PreferencesItem):
 class FilesScanInterval(catapult.PreferencesItem):
 
     def __init__(self):
-        self.label = Gtk.Label(label=_("Files scan interval"))
+        self.label = Gtk.Label(label=_("Scan interval"))
         self.spin = Gtk.SpinButton()
         self.spin.set_increments(1, 5)
         self.spin.set_range(1, 1440)
@@ -150,9 +135,6 @@ class FilesScanInterval(catapult.PreferencesItem):
         catapult.conf.files_scan_interval = value * 60
 
 
-PREFERENCES_ITEMS = [FilesToggle, FilesInclude, FilesExclude, FilesScanInterval]
-
-
 @dataclass
 class File:
 
@@ -168,6 +150,9 @@ class File:
 
 
 class FilesPlugin(catapult.Plugin):
+
+    preferences_items = [FilesInclude, FilesExclude, FilesScanInterval]
+    title = _("Files")
 
     def __init__(self):
         super().__init__()

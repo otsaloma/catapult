@@ -19,7 +19,6 @@ import catapult
 import subprocess
 
 from catapult.i18n import _
-from gi.repository import Gtk
 
 ACTIONS = [{
     "desktops": ["GNOME"],
@@ -40,25 +39,9 @@ ACTIONS = [{
 }]
 
 
-class SessionToggle(catapult.PreferencesItem):
-
-    def __init__(self):
-        self.label = Gtk.Label(label=_("Session plugin"))
-        self.widget = Gtk.Switch()
-
-    def dump(self, window):
-        active = "session" in catapult.conf.plugins
-        self.widget.set_active(active)
-
-    def load(self, window):
-        active = self.widget.get_active()
-        self.set_plugin_active(window, "session", active)
-
-
-PREFERENCES_ITEMS = [SessionToggle]
-
-
 class SessionPlugin(catapult.Plugin):
+
+    title = _("Session")
 
     def launch(self, window, id):
         self.debug(f"Launching {id}")

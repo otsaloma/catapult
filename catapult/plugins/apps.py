@@ -24,25 +24,10 @@ from gi.repository import Gio
 from gi.repository import Gtk
 
 
-class AppsToggle(catapult.PreferencesItem):
-
-    def __init__(self):
-        self.label = Gtk.Label(label=_("Apps plugin"))
-        self.widget = Gtk.Switch()
-
-    def dump(self, window):
-        active = "apps" in catapult.conf.plugins
-        self.widget.set_active(active)
-
-    def load(self, window):
-        active = self.widget.get_active()
-        self.set_plugin_active(window, "apps", active)
-
-
 class AppsScanInterval(catapult.PreferencesItem):
 
     def __init__(self):
-        self.label = Gtk.Label(label=_("Apps scan interval"))
+        self.label = Gtk.Label(label=_("Scan interval"))
         self.spin = Gtk.SpinButton()
         self.spin.set_increments(1, 5)
         self.spin.set_range(1, 1440)
@@ -60,10 +45,10 @@ class AppsScanInterval(catapult.PreferencesItem):
         catapult.conf.apps_scan_interval = value * 60
 
 
-PREFERENCES_ITEMS = [AppsToggle, AppsScanInterval]
-
-
 class AppsPlugin(catapult.Plugin):
+
+    preferences_items = [AppsScanInterval]
+    title = _("Apps")
 
     def __init__(self):
         super().__init__()

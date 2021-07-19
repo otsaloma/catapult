@@ -45,10 +45,6 @@ class TestUtil(catapult.test.TestCase):
     def test_get_monitor(self):
         assert catapult.util.get_monitor()
 
-    def test_get_plugin_preferences(self):
-        assert catapult.util.get_plugin_preferences("apps")
-        assert not catapult.util.get_plugin_preferences("xxx")
-
     def test_get_screen_size(self):
         width, height = catapult.util.get_screen_size()
         assert width and height
@@ -56,6 +52,9 @@ class TestUtil(catapult.test.TestCase):
     def test_is_path(self):
         assert catapult.util.is_path("/home/osmo/.bashrc")
         assert not catapult.util.is_path("file:///home/osmo/.bashrc")
+
+    def test_is_plugin_class(self):
+        assert catapult.util.is_plugin_class(catapult.plugins.apps.AppsPlugin)
 
     def test_is_uri(self):
         assert catapult.util.is_uri("file:///home/osmo/.bashrc")
@@ -79,6 +78,14 @@ class TestUtil(catapult.test.TestCase):
     def test_load_plugin(self):
         plugin = catapult.util.load_plugin("apps")
         assert isinstance(plugin, catapult.Plugin)
+
+    def test_load_plugin_class(self):
+        cls = catapult.util.load_plugin_class("apps")
+        assert catapult.util.is_plugin_class(cls)
+
+    def test_load_plugin_module(self):
+        module = catapult.util.load_plugin_module("apps")
+        assert inspect.ismodule(module)
 
     def test_load_theme(self):
         assert catapult.util.load_theme("dark")

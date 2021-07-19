@@ -1,6 +1,8 @@
 PENDING: Catapult 0.2
 =====================
 
+* Redesigned preferences dialog
+* Plugins can now define preferences
 * Better icon
 
 2021-06-06: Catapult 0.1.4
