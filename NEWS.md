@@ -1,5 +1,5 @@
-PENDING: Catapult 0.2
-=====================
+2021-07-20: Catapult 0.2
+========================
 
 * Redesigned preferences dialog
 * Plugins can now define preferences
