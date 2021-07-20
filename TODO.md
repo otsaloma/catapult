@@ -1,4 +1,5 @@
 TODO
 ====
 
-* Error handling when loading plugins
+* Handle errors loading plugins
+* Handle errors getting search results from plugins
