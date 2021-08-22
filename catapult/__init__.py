@@ -49,6 +49,7 @@ from catapult import util # noqa
 from catapult.mixins import DebugMixin # noqa
 from catapult.mixins import WindowMixin # noqa
 from catapult.conf import ConfigurationStore # noqa
+from catapult.conf import PluginConfigurationStore # noqa
 conf = ConfigurationStore()
 from catapult.preferences import PreferencesItem # noqa
 from catapult.plugin import Plugin # noqa

@@ -20,51 +20,62 @@ import copy
 import json
 import os
 
-DEFAULTS = {
-    "apps_scan_interval": 900, # s
-    "files_exclude": ["lost+found"],
-    "files_include": [os.path.expanduser("~/*")],
-    "files_scan_interval": 900, # s
-    "max_results": 24,
-    "max_results_visible": 8,
-    "plugins": ["apps", "builtins", "calculator", "files", "session"],
-    "theme": "dark",
-    "toggle_key": "<Control>space",
-}
-
 
 class ConfigurationStore(catapult.DebugMixin):
 
-    path = catapult.CONFIG_HOME / "catapult.json"
+    _defaults = {
+        "apps_scan_interval": 900, # s
+        "files_exclude": ["lost+found"],
+        "files_include": [os.path.expanduser("~/*")],
+        "files_scan_interval": 900, # s
+        "max_results": 24,
+        "max_results_visible": 8,
+        "plugins": ["apps", "builtins", "calculator", "files", "session"],
+        "theme": "dark",
+        "toggle_key": "<Control>space",
+    }
+
+    _path = catapult.CONFIG_HOME / "catapult.json"
 
     def __init__(self):
-        for key, value in DEFAULTS.items():
-            setattr(self, key, value)
+        self.restore_defaults()
 
     def read(self):
-        if not self.path.exists(): return
-        text = self.path.read_text("utf-8")
+        if not self._path.exists(): return
+        text = self._path.read_text("utf-8")
         for key, value in json.loads(text).items():
-            if key not in DEFAULTS: continue
+            if key not in self._defaults: continue
             setattr(self, key, value)
-        self.debug("Read configuration")
+        self.debug(f"Read configuration from {self._path!s}")
+
+    def restore_defaults(self):
+        for key, value in self._defaults.items():
+            setattr(self, key, value)
 
     def to_dict(self):
-        return copy.deepcopy({x: getattr(self, x) for x in DEFAULTS})
+        return copy.deepcopy({x: getattr(self, x) for x in self._defaults})
 
     def write(self):
-        self.path.parent.mkdir(parents=True, exist_ok=True)
-        blob = {x: getattr(self, x) for x in DEFAULTS}
+        self._path.parent.mkdir(parents=True, exist_ok=True)
+        blob = {x: getattr(self, x) for x in self._defaults}
         for key, value in list(blob.items()):
             # Comment out keys with default value.
-            if value == DEFAULTS[key]:
+            if value == self._defaults[key]:
                 blob[f"# {key}"] = blob.pop(key)
         blob["version"] = catapult.__version__
         keys = sorted(blob, key=lambda x: x.lstrip("# "))
         blob = {x: blob[x] for x in keys}
         blob = json.dumps(blob, ensure_ascii=False, indent=2)
         try:
-            catapult.util.atomic_write(self.path, blob + "\n", "utf-8")
+            catapult.util.atomic_write(self._path, blob + "\n", "utf-8")
         except OSError as error:
-            return print(f"Writing {str(self.path)} failed: {str(error)}")
-        self.debug("Wrote configuration")
+            return print(f"Writing {self._path!s} failed: {str(error)}")
+        self.debug(f"Wrote configuration to {self._path!s}")
+
+
+class PluginConfigurationStore(ConfigurationStore):
+
+    def __init__(self, plugin, defaults):
+        self._defaults = copy.deepcopy(defaults)
+        self._path = catapult.CONFIG_HOME / "plugins" / f"{plugin}.conf"
+        self.restore_defaults()
