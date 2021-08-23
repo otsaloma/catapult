@@ -23,12 +23,15 @@ from threading import Thread
 
 class Plugin(catapult.DebugMixin):
 
+    conf_defaults = {}
     preferences_items = []
     save_history = True
     title = _("Untitled")
 
     def __init__(self):
-        pass
+        self.conf = catapult.PluginConfigurationStore(
+            self.name, self.conf_defaults
+        ) if self.conf_defaults else None
 
     def launch(self, window, id):
         raise NotImplementedError
