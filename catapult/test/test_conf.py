@@ -26,7 +26,7 @@ class TestConfigurationStore(catapult.test.TestCase):
 
     def setup_method(self, method):
         self.conf = catapult.ConfigurationStore()
-        handle, self.temp_path = tempfile.mkstemp(prefix="catapult-", suffix=".json")
+        handle, self.temp_path = tempfile.mkstemp(suffix=".json")
         self.conf._path = Path(self.temp_path)
 
     def teardown_method(self, method):
@@ -41,3 +41,18 @@ class TestConfigurationStore(catapult.test.TestCase):
 
     def test_to_dict(self):
         assert self.conf.to_dict()
+
+
+class TestPluginConfigurationStore(TestConfigurationStore):
+
+    def setup_method(self, method):
+        self.conf = catapult.PluginConfigurationStore("test", {"x": 1})
+        handle, self.temp_path = tempfile.mkstemp(suffix=".json")
+        self.conf._path = Path(self.temp_path)
+
+    def test_read_write(self):
+        self.conf.x = 111
+        self.conf.write()
+        self.conf.x = 222
+        self.conf.read()
+        assert self.conf.x == 111
