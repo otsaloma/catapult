@@ -275,7 +275,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
     def open_preferences_dialog(self):
         def on_response(dialog, response):
             dialog.load(self)
-            catapult.conf.write()
+            self.write_configuration()
             self.update()
             dialog.destroy()
         self.hide()
@@ -285,7 +285,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
 
     def quit(self):
         self._search_manager.history.write()
-        catapult.conf.write()
+        self.write_configuration()
         self.destroy()
 
     def reset_list_height(self):
@@ -365,3 +365,9 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         if self._monitor.is_primary() != self._monitor_was_primary:
             self.debug("Primary monitor changed, updating position")
             self.set_position_offset(XOFFSET, YOFFSET)
+
+    def write_configuration(self):
+        catapult.conf.write()
+        for plugin in self._plugins:
+            if plugin.conf is not None:
+                plugin.conf.write()
