@@ -21,9 +21,31 @@ clean:
 	rm -rf */*/__pycache__
 	rm -rf */*/*/__pycache__
 
-install:
+.PHONY: build install
+
+build:
+	@echo "BUILDING PYTHON PACKAGE..."
+	python3 setup-partial.py build
+	@echo "BUILDING TRANSLATIONS..."
+	for LANG in `cat po/LINGUAS`; do \
+	echo $$LANG; \
+	mkdir -p build/$$LANG; \
+	msgfmt po/$$LANG.po -o build/$$LANG/catapult.mo; \
+	done
+	@echo "BUILDING DESKTOP FILE..."
+	mkdir -p build
+	msgfmt --desktop -d po \
+	--template data/io.otsaloma.catapult.desktop.in \
+	-o build/io.otsaloma.catapult.desktop
+	@echo "BUILDING APPDATA FILE..."
+	mkdir -p build
+	msgfmt --xml -d po \
+	--template data/io.otsaloma.catapult.appdata.xml.in \
+	-o build/io.otsaloma.catapult.appdata.xml
+
+install: build
 	@echo "INSTALLING PYTHON PACKAGE..."
-	./setup-partial.py install $(if $(DESTDIR),--root=$(DESTDIR),) --prefix=$(PREFIX)
+	python3 setup-partial.py install $(if $(DESTDIR),--root=$(DESTDIR),) --prefix=$(PREFIX)
 	@echo "INSTALLING DATA FILES..."
 	mkdir -p $(DATADIR)/catapult/themes
 	cp -f data/catapult.css $(DATADIR)/catapult
@@ -37,18 +59,14 @@ install:
 	for LANG in `cat po/LINGUAS`; do \
 	echo $$LANG; \
 	mkdir -p $(LOCALEDIR)/$$LANG/LC_MESSAGES; \
-	msgfmt po/$$LANG.po -o $(LOCALEDIR)/$$LANG/LC_MESSAGES/catapult.mo; \
+	cp -f build/$$LANG/catapult.mo $(LOCALEDIR)/$$LANG/LC_MESSAGES/; \
 	done
 	@echo "INSTALLING DESKTOP FILE..."
 	mkdir -p $(DATADIR)/applications
-	msgfmt --desktop -d po \
-	--template data/io.otsaloma.catapult.desktop.in \
-	-o $(DATADIR)/applications/io.otsaloma.catapult.desktop
+	cp -f build/io.otsaloma.catapult.desktop $(DATADIR)/applications/
 	@echo "INSTALLING APPDATA FILE..."
 	mkdir -p $(DATADIR)/metainfo
-	msgfmt --xml -d po \
-	--template data/io.otsaloma.catapult.appdata.xml.in \
-	-o $(DATADIR)/metainfo/io.otsaloma.catapult.appdata.xml
+	cp -f build/io.otsaloma.catapult.appdata.xml $(DATADIR)/metainfo/
 
 # Interactive!
 release:
