@@ -19,6 +19,7 @@ __version__ = "0.2"
 
 import gi
 import os
+import sys
 
 gi.require_version("Gdk", "3.0")
 gi.require_version("Gio", "2.0")
@@ -40,7 +41,10 @@ LOCALE_DIR = Path(__file__).parent.parent.joinpath("locale").resolve()
 # In order of priority for loading plugins and themes.
 DATA_DIRS = [DATA_DIR, DATA_HOME, Path("/usr/local/share/catapult")]
 
-DEBUG = False
+# DEBUG will be properly set in Application when arguments are parsed,
+# but some debug prints will need the value to be set already before that.
+DEBUG = "--debug" in sys.argv[1:]
+
 WAYLAND = (os.getenv("XDG_SESSION_TYPE", "") == "wayland" or
            os.getenv("WAYLAND_DISPLAY", ""))
 

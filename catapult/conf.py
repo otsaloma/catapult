@@ -19,6 +19,7 @@ import catapult
 import copy
 import json
 import os
+import shutil
 
 
 class ConfigurationStore(catapult.DebugMixin):
@@ -43,10 +44,17 @@ class ConfigurationStore(catapult.DebugMixin):
     def read(self):
         if not self._path.exists(): return
         text = self._path.read_text("utf-8")
-        for key, value in json.loads(text).items():
+        blob = json.loads(text)
+        for key, value in blob.items():
             if key not in self._defaults: continue
             setattr(self, key, value)
         self.debug(f"Read configuration from {self._path!s}")
+        if blob.get("version", "") != catapult.__version__:
+            # Take a backup of the config file after version bump.
+            bak = self._path.with_suffix(".json.bak")
+            bak.unlink(missing_ok=True)
+            shutil.copy2(self._path, bak)
+            self.debug(f"Created backup {bak!s}")
 
     def restore_defaults(self):
         for key, value in self._defaults.items():
