@@ -177,6 +177,8 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         self.debug(f"Deactivating plugin {name}")
         for i in reversed(range(len(self._plugins))):
             if self._plugins[i].name == name:
+                if self._plugins[i].conf is not None:
+                    self._plugins[i].conf.write()
                 del self._plugins[i]
 
     def get_query(self):
