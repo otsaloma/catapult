@@ -18,17 +18,12 @@
 import catapult
 import copy
 import json
-import os
 import shutil
 
 
 class ConfigurationStore(catapult.DebugMixin):
 
     _defaults = {
-        "apps_scan_interval": 900, # s
-        "files_exclude": ["lost+found"],
-        "files_include": [os.path.expanduser("~/*")],
-        "files_scan_interval": 900, # s
         "max_results": 24,
         "max_results_visible": 8,
         "plugins": ["apps", "builtins", "calculator", "files", "session"],
@@ -85,5 +80,5 @@ class PluginConfigurationStore(ConfigurationStore):
 
     def __init__(self, plugin, defaults):
         self._defaults = copy.deepcopy(defaults)
-        self._path = catapult.CONFIG_HOME / "plugins" / f"{plugin}.conf"
+        self._path = catapult.CONFIG_HOME / "plugins" / f"{plugin}.json"
         self.restore_defaults()

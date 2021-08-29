@@ -27,8 +27,9 @@ from gi.repository import Gtk
 
 class PreferencesItem:
 
-    def __init__(self):
+    def __init__(self, plugin=None):
         self.label = None
+        self.plugin = plugin
         self.widget = None
 
     def dump(self, window):
@@ -160,8 +161,9 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
         stack.add_titled(page, "general", _("General"))
         for plugin in self.list_plugins():
             cls = catapult.util.load_plugin_class(plugin)
+            cls.ensure_configuration()
             toggle = TogglePlugin(plugin, cls.title)
-            preferences_items = [x() for x in cls.preferences_items]
+            preferences_items = [x(plugin=cls) for x in cls.preferences_items]
             toggle.plugin_preferences_items = preferences_items
             page = self.get_page([toggle] + preferences_items)
             stack.add_titled(page, plugin, cls.title)

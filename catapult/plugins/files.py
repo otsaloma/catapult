@@ -70,14 +70,15 @@ class PatternEditDialog(Gtk.Dialog):
 
 class FilesInclude(catapult.PreferencesItem):
 
-    def __init__(self):
+    def __init__(self, plugin=None):
+        super().__init__(plugin=plugin)
         self.label = Gtk.Label(label=_("Include patterns"))
         self.widget = Gtk.Button()
         self.widget.set_label(_("Edit"))
         self.widget.connect("clicked", self._on_clicked)
 
     def _on_clicked(self, *args, **kwargs):
-        text = "\n".join(catapult.conf.files_include)
+        text = "\n".join(self.plugin.conf.include)
         parent = self.widget.get_ancestor(Gtk.Window)
         dialog = PatternEditDialog(parent, text)
         dialog.connect("response", self._on_response)
@@ -87,20 +88,21 @@ class FilesInclude(catapult.PreferencesItem):
         if response == Gtk.ResponseType.OK:
             patterns = dialog.get_text().strip().splitlines()
             patterns = [x.strip() for x in patterns]
-            catapult.conf.files_include = patterns
+            self.plugin.conf.include = patterns
         dialog.destroy()
 
 
 class FilesExclude(catapult.PreferencesItem):
 
-    def __init__(self):
+    def __init__(self, plugin=None):
+        super().__init__(plugin=plugin)
         self.label = Gtk.Label(label=_("Exclude patterns"))
         self.widget = Gtk.Button()
         self.widget.set_label(_("Edit"))
         self.widget.connect("clicked", self._on_clicked)
 
     def _on_clicked(self, *args, **kwargs):
-        text = "\n".join(catapult.conf.files_exclude)
+        text = "\n".join(self.plugin.conf.exclude)
         parent = self.widget.get_ancestor(Gtk.Window)
         dialog = PatternEditDialog(parent, text)
         dialog.connect("response", self._on_response)
@@ -110,13 +112,14 @@ class FilesExclude(catapult.PreferencesItem):
         if response == Gtk.ResponseType.OK:
             patterns = dialog.get_text().strip().splitlines()
             patterns = [x.strip() for x in patterns]
-            catapult.conf.files_exclude = patterns
+            self.plugin.conf.exclude = patterns
         dialog.destroy()
 
 
 class FilesScanInterval(catapult.PreferencesItem):
 
-    def __init__(self):
+    def __init__(self, plugin=None):
+        super().__init__(plugin=plugin)
         self.label = Gtk.Label(label=_("Scan interval"))
         self.spin = Gtk.SpinButton()
         self.spin.set_increments(1, 5)
@@ -127,12 +130,12 @@ class FilesScanInterval(catapult.PreferencesItem):
         self.widget.pack_start(self.unit, expand=False, fill=False, padding=0)
 
     def dump(self, window):
-        value = catapult.conf.files_scan_interval
+        value = self.plugin.conf.scan_interval
         self.spin.set_value(int(round(value / 60)))
 
     def load(self, window):
         value = self.spin.get_value_as_int()
-        catapult.conf.files_scan_interval = value * 60
+        self.plugin.conf.scan_interval = value * 60
 
 
 @dataclass
@@ -151,6 +154,11 @@ class File:
 
 class FilesPlugin(catapult.Plugin):
 
+    conf_defaults = {
+        "exclude": ["lost+found"],
+        "include": [os.path.expanduser("~/*")],
+        "scan_interval": 900, # s
+    }
     preferences_items = [FilesInclude, FilesExclude, FilesScanInterval]
     title = _("Files")
 
@@ -180,7 +188,7 @@ class FilesPlugin(catapult.Plugin):
         app.launch_uris(uris=[id], context=None)
 
     def _list_files(self):
-        for pattern in catapult.conf.files_include:
+        for pattern in self.conf.include:
             pattern = os.path.expanduser(pattern)
             for path in glob.iglob(pattern, recursive=True):
                 path = path.rstrip(os.sep)
@@ -196,7 +204,7 @@ class FilesPlugin(catapult.Plugin):
 
     def on_window_show(self):
         elapsed = time.time() - self._time_updated
-        if elapsed < catapult.conf.files_scan_interval: return
+        if elapsed < self.conf.scan_interval: return
         self.update_async()
 
     def search(self, query):
@@ -222,7 +230,7 @@ class FilesPlugin(catapult.Plugin):
 
     def _should_exclude(self, path):
         return any(os.path.basename(path) == x or fnmatch.fnmatch(path, x)
-                   for x in catapult.conf.files_exclude)
+                   for x in self.conf.exclude)
 
     def update(self):
         self._time_updated = time.time()
