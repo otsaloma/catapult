@@ -32,19 +32,23 @@ class Plugin(catapult.DebugMixin):
     title = _("Untitled")
 
     def __init__(self):
-        self.__class__.ensure_configuration()
+        self.ensure_configuration()
 
     @classmethod
     def ensure_configuration(cls):
         if cls.conf: return
         cls.read_configuration()
 
+    @classmethod
+    def get_name(cls):
+        return cls.__module__.split(".")[-1]
+
     def launch(self, window, id):
         raise NotImplementedError
 
     @property
     def name(self):
-        return self.__class__.__module__.split(".")[-1]
+        return self.get_name()
 
     def on_window_hide(self):
         pass
@@ -55,8 +59,8 @@ class Plugin(catapult.DebugMixin):
     @classmethod
     def read_configuration(cls):
         if not cls.conf_defaults: return
-        name = cls.__module__.split(".")[-1]
-        cls.conf = catapult.PluginConfigurationStore(name, cls.conf_defaults)
+        cls.conf = catapult.PluginConfigurationStore(
+            cls.get_name(), cls.conf_defaults)
         cls.conf.read()
 
     def search(self, query):
