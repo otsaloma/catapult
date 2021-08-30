@@ -39,13 +39,13 @@ class ConfigurationStore(catapult.DebugMixin):
     def read(self):
         if not self._path.exists(): return
         text = self._path.read_text("utf-8")
-        blob = json.loads(text)
-        for key, value in blob.items():
+        data = json.loads(text)
+        for key, value in data.items():
             if key not in self._defaults: continue
             setattr(self, key, value)
         self.debug(f"Read configuration from {self._path!s}")
-        if blob.get("version", "") != catapult.__version__:
-            # Take a backup of the config file after version bump.
+        if data.get("version", "") != catapult.__version__:
+            # Take a backup of the config file upon version bump.
             bak = self._path.with_suffix(".json.bak")
             bak.unlink(missing_ok=True)
             shutil.copy2(self._path, bak)
@@ -60,17 +60,17 @@ class ConfigurationStore(catapult.DebugMixin):
 
     def write(self):
         self._path.parent.mkdir(parents=True, exist_ok=True)
-        blob = {x: getattr(self, x) for x in self._defaults}
-        for key, value in list(blob.items()):
+        data = {x: getattr(self, x) for x in self._defaults}
+        for key, value in list(data.items()):
             # Comment out keys with default value.
             if value == self._defaults[key]:
-                blob[f"# {key}"] = blob.pop(key)
-        blob["version"] = catapult.__version__
-        keys = sorted(blob, key=lambda x: x.lstrip("# "))
-        blob = {x: blob[x] for x in keys}
-        blob = json.dumps(blob, ensure_ascii=False, indent=2)
+                data[f"# {key}"] = data.pop(key)
+        data["version"] = catapult.__version__
+        keys = sorted(data, key=lambda x: x.lstrip("# "))
+        data = {x: data[x] for x in keys}
+        text = json.dumps(data, ensure_ascii=False, indent=2)
         try:
-            catapult.util.atomic_write(self._path, blob + "\n", "utf-8")
+            catapult.util.atomic_write(self._path, text + "\n", "utf-8")
         except OSError as error:
             return print(f"Writing {self._path!s} failed: {str(error)}")
         self.debug(f"Wrote configuration to {self._path!s}")
@@ -78,7 +78,7 @@ class ConfigurationStore(catapult.DebugMixin):
 
 class PluginConfigurationStore(ConfigurationStore):
 
-    def __init__(self, plugin, defaults):
+    def __init__(self, plugin_name, defaults):
         self._defaults = copy.deepcopy(defaults)
-        self._path = catapult.CONFIG_HOME / "plugins" / f"{plugin}.json"
+        self._path = catapult.CONFIG_HOME / "plugins" / f"{plugin_name}.json"
         self.restore_defaults()
