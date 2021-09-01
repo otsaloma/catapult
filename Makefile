@@ -21,8 +21,6 @@ clean:
 	rm -rf */*/__pycache__
 	rm -rf */*/*/__pycache__
 
-.PHONY: build install
-
 build:
 	@echo "BUILDING PYTHON PACKAGE..."
 	python3 setup-partial.py build
@@ -90,4 +88,4 @@ test:
 translations:
 	tools/update-translations
 
-.PHONY: check clean install release test translations
+.PHONY: check clean install release test translations build
