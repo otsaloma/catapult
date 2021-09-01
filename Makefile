@@ -27,8 +27,8 @@ build:
 	@echo "BUILDING TRANSLATIONS..."
 	for LANG in `cat po/LINGUAS`; do \
 	echo $$LANG; \
-	mkdir -p build/$$LANG; \
-	msgfmt po/$$LANG.po -o build/$$LANG/catapult.mo; \
+	mkdir -p build/mo; \
+	msgfmt po/$$LANG.po -o build/mo/$$LANG.mo; \
 	done
 	@echo "BUILDING DESKTOP FILE..."
 	mkdir -p build
@@ -57,7 +57,7 @@ install: build
 	for LANG in `cat po/LINGUAS`; do \
 	echo $$LANG; \
 	mkdir -p $(LOCALEDIR)/$$LANG/LC_MESSAGES; \
-	cp -f build/$$LANG/catapult.mo $(LOCALEDIR)/$$LANG/LC_MESSAGES/; \
+	cp -f build/mo/$$LANG.mo $(LOCALEDIR)/$$LANG/LC_MESSAGES/; \
 	done
 	@echo "INSTALLING DESKTOP FILE..."
 	mkdir -p $(DATADIR)/applications
