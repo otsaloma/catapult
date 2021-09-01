@@ -23,7 +23,7 @@ clean:
 
 build:
 	@echo "BUILDING PYTHON PACKAGE..."
-	python3 setup-partial.py build
+	./setup-partial.py build
 	@echo "BUILDING TRANSLATIONS..."
 	for LANG in `cat po/LINGUAS`; do \
 	echo $$LANG; \
@@ -43,7 +43,7 @@ build:
 
 install: build
 	@echo "INSTALLING PYTHON PACKAGE..."
-	python3 setup-partial.py install $(if $(DESTDIR),--root=$(DESTDIR),) --prefix=$(PREFIX)
+	./setup-partial.py install $(if $(DESTDIR),--root=$(DESTDIR),) --prefix=$(PREFIX)
 	@echo "INSTALLING DATA FILES..."
 	mkdir -p $(DATADIR)/catapult/themes
 	cp -f data/catapult.css $(DATADIR)/catapult
