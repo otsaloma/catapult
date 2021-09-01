@@ -26,8 +26,8 @@ from gi.repository import Gtk
 
 class AppsScanInterval(catapult.PreferencesItem):
 
-    def __init__(self, plugin=None):
-        super().__init__(plugin=plugin)
+    def __init__(self, conf=None):
+        super().__init__(conf=conf)
         self.label = Gtk.Label(label=_("Scan interval"))
         self.spin = Gtk.SpinButton()
         self.spin.set_increments(1, 5)
@@ -38,12 +38,12 @@ class AppsScanInterval(catapult.PreferencesItem):
         self.widget.pack_start(self.unit, expand=False, fill=False, padding=0)
 
     def dump(self, window):
-        value = self.plugin.conf.scan_interval
+        value = self.conf.scan_interval
         self.spin.set_value(int(round(value / 60)))
 
     def load(self, window):
         value = self.spin.get_value_as_int()
-        self.plugin.conf.scan_interval = value * 60
+        self.conf.scan_interval = value * 60
 
 
 class AppsPlugin(catapult.Plugin):

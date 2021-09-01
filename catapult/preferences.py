@@ -27,9 +27,9 @@ from gi.repository import Gtk
 
 class PreferencesItem:
 
-    def __init__(self, plugin=None):
+    def __init__(self, conf=None):
+        self.conf = conf
         self.label = None
-        self.plugin = plugin
         self.widget = None
 
     def dump(self, window):
@@ -111,9 +111,9 @@ class ToggleKey(PreferencesItem):
 class TogglePlugin(PreferencesItem):
 
     def __init__(self, plugin, title):
+        self.connected_items = []
         self.label = Gtk.Label(label=_("{} plugin").format(title))
         self.plugin = plugin
-        self.plugin_preferences_items = []
         self.widget = Gtk.Switch()
         self.widget.connect("notify::active", self._on_widget_notify_active)
         self._on_widget_notify_active()
@@ -129,7 +129,7 @@ class TogglePlugin(PreferencesItem):
     def _on_widget_notify_active(self, *args, **kwargs):
         # Sync sensitivities of preferences items with the toggle.
         active = self.widget.get_active()
-        for item in self.plugin_preferences_items:
+        for item in self.connected_items:
             item.label.set_sensitive(active)
             item.widget.set_sensitive(active)
 
@@ -159,14 +159,14 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
         sidebar.get_style_context().add_class("catapult-preferences-sidebar")
         page = self.get_page([Theme, ToggleKey])
         stack.add_titled(page, "general", _("General"))
-        for plugin in self.list_plugins():
-            cls = catapult.util.load_plugin_class(plugin)
+        for name in self.list_plugins():
+            cls = catapult.util.load_plugin_class(name)
             cls.ensure_configuration()
-            toggle = TogglePlugin(plugin, cls.title)
-            preferences_items = [x(plugin=cls) for x in cls.preferences_items]
-            toggle.plugin_preferences_items = preferences_items
+            toggle = TogglePlugin(name, cls.title)
+            preferences_items = [x(conf=cls.conf) for x in cls.preferences_items]
+            toggle.connected_items = preferences_items
             page = self.get_page([toggle] + preferences_items)
-            stack.add_titled(page, plugin, cls.title)
+            stack.add_titled(page, name, cls.title)
         content = self.get_content_area()
         content.add(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
         grid = Gtk.Grid()
