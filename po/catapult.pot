@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-20 16:35+0300\n"
+"POT-Creation-Date: 2021-09-05 00:01+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,39 +51,39 @@ msgstr ""
 msgid "show window immediately"
 msgstr ""
 
-#: catapult/plugin.py:28
+#: catapult/plugin.py:32
 msgid "Untitled"
 msgstr ""
 
-#: catapult/preferences.py:44
+#: catapult/preferences.py:45
 msgid "Theme"
 msgstr ""
 
-#: catapult/preferences.py:66
+#: catapult/preferences.py:67
 msgid "Activation key"
 msgstr ""
 
-#: catapult/preferences.py:113
+#: catapult/preferences.py:115
 msgid "{} plugin"
 msgstr ""
 
-#: catapult/preferences.py:141
+#: catapult/preferences.py:152
 msgid "Preferences"
 msgstr ""
 
-#: catapult/preferences.py:150
+#: catapult/preferences.py:161
 msgid "General"
 msgstr ""
 
-#: catapult/plugins/apps.py:30 catapult/plugins/files.py:120
+#: catapult/plugins/apps.py:31 catapult/plugins/files.py:123
 msgid "Scan interval"
 msgstr ""
 
-#: catapult/plugins/apps.py:34 catapult/plugins/files.py:124
+#: catapult/plugins/apps.py:35 catapult/plugins/files.py:127
 msgid "minutes"
 msgstr ""
 
-#: catapult/plugins/apps.py:51
+#: catapult/plugins/apps.py:55
 msgid "Apps"
 msgstr ""
 
@@ -127,19 +127,19 @@ msgstr ""
 msgid "Use shell-style wildcards * and **"
 msgstr ""
 
-#: catapult/plugins/files.py:74
+#: catapult/plugins/files.py:75
 msgid "Include patterns"
 msgstr ""
 
-#: catapult/plugins/files.py:76 catapult/plugins/files.py:99
+#: catapult/plugins/files.py:77 catapult/plugins/files.py:101
 msgid "Edit"
 msgstr ""
 
-#: catapult/plugins/files.py:97
+#: catapult/plugins/files.py:99
 msgid "Exclude patterns"
 msgstr ""
 
-#: catapult/plugins/files.py:155
+#: catapult/plugins/files.py:163
 msgid "Files"
 msgstr ""
 
@@ -181,7 +181,7 @@ msgid ""
 "calculations with a keyboard-driven user interface."
 msgstr ""
 
-#: data/io.otsaloma.catapult.appdata.xml.in:32
+#: data/io.otsaloma.catapult.appdata.xml.in:33
 msgid "Main window"
 msgstr ""
 

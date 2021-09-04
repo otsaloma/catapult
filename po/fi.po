@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-20 16:35+0300\n"
-"PO-Revision-Date: 2021-07-20 16:39+0300\n"
+"POT-Creation-Date: 2021-09-05 00:01+0300\n"
+"PO-Revision-Date: 2021-09-05 00:01+0300\n"
 "Last-Translator: Osmo Salomaa <otsaloma@iki.fi>, 2021\n"
 "Language-Team: Finnish (https://www.transifex.com/otsaloma/teams/118053/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -55,39 +55,39 @@ msgstr "tulosta yksityiskohtia indeksoinnista ja hakutuloksista"
 msgid "show window immediately"
 msgstr "näytä ikkuna saman tien"
 
-#: catapult/plugin.py:28
+#: catapult/plugin.py:32
 msgid "Untitled"
 msgstr "Nimetön"
 
-#: catapult/preferences.py:44
+#: catapult/preferences.py:45
 msgid "Theme"
 msgstr "Teema"
 
-#: catapult/preferences.py:66
+#: catapult/preferences.py:67
 msgid "Activation key"
 msgstr "Aktivointinäppäin"
 
-#: catapult/preferences.py:113
+#: catapult/preferences.py:115
 msgid "{} plugin"
 msgstr "{} plugin"
 
-#: catapult/preferences.py:141
+#: catapult/preferences.py:152
 msgid "Preferences"
 msgstr "Asetukset"
 
-#: catapult/preferences.py:150
+#: catapult/preferences.py:161
 msgid "General"
 msgstr "Yleinen"
 
-#: catapult/plugins/apps.py:30 catapult/plugins/files.py:120
+#: catapult/plugins/apps.py:31 catapult/plugins/files.py:123
 msgid "Scan interval"
 msgstr "Päivitysväli"
 
-#: catapult/plugins/apps.py:34 catapult/plugins/files.py:124
+#: catapult/plugins/apps.py:35 catapult/plugins/files.py:127
 msgid "minutes"
 msgstr "minuuttia"
 
-#: catapult/plugins/apps.py:51
+#: catapult/plugins/apps.py:55
 msgid "Apps"
 msgstr "Sovellukset"
 
@@ -131,19 +131,19 @@ msgstr "Muokkaa tiedostojen hakulausekkeita"
 msgid "Use shell-style wildcards * and **"
 msgstr "Käytä komentotulkin hakumerkkejä * ja **"
 
-#: catapult/plugins/files.py:74
+#: catapult/plugins/files.py:75
 msgid "Include patterns"
 msgstr "Sisällytyslausekkeet"
 
-#: catapult/plugins/files.py:76 catapult/plugins/files.py:99
+#: catapult/plugins/files.py:77 catapult/plugins/files.py:101
 msgid "Edit"
 msgstr "Muokkaa"
 
-#: catapult/plugins/files.py:97
+#: catapult/plugins/files.py:99
 msgid "Exclude patterns"
 msgstr "Ohituslausekkeet"
 
-#: catapult/plugins/files.py:155
+#: catapult/plugins/files.py:163
 msgid "Files"
 msgstr "Tiedostot"
 
@@ -188,7 +188,7 @@ msgstr ""
 "avaamisen ja pienten laskujen tekemisen näppäimistöpohjaisella "
 "käyttöliittymällä."
 
-#: data/io.otsaloma.catapult.appdata.xml.in:32
+#: data/io.otsaloma.catapult.appdata.xml.in:33
 msgid "Main window"
 msgstr "Pääikkuna"
 
