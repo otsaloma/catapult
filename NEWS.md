@@ -1,3 +1,9 @@
+PENDING: Catapult 0.3
+=====================
+
+* Plugins can now have configuration files (#4)
+* Add make build target (scabala, #2)
+
 2021-07-20: Catapult 0.2
 ========================
 
