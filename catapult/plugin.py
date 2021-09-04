@@ -23,25 +23,45 @@ from threading import Thread
 
 class Plugin(catapult.DebugMixin):
 
+    # conf is on purpose at class-level so that it's available,
+    # e.g. in the preferences dialog, with class instantiation.
+    conf = None
+    conf_defaults = {}
     preferences_items = []
     save_history = True
     title = _("Untitled")
 
     def __init__(self):
-        pass
+        self.ensure_configuration()
+
+    @classmethod
+    def ensure_configuration(cls):
+        if cls.conf: return
+        cls.read_configuration()
+
+    @classmethod
+    def get_name(cls):
+        return cls.__module__.split(".")[-1]
 
     def launch(self, window, id):
         raise NotImplementedError
 
     @property
     def name(self):
-        return self.__class__.__module__.split(".")[-1]
+        return self.get_name()
 
     def on_window_hide(self):
         pass
 
     def on_window_show(self):
         pass
+
+    @classmethod
+    def read_configuration(cls):
+        if not cls.conf_defaults: return
+        cls.conf = catapult.PluginConfigurationStore(
+            cls.get_name(), cls.conf_defaults)
+        cls.conf.read()
 
     def search(self, query):
         raise NotImplementedError

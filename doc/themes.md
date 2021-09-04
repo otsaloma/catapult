@@ -21,6 +21,12 @@ to select your new "hello" theme. When developing your theme, use
 }
 ```
 
+## API Status
+
+Catapult is pre-1.0 software and the theming API is liable to change in
+a backwards-incompatible manner with new releases, although efforts will
+be made to avoid that if reasonably possible.
+
 ## References
 
 * https://github.com/otsaloma/catapult/tree/master/data/themes

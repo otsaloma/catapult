@@ -26,7 +26,7 @@ class TestHistory(catapult.test.TestCase):
 
     def setup_method(self, method):
         self.history = catapult.History()
-        handle, self.temp_path = tempfile.mkstemp(prefix="catapult-", suffix=".json")
+        handle, self.temp_path = tempfile.mkstemp(suffix=".json")
         self.history.path = Path(self.temp_path)
         self.result = catapult.SearchResult(
             description="Testing",
