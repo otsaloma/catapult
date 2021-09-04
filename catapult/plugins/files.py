@@ -70,8 +70,8 @@ class PatternEditDialog(Gtk.Dialog):
 
 class FilesInclude(catapult.PreferencesItem):
 
-    def __init__(self, conf=None):
-        super().__init__(conf=conf)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.label = Gtk.Label(label=_("Include patterns"))
         self.widget = Gtk.Button()
         self.widget.set_label(_("Edit"))
@@ -94,8 +94,8 @@ class FilesInclude(catapult.PreferencesItem):
 
 class FilesExclude(catapult.PreferencesItem):
 
-    def __init__(self, conf=None):
-        super().__init__(conf=conf)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.label = Gtk.Label(label=_("Exclude patterns"))
         self.widget = Gtk.Button()
         self.widget.set_label(_("Edit"))
@@ -118,8 +118,8 @@ class FilesExclude(catapult.PreferencesItem):
 
 class FilesScanInterval(catapult.PreferencesItem):
 
-    def __init__(self, conf=None):
-        super().__init__(conf=conf)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.label = Gtk.Label(label=_("Scan interval"))
         self.spin = Gtk.SpinButton()
         self.spin.set_increments(1, 5)
