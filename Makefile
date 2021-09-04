@@ -40,6 +40,7 @@ build:
 	-o build/io.otsaloma.catapult.appdata.xml
 
 install:
+	test -d build
 	@echo "INSTALLING PYTHON PACKAGE..."
 	./setup-partial.py install $(if $(DESTDIR),--root=$(DESTDIR),) --prefix=$(PREFIX)
 	@echo "INSTALLING DATA FILES..."
