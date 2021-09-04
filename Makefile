@@ -31,12 +31,10 @@ build:
 	msgfmt po/$$LANG.po -o build/mo/$$LANG.mo; \
 	done
 	@echo "BUILDING DESKTOP FILE..."
-	mkdir -p build
 	msgfmt --desktop -d po \
 	--template data/io.otsaloma.catapult.desktop.in \
 	-o build/io.otsaloma.catapult.desktop
 	@echo "BUILDING APPDATA FILE..."
-	mkdir -p build
 	msgfmt --xml -d po \
 	--template data/io.otsaloma.catapult.appdata.xml.in \
 	-o build/io.otsaloma.catapult.appdata.xml
