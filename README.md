@@ -40,7 +40,7 @@ On Debian/Ubuntu you can install these with the following command.
                      python3-gi \
                      qalc
 
-Then, to install Catapult, run command
+Then, to install Catapult, run commands
 
     make build
     sudo make PREFIX=/usr/local install
