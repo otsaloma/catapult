@@ -42,6 +42,7 @@ On Debian/Ubuntu you can install these with the following command.
 
 Then, to install Catapult, run command
 
+    make build
     sudo make PREFIX=/usr/local install
 
 ## Documentation
