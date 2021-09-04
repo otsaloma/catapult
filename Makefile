@@ -38,9 +38,10 @@ build:
 	msgfmt --xml -d po \
 	--template data/io.otsaloma.catapult.appdata.xml.in \
 	-o build/io.otsaloma.catapult.appdata.xml
+	touch build/.complete
 
 install:
-	test -d build
+	test -f build/.complete
 	@echo "INSTALLING PYTHON PACKAGE..."
 	./setup-partial.py install $(if $(DESTDIR),--root=$(DESTDIR),) --prefix=$(PREFIX)
 	@echo "INSTALLING DATA FILES..."
