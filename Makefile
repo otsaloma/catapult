@@ -57,7 +57,7 @@ install:
 	for LANG in `cat po/LINGUAS`; do \
 	echo $$LANG; \
 	mkdir -p $(LOCALEDIR)/$$LANG/LC_MESSAGES; \
-	cp -f build/mo/$$LANG.mo $(LOCALEDIR)/$$LANG/LC_MESSAGES/; \
+	cp -f build/mo/$$LANG.mo $(LOCALEDIR)/$$LANG/LC_MESSAGES/catapult.mo; \
 	done
 	@echo "INSTALLING DESKTOP FILE..."
 	mkdir -p $(DATADIR)/applications
