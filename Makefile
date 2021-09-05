@@ -76,7 +76,7 @@ release:
 	$(EDITOR) NEWS.md
 	$(EDITOR) data/io.otsaloma.catapult.appdata.xml.in
 	killall catapult || true
-	sudo $(MAKE) PREFIX=/usr/local install clean
+	sudo $(MAKE) PREFIX=/usr/local build install clean
 	/usr/local/bin/catapult --debug
 	tools/release
 	@echo "REMEMBER TO UPDATE WEBSITE"
