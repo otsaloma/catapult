@@ -25,9 +25,9 @@ build:
 	@echo "BUILDING PYTHON PACKAGE..."
 	./setup-partial.py build
 	@echo "BUILDING TRANSLATIONS..."
+	mkdir -p build/mo
 	for LANG in `cat po/LINGUAS`; do \
 	echo $$LANG; \
-	mkdir -p build/mo; \
 	msgfmt po/$$LANG.po -o build/mo/$$LANG.mo; \
 	done
 	@echo "BUILDING DESKTOP FILE..."
@@ -61,10 +61,10 @@ install:
 	done
 	@echo "INSTALLING DESKTOP FILE..."
 	mkdir -p $(DATADIR)/applications
-	cp -f build/io.otsaloma.catapult.desktop $(DATADIR)/applications/
+	cp -f build/io.otsaloma.catapult.desktop $(DATADIR)/applications
 	@echo "INSTALLING APPDATA FILE..."
 	mkdir -p $(DATADIR)/metainfo
-	cp -f build/io.otsaloma.catapult.appdata.xml $(DATADIR)/metainfo/
+	cp -f build/io.otsaloma.catapult.appdata.xml $(DATADIR)/metainfo
 
 # Interactive!
 release:
