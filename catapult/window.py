@@ -281,7 +281,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
             self.update()
             dialog.destroy()
         self.hide()
-        dialog = catapult.PreferencesDialog(self)
+        dialog = catapult.PreferencesDialog(self, self._plugins)
         dialog.connect("response", on_response)
         dialog.run()
 

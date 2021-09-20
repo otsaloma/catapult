@@ -144,7 +144,7 @@ class TogglePlugin(PreferencesItem):
 
 class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
 
-    def __init__(self, window):
+    def __init__(self, window, plugins):
         GObject.GObject.__init__(self)
         self.items = []
         self.main_window = window
@@ -159,14 +159,12 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
         sidebar.get_style_context().add_class("catapult-preferences-sidebar")
         page = self.get_page([Theme, ToggleKey])
         stack.add_titled(page, "general", _("General"))
-        for name in self.list_plugins():
-            cls = catapult.util.load_plugin_class(name)
-            cls.ensure_configuration()
-            toggle = TogglePlugin(name, cls.title)
-            preferences_items = [x(conf=cls.conf) for x in cls.preferences_items]
+        for plugin in plugins:
+            toggle = TogglePlugin(plugin.name, plugin.title)
+            preferences_items = [x(conf=plugin.conf) for x in plugin.preferences_items]
             toggle.connected_items = preferences_items
             page = self.get_page([toggle] + preferences_items)
-            stack.add_titled(page, name, cls.title)
+            stack.add_titled(page, plugin.name, plugin.title)
         content = self.get_content_area()
         content.add(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
         grid = Gtk.Grid()
@@ -193,11 +191,6 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
             grid.attach(box, 1, i, 2, 1)
             self.items.append(item)
         return grid
-
-    def list_plugins(self):
-        yield from ["apps", "session", "files", "calculator"]
-        for name, module in catapult.util.list_custom_plugins():
-            yield name
 
     def load(self, window):
         for item in self.items:
