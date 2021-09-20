@@ -144,7 +144,7 @@ class TogglePlugin(PreferencesItem):
 
 class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
 
-    def __init__(self, window, plugins):
+    def __init__(self, window, plugins=()):
         GObject.GObject.__init__(self)
         self.items = []
         self.main_window = window
