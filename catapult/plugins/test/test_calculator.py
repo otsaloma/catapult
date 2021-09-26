@@ -25,7 +25,7 @@ class TestCalculatorPlugin(catapult.test.TestCase):
 
     def test_search_constant(self):
         result = next(self.plugin.search("pi*2"))
-        assert result.description == "pi * 2"
+        assert result.description in ["pi * 2", "pi × 2"]
         assert result.title == "6.28319"
 
     def test_search_function(self):
@@ -40,10 +40,10 @@ class TestCalculatorPlugin(catapult.test.TestCase):
 
     def test_search_parentheses(self):
         result = next(self.plugin.search("(2+2)*(2+2)"))
-        assert result.description == "(2 + 2) * (2 + 2)"
+        assert result.description in ["(2 + 2) * (2 + 2)", "(2 + 2) × (2 + 2)"]
         assert result.title == "16"
 
     def test_search_unit_conversion(self):
         result = next(self.plugin.search("1 mi to km"))
-        assert result.description == "1 * mile"
+        assert result.description in ["1 * mile", "1 × mile"]
         assert result.title == "1.60934 km"

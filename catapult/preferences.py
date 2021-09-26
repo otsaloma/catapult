@@ -111,12 +111,15 @@ class ToggleKey(PreferencesItem):
 class TogglePlugin(PreferencesItem):
 
     def __init__(self, plugin, title):
-        self.connected_items = []
+        self._connected_items = []
         self.label = Gtk.Label(label=_("{} plugin").format(title))
         self.plugin = plugin
         self.widget = Gtk.Switch()
         self.widget.connect("notify::active", self._on_widget_notify_active)
-        self._on_widget_notify_active()
+
+    def connect_items(self, items):
+        self._connected_items = list(items)
+        self.update_sensitivities()
 
     def dump(self, window):
         active = self.plugin in catapult.conf.plugins
@@ -127,11 +130,7 @@ class TogglePlugin(PreferencesItem):
         self.set_plugin_active(window, self.plugin, active)
 
     def _on_widget_notify_active(self, *args, **kwargs):
-        # Sync sensitivities of preferences items with the toggle.
-        active = self.widget.get_active()
-        for item in self.connected_items:
-            item.label.set_sensitive(active)
-            item.widget.set_sensitive(active)
+        self.update_sensitivities()
 
     def set_plugin_active(self, window, plugin, active):
         if active:
@@ -140,6 +139,12 @@ class TogglePlugin(PreferencesItem):
             catapult.conf.plugins.remove(plugin)
         catapult.conf.plugins = sorted(set(catapult.conf.plugins))
         window.set_plugin_active(plugin, active)
+
+    def update_sensitivities(self):
+        active = self.widget.get_active()
+        for item in self._connected_items:
+            item.label.set_sensitive(active)
+            item.widget.set_sensitive(active)
 
 
 class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
@@ -162,7 +167,7 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
         for plugin in plugins:
             toggle = TogglePlugin(plugin.name, plugin.title)
             preferences_items = [x(conf=plugin.conf) for x in plugin.preferences_items]
-            toggle.connected_items = preferences_items
+            toggle.connect_items(preferences_items)
             page = self.get_page([toggle] + preferences_items)
             stack.add_titled(page, plugin.name, plugin.title)
         content = self.get_content_area()
