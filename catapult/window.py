@@ -173,13 +173,16 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
             return success
 
     def deactivate_plugin(self, name):
-        if name not in [x.name for x in self._plugins]: return
         self.debug(f"Deactivating plugin {name}")
         for i in reversed(range(len(self._plugins))):
             if self._plugins[i].name == name:
-                plugin = self._plugins.pop(i)
-                if plugin.conf is not None:
-                    plugin.conf.write()
+                del self._plugins[i]
+        # Always write configuration, so that e.g. if changing
+        # preferences in the preferences dialog for an inactive
+        # plugin, those changes will get saved too.
+        plugin = catapult.util.load_plugin_class(name)
+        if plugin.conf is not None:
+            plugin.conf.write()
 
     def get_query(self):
         return self._input_entry.get_text()

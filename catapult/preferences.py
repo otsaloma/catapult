@@ -205,7 +205,10 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
             yield name
 
     def load(self, window):
-        for item in self.items:
-            name = item.__class__.__name__
+        # Load toggles last, since deactivating a plugin will trigger writing
+        # the configuration to file and that should be done only after all the
+        # actual configuration values are loaded.
+        for item in sorted(self.items, key=lambda x: isinstance(x, TogglePlugin)):
+            name = ".".join((item.__class__.__module__, item.__class__.__name__))
             self.debug(f"Loading configuration from {name}")
             item.load(window)
