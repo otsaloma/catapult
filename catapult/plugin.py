@@ -24,7 +24,7 @@ from threading import Thread
 class Plugin(catapult.DebugMixin):
 
     # conf is on purpose at class-level so that it's available,
-    # e.g. in the preferences dialog, with class instantiation.
+    # e.g. in the preferences dialog, without class instantiation.
     conf = None
     conf_defaults = {}
     preferences_items = []
