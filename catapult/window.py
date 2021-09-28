@@ -290,6 +290,13 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         self.write_configuration()
         self.destroy()
 
+    def reload_plugins(self):
+        for name in catapult.conf.plugins:
+            self.debug(f"Reloading plugin {name}")
+            self.deactivate_plugin(name)
+            catapult.util.load_plugin_module.cache_clear()
+            self.activate_plugin(name)
+
     def reset_list_height(self):
         self._result_list_height_set = False
 

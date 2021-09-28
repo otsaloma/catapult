@@ -31,9 +31,7 @@ class BuiltinsPlugin(catapult.Plugin):
         if id == ":preferences":
             return window.open_preferences_dialog()
         if id == ":reload-plugins":
-            for plugin in catapult.conf.plugins:
-                window.deactivate_plugin(plugin)
-                window.activate_plugin(plugin)
+            return window.reload_plugins()
         if id == ":reload-theme":
             return window.load_css()
         if id == ":quit":

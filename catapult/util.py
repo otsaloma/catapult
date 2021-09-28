@@ -120,6 +120,7 @@ def load_plugin_class(name):
     for name, cls in inspect.getmembers(module, is_plugin_class):
         return cls
 
+@functools.lru_cache(1024)
 def load_plugin_module(name):
     module = find_plugin(name)
     if inspect.ismodule(module): return module
