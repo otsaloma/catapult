@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-05 00:01+0300\n"
+"POT-Creation-Date: 2021-09-30 21:54+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "App launcher"
 msgstr ""
 
-#: catapult/about.py:36 catapult/plugins/builtins.py:54
+#: catapult/about.py:36 catapult/plugins/builtins.py:52
 msgid "About Catapult"
 msgstr ""
 
@@ -67,11 +67,11 @@ msgstr ""
 msgid "{} plugin"
 msgstr ""
 
-#: catapult/preferences.py:152
+#: catapult/preferences.py:157
 msgid "Preferences"
 msgstr ""
 
-#: catapult/preferences.py:161
+#: catapult/preferences.py:166
 msgid "General"
 msgstr ""
 
@@ -87,23 +87,23 @@ msgstr ""
 msgid "Apps"
 msgstr ""
 
-#: catapult/plugins/builtins.py:66
+#: catapult/plugins/builtins.py:64
 msgid "Catapult preferences"
 msgstr ""
 
-#: catapult/plugins/builtins.py:78
+#: catapult/plugins/builtins.py:76
 msgid "Reload plugins"
 msgstr ""
 
-#: catapult/plugins/builtins.py:90
+#: catapult/plugins/builtins.py:88
 msgid "Reload theme"
 msgstr ""
 
-#: catapult/plugins/builtins.py:102
+#: catapult/plugins/builtins.py:100
 msgid "Quit Catapult"
 msgstr ""
 
-#: catapult/plugins/builtins.py:114
+#: catapult/plugins/builtins.py:112
 msgid "Update search index"
 msgstr ""
 
@@ -181,7 +181,7 @@ msgid ""
 "calculations with a keyboard-driven user interface."
 msgstr ""
 
-#: data/io.otsaloma.catapult.appdata.xml.in:33
+#: data/io.otsaloma.catapult.appdata.xml.in:34
 msgid "Main window"
 msgstr ""
 

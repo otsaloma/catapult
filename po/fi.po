@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-05 00:01+0300\n"
-"PO-Revision-Date: 2021-09-05 00:01+0300\n"
+"POT-Creation-Date: 2021-09-30 21:54+0300\n"
+"PO-Revision-Date: 2021-09-30 21:55+0300\n"
 "Last-Translator: Osmo Salomaa <otsaloma@iki.fi>, 2021\n"
 "Language-Team: Finnish (https://www.transifex.com/otsaloma/teams/118053/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "App launcher"
 msgstr "Sovelluskäynnistin"
 
-#: catapult/about.py:36 catapult/plugins/builtins.py:54
+#: catapult/about.py:36 catapult/plugins/builtins.py:52
 msgid "About Catapult"
 msgstr "Tietoja Catapultista"
 
@@ -71,11 +71,11 @@ msgstr "Aktivointinäppäin"
 msgid "{} plugin"
 msgstr "{} plugin"
 
-#: catapult/preferences.py:152
+#: catapult/preferences.py:157
 msgid "Preferences"
 msgstr "Asetukset"
 
-#: catapult/preferences.py:161
+#: catapult/preferences.py:166
 msgid "General"
 msgstr "Yleinen"
 
@@ -91,23 +91,23 @@ msgstr "minuuttia"
 msgid "Apps"
 msgstr "Sovellukset"
 
-#: catapult/plugins/builtins.py:66
+#: catapult/plugins/builtins.py:64
 msgid "Catapult preferences"
 msgstr "Catapultin asetukset"
 
-#: catapult/plugins/builtins.py:78
+#: catapult/plugins/builtins.py:76
 msgid "Reload plugins"
 msgstr "Uudelleenlataa pluginit"
 
-#: catapult/plugins/builtins.py:90
+#: catapult/plugins/builtins.py:88
 msgid "Reload theme"
 msgstr "Uudelleenlataa teema"
 
-#: catapult/plugins/builtins.py:102
+#: catapult/plugins/builtins.py:100
 msgid "Quit Catapult"
 msgstr "Lopeta Catapult"
 
-#: catapult/plugins/builtins.py:114
+#: catapult/plugins/builtins.py:112
 msgid "Update search index"
 msgstr "Päivitä hakuindeksi"
 
@@ -188,7 +188,7 @@ msgstr ""
 "avaamisen ja pienten laskujen tekemisen näppäimistöpohjaisella "
 "käyttöliittymällä."
 
-#: data/io.otsaloma.catapult.appdata.xml.in:33
+#: data/io.otsaloma.catapult.appdata.xml.in:34
 msgid "Main window"
 msgstr "Pääikkuna"
 
