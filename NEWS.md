@@ -1,5 +1,5 @@
-PENDING: Catapult 0.3.1
-=======================
+2021-09-30: Catapult 0.3.1
+==========================
 
 * Fix plugin configuration sometimes not being saved
 
