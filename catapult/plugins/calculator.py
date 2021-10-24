@@ -24,6 +24,7 @@ from catapult.i18n import _
 COMMAND = " ".join((
     "qalc",
     "-s 'decimal comma off'",
+    "-s 'fractions off'",
     "-s 'precision 6'",
     "-s 'save definitions no'",
     "-s 'save mode no'",
