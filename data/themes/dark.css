@@ -35,6 +35,7 @@
   background-color: transparent;
   border: none;
   box-shadow: none;
+  caret-color: alpha(@fg-color, 0.2);
   color: @fg-color;
   font-family: "Cascadia Code", monospace;
   font-size: 200%;
