@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-02 20:19+0300\n"
-"PO-Revision-Date: 2022-04-02 20:19+0300\n"
+"POT-Creation-Date: 2022-04-02 20:26+0300\n"
+"PO-Revision-Date: 2022-04-02 20:26+0300\n"
 "Last-Translator: Osmo Salomaa <otsaloma@iki.fi>, 2021\n"
 "Language-Team: Finnish (https://www.transifex.com/otsaloma/teams/118053/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -151,31 +151,37 @@ msgstr "Tiedostot"
 msgid "Lock Screen"
 msgstr "Lukitse näyttö"
 
-#: catapult/plugins/session.py:29
+#. TRANSLATORS: Several terms are used in English. If your language
+#. only has one term, you can translate all variants to the same value.
+#: catapult/plugins/session.py:31
 msgid "Log Out"
 msgstr "Kirjaudu ulos"
 
-#: catapult/plugins/session.py:29
+#: catapult/plugins/session.py:31
 msgid "Log Off"
 msgstr "Kirjaudu ulos"
 
-#: catapult/plugins/session.py:33
+#. TRANSLATORS: Several terms are used in English. If your language
+#. only has one term, you can translate all variants to the same value.
+#: catapult/plugins/session.py:37
 msgid "Power Off"
 msgstr "Sammuta"
 
-#: catapult/plugins/session.py:33
+#: catapult/plugins/session.py:37
 msgid "Shutdown"
 msgstr "Sammuta"
 
-#: catapult/plugins/session.py:37
+#. TRANSLATORS: Several terms are used in English. If your language
+#. only has one term, you can translate all variants to the same value.
+#: catapult/plugins/session.py:43
 msgid "Reboot"
 msgstr "Uudelleenkäynnistä"
 
-#: catapult/plugins/session.py:37
+#: catapult/plugins/session.py:43
 msgid "Restart"
 msgstr "Uudelleenkäynnistä"
 
-#: catapult/plugins/session.py:44
+#: catapult/plugins/session.py:50
 msgid "Session"
 msgstr "Istunto"
 

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-02 20:19+0300\n"
+"POT-Creation-Date: 2022-04-02 20:26+0300\n"
 "PO-Revision-Date: 2021-03-10 20:25+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/otsaloma/teams/118053/nl/)\n"
@@ -151,31 +151,37 @@ msgstr "Bestanden"
 msgid "Lock Screen"
 msgstr "Scherm vergrendelen"
 
-#: catapult/plugins/session.py:29
+#. TRANSLATORS: Several terms are used in English. If your language
+#. only has one term, you can translate all variants to the same value.
+#: catapult/plugins/session.py:31
 msgid "Log Out"
 msgstr "Afmelden"
 
-#: catapult/plugins/session.py:29
+#: catapult/plugins/session.py:31
 msgid "Log Off"
 msgstr "Afmelden"
 
-#: catapult/plugins/session.py:33
+#. TRANSLATORS: Several terms are used in English. If your language
+#. only has one term, you can translate all variants to the same value.
+#: catapult/plugins/session.py:37
 msgid "Power Off"
 msgstr "Uitschakelen"
 
-#: catapult/plugins/session.py:33
+#: catapult/plugins/session.py:37
 msgid "Shutdown"
 msgstr "Uitschakelen"
 
-#: catapult/plugins/session.py:37
+#. TRANSLATORS: Several terms are used in English. If your language
+#. only has one term, you can translate all variants to the same value.
+#: catapult/plugins/session.py:43
 msgid "Reboot"
 msgstr "Herstarten"
 
-#: catapult/plugins/session.py:37
+#: catapult/plugins/session.py:43
 msgid "Restart"
 msgstr "Herstarten"
 
-#: catapult/plugins/session.py:44
+#: catapult/plugins/session.py:50
 msgid "Session"
 msgstr "Sessie"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-02 20:19+0300\n"
+"POT-Creation-Date: 2022-04-02 20:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -147,31 +147,37 @@ msgstr ""
 msgid "Lock Screen"
 msgstr ""
 
-#: catapult/plugins/session.py:29
+#. TRANSLATORS: Several terms are used in English. If your language
+#. only has one term, you can translate all variants to the same value.
+#: catapult/plugins/session.py:31
 msgid "Log Out"
 msgstr ""
 
-#: catapult/plugins/session.py:29
+#: catapult/plugins/session.py:31
 msgid "Log Off"
 msgstr ""
 
-#: catapult/plugins/session.py:33
+#. TRANSLATORS: Several terms are used in English. If your language
+#. only has one term, you can translate all variants to the same value.
+#: catapult/plugins/session.py:37
 msgid "Power Off"
 msgstr ""
 
-#: catapult/plugins/session.py:33
+#: catapult/plugins/session.py:37
 msgid "Shutdown"
 msgstr ""
 
-#: catapult/plugins/session.py:37
+#. TRANSLATORS: Several terms are used in English. If your language
+#. only has one term, you can translate all variants to the same value.
+#: catapult/plugins/session.py:43
 msgid "Reboot"
 msgstr ""
 
-#: catapult/plugins/session.py:37
+#: catapult/plugins/session.py:43
 msgid "Restart"
 msgstr ""
 
-#: catapult/plugins/session.py:44
+#: catapult/plugins/session.py:50
 msgid "Session"
 msgstr ""
 
