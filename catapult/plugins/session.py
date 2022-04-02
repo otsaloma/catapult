@@ -26,14 +26,20 @@ ACTIONS = [{
     "command":  "gnome-screensaver-command --lock",
 }, {
     "desktops": ["GNOME"],
+    # TRANSLATORS: Several terms are used in English. If your language
+    # only has one term, you can translate all variants to the same value.
     "titles":   [_("Log Out"), _("Log Off")],
     "command":  "gnome-session-quit --logout",
 }, {
     "desktops": ["GNOME"],
+    # TRANSLATORS: Several terms are used in English. If your language
+    # only has one term, you can translate all variants to the same value.
     "titles":   [_("Power Off"), _("Shutdown")],
     "command":  "gnome-session-quit --power-off",
 }, {
     "desktops": ["GNOME"],
+    # TRANSLATORS: Several terms are used in English. If your language
+    # only has one term, you can translate all variants to the same value.
     "titles":   [_("Reboot"), _("Restart")],
     "command":  "gnome-session-quit --reboot",
 }]
