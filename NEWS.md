@@ -2,6 +2,7 @@ PENDING: Catapult 0.4
 =====================
 
 * Fix caret color
+* Add Dutch translation (Heimen Stoffels)
 
 2021-09-30: Catapult 0.3.1
 ==========================

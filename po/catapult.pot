@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-30 21:54+0300\n"
+"POT-Creation-Date: 2022-04-02 20:19+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,7 +107,7 @@ msgstr ""
 msgid "Update search index"
 msgstr ""
 
-#: catapult/plugins/calculator.py:46
+#: catapult/plugins/calculator.py:47
 msgid "Calculator"
 msgstr ""
 
@@ -181,7 +181,7 @@ msgid ""
 "calculations with a keyboard-driven user interface."
 msgstr ""
 
-#: data/io.otsaloma.catapult.appdata.xml.in:34
+#: data/io.otsaloma.catapult.appdata.xml.in:35
 msgid "Main window"
 msgstr ""
 
