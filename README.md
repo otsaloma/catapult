@@ -16,6 +16,12 @@ indicated file-wise in the license headers of individual files.
 
 ## Installing
 
+### Packages
+
+* [Arch Linux](https://aur.archlinux.org/packages/catapult)
+
+### Source
+
 Catapult requires the following.
 
 | Dependency   | Version |
