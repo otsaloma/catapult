@@ -8,19 +8,6 @@ LOCALEDIR = $(DESTDIR)$(PREFIX)/share/locale
 # EDITOR must wait!
 EDITOR = nano
 
-check:
-	flake8 .
-	flake8 bin/*
-
-clean:
-	rm -rf build
-	rm -rf catapult.egg-info
-	rm -rf dist
-	rm -rf __pycache__
-	rm -rf */__pycache__
-	rm -rf */*/__pycache__
-	rm -rf */*/*/__pycache__
-
 build:
 	@echo "BUILDING PYTHON PACKAGE..."
 	./setup-partial.py build
@@ -39,6 +26,19 @@ build:
 	--template data/io.otsaloma.catapult.appdata.xml.in \
 	-o build/io.otsaloma.catapult.appdata.xml
 	touch build/.complete
+
+check:
+	flake8 .
+	flake8 bin/*
+
+clean:
+	rm -rf build
+	rm -rf catapult.egg-info
+	rm -rf dist
+	rm -rf __pycache__
+	rm -rf */__pycache__
+	rm -rf */*/__pycache__
+	rm -rf */*/*/__pycache__
 
 install:
 	test -f build/.complete
@@ -88,4 +88,4 @@ test:
 translations:
 	tools/update-translations
 
-.PHONY: check clean install release test translations build
+.PHONY: build check clean install release test translations
