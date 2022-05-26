@@ -30,4 +30,4 @@ be made to avoid that if reasonably possible.
 ## References
 
 * https://github.com/otsaloma/catapult/tree/master/data/themes
-* https://developer.gnome.org/gtk3/stable/theming.html
+* https://docs.gtk.org/gtk3/css-overview.html
