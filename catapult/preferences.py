@@ -18,6 +18,7 @@
 
 import catapult
 import inspect
+import traceback
 
 from catapult.i18n import _
 from gi.repository import Gdk
@@ -165,13 +166,17 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
         page = self.get_page([Theme, ToggleKey])
         stack.add_titled(page, "general", _("General"))
         for name in self.list_plugins():
-            cls = catapult.util.load_plugin_class(name)
-            cls.ensure_configuration()
-            toggle = TogglePlugin(name, cls.title)
-            preferences_items = [x(conf=cls.conf) for x in cls.preferences_items]
-            toggle.connect_items(preferences_items)
-            page = self.get_page([toggle] + preferences_items)
-            stack.add_titled(page, name, cls.title)
+            try:
+                cls = catapult.util.load_plugin_class(name)
+                cls.ensure_configuration()
+                toggle = TogglePlugin(name, cls.title)
+                preferences_items = [x(conf=cls.conf) for x in cls.preferences_items]
+                toggle.connect_items(preferences_items)
+                page = self.get_page([toggle] + preferences_items)
+                stack.add_titled(page, name, cls.title)
+            except Exception:
+                traceback.print_exc()
+                print(f"Failed to load configuration for {name}")
         content = self.get_content_area()
         content.add(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
         grid = Gtk.Grid()
