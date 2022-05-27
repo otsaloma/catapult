@@ -16,6 +16,7 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult
+import logging
 import time
 
 START = time.time()
@@ -23,11 +24,8 @@ START = time.time()
 
 class DebugMixin:
 
-    def debug(self, *args, **kwargs):
-        if not catapult.DEBUG: return
-        clock = time.time() - START
-        name = self.__class__.__name__
-        print(f"{clock:.3f} {name}:", *args, **kwargs)
+    def debug(self, message):
+        logging.debug(f"{self.__class__.__name__}: {message}")
 
     def tick(self):
         self.__tick = time.time()

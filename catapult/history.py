@@ -17,6 +17,7 @@
 
 import catapult
 import json
+import logging
 import math
 import time
 
@@ -96,8 +97,8 @@ class History(catapult.DebugMixin):
         blob = json.dumps(self._items, ensure_ascii=False, indent=2, sort_keys=True)
         try:
             catapult.util.atomic_write(self.path, blob + "\n", "utf-8")
-        except OSError as error:
-            return print(f"Writing {str(self.path)} failed: {str(error)}")
+        except OSError:
+            return logging.exception(f"Writing {self.path!s} failed")
         self.debug(f"Wrote {self.count} items")
         self._time_saved = time.time()
 

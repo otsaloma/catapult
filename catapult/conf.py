@@ -18,8 +18,8 @@
 import catapult
 import copy
 import json
+import logging
 import shutil
-import traceback
 
 from pathlib import Path
 
@@ -67,8 +67,8 @@ class ConfigurationStore(catapult.DebugMixin):
             data = copy.deepcopy(data)
             version = tuple(map(int, data["version"].split(".")))
         except Exception:
-            print("Failed to parse config data for migration:")
             print(json.dumps(data, ensure_ascii=False, indent=2))
+            logging.exception("Failed to parse config data for migration")
             return data
         if version < (0, 2, 999):
             try:
@@ -76,9 +76,8 @@ class ConfigurationStore(catapult.DebugMixin):
                 migrate_0_3_apps(data)
                 migrate_0_3_files(data)
             except Exception:
-                print("Failed to migrate configuration to 0.3:")
                 print(json.dumps(data, ensure_ascii=False, indent=2))
-                traceback.print_exc()
+                logging.exception("Failed to migrate configuration to 0.3")
         return data
 
     def read(self):
@@ -117,9 +116,10 @@ class ConfigurationStore(catapult.DebugMixin):
         text = json.dumps(data, ensure_ascii=False, indent=2)
         try:
             catapult.util.atomic_write(self._path, text + "\n", "utf-8")
-        except OSError as error:
-            return print(f"Writing {self._path!s} failed: {str(error)}")
-        self.debug(f"Wrote configuration to {self._path!s}")
+            self.debug(f"Wrote configuration to {self._path!s}")
+        except OSError:
+            logging.exception(f"Writing {self._path!s} failed")
+
 
 
 class PluginConfigurationStore(ConfigurationStore):

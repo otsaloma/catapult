@@ -18,7 +18,7 @@
 
 import catapult
 import inspect
-import traceback
+import logging
 
 from catapult.i18n import _
 from gi.repository import Gdk
@@ -175,8 +175,7 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
                 page = self.get_page([toggle] + preferences_items)
                 stack.add_titled(page, name, cls.title)
             except Exception:
-                traceback.print_exc()
-                print(f"Failed to load configuration for {name}")
+                logging.exception(f"Failed to load configuration for {name}")
         content = self.get_content_area()
         content.add(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
         grid = Gtk.Grid()

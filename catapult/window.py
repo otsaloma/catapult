@@ -18,7 +18,7 @@
 
 import catapult
 import itertools
-import traceback
+import logging
 
 from gi.repository import Gdk
 from gi.repository import Gio
@@ -108,8 +108,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
                 self.debug(f"Initializing plugin {name}")
                 self._plugins.append(catapult.util.load_plugin(name))
             except Exception:
-                traceback.print_exc()
-                print(f"Failed to initialize {name}")
+                logging.exception(f"Failed to initialize {name}")
 
     def _init_properties(self):
         self.set_icon_name("io.otsaloma.catapult")
@@ -167,8 +166,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
             self.debug(f"Activating plugin {name}")
             self._plugins.append(catapult.util.load_plugin(name))
         except Exception:
-            traceback.print_exc()
-            print("Failed to activate {name}")
+            logging.exception("Failed to activate {name}")
 
     def bind_toggle_key(self, key):
         self.unbind_toggle_key()
@@ -202,8 +200,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
             try:
                 plugin.on_window_hide()
             except Exception:
-                traceback.print_exc()
-                print(f"on_window_hide failed for {plugin.name}")
+                logging.exception(f"on_window_hide failed for {plugin.name}")
         self._result_list.unselect_all()
         catapult.util.iterate_main()
         super().hide()
@@ -314,8 +311,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
                 catapult.util.load_plugin_module.cache_clear()
                 self.activate_plugin(name)
             except Exception:
-                traceback.print_exc()
-                print(f"Failed to reload {name}")
+                logging.exception(f"Failed to reload {name}")
 
     def reset_list_height(self):
         self._result_list_height_set = False
@@ -366,8 +362,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
             try:
                 plugin.on_window_show()
             except Exception:
-                traceback.print_exc()
-                print(f"on_window_show failed for {plugin.name}")
+                logging.exception(f"on_window_show failed for {plugin.name}")
         self.set_sensitive(True)
         self.present()
         self._update_position()

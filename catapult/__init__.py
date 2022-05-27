@@ -18,6 +18,7 @@
 __version__ = "0.3.2"
 
 import gi
+import logging
 import os
 import sys
 
@@ -67,8 +68,17 @@ from catapult.window import Window # noqa
 from catapult.app import Application # noqa
 
 
+def init_logging():
+    level = logging.DEBUG if DEBUG else logging.INFO
+    f = logging.FileHandler(DATA_HOME / "catapult.log", mode="w", encoding="utf-8")
+    logging.basicConfig(format="%(asctime)s %(levelname)s: %(message)s",
+                        datefmt="%H:%M:%S",
+                        level=level,
+                        handlers=[logging.StreamHandler(), f])
+
 def main(args):
     global app
+    init_logging()
     conf.read()
     i18n.bind()
     app = Application(args)

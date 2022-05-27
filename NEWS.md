@@ -1,3 +1,9 @@
+PENDING: Catapult 0.4
+=====================
+
+* Don't crash the whole app if a plugin throws an error
+* Write log to `~/.local/share/catapult/catapult.log`
+
 2022-04-02: Catapult 0.3.2
 ==========================
 

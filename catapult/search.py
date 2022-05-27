@@ -16,7 +16,7 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult
-import traceback
+import logging
 
 from dataclasses import dataclass
 
@@ -37,8 +37,7 @@ class SearchResult:
         try:
             self.plugin.launch(window, self.id)
         except Exception:
-            traceback.print_exc()
-            print(f"Failed to launch {self.plugin.name} result {self.id}")
+            logging.exception(f"Failed to launch {self.plugin.name} result {self.id}")
 
 
 class SearchManager(catapult.DebugMixin):
@@ -63,8 +62,7 @@ class SearchManager(catapult.DebugMixin):
                 elapsed = self.tock()
                 self.debug(f"{plugin.name} delivered in {elapsed:.0f} ms")
             except Exception:
-                traceback.print_exc()
-                print(f"Failed to get search results from {plugin.name}")
+                logging.exception(f"Failed to get search results from {plugin.name}")
 
     def launch(self, window, query, result):
         if result.plugin.save_history:

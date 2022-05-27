@@ -16,6 +16,7 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult
+import logging
 
 from argparse import ArgumentParser
 from catapult.i18n import _
@@ -41,8 +42,8 @@ class Application(Gtk.Application):
         self.add_window(window)
         if args.show:
             window.show()
-        print(_("Catapult ready, use {} to engage")
-              .format(catapult.conf.toggle_key))
+        logging.info(_("Catapult ready, use {} to engage")
+                     .format(catapult.conf.toggle_key))
 
     def _parse_arguments(self, args):
         parser = ArgumentParser(usage=_("catapult [OPTION...]"))
@@ -64,4 +65,7 @@ class Application(Gtk.Application):
 
         args = parser.parse_args()
         catapult.DEBUG = args.debug
+        if catapult.DEBUG:
+            logger = logging.getLogger()
+            logger.setLevel(logging.DEBUG)
         return args
