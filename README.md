@@ -51,6 +51,23 @@ Then, to install Catapult, run commands
     make build
     sudo make PREFIX=/usr/local install
 
+<details>
+<summary>Using Fedora 36?</summary>
+
+Fedora have [broken][2026979] Python package installation by not
+respecing the supplied prefix. To work around the issue, use the
+following commands – it will install to `/usr/local` (Fedora
+automatically adds `local` to the end of `SETUP_PREFIX`). Only use this
+on Fedora 36 (and maybe later, check the linked bug report for the
+up-to-date status).
+
+    make build
+    sudo make PREFIX=/usr/local SETUP_PREFIX=/usr install
+
+</details>
+
+[2026979]: https://bugzilla.redhat.com/show_bug.cgi?id=2026979
+
 ## Documentation
 
 ### Starting Automatically
@@ -72,7 +89,9 @@ autostart file manually, usually under `~/.config/autostart`.
 
 * Window positioning might not work, which means that the Catapult
   window will be positioned on your screen wherever your window manager
-  defaults to or considers appropriate.
+  defaults to or considers appropriate. You can configure your window
+  manager to center all new windows by default, which should center the
+  Catapult window (excluding the search results).
 
 ### Developers
 
