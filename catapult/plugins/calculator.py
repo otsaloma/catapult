@@ -20,6 +20,7 @@ import re
 import subprocess
 
 from catapult.i18n import _
+from threading import Thread
 
 COMMAND = " ".join((
     "qalc",
@@ -45,6 +46,10 @@ class CalculatorPlugin(catapult.Plugin):
 
     save_history = False
     title = _("Calculator")
+
+    def __init__(self):
+        super().__init__()
+        Thread(target=self.update_exchange_rates, daemon=True).start()
 
     def launch(self, window, id):
         self.debug(f"Copying {id!r} to the clipboard")
@@ -75,3 +80,10 @@ class CalculatorPlugin(catapult.Plugin):
             score=2,
             title=result,
         )
+
+    def update_exchange_rates(self):
+        # Update exchange rates about once a week and check a conversion.
+        command = "qalc -s 'update exchange rates 7' '1 USD to EUR'"
+        process = subprocess.run(command, shell=True, capture_output=True)
+        output = process.stdout.decode("utf-8").strip()
+        self.debug(f"Updated exchange rates: {output!r}")
