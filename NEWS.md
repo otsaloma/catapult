@@ -1,5 +1,5 @@
-PENDING: Catapult 0.4
-=====================
+2022-06-06: Catapult 0.4
+========================
 
 * Update exchange rates once a week for the calculator plugin
 * Don't crash the whole app if a plugin throws an error
