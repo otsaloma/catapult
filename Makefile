@@ -80,7 +80,6 @@ release:
 	@echo "BUMP VERSION NUMBER"
 	$(EDITOR) catapult/__init__.py
 	@echo "ADD RELEASE NOTES"
-	$(EDITOR) TODO.md
 	$(EDITOR) NEWS.md
 	$(EDITOR) data/io.otsaloma.catapult.appdata.xml.in
 	killall catapult || true
