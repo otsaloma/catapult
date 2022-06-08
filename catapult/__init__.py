@@ -70,7 +70,9 @@ from catapult.app import Application # noqa
 
 def init_logging():
     level = logging.DEBUG if DEBUG else logging.INFO
-    f = logging.FileHandler(DATA_HOME / "catapult.log", mode="w", encoding="utf-8")
+    path = DATA_HOME / "catapult.log"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    f = logging.FileHandler(path, mode="w", encoding="utf-8")
     logging.basicConfig(format="%(asctime)s %(levelname)s: %(message)s",
                         datefmt="%H:%M:%S",
                         level=level,
