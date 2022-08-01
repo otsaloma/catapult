@@ -15,12 +15,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-import catapult
-
+from catapult.api import lookup_icon
+from catapult.api import Plugin
+from catapult.api import SearchResult
 from catapult.i18n import _
 
 
-class BuiltinsPlugin(catapult.Plugin):
+class BuiltinsPlugin(Plugin):
 
     title = "Builtins"
 
@@ -42,13 +43,13 @@ class BuiltinsPlugin(catapult.Plugin):
     def search(self, query):
         query = query.lower().strip()
         if not query.startswith(":"): return
-        icon = catapult.util.lookup_icon(
+        icon = lookup_icon(
             "io.otsaloma.catapult",
             "application-x-executable",
         )
         if ":about".startswith(query):
             self.debug(f"Found :about for {query!r}")
-            yield catapult.SearchResult(
+            yield SearchResult(
                 description=_("About Catapult"),
                 fuzzy=False,
                 icon=icon,
@@ -60,7 +61,7 @@ class BuiltinsPlugin(catapult.Plugin):
             )
         if ":preferences".startswith(query):
             self.debug(f"Found :preferences for {query!r}")
-            yield catapult.SearchResult(
+            yield SearchResult(
                 description=_("Catapult preferences"),
                 fuzzy=False,
                 icon=icon,
@@ -72,7 +73,7 @@ class BuiltinsPlugin(catapult.Plugin):
             )
         if ":reload-plugins".startswith(query):
             self.debug(f"Found :reload-plugins for {query!r}")
-            yield catapult.SearchResult(
+            yield SearchResult(
                 description=_("Reload plugins"),
                 fuzzy=False,
                 icon=icon,
@@ -84,7 +85,7 @@ class BuiltinsPlugin(catapult.Plugin):
             )
         if ":reload-theme".startswith(query):
             self.debug(f"Found :reload-theme for {query!r}")
-            yield catapult.SearchResult(
+            yield SearchResult(
                 description=_("Reload theme"),
                 fuzzy=False,
                 icon=icon,
@@ -96,7 +97,7 @@ class BuiltinsPlugin(catapult.Plugin):
             )
         if ":quit".startswith(query):
             self.debug(f"Found :quit for {query!r}")
-            yield catapult.SearchResult(
+            yield SearchResult(
                 description=_("Quit Catapult"),
                 fuzzy=False,
                 icon=icon,
@@ -108,7 +109,7 @@ class BuiltinsPlugin(catapult.Plugin):
             )
         if ":update".startswith(query):
             self.debug(f"Found :update for {query!r}")
-            yield catapult.SearchResult(
+            yield SearchResult(
                 description=_("Update search index"),
                 fuzzy=False,
                 icon=icon,

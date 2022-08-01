@@ -10,22 +10,24 @@ to apply your changes. Use `self.debug` calls and run Catapult with
 `catapult --debug` to see what's happening.
 
 ```python
-import catapult
+from catapult.api import copy_text_to_clipboard
+from catapult.api import Plugin
+from catapult.api import SearchResult
 
 
-class HelloPlugin(catapult.Plugin):
+class HelloPlugin(Plugin):
 
     title = "Hello"
 
     def launch(self, window, id):
         self.debug(f"Copying {id!r} to the clipboard")
-        catapult.util.copy_text_to_clipboard(id)
+        copy_text_to_clipboard(id)
 
     def search(self, query):
         query = query.strip().lower()
         if query in "hello":
             self.debug(f"Found hello for {query!r}")
-            yield catapult.SearchResult(
+            yield SearchResult(
                 description="hello",
                 fuzzy=False,
                 icon="application-x-executable",
@@ -42,35 +44,23 @@ class HelloPlugin(catapult.Plugin):
 If your plugin needs to be user-configurable, i.e. needs items in the
 preferences dialog and a configuration file, then do the following.
 
-* Define your preferences as subclasses of `catapult.PreferencesItem`
-  and list those under your plugin's class attribute
-  `preferences_items`.
+* Define your preferences as subclasses of
+  `catapult.api.PreferencesItem` and list those under your plugin's
+  class attribute `preferences_items`.
 
 * List your configuration options under your plugin's class attribute
   `conf_defaults`. Based on that a `PluginConfigurationStore` object
   will be made available under your plugin class as `conf` and likewise
   for each preferences item instance. Plugin configuration files are
-  written automatically to `~/.config/catapult/plugins/<name>.conf`.
+  written automatically to `~/.config/catapult/plugins/{name}.conf`.
 
 See the plugins shipped with Catapult for examples of the above.
 
-## Guidelines
+## API
 
-In your plugin, you import the `catapult` module and get access to
-everything under it. This does not mean that you should access anything
-or everything from there as some parts will not have a stable API and
-will change without notice. There is no strict definition of a
-plugin-exposed API, but as a rough guideline, below is a list of what
-you can probably safely use.
+The API available for plugins is defined under `catapult.api`.
 
-```python
-catapult.Plugin
-catapult.PreferencesItem
-catapult.SearchResult
-catapult.util
-```
-
-## API Status
+https://github.com/otsaloma/catapult/blob/master/catapult/api.py
 
 Catapult is pre-1.0 software and the plugin API is liable to change in a
 backwards-incompatible manner with new releases, although efforts will

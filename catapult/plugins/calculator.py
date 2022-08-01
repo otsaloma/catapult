@@ -15,10 +15,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-import catapult
 import re
 import subprocess
 
+from catapult.api import copy_text_to_clipboard
+from catapult.api import lookup_icon
+from catapult.api import Plugin
+from catapult.api import SearchResult
 from catapult.i18n import _
 from threading import Thread
 
@@ -42,7 +45,7 @@ PATTERN = "^({})".format("|".join((
 )))
 
 
-class CalculatorPlugin(catapult.Plugin):
+class CalculatorPlugin(Plugin):
 
     save_history = False
     title = _("Calculator")
@@ -53,7 +56,7 @@ class CalculatorPlugin(catapult.Plugin):
 
     def launch(self, window, id):
         self.debug(f"Copying {id!r} to the clipboard")
-        catapult.util.copy_text_to_clipboard(id)
+        copy_text_to_clipboard(id)
 
     def search(self, query):
         query = query.strip()
@@ -67,10 +70,10 @@ class CalculatorPlugin(catapult.Plugin):
         if output.startswith("error:"): return
         if output.startswith("warning:"): return
         expression, result = re.split(r" [=≈] ", output, maxsplit=1)
-        yield catapult.SearchResult(
+        yield SearchResult(
             description=expression,
             fuzzy=False,
-            icon=catapult.util.lookup_icon(
+            icon=lookup_icon(
                 "org.gnome.Calculator",
                 "application-x-executable",
             ),

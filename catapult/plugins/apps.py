@@ -15,16 +15,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-import catapult
 import re
 import time
 
+from catapult.api import Plugin
+from catapult.api import PreferencesItem
+from catapult.api import SearchResult
 from catapult.i18n import _
 from gi.repository import Gio
 from gi.repository import Gtk
 
 
-class AppsScanInterval(catapult.PreferencesItem):
+class AppsScanInterval(PreferencesItem):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -46,7 +48,7 @@ class AppsScanInterval(catapult.PreferencesItem):
         self.conf.scan_interval = value * 60
 
 
-class AppsPlugin(catapult.Plugin):
+class AppsPlugin(Plugin):
 
     conf_defaults = {
         "scan_interval": 900, # s
@@ -106,7 +108,7 @@ class AppsPlugin(catapult.Plugin):
                 if id not in self._index: continue
                 app = self._index[id]
                 self.debug(f"Found {id} for {query!r}")
-                yield catapult.SearchResult(
+                yield SearchResult(
                     description=self._get_description(app),
                     fuzzy=self._get_fuzzy(app, query),
                     icon=app.get_icon() or "application-x-executable",

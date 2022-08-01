@@ -73,7 +73,8 @@ def is_path(location):
 
 def is_plugin_class(obj):
     return (inspect.isclass(obj) and
-            issubclass(obj, catapult.Plugin))
+            issubclass(obj, catapult.Plugin) and
+            obj is not catapult.Plugin)
 
 def is_uri(location):
     return re.match(r"^[a-z]+://", location) is not None

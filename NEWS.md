@@ -1,3 +1,8 @@
+PENDING: Catapult 0.5
+=====================
+
+* Specify limited API for plugins under `catapult.api`
+
 2022-06-08: Catapult 0.4.1
 ==========================
 

@@ -15,7 +15,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-import catapult
 import contextlib
 import fnmatch
 import glob
@@ -23,6 +22,11 @@ import itertools
 import os
 import time
 
+from catapult.api import is_path
+from catapult.api import is_uri
+from catapult.api import Plugin
+from catapult.api import PreferencesItem
+from catapult.api import SearchResult
 from catapult.i18n import _
 from dataclasses import dataclass
 from gi.repository import Gio
@@ -68,7 +72,7 @@ class PatternEditDialog(Gtk.Dialog):
         return text_buffer.get_text(start, end, False)
 
 
-class FilesInclude(catapult.PreferencesItem):
+class FilesInclude(PreferencesItem):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -92,7 +96,7 @@ class FilesInclude(catapult.PreferencesItem):
         dialog.destroy()
 
 
-class FilesExclude(catapult.PreferencesItem):
+class FilesExclude(PreferencesItem):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -116,7 +120,7 @@ class FilesExclude(catapult.PreferencesItem):
         dialog.destroy()
 
 
-class FilesScanInterval(catapult.PreferencesItem):
+class FilesScanInterval(PreferencesItem):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -147,12 +151,12 @@ class File:
 
     @property
     def uri(self):
-        if catapult.util.is_uri(self.location):
+        if is_uri(self.location):
             return self.location
         return Path(self.location).as_uri()
 
 
-class FilesPlugin(catapult.Plugin):
+class FilesPlugin(Plugin):
 
     conf_defaults = {
         "exclude": ["lost+found"],
@@ -176,7 +180,7 @@ class FilesPlugin(catapult.Plugin):
         return File(icon=icon, location=location, title=title)
 
     def _get_file_info(self, location):
-        if catapult.util.is_path(location):
+        if is_path(location):
             location = Path(location).as_uri()
         file = Gio.File.new_for_uri(location)
         return file.query_info("*", Gio.FileQueryInfoFlags.NONE, None)
@@ -217,7 +221,7 @@ class FilesPlugin(catapult.Plugin):
                 # Avoid using an outdated full/empty icon for trash.
                 info = self._get_file_info(file.location)
                 file.icon = info.get_icon()
-            yield catapult.SearchResult(
+            yield SearchResult(
                 description=file.location,
                 fuzzy=False,
                 icon=file.icon,

@@ -15,9 +15,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-import catapult
 import subprocess
 
+from catapult.api import get_desktop_environment
+from catapult.api import Plugin
+from catapult.api import SearchResult
 from catapult.i18n import _
 
 ACTIONS = [{
@@ -45,7 +47,7 @@ ACTIONS = [{
 }]
 
 
-class SessionPlugin(catapult.Plugin):
+class SessionPlugin(Plugin):
 
     title = _("Session")
 
@@ -55,7 +57,7 @@ class SessionPlugin(catapult.Plugin):
 
     def search(self, query):
         query = query.lower().strip()
-        desktop = catapult.util.get_desktop_environment()
+        desktop = get_desktop_environment()
         for action in ACTIONS:
             if desktop not in action["desktops"]: continue
             offsets = [x.lower().find(query) for x in action["titles"]]
@@ -63,7 +65,7 @@ class SessionPlugin(catapult.Plugin):
             if not offsets: continue
             title = action["titles"][0]
             self.debug(f"Found {title} for {query!r}")
-            yield catapult.SearchResult(
+            yield SearchResult(
                 description=action["command"],
                 fuzzy=False,
                 icon="application-x-executable",
