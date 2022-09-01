@@ -2,6 +2,11 @@ PENDING: Catapult 0.5
 =====================
 
 * Specify limited API for plugins under `catapult.api`
+* When installing, don't relay `PREFIX` to `setup.py` as many distros
+  interpret that differently. Use `SETUP_PREFIX` separately if needed,
+  e.g. for building a distro package, you could use something like `make
+  DESTDIR=pkg PREFIX=/usr SETUP_PREFIX=/usr install`. See `Makefile` for
+  details.
 
 2022-06-08: Catapult 0.4.1
 ==========================

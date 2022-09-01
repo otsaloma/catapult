@@ -13,12 +13,7 @@ class InstallLib(install_lib):
 
     def install(self):
         # Patch installation paths into catapult/__init__.py.
-        get_command_obj = self.distribution.get_command_obj
-        root = get_command_obj("install").root
-        prefix = get_command_obj("install").install_data
-        if root is not None:
-            prefix = os.path.abspath(prefix)
-            prefix = prefix.replace(os.path.abspath(root), "")
+        prefix = os.getenv("CATAPULT_PREFIX", "/usr/local")
         data_dir = Path(prefix) / "share" / "catapult"
         locale_dir = Path(prefix) / "share" / "locale"
         init_path = Path(self.build_dir) / "catapult" / "__init__.py"
