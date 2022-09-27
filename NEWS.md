@@ -1,6 +1,8 @@
 PENDING: Catapult 0.5
 =====================
 
+* Update apps plugin index every time the launcher window is shown,
+  making new installed apps show up instantly in search results (#13)
 * Specify limited API for plugins under `catapult.api`
 * When installing, don't relay `PREFIX` to `setup.py` as many distros
   interpret that differently. Use `SETUP_PREFIX` separately if needed,

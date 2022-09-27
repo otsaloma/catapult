@@ -16,53 +16,21 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import re
-import time
 
 from catapult.api import Plugin
-from catapult.api import PreferencesItem
 from catapult.api import SearchResult
 from catapult.i18n import _
 from gi.repository import Gio
-from gi.repository import Gtk
-
-
-class AppsScanInterval(PreferencesItem):
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.label = Gtk.Label(label=_("Scan interval"))
-        self.spin = Gtk.SpinButton()
-        self.spin.set_increments(1, 5)
-        self.spin.set_range(1, 1440)
-        self.unit = Gtk.Label(label=_("minutes"))
-        self.widget = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
-        self.widget.pack_start(self.spin, expand=False, fill=False, padding=0)
-        self.widget.pack_start(self.unit, expand=False, fill=False, padding=0)
-
-    def dump(self, window):
-        value = self.conf.scan_interval
-        self.spin.set_value(int(round(value / 60)))
-
-    def load(self, window):
-        value = self.spin.get_value_as_int()
-        self.conf.scan_interval = value * 60
 
 
 class AppsPlugin(Plugin):
 
-    conf_defaults = {
-        "scan_interval": 900, # s
-    }
-    preferences_items = [AppsScanInterval]
     title = _("Apps")
 
     def __init__(self):
         super().__init__()
         self._index = {}
-        self._time_updated = -1
         self.update_async()
-        monitor = Gio.AppInfoMonitor.get()
-        monitor.connect("changed", self._on_app_info_monitor_changed)
         self.debug("Initialization complete")
 
     def _get_description(self, app):
@@ -88,16 +56,11 @@ class AppsPlugin(Plugin):
         key = lambda x: x.get_filename().lower()
         for app in sorted(Gio.AppInfo.get_all(), key=key):
             if not app.should_show(): continue
-            if app.get_id() == "io.otsaloma.catapult.desktop": continue
-            self.debug(f"Indexing {app.get_filename()}")
-            yield app.get_id(), app
-
-    def _on_app_info_monitor_changed(self, *args, **kwargs):
-        self._time_updated = -1
+            id = app.get_id()
+            if id == "io.otsaloma.catapult.desktop": continue
+            yield id, app
 
     def on_window_show(self):
-        elapsed = time.time() - self._time_updated
-        if elapsed < self.conf.scan_interval: return
         self.update_async()
 
     def search(self, query):
@@ -120,6 +83,6 @@ class AppsPlugin(Plugin):
                 )
 
     def update(self):
-        self._time_updated = time.time()
+        self.debug("Updating index...")
         self._index = dict(self._list_apps())
         self.debug(f"{len(self._index)} items in index")
