@@ -52,7 +52,7 @@ class ConfigurationStore(catapult.DebugMixin):
     _defaults = {
         "max_results": 24,
         "max_results_visible": 8,
-        "plugins": ["apps", "builtins", "calculator", "files", "session"],
+        "plugins": ["apps", "builtins", "calculator", "clipboard", "files", "session"],
         "theme": "dark",
         "toggle_key": "<Control>space",
     }

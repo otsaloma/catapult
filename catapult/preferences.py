@@ -204,7 +204,7 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
         return grid
 
     def list_plugins(self):
-        yield from ["apps", "session", "files", "calculator"]
+        yield from ["apps", "session", "files", "calculator", "clipboard"]
         for name, module in catapult.util.list_custom_plugins():
             yield name
 

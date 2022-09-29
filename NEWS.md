@@ -1,6 +1,7 @@
 PENDING: Catapult 0.5
 =====================
 
+* Add a clipboard history plugin (default trigger "cc")
 * Update apps plugin index every time the launcher window is shown,
   making new installed apps show up instantly in search results (#13)
 * Specify limited API for plugins under `catapult.api`

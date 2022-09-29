@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2021 Osmo Salomaa
+# Copyright (C) 2022 Osmo Salomaa
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,9 +15,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-from . import apps # noqa
-from . import builtins # noqa
-from . import calculator # noqa
-from . import clipboard # noqa
-from . import files # noqa
-from . import session # noqa
+import catapult.test
+
+from catapult.api import copy_text_to_clipboard
+
+
+class TestClipboardPlugin(catapult.test.TestCase):
+
+    def setup_method(self, method):
+        self.plugin = catapult.plugins.clipboard.ClipboardPlugin()
+        copy_text_to_clipboard("test")
+        copy_text_to_clipboard("testtest")
+        copy_text_to_clipboard("testtesttest")
+
+    def test_search(self):
+        list(self.plugin.search("cc"))
