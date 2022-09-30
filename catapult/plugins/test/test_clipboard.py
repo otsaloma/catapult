@@ -17,16 +17,11 @@
 
 import catapult.test
 
-from catapult.api import copy_text_to_clipboard
-
 
 class TestClipboardPlugin(catapult.test.TestCase):
 
     def setup_method(self, method):
         self.plugin = catapult.plugins.clipboard.ClipboardPlugin()
-        copy_text_to_clipboard("test")
-        copy_text_to_clipboard("testtest")
-        copy_text_to_clipboard("testtesttest")
 
     def test_search(self):
         list(self.plugin.search("cc"))
