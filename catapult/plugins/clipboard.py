@@ -90,12 +90,15 @@ class ClipboardPlugin(Plugin):
     def list_history(self):
         self._index = {}
         if self.conf.source == "gpaste" and shutil.which("gpaste-client"):
-            command = "gpaste-client history --zero"
+            command = "LANG=C gpaste-client history --zero"
             process = subprocess.run(command, shell=True, capture_output=True)
             output = process.stdout.decode("utf-8")
-            for line in output.split("\x00")[:100]:
+            for line in output.split("\x00"):
+                if len(self._index) >= 100: break
                 if not line.strip(): continue
                 id, text = line.split(": ", maxsplit=1)
+                if text.startswith("[Files]"): continue
+                if text.startswith("[Image,"): continue
                 self._index[id] = text
                 yield id, text
 
