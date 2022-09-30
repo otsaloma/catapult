@@ -77,8 +77,8 @@ class ClipboardPlugin(Plugin):
         self._index = {}
 
     def _get_blurb(self, text):
-        text = text.replace("\t", "|")
-        lines = text.strip().splitlines()
+        text = text.strip().replace("\t", "|")
+        lines = text.splitlines()
         if len(lines) == 1:
             return lines[0][:100]
         return f"{lines[0]} +{len(lines)-1}"[:100]
