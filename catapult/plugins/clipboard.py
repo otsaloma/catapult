@@ -15,14 +15,38 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
+import shutil
+import subprocess
+
 from catapult.api import copy_text_to_clipboard
 from catapult.api import lookup_icon
 from catapult.api import Plugin
 from catapult.api import PreferencesItem
 from catapult.api import SearchResult
 from catapult.i18n import _
-from gi.repository import Gdk
 from gi.repository import Gtk
+
+SOURCES = ["gpaste"]
+
+
+class ClipboardSource(PreferencesItem):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.label = Gtk.Label(label=_("Source"))
+        self.widget = Gtk.ComboBoxText.new()
+        for source in SOURCES:
+            self.widget.append_text(source)
+
+    def dump(self, window):
+        value = self.conf.source
+        index = SOURCES.index(value) if value in SOURCES else 0
+        self.widget.set_active(index)
+
+    def load(self, window):
+        index = self.widget.get_active()
+        value = SOURCES[index]
+        self.conf.source = value
 
 
 class ClipboardTrigger(PreferencesItem):
@@ -43,18 +67,17 @@ class ClipboardTrigger(PreferencesItem):
 
 class ClipboardPlugin(Plugin):
 
-    conf_defaults = {"trigger": "cc"}
-    preferences_items = [ClipboardTrigger]
+    conf_defaults = {"source": "gpaste", "trigger": "cc"}
+    preferences_items = [ClipboardSource, ClipboardTrigger]
     save_history = False
     title = _("Clipboard")
 
     def __init__(self):
         super().__init__()
         self._index = {}
-        self._clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
-        self._clipboard.connect("owner-change", self._on_clipboard_owner_change)
 
     def _get_blurb(self, text):
+        text = text.replace("\t", "|")
         lines = text.strip().splitlines()
         if len(lines) == 1:
             return lines[0][:100]
@@ -64,22 +87,23 @@ class ClipboardPlugin(Plugin):
         self.debug(f"Copying {id!r} to the clipboard")
         copy_text_to_clipboard(self._index[id])
 
-    def _on_clipboard_owner_change(self, *args):
-        if text := self._clipboard.wait_for_text():
-            self.debug("Clipboard content changed")
-            id = max(self._index.keys(), default=0) + 1
-            self._index[id] = text
-
-    def on_window_hide(self):
-        # Limit the length of history kept.
-        for id in sorted(self._index.keys())[:-100]:
-            del self._index[id]
+    def list_history(self):
+        self._index = {}
+        if self.conf.source == "gpaste" and shutil.which("gpaste-client"):
+            command = "gpaste-client history --zero"
+            process = subprocess.run(command, shell=True, capture_output=True)
+            output = process.stdout.decode("utf-8")
+            for line in output.split("\x00")[:100]:
+                if not line.strip(): continue
+                id, text = line.split(": ", maxsplit=1)
+                self._index[id] = text
+                yield id, text
 
     def search(self, query):
         query = query.lower().strip()
         if query != self.conf.trigger: return
         prev_text = ""
-        for i, id in enumerate(reversed(self._index.keys())):
+        for i, (id, text) in enumerate(self.list_history()):
             if self._index[id] == prev_text: continue
             blurb = self._get_blurb(self._index[id])
             prev_text = self._index[id]
