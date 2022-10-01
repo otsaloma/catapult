@@ -39,7 +39,7 @@
   color: @fg-color;
   font-family: "Cascadia Code", monospace;
   font-size: 200%;
-  padding: 12px 24px 9px 78px;
+  padding: 12px 24px 9px 72px;
 }
 
 .catapult-input:selected {
@@ -53,7 +53,7 @@
 
 .catapult-search-result {
   background-color: transparent;
-  padding: 0 18px;
+  padding: 0 12px;
 }
 
 .catapult-search-result:selected {
