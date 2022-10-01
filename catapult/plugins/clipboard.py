@@ -77,11 +77,17 @@ class ClipboardPlugin(Plugin):
         self._index = {}
 
     def _get_blurb(self, text):
-        text = text.strip().replace("\t", "|")
-        lines = text.splitlines()
+        text = text.strip()
+        text = text.replace("\t", "⟶")
+        lines = [x.strip() for x in text.splitlines()]
+        # Avoid a very minimal blurb, such as '{' when copying JSON.
+        while (len(lines) > 1 and
+               len(lines[0]) < 16 and
+               not any(x.isalnum() for x in lines[0])):
+            lines[0] += " " + lines.pop(1)
         if len(lines) == 1:
             return lines[0][:100]
-        return f"{lines[0]} +{len(lines)-1}"[:100]
+        return f"{lines[0]}  +{len(lines)-1}"[:100]
 
     def launch(self, window, id):
         self.debug(f"Copying {id!r} to the clipboard")
