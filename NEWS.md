@@ -1,5 +1,5 @@
-PENDING: Catapult 0.5
-=====================
+2022-10-03: Catapult 0.5
+========================
 
 * Add a clipboard history plugin (default trigger "cc", requires a
   clipboard manager source, currently supports gpaste)
@@ -11,6 +11,7 @@ PENDING: Catapult 0.5
   e.g. for building a distro package, you could use something like `make
   DESTDIR=pkg PREFIX=/usr SETUP_PREFIX=/usr install`. See `Makefile` for
   details.
+* Raise Python dependency to 3.8 or greater
 
 2022-06-08: Catapult 0.4.1
 ==========================
