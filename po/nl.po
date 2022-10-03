@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-02 20:26+0300\n"
+"POT-Creation-Date: 2022-10-03 21:55+0300\n"
 "PO-Revision-Date: 2021-03-10 20:25+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/otsaloma/teams/118053/nl/)\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "App launcher"
 msgstr "Programmastarter"
 
-#: catapult/about.py:36 catapult/plugins/builtins.py:52
+#: catapult/about.py:36 catapult/plugins/builtins.py:53
 msgid "About Catapult"
 msgstr "Over Catapult"
 
@@ -39,19 +39,19 @@ msgstr "Over Catapult"
 msgid "translator-credits"
 msgstr "Heimen Stoffels <vistausss@fastmail.com>"
 
-#: catapult/app.py:44
+#: catapult/app.py:45
 msgid "Catapult ready, use {} to engage"
 msgstr "Catapult is klaar voor gebruik. Druk op {}"
 
-#: catapult/app.py:48
+#: catapult/app.py:49
 msgid "catapult [OPTION...]"
 msgstr "catapult [OPTIE…]"
 
-#: catapult/app.py:53
+#: catapult/app.py:54
 msgid "print details of indexing and search results"
 msgstr "Toon de de details van geïndexeerde en zoekresultaten"
 
-#: catapult/app.py:59
+#: catapult/app.py:60
 msgid "show window immediately"
 msgstr "Toon het venster direct"
 
@@ -59,129 +59,141 @@ msgstr "Toon het venster direct"
 msgid "Untitled"
 msgstr "Naamloos"
 
-#: catapult/preferences.py:45
+#: catapult/preferences.py:46
 msgid "Theme"
 msgstr "Thema"
 
-#: catapult/preferences.py:67
+#: catapult/preferences.py:68
 msgid "Activation key"
 msgstr "Activatietoets"
 
-#: catapult/preferences.py:115
+#: catapult/preferences.py:116
 msgid "{} plugin"
 msgstr "{}-plug-in"
 
-#: catapult/preferences.py:157
+#: catapult/preferences.py:158
 msgid "Preferences"
 msgstr "Instellingen"
 
-#: catapult/preferences.py:166
+#: catapult/preferences.py:167
 msgid "General"
 msgstr "Algemeen"
 
-#: catapult/plugins/apps.py:31 catapult/plugins/files.py:123
-msgid "Scan interval"
-msgstr "Scanschema"
-
-#: catapult/plugins/apps.py:35 catapult/plugins/files.py:127
-msgid "minutes"
-msgstr "minuten"
-
-#: catapult/plugins/apps.py:55
+#: catapult/plugins/apps.py:28
 msgid "Apps"
 msgstr "Programma's"
 
-#: catapult/plugins/builtins.py:64
+#: catapult/plugins/builtins.py:65
 msgid "Catapult preferences"
 msgstr "Catapult-instellingen"
 
-#: catapult/plugins/builtins.py:76
+#: catapult/plugins/builtins.py:77
 msgid "Reload plugins"
 msgstr "Plug-ins herladen"
 
-#: catapult/plugins/builtins.py:88
+#: catapult/plugins/builtins.py:89
 msgid "Reload theme"
 msgstr "Thema herladen"
 
-#: catapult/plugins/builtins.py:100
+#: catapult/plugins/builtins.py:101
 msgid "Quit Catapult"
 msgstr "Catapult afsluiten"
 
-#: catapult/plugins/builtins.py:112
+#: catapult/plugins/builtins.py:113
 msgid "Update search index"
 msgstr "Zoekindex bijwerken"
 
-#: catapult/plugins/calculator.py:47
+#: catapult/plugins/calculator.py:51
 msgid "Calculator"
 msgstr "Rekenmachine"
 
-#: catapult/plugins/files.py:38
+#: catapult/plugins/clipboard.py:36
+msgid "Source"
+msgstr ""
+
+#: catapult/plugins/clipboard.py:56
+msgid "Trigger"
+msgstr ""
+
+#: catapult/plugins/clipboard.py:73
+msgid "Clipboard"
+msgstr ""
+
+#: catapult/plugins/files.py:42
 msgid "_Cancel"
 msgstr "_Annuleren"
 
-#: catapult/plugins/files.py:39
+#: catapult/plugins/files.py:43
 msgid "_OK"
 msgstr "_Oké"
 
-#: catapult/plugins/files.py:43
+#: catapult/plugins/files.py:47
 msgid "Edit File Patterns"
 msgstr "Bestandspatronen aanpassen"
 
-#: catapult/plugins/files.py:44
+#: catapult/plugins/files.py:48
 msgid "Use shell-style wildcards * and **"
 msgstr "Shell-achtige jokertekens gebruiken (* en **)"
 
-#: catapult/plugins/files.py:75
+#: catapult/plugins/files.py:79
 msgid "Include patterns"
 msgstr "Opgenomen patronen"
 
-#: catapult/plugins/files.py:77 catapult/plugins/files.py:101
+#: catapult/plugins/files.py:81 catapult/plugins/files.py:105
 msgid "Edit"
 msgstr "Aanpassen"
 
-#: catapult/plugins/files.py:99
+#: catapult/plugins/files.py:103
 msgid "Exclude patterns"
 msgstr "Uitgesloten patronen"
 
-#: catapult/plugins/files.py:163
+#: catapult/plugins/files.py:127
+msgid "Scan interval"
+msgstr "Scanschema"
+
+#: catapult/plugins/files.py:131
+msgid "minutes"
+msgstr "minuten"
+
+#: catapult/plugins/files.py:167
 msgid "Files"
 msgstr "Bestanden"
 
-#: catapult/plugins/session.py:25
+#: catapult/plugins/session.py:27
 msgid "Lock Screen"
 msgstr "Scherm vergrendelen"
 
 #. TRANSLATORS: Several terms are used in English. If your language
 #. only has one term, you can translate all variants to the same value.
-#: catapult/plugins/session.py:31
+#: catapult/plugins/session.py:33
 msgid "Log Out"
 msgstr "Afmelden"
 
-#: catapult/plugins/session.py:31
+#: catapult/plugins/session.py:33
 msgid "Log Off"
 msgstr "Afmelden"
 
 #. TRANSLATORS: Several terms are used in English. If your language
 #. only has one term, you can translate all variants to the same value.
-#: catapult/plugins/session.py:37
+#: catapult/plugins/session.py:39
 msgid "Power Off"
 msgstr "Uitschakelen"
 
-#: catapult/plugins/session.py:37
+#: catapult/plugins/session.py:39
 msgid "Shutdown"
 msgstr "Uitschakelen"
 
 #. TRANSLATORS: Several terms are used in English. If your language
 #. only has one term, you can translate all variants to the same value.
-#: catapult/plugins/session.py:43
+#: catapult/plugins/session.py:45
 msgid "Reboot"
 msgstr "Herstarten"
 
-#: catapult/plugins/session.py:43
+#: catapult/plugins/session.py:45
 msgid "Restart"
 msgstr "Herstarten"
 
-#: catapult/plugins/session.py:50
+#: catapult/plugins/session.py:52
 msgid "Session"
 msgstr "Sessie"
 
@@ -193,7 +205,7 @@ msgstr ""
 "Met Catapult kun je snel programma's starten, bestanden openen en "
 "rekensommen verwerken. Alles werkt volledig met het toetsenbord."
 
-#: data/io.otsaloma.catapult.appdata.xml.in:35
+#: data/io.otsaloma.catapult.appdata.xml.in:38
 msgid "Main window"
 msgstr "Hoofdvenster"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-02 20:26+0300\n"
+"POT-Creation-Date: 2022-10-03 21:55+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "App launcher"
 msgstr ""
 
-#: catapult/about.py:36 catapult/plugins/builtins.py:52
+#: catapult/about.py:36 catapult/plugins/builtins.py:53
 msgid "About Catapult"
 msgstr ""
 
@@ -35,19 +35,19 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 
-#: catapult/app.py:44
+#: catapult/app.py:45
 msgid "Catapult ready, use {} to engage"
 msgstr ""
 
-#: catapult/app.py:48
+#: catapult/app.py:49
 msgid "catapult [OPTION...]"
 msgstr ""
 
-#: catapult/app.py:53
+#: catapult/app.py:54
 msgid "print details of indexing and search results"
 msgstr ""
 
-#: catapult/app.py:59
+#: catapult/app.py:60
 msgid "show window immediately"
 msgstr ""
 
@@ -55,129 +55,141 @@ msgstr ""
 msgid "Untitled"
 msgstr ""
 
-#: catapult/preferences.py:45
+#: catapult/preferences.py:46
 msgid "Theme"
 msgstr ""
 
-#: catapult/preferences.py:67
+#: catapult/preferences.py:68
 msgid "Activation key"
 msgstr ""
 
-#: catapult/preferences.py:115
+#: catapult/preferences.py:116
 msgid "{} plugin"
 msgstr ""
 
-#: catapult/preferences.py:157
+#: catapult/preferences.py:158
 msgid "Preferences"
 msgstr ""
 
-#: catapult/preferences.py:166
+#: catapult/preferences.py:167
 msgid "General"
 msgstr ""
 
-#: catapult/plugins/apps.py:31 catapult/plugins/files.py:123
-msgid "Scan interval"
-msgstr ""
-
-#: catapult/plugins/apps.py:35 catapult/plugins/files.py:127
-msgid "minutes"
-msgstr ""
-
-#: catapult/plugins/apps.py:55
+#: catapult/plugins/apps.py:28
 msgid "Apps"
 msgstr ""
 
-#: catapult/plugins/builtins.py:64
+#: catapult/plugins/builtins.py:65
 msgid "Catapult preferences"
 msgstr ""
 
-#: catapult/plugins/builtins.py:76
+#: catapult/plugins/builtins.py:77
 msgid "Reload plugins"
 msgstr ""
 
-#: catapult/plugins/builtins.py:88
+#: catapult/plugins/builtins.py:89
 msgid "Reload theme"
 msgstr ""
 
-#: catapult/plugins/builtins.py:100
+#: catapult/plugins/builtins.py:101
 msgid "Quit Catapult"
 msgstr ""
 
-#: catapult/plugins/builtins.py:112
+#: catapult/plugins/builtins.py:113
 msgid "Update search index"
 msgstr ""
 
-#: catapult/plugins/calculator.py:47
+#: catapult/plugins/calculator.py:51
 msgid "Calculator"
 msgstr ""
 
-#: catapult/plugins/files.py:38
+#: catapult/plugins/clipboard.py:36
+msgid "Source"
+msgstr ""
+
+#: catapult/plugins/clipboard.py:56
+msgid "Trigger"
+msgstr ""
+
+#: catapult/plugins/clipboard.py:73
+msgid "Clipboard"
+msgstr ""
+
+#: catapult/plugins/files.py:42
 msgid "_Cancel"
 msgstr ""
 
-#: catapult/plugins/files.py:39
+#: catapult/plugins/files.py:43
 msgid "_OK"
 msgstr ""
 
-#: catapult/plugins/files.py:43
+#: catapult/plugins/files.py:47
 msgid "Edit File Patterns"
 msgstr ""
 
-#: catapult/plugins/files.py:44
+#: catapult/plugins/files.py:48
 msgid "Use shell-style wildcards * and **"
 msgstr ""
 
-#: catapult/plugins/files.py:75
+#: catapult/plugins/files.py:79
 msgid "Include patterns"
 msgstr ""
 
-#: catapult/plugins/files.py:77 catapult/plugins/files.py:101
+#: catapult/plugins/files.py:81 catapult/plugins/files.py:105
 msgid "Edit"
 msgstr ""
 
-#: catapult/plugins/files.py:99
+#: catapult/plugins/files.py:103
 msgid "Exclude patterns"
 msgstr ""
 
-#: catapult/plugins/files.py:163
+#: catapult/plugins/files.py:127
+msgid "Scan interval"
+msgstr ""
+
+#: catapult/plugins/files.py:131
+msgid "minutes"
+msgstr ""
+
+#: catapult/plugins/files.py:167
 msgid "Files"
 msgstr ""
 
-#: catapult/plugins/session.py:25
+#: catapult/plugins/session.py:27
 msgid "Lock Screen"
 msgstr ""
 
 #. TRANSLATORS: Several terms are used in English. If your language
 #. only has one term, you can translate all variants to the same value.
-#: catapult/plugins/session.py:31
+#: catapult/plugins/session.py:33
 msgid "Log Out"
 msgstr ""
 
-#: catapult/plugins/session.py:31
+#: catapult/plugins/session.py:33
 msgid "Log Off"
 msgstr ""
 
 #. TRANSLATORS: Several terms are used in English. If your language
 #. only has one term, you can translate all variants to the same value.
-#: catapult/plugins/session.py:37
+#: catapult/plugins/session.py:39
 msgid "Power Off"
 msgstr ""
 
-#: catapult/plugins/session.py:37
+#: catapult/plugins/session.py:39
 msgid "Shutdown"
 msgstr ""
 
 #. TRANSLATORS: Several terms are used in English. If your language
 #. only has one term, you can translate all variants to the same value.
-#: catapult/plugins/session.py:43
+#: catapult/plugins/session.py:45
 msgid "Reboot"
 msgstr ""
 
-#: catapult/plugins/session.py:43
+#: catapult/plugins/session.py:45
 msgid "Restart"
 msgstr ""
 
-#: catapult/plugins/session.py:50
+#: catapult/plugins/session.py:52
 msgid "Session"
 msgstr ""
 
@@ -187,7 +199,7 @@ msgid ""
 "calculations with a keyboard-driven user interface."
 msgstr ""
 
-#: data/io.otsaloma.catapult.appdata.xml.in:35
+#: data/io.otsaloma.catapult.appdata.xml.in:38
 msgid "Main window"
 msgstr ""
 
