@@ -191,8 +191,30 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         if plugin.conf is not None:
             plugin.conf.write()
 
+    def delete_selected(self):
+        row = self._result_list.get_selected_row()
+        if row is None: return
+        if row.result is None: return
+        if row.result.plugin.delete(self, row.result.id):
+            self.debug("Delete successful, removing row...")
+            self._result_list.unselect_all()
+            index = row.get_index()
+            row.result = None
+            row.set_visible(False)
+            self._result_list.remove(row)
+            self._result_list.add(row)
+            self._result_rows.remove(row)
+            self._result_rows.append(row)
+            if row_count := self.get_row_count():
+                index = min(row_count - 1, index)
+                row = self._result_rows[index]
+                self._result_list.select_row(row)
+
     def get_query(self):
         return self._input_entry.get_text()
+
+    def get_row_count(self):
+        return sum(x.result is not None for x in self._result_rows)
 
     def hide(self):
         self._search_manager.history.write_maybe()
@@ -208,6 +230,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
     def launch_selected(self):
         row = self._result_list.get_selected_row()
         if row is None: return
+        if row.result is None: return
         self._search_manager.launch(self, row.query, row.result)
         self.hide()
 
@@ -267,6 +290,9 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         if event.keyval in [Gdk.KEY_Return, Gdk.KEY_KP_Enter]:
             self.launch_selected()
             return True
+        if event.keyval == Gdk.KEY_Delete:
+            self.delete_selected()
+            return True
         if event.keyval == Gdk.KEY_F1:
             self._input_entry.set_text(":")
             self._input_entry.set_position(-1)
@@ -320,7 +346,8 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         if not self._result_scroller.is_visible(): return
         row = self._result_list.get_selected_row()
         index = row.get_index() if row else -1
-        index = min(len(self._result_rows) - 1, index + 1)
+        row_count = self.get_row_count()
+        index = min(row_count - 1, index + 1)
         row = self._result_rows[index]
         if not row.is_visible(): return
         self._result_list.select_row(row)

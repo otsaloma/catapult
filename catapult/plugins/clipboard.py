@@ -89,6 +89,13 @@ class ClipboardPlugin(Plugin):
             return lines[0][:100]
         return f"{lines[0]}  +{len(lines)-1}"[:100]
 
+    def delete(self, window, id):
+        if self.conf.source == "gpaste" and shutil.which("gpaste-client"):
+            self.debug(f"Deleting {id!r}")
+            command = f"gpaste-client delete {id}"
+            completed_process = subprocess.run(command, shell=True)
+            return completed_process.returncode == 0
+
     def launch(self, window, id):
         self.debug(f"Copying {id!r} to the clipboard")
         copy_text_to_clipboard(self._index[id])

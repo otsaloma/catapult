@@ -34,6 +34,10 @@ class Plugin(catapult.DebugMixin):
     def __init__(self):
         self.ensure_configuration()
 
+    def delete(self, window, id):
+        # True if id was deleted, False if not.
+        return False
+
     @classmethod
     def ensure_configuration(cls):
         if cls.conf: return

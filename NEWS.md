@@ -1,3 +1,8 @@
+PENDING: Catapult 0.6
+=====================
+
+* Allow deleting clipboard history items using the delete key
+
 2022-10-03: Catapult 0.5
 ========================
 
