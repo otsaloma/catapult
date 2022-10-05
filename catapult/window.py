@@ -291,8 +291,11 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
             self.launch_selected()
             return True
         if event.keyval == Gdk.KEY_Delete:
-            self.delete_selected()
-            return True
+            # Allow delete to be used both for editing the input query
+            # and deleting result items, depending on where the cursor is.
+            if self._input_entry.get_position() == len(self._input_entry.get_text()):
+                self.delete_selected()
+                return True
         if event.keyval == Gdk.KEY_F1:
             self._input_entry.set_text(":")
             self._input_entry.set_position(-1)
