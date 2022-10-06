@@ -74,6 +74,8 @@ class CalculatorPlugin(Plugin):
             description=expression,
             fuzzy=False,
             icon=lookup_icon(
+                "qalculate",
+                "qalculate-qt",
                 "org.gnome.Calculator",
                 "application-x-executable",
             ),
