@@ -130,6 +130,6 @@ class ClipboardPlugin(Plugin):
                 id=id,
                 offset=0,
                 plugin=self,
-                score=2*0.9**i,
+                score=2+1*0.9**i,
                 title=blurb,
             )
