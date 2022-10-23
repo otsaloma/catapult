@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 21:55+0300\n"
+"POT-Creation-Date: 2022-10-23 15:27+0300\n"
 "PO-Revision-Date: 2021-03-10 20:25+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/otsaloma/teams/118053/nl/)\n"
@@ -49,7 +49,7 @@ msgstr "catapult [OPTIE…]"
 
 #: catapult/app.py:54
 msgid "print details of indexing and search results"
-msgstr "Toon de de details van geïndexeerde en zoekresultaten"
+msgstr "Toon de details van geïndexeerde en zoekresultaten"
 
 #: catapult/app.py:60
 msgid "show window immediately"
@@ -109,15 +109,15 @@ msgstr "Rekenmachine"
 
 #: catapult/plugins/clipboard.py:36
 msgid "Source"
-msgstr ""
+msgstr "Bron"
 
 #: catapult/plugins/clipboard.py:56
 msgid "Trigger"
-msgstr ""
+msgstr "Activering"
 
 #: catapult/plugins/clipboard.py:73
 msgid "Clipboard"
-msgstr ""
+msgstr "Klembord"
 
 #: catapult/plugins/files.py:42
 msgid "_Cancel"
@@ -203,9 +203,9 @@ msgid ""
 "calculations with a keyboard-driven user interface."
 msgstr ""
 "Met Catapult kun je snel programma's starten, bestanden openen en "
-"rekensommen verwerken. Alles werkt volledig met het toetsenbord."
+"rekensommen verwerken met het toetsenbord."
 
-#: data/io.otsaloma.catapult.appdata.xml.in:38
+#: data/io.otsaloma.catapult.appdata.xml.in:39
 msgid "Main window"
 msgstr "Hoofdvenster"
 
