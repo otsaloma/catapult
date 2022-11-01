@@ -53,11 +53,13 @@
 
 .catapult-search-result {
   background-color: transparent;
+  margin: 0;
   padding: 0 12px;
 }
 
 .catapult-search-result:selected {
   background-color: alpha(@selected-bg-color, 0.9);
+  border-radius: 0;
   outline: none;
 }
 
