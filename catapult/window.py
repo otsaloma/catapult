@@ -20,6 +20,7 @@ import catapult
 import itertools
 import logging
 
+from catapult import util
 from gi.repository import Gdk
 from gi.repository import Gio
 from gi.repository import GLib
@@ -136,10 +137,23 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
 
     def _init_widgets(self):
         screen_width, screen_height = catapult.util.get_screen_size()
-        self._input_entry.get_style_context().add_class("catapult-input")
+        input_icon = Gtk.Image()
+        input_icon.set_pixel_size(ICON_SIZE_PX/2)
+        input_icon.set_from_icon_name(util.lookup_icon(
+            "system-search-symbolic",
+            "edit-find-symbolic",
+            "system-search",
+            "edit-find",
+        ) or "", ICON_SIZE)
+        input_icon.get_style_context().add_class("catapult-input-icon")
+        self._input_entry.get_style_context().add_class("catapult-input-entry")
+        input_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
+        input_box.get_style_context().add_class("catapult-input-box")
+        input_box.pack_start(input_icon, expand=False, fill=False, padding=0)
+        input_box.pack_start(self._input_entry, expand=False, fill=False, padding=0)
         self._body = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
         self._body.get_style_context().add_class("catapult-body")
-        self._body.pack_start(self._input_entry, expand=True, fill=True, padding=0)
+        self._body.pack_start(input_box, expand=True, fill=True, padding=0)
         self._result_scroller.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         self._result_scroller.set_max_content_height(int(0.5 * screen_height))
         self._result_scroller.set_propagate_natural_height(True)

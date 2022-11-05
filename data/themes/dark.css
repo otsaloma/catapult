@@ -31,7 +31,19 @@
   padding: 12px 0 15px 0;
 }
 
-.catapult-input {
+.catapult-input-box {
+  background-color: transparent;
+  margin: 0;
+  padding: 0 12px;
+}
+
+.catapult-input-icon {
+  background-color: transparent;
+  color: @fg-color;
+  padding: 15px 24px 15px 12px;
+}
+
+.catapult-input-entry {
   background-color: transparent;
   border: none;
   box-shadow: none;
@@ -39,10 +51,10 @@
   color: @fg-color;
   font-family: "Cascadia Code", monospace;
   font-size: 200%;
-  padding: 12px 24px 9px 72px;
+  padding: 12px 24px 9px 0;
 }
 
-.catapult-input:selected {
+.catapult-input-entry:selected {
   background-color: alpha(@selected-bg-color, 0.9);
   color: @selected-fg-color;
 }
