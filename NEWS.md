@@ -1,3 +1,8 @@
+PENDING: Catapult 0.6
+=====================
+
+* Add search icon to input box
+
 2022-10-23: Catapult 0.5.1
 ==========================
 
