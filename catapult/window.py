@@ -150,7 +150,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         input_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
         input_box.get_style_context().add_class("catapult-input-box")
         input_box.pack_start(input_icon, expand=False, fill=False, padding=0)
-        input_box.pack_start(self._input_entry, expand=False, fill=False, padding=0)
+        input_box.pack_start(self._input_entry, expand=True, fill=True, padding=0)
         self._body = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
         self._body.get_style_context().add_class("catapult-body")
         self._body.pack_start(input_box, expand=True, fill=True, padding=0)
