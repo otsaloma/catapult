@@ -140,6 +140,7 @@ def load_theme(name):
 /* Use ":reload-theme" in Catapult to see changes. */
 /* For available classes, see the Catapult default "dark" theme: */
 /* https://github.com/otsaloma/catapult/blob/master/data/themes/dark.css */"""
+        path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text.strip() + "\n", "utf-8")
     for name, path in list_themes():
         # Change import references to absolute paths.
