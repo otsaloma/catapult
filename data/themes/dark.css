@@ -87,7 +87,7 @@
 .catapult-search-result-title {
   background-color: transparent;
   color: @fg-color;
-  font-family: "Red Hat Text", sans-serif;
+  font-family: "Red Hat Text", "Cantarell", sans-serif;
   font-size: 120%;
   font-weight: bold;
   margin-bottom: 4px;
