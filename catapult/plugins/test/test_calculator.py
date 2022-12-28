@@ -45,5 +45,5 @@ class TestCalculatorPlugin(catapult.test.TestCase):
 
     def test_search_unit_conversion(self):
         result = next(self.plugin.search("1 mi to km"))
-        assert result.description in ["1 * mile", "1 × mile"]
+        assert result.description in ["1 * mile", "1 × mile", "1 mile"]
         assert result.title == "1.60934 km"
