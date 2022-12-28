@@ -129,7 +129,18 @@ def load_plugin_module(name):
     return loader.load_module(name)
 
 def load_theme(name):
-    css = find_theme(name).read_text()
+    css = find_theme(name).read_text("utf-8")
+    # Allow user to override parts of the theme.
+    path = catapult.CONFIG_HOME / "user.css"
+    if path.exists():
+        css += "\n\n" + path.read_text("utf-8")
+    else:
+        text = """
+/* Any CSS added here can be used to override theme CSS. */
+/* Use ":reload-theme" in Catapult to see changes. */
+/* For available classes, see the Catapult default "dark" theme: */
+/* https://github.com/otsaloma/catapult/blob/master/data/themes/dark.css */"""
+        path.write_text(text.strip() + "\n", "utf-8")
     for name, path in list_themes():
         # Change import references to absolute paths.
         css = css.replace(f"@{name}@", str(path))

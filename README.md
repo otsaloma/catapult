@@ -62,6 +62,36 @@ autostart file manually, usually under `~/.config/autostart`.
 * [GNOME](https://help.gnome.org/users/gnome-help/stable/shell-apps-auto-start.html.en)
 * [Ubuntu](https://help.ubuntu.com/stable/ubuntu-help/startup-applications.html.en)
 
+### Customizing the Theme
+
+Since Catapult 0.6, you can override parts of the theme by editing
+`~/.config/catapult/user.css`, a file which is created the first time
+you start Catapult 0.6 or later. You can edit the file while Catapult is
+running and use `:reload-theme` in Catapult to apply the changes.
+
+For example, to use the GNOME default font (Cantarell) for everything,
+you can use
+
+```css
+.catapult-input-entry {
+  font-family: "Cantarell", sans-serif;
+}
+
+.catapult-search-result-title {
+  font-family: "Cantarell", sans-serif;
+}
+
+.catapult-search-result-description {
+  font-family: "Cantarell", sans-serif;
+}
+```
+
+Or, to use Ubuntu orange as the selection color, try
+
+```css
+@define-color selected-bg-color #e95420;
+```
+
 ### Known Issues on Wayland
 
 * Catapult cannot do a global toggle keybinding (Control+Space by
