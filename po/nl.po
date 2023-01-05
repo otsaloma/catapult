@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-23 15:27+0300\n"
+"POT-Creation-Date: 2023-01-05 23:49+0200\n"
 "PO-Revision-Date: 2021-03-10 20:25+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/otsaloma/teams/118053/nl/)\n"
@@ -205,7 +205,7 @@ msgstr ""
 "Met Catapult kun je snel programma's starten, bestanden openen en "
 "rekensommen verwerken met het toetsenbord."
 
-#: data/io.otsaloma.catapult.appdata.xml.in:39
+#: data/io.otsaloma.catapult.appdata.xml.in:40
 msgid "Main window"
 msgstr "Hoofdvenster"
 
