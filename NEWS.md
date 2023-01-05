@@ -1,7 +1,8 @@
-PENDING: Catapult 0.6
-=====================
+2023-01-05: Catapult 0.6
+========================
 
-* Add search icon to input box
+* Add search icon next to input
+* Refresh default themes
 * Allow overriding parts of the theme with `~/.config/catapult/user.css` (#14)
 
 2022-10-23: Catapult 0.5.1
