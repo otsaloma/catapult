@@ -29,7 +29,7 @@ from gi.repository import Gtk
 from gi.repository import Keybinder
 from gi.repository import Pango
 
-ICON_SIZE = Gtk.IconSize.DIALOG
+ICON_SIZE = Gtk.IconSize.LARGE
 ICON_SIZE_PX = 48
 XOFFSET = 0.50
 YOFFSET = 0.25
@@ -47,25 +47,29 @@ class SearchResultRow(Gtk.ListBoxRow):
         self.title_label.set_xalign(0)
         self.title_label.set_yalign(1)
         self.title_label.set_ellipsize(Pango.EllipsizeMode.END)
+        self.title_label.set_vexpand(True)
         self.description_label = Gtk.Label()
         self.description_label.set_xalign(0)
         self.description_label.set_yalign(0)
         self.description_label.set_ellipsize(Pango.EllipsizeMode.END)
+        self.description_label.set_vexpand(True)
         self.get_style_context().add_class("catapult-search-result")
         self.icon.get_style_context().add_class("catapult-search-result-icon")
         self.title_label.get_style_context().add_class("catapult-search-result-title")
         self.description_label.get_style_context().add_class("catapult-search-result-description")
         hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
-        hbox.pack_start(self.icon, expand=False, fill=False, padding=0)
+        hbox.append(self.icon)
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
-        vbox.pack_start(self.title_label, expand=True, fill=True, padding=0)
-        vbox.pack_start(self.description_label, expand=True, fill=True, padding=0)
-        hbox.pack_start(vbox, expand=True, fill=True, padding=0)
-        self.add(hbox)
+        vbox.set_hexpand(True)
+        vbox.append(self.title_label)
+        vbox.append(self.description_label)
+        hbox.append(vbox)
+        self.set_child(hbox)
 
     def set_icon(self, icon):
         (self.icon.set_from_gicon if isinstance(icon, Gio.Icon)
-         else self.icon.set_from_icon_name)(icon, ICON_SIZE)
+         else self.icon.set_from_icon_name)(icon)
+        self.icon.set_icon_size(Gtk.IconSize.LARGE)
 
 
 class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
@@ -74,7 +78,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         GObject.GObject.__init__(self)
         self._body = None
         self._css_provider = None
-        self._icon_theme = Gtk.IconTheme.get_default()
+        self._icon_theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default())
         self._icon_theme_handler_id = None
         self._input_entry = Gtk.Entry()
         self._plugins = []
@@ -87,7 +91,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         self._search_manager = catapult.SearchManager()
         self._toggle_key = None
         self._init_properties()
-        self._init_visual()
         self._init_widgets()
         self._init_signal_handlers()
         self._init_keys()
@@ -97,11 +100,13 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         self.debug("Initialization complete")
 
     def _init_keys(self):
-        Keybinder.init()
-        def bind_toggle_key(self, key):
-            self.bind_toggle_key(key)
-            return False # to not be called again.
-        GLib.idle_add(bind_toggle_key, self, catapult.conf.toggle_key)
+        # XXX: Not compatible with GTK4 -- Remove keybinding entirely?
+        # Keybinder.init()
+        # def bind_toggle_key(self, key):
+        #     self.bind_toggle_key(key)
+        #     return False # to not be called again.
+        # GLib.idle_add(bind_toggle_key, self, catapult.conf.toggle_key)
+        pass
 
     def _init_plugins(self):
         for name in catapult.conf.plugins:
@@ -116,24 +121,19 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         Gtk.Window.set_default_icon_name("io.otsaloma.catapult")
         self.set_decorated(False)
         self.set_default_size(600, -1)
-        self.set_keep_above(True)
         self.set_resizable(False)
-        self.set_skip_pager_hint(True)
-        self.set_skip_taskbar_hint(True)
+        # XXX: Missing in GTK4
+        # self.set_keep_above(True)
+        # self.set_skip_pager_hint(True)
+        # self.set_skip_taskbar_hint(True)
 
     def _init_signal_handlers(self):
-        self.connect("key-press-event", self._on_key_press_event)
         self.connect("notify::has-toplevel-focus", self._on_notify_has_toplevel_focus)
         self._input_entry.connect("notify::text", self._on_input_entry_notify_text)
         self._icon_theme_handler_id = self._icon_theme.connect("changed", self._on_icon_theme_changed)
-
-    def _init_visual(self):
-        # Make window transparent to allow rounded corners.
-        screen = Gdk.Screen.get_default()
-        visual = screen.get_rgba_visual()
-        if not visual: return
-        self.set_app_paintable(True)
-        self.set_visual(visual)
+        controller = Gtk.EventControllerKey()
+        self.add_controller(controller)
+        controller.connect("key-pressed", self._on_key_pressed)
 
     def _init_widgets(self):
         screen_width, screen_height = catapult.util.get_screen_size()
@@ -144,35 +144,38 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
             "edit-find-symbolic",
             "system-search",
             "edit-find",
-        ) or "", ICON_SIZE)
+        ) or "")
+        input_icon.set_icon_size(Gtk.IconSize.LARGE)
         input_icon.get_style_context().add_class("catapult-input-icon")
         self._input_entry.get_style_context().add_class("catapult-input-entry")
+        self._input_entry.set_hexpand(True)
         input_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
         input_box.get_style_context().add_class("catapult-input-box")
-        input_box.pack_start(input_icon, expand=False, fill=False, padding=0)
-        input_box.pack_start(self._input_entry, expand=True, fill=True, padding=0)
+        input_box.set_hexpand(True)
+        input_box.append(input_icon)
+        input_box.append(self._input_entry)
         self._body = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
         self._body.get_style_context().add_class("catapult-body")
-        self._body.pack_start(input_box, expand=True, fill=True, padding=0)
+        # Catch mouse press events anywhere on the edges of the window.
+        gesture = Gtk.GestureClick()
+        self._body.add_controller(gesture)
+        gesture.connect("pressed", self._on_gesture_pressed)
+        self._body.append(input_box)
         self._result_scroller.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         self._result_scroller.set_max_content_height(int(0.5 * screen_height))
         self._result_scroller.set_propagate_natural_height(True)
+        self._result_scroller.set_hexpand(True)
         self._result_list.set_can_focus(False)
         self._result_list.get_style_context().add_class("catapult-search-result-list")
         for i in range(catapult.conf.max_results):
             row = SearchResultRow()
             row.set_can_focus(False)
-            self._result_list.add(row)
+            self._result_list.append(row)
             self._result_rows.append(row)
-        self._result_scroller.add(self._result_list)
-        self._body.pack_start(self._result_scroller, expand=True, fill=True, padding=0)
+        self._result_scroller.set_child(self._result_list)
+        self._body.append(self._result_scroller)
         self._result_scroller.hide()
-        event_box = Gtk.EventBox()
-        # Catch mouse press events anywhere on the edges of the window.
-        event_box.connect("button-press-event", self._on_button_press_event)
-        event_box.add(self._body)
-        event_box.show_all()
-        self.add(event_box)
+        self.set_child(self._body)
 
     def activate_plugin(self, name):
         if name in [x.name for x in self._plugins]: return
@@ -250,19 +253,18 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
 
     def load_css(self):
         style = self.get_style_context()
-        screen = Gdk.Screen.get_default()
         priority = Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         if self._css_provider is not None:
-            style.remove_provider_for_screen(screen, self._css_provider)
+            style.remove_provider(self._css_provider)
         css = "\n".join((
             catapult.util.load_theme(catapult.conf.theme),
             (catapult.DATA_DIR / "catapult.css").read_text("utf-8"),
         ))
         self._css_provider = Gtk.CssProvider()
         self._css_provider.load_from_data(bytes(css.encode()))
-        style.add_provider_for_screen(screen, self._css_provider, priority)
+        style.add_provider(self._css_provider, priority)
 
-    def _on_button_press_event(self, *args, **kwargs):
+    def _on_gesture_pressed(self, *args, **kwargs):
         self._input_entry.set_text(":")
         self._input_entry.set_position(-1)
 
@@ -294,27 +296,27 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         self._result_scroller.get_vadjustment().set_value(0)
         self._result_scroller.set_visible(bool(results))
 
-    def _on_key_press_event(self, window, event):
-        if event.keyval == Gdk.KEY_Up:
+    def _on_key_pressed(self, keyval, keycode, state, user_data=None):
+        if keyval == Gdk.KEY_Up:
             self.select_previous_result()
             return True
-        if event.keyval == Gdk.KEY_Down:
+        if keyval == Gdk.KEY_Down:
             self.select_next_result()
             return True
-        if event.keyval in [Gdk.KEY_Return, Gdk.KEY_KP_Enter]:
+        if keyval in [Gdk.KEY_Return, Gdk.KEY_KP_Enter]:
             self.launch_selected()
             return True
-        if event.keyval == Gdk.KEY_Delete:
+        if keyval == Gdk.KEY_Delete:
             # Allow delete to be used both for editing the input query
             # and deleting result items, depending on where the cursor is.
             if self._input_entry.get_position() == len(self._input_entry.get_text()):
                 self.delete_selected()
                 return True
-        if event.keyval == Gdk.KEY_F1:
+        if keyval == Gdk.KEY_F1:
             self._input_entry.set_text(":")
             self._input_entry.set_position(-1)
             return True
-        if event.keyval == Gdk.KEY_Escape:
+        if keyval == Gdk.KEY_Escape:
             self.hide()
             return True
 
@@ -391,7 +393,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
 
     def _set_result_list_height(self, row):
         if self._result_list_height_set: return
-        row_height = row.get_preferred_height()[1]
+        row_height = row.get_preferred_size()[1].height
         if not row_height: return
         screen_height = catapult.util.get_screen_size()[1]
         row_count = (0.5 * screen_height) // row_height
@@ -409,8 +411,9 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
                 logging.exception(f"on_window_show failed for {plugin.name}")
         self.set_sensitive(True)
         self.present()
-        self._update_position()
-        self.move(*self._position)
+        # XXX: Gone in GTK4
+        # self._update_position()
+        # self.move(*self._position)
         timestamp = Keybinder.get_current_event_time()
         self.present_with_time(timestamp)
         self._result_list.unselect_all()
@@ -434,9 +437,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
             plugin.update_async()
 
     def _update_position(self):
-        if self._monitor.is_primary() != self._monitor_was_primary:
-            self.debug("Primary monitor changed, updating position")
-            self.set_position_offset(XOFFSET, YOFFSET)
+        self.set_position_offset(XOFFSET, YOFFSET)
 
     def write_configuration(self):
         catapult.conf.write()
