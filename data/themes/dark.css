@@ -55,6 +55,7 @@
   color: @fg-color;
   font-family: "Cascadia Code", monospace;
   font-size: 200%;
+  outline: none;
   padding: 12px 24px 9px 0;
 }
 
