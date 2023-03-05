@@ -22,7 +22,7 @@ import catapult.test
 class TestPreferencesDialog(catapult.test.TestCase):
 
     def run_dialog(self):
-        self.dialog.run()
+        self.dialog.show()
 
     def setup_method(self, method):
         self.window = catapult.Window()

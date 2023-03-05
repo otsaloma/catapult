@@ -109,8 +109,9 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
         self.set_default_size(-1, 400)
         self.set_title(_("Preferences"))
         stack = Gtk.Stack()
-        stack.set_border_width(18)
-        stack.set_homogeneous(True)
+        # XXX: Use CSS
+        # stack.set_border_width(18)
+        stack.set_vhomogeneous(True)
         sidebar = Gtk.StackSidebar()
         sidebar.set_stack(stack)
         sidebar.set_vexpand(True)
@@ -128,13 +129,13 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
                 stack.add_titled(page, name, cls.title)
             except Exception:
                 logging.exception(f"Failed to load configuration for {name}")
-        content = self.get_content_area()
-        content.add(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
+        content = self.get_child()
+        content.append(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
         grid = Gtk.Grid()
         grid.attach(sidebar, 0, 0, 1, 1)
         grid.attach(stack, 1, 0, 1, 1)
-        content.add(grid)
-        self.show_all()
+        content.append(grid)
+        self.show()
 
     def get_page(self, items):
         grid = Gtk.Grid()
@@ -149,7 +150,7 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
             item.label.add_css_class("dim-label")
             grid.attach(item.label, 0, i, 1, 1)
             box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
-            box.pack_start(item.widget, expand=False, fill=False, padding=0)
+            box.append(item.widget)
             grid.attach(box, 1, i, 2, 1)
             self.items.append(item)
         return grid
