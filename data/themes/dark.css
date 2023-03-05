@@ -23,6 +23,10 @@
 @define-color selected-bg-color #1b6acb;
 @define-color selected-fg-color #fafafa;
 
+.catapult-window {
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .catapult-body {
   background-color: alpha(@bg-color, 0.9);
   border-radius: 12px;

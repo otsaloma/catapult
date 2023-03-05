@@ -50,10 +50,10 @@ class SearchResultRow(Gtk.ListBoxRow):
         self.description_label.set_yalign(0)
         self.description_label.set_ellipsize(Pango.EllipsizeMode.END)
         self.description_label.set_vexpand(True)
-        self.get_style_context().add_class("catapult-search-result")
-        self.icon.get_style_context().add_class("catapult-search-result-icon")
-        self.title_label.get_style_context().add_class("catapult-search-result-title")
-        self.description_label.get_style_context().add_class("catapult-search-result-description")
+        self.add_css_class("catapult-search-result")
+        self.icon.add_css_class("catapult-search-result-icon")
+        self.title_label.add_css_class("catapult-search-result-title")
+        self.description_label.add_css_class("catapult-search-result-description")
         hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
         hbox.append(self.icon)
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
@@ -102,6 +102,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
                 logging.exception(f"Failed to initialize {name}")
 
     def _init_properties(self):
+        self.add_css_class("catapult-window")
         self.set_icon_name("io.otsaloma.catapult")
         Gtk.Window.set_default_icon_name("io.otsaloma.catapult")
         self.set_decorated(False)
@@ -128,16 +129,16 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             "edit-find",
         ) or "")
         input_icon.set_icon_size(Gtk.IconSize.LARGE)
-        input_icon.get_style_context().add_class("catapult-input-icon")
-        self._input_entry.get_style_context().add_class("catapult-input-entry")
+        input_icon.add_css_class("catapult-input-icon")
+        self._input_entry.add_css_class("catapult-input-entry")
         self._input_entry.set_hexpand(True)
         input_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
-        input_box.get_style_context().add_class("catapult-input-box")
+        input_box.add_css_class("catapult-input-box")
         input_box.set_hexpand(True)
         input_box.append(input_icon)
         input_box.append(self._input_entry)
         self._body = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
-        self._body.get_style_context().add_class("catapult-body")
+        self._body.add_css_class("catapult-body")
         # Catch mouse press events anywhere on the edges of the window.
         gesture = Gtk.GestureClick()
         self._body.add_controller(gesture)
@@ -148,7 +149,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._result_scroller.set_propagate_natural_height(True)
         self._result_scroller.set_hexpand(True)
         self._result_list.set_can_focus(False)
-        self._result_list.get_style_context().add_class("catapult-search-result-list")
+        self._result_list.add_css_class("catapult-search-result-list")
         for i in range(catapult.conf.max_results):
             row = SearchResultRow()
             row.set_can_focus(False)
@@ -232,7 +233,8 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         ))
         self._css_provider = Gtk.CssProvider()
         self._css_provider.load_from_data(bytes(css.encode()))
-        style.add_provider(self._css_provider, priority)
+        display = Gdk.Display.get_default()
+        style.add_provider_for_display(display, self._css_provider, priority)
 
     def _on_gesture_pressed(self, *args, **kwargs):
         self._input_entry.set_text(":")

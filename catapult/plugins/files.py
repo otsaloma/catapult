@@ -54,7 +54,7 @@ class PatternEditDialog(Gtk.Dialog):
         self.text_view.set_right_margin(6)
         self.text_view.set_top_margin(6)
         self.text_view.set_wrap_mode(Gtk.WrapMode.NONE)
-        self.text_view.get_style_context().add_class("monospace")
+        self.text_view.add_css_class("monospace")
         scroller = Gtk.ScrolledWindow()
         scroller.set_policy(*((Gtk.PolicyType.AUTOMATIC,)*2))
         scroller.set_shadow_type(Gtk.ShadowType.NONE)

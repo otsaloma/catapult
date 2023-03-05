@@ -114,7 +114,7 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
         sidebar = Gtk.StackSidebar()
         sidebar.set_stack(stack)
         sidebar.set_vexpand(True)
-        sidebar.get_style_context().add_class("catapult-preferences-sidebar")
+        sidebar.add_css_class("catapult-preferences-sidebar")
         page = self.get_page([Theme])
         stack.add_titled(page, "general", _("General"))
         for name in self.list_plugins():
@@ -146,7 +146,7 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
                 item = item()
             item.dump(self.main_window)
             item.label.set_xalign(1)
-            item.label.get_style_context().add_class("dim-label")
+            item.label.add_css_class("dim-label")
             grid.attach(item.label, 0, i, 1, 1)
             box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
             box.pack_start(item.widget, expand=False, fill=False, padding=0)
