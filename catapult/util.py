@@ -73,10 +73,6 @@ def is_plugin_class(obj):
 def is_uri(location):
     return re.match(r"^[a-z]+://", location) is not None
 
-def iterate_main():
-    while Gtk.events_pending():
-        Gtk.main_iteration()
-
 def list_custom_plugins():
     for name, module in list_plugins():
         if not inspect.ismodule(module):

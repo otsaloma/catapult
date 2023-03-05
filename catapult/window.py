@@ -113,6 +113,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._input_entry.connect("notify::text", self._on_input_entry_notify_text)
         self._icon_theme_handler_id = self._icon_theme.connect("changed", self._on_icon_theme_changed)
         controller = Gtk.EventControllerKey()
+        controller.set_propagation_phase(Gtk.PropagationPhase.CAPTURE)
         self.add_controller(controller)
         controller.connect("key-pressed", self._on_key_pressed)
 
@@ -211,7 +212,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             except Exception:
                 logging.exception(f"on_window_hide failed for {plugin.name}")
         self._result_list.unselect_all()
-        catapult.util.iterate_main()
         super().hide()
 
     def launch_selected(self):
@@ -266,7 +266,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._result_scroller.get_vadjustment().set_value(0)
         self._result_scroller.set_visible(bool(results))
 
-    def _on_key_pressed(self, keyval, keycode, state, user_data=None):
+    def _on_key_pressed(self, event_controller_key, keyval, keycode, state, user_data=None):
         if keyval == Gdk.KEY_Up:
             self.select_previous_result()
             return True
