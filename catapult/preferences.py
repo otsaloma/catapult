@@ -21,7 +21,6 @@ import inspect
 import logging
 
 from catapult.i18n import _
-from gi.repository import Gdk
 from gi.repository import GObject
 from gi.repository import Gtk
 
@@ -101,7 +100,7 @@ class TogglePlugin(PreferencesItem):
             item.widget.set_sensitive(active)
 
 
-class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
+class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
 
     def __init__(self, window):
         GObject.GObject.__init__(self)
@@ -136,7 +135,6 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
         grid.attach(stack, 1, 0, 1, 1)
         content.add(grid)
         self.show_all()
-        self.set_position_offset(0.5, 0.2)
 
     def get_page(self, items):
         grid = Gtk.Grid()

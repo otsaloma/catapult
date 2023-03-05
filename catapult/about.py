@@ -22,7 +22,7 @@ from gi.repository import GObject
 from gi.repository import Gtk
 
 
-class AboutDialog(Gtk.AboutDialog, catapult.WindowMixin):
+class AboutDialog(Gtk.AboutDialog):
 
     def __init__(self, parent):
         GObject.GObject.__init__(self)
@@ -45,5 +45,3 @@ class AboutDialog(Gtk.AboutDialog, catapult.WindowMixin):
         # to this translation; in that case, please write them on separate
         # lines seperated by newlines (\n).
         self.set_translator_credits(_("translator-credits"))
-
-        self.set_position_offset(0.5, 0.2)

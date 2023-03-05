@@ -51,7 +51,6 @@ WAYLAND = (os.getenv("XDG_SESSION_TYPE", "") == "wayland" or
 from catapult import i18n # noqa
 from catapult import util # noqa
 from catapult.mixins import DebugMixin # noqa
-from catapult.mixins import WindowMixin # noqa
 from catapult.conf import ConfigurationStore # noqa
 from catapult.conf import PluginConfigurationStore # noqa
 conf = ConfigurationStore()

@@ -30,8 +30,6 @@ from gi.repository import Pango
 
 ICON_SIZE = Gtk.IconSize.LARGE
 ICON_SIZE_PX = 48
-XOFFSET = 0.50
-YOFFSET = 0.25
 
 
 class SearchResultRow(Gtk.ListBoxRow):
@@ -71,7 +69,7 @@ class SearchResultRow(Gtk.ListBoxRow):
         self.icon.set_icon_size(Gtk.IconSize.LARGE)
 
 
-class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
+class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
 
     def __init__(self):
         GObject.GObject.__init__(self)
@@ -93,7 +91,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         self._init_signal_handlers()
         self._init_plugins()
         self.load_css()
-        self.set_position_offset(XOFFSET, YOFFSET)
         self.debug("Initialization complete")
 
     def _init_plugins(self):
@@ -110,10 +107,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         self.set_decorated(False)
         self.set_default_size(600, -1)
         self.set_resizable(False)
-        # XXX: Missing in GTK4
-        # self.set_keep_above(True)
-        # self.set_skip_pager_hint(True)
-        # self.set_skip_taskbar_hint(True)
 
     def _init_signal_handlers(self):
         self.connect("notify::has-toplevel-focus", self._on_notify_has_toplevel_focus)
@@ -388,9 +381,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
                 logging.exception(f"on_window_show failed for {plugin.name}")
         self.set_sensitive(True)
         self.present()
-        # XXX: Gone in GTK4
-        # self._update_position()
-        # self.move(*self._position)
         self._result_list.unselect_all()
         self._result_scroller.hide()
         self._prev_query = ""
@@ -404,9 +394,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
     def update(self):
         for plugin in self._plugins:
             plugin.update_async()
-
-    def _update_position(self):
-        self.set_position_offset(XOFFSET, YOFFSET)
 
     def write_configuration(self):
         catapult.conf.write()
