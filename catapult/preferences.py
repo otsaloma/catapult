@@ -62,53 +62,6 @@ class Theme(PreferencesItem):
         window.load_css()
 
 
-class ToggleKey(PreferencesItem):
-
-    def __init__(self):
-        self.label = Gtk.Label(label=_("Activation key"))
-        self.widget = Gtk.Entry()
-        self.widget.catapult_key = None
-        self.widget.connect("key-press-event", self._on_key_press_event)
-
-    def dump(self, window):
-        keyval, mods = Gtk.accelerator_parse(catapult.conf.toggle_key)
-        label = Gtk.accelerator_get_label(keyval, mods)
-        self.widget.catapult_key = catapult.conf.toggle_key
-        self.widget.set_text(label)
-        self.widget.set_position(-1)
-        if window is not None:
-            # Avoid the main window popping up.
-            window.unbind_toggle_key()
-
-    def load(self, window):
-        key = self.widget.catapult_key
-        success = window.bind_toggle_key(key)
-        if not success: return
-        catapult.conf.toggle_key = key
-
-    def _on_key_press_event(self, widget, event):
-        if event.keyval in [Gdk.KEY_Tab, Gdk.KEY_Escape]:
-            return False
-        if event.keyval in [Gdk.KEY_BackSpace, Gdk.KEY_Delete]:
-            self.dump(None)
-            return True
-        mods = event.state
-        # Allow Mod1, which is usually Alt, remove the rest.
-        # https://mail.gnome.org/archives/gtk-list/2001-July/msg00153.html
-        for bad in [Gdk.ModifierType.MOD2_MASK,
-                    Gdk.ModifierType.MOD3_MASK,
-                    Gdk.ModifierType.MOD4_MASK,
-                    Gdk.ModifierType.MOD5_MASK]:
-            if mods & bad:
-                mods ^= bad
-        key = Gtk.accelerator_name(event.keyval, mods)
-        label = Gtk.accelerator_get_label(event.keyval, mods)
-        self.widget.catapult_key = key
-        self.widget.set_text(label)
-        self.widget.set_position(-1)
-        return True
-
-
 class TogglePlugin(PreferencesItem):
 
     def __init__(self, plugin, title):
@@ -163,7 +116,7 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
         sidebar.set_stack(stack)
         sidebar.set_vexpand(True)
         sidebar.get_style_context().add_class("catapult-preferences-sidebar")
-        page = self.get_page([Theme, ToggleKey])
+        page = self.get_page([Theme])
         stack.add_titled(page, "general", _("General"))
         for name in self.list_plugins():
             try:

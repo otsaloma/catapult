@@ -42,8 +42,7 @@ class Application(Gtk.Application):
         self.add_window(window)
         if args.show:
             window.show()
-        logging.info(_("Catapult ready, use {} to engage")
-                     .format(catapult.conf.toggle_key))
+        logging.info(_("Catapult ready"))
 
     def _parse_arguments(self, args):
         parser = ArgumentParser(usage=_("catapult [OPTION...]"))

@@ -26,7 +26,6 @@ from gi.repository import Gio
 from gi.repository import GLib
 from gi.repository import GObject
 from gi.repository import Gtk
-from gi.repository import Keybinder
 from gi.repository import Pango
 
 ICON_SIZE = Gtk.IconSize.LARGE
@@ -89,24 +88,13 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         self._result_rows = []
         self._result_scroller = Gtk.ScrolledWindow()
         self._search_manager = catapult.SearchManager()
-        self._toggle_key = None
         self._init_properties()
         self._init_widgets()
         self._init_signal_handlers()
-        self._init_keys()
         self._init_plugins()
         self.load_css()
         self.set_position_offset(XOFFSET, YOFFSET)
         self.debug("Initialization complete")
-
-    def _init_keys(self):
-        # XXX: Not compatible with GTK4 -- Remove keybinding entirely?
-        # Keybinder.init()
-        # def bind_toggle_key(self, key):
-        #     self.bind_toggle_key(key)
-        #     return False # to not be called again.
-        # GLib.idle_add(bind_toggle_key, self, catapult.conf.toggle_key)
-        pass
 
     def _init_plugins(self):
         for name in catapult.conf.plugins:
@@ -184,17 +172,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
             self._plugins.append(catapult.util.load_plugin(name))
         except Exception:
             logging.exception("Failed to activate {name}")
-
-    def bind_toggle_key(self, key):
-        self.unbind_toggle_key()
-        self.debug(f"Binding toggle key {key}")
-        success = Keybinder.bind(key, self.toggle)
-        if success:
-            self._toggle_key = key
-            return success
-        else:
-            self.debug(f"Failed to bind toggle key {key}")
-            return success
 
     def deactivate_plugin(self, name):
         self.debug(f"Deactivating plugin {name}")
@@ -414,8 +391,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
         # XXX: Gone in GTK4
         # self._update_position()
         # self.move(*self._position)
-        timestamp = Keybinder.get_current_event_time()
-        self.present_with_time(timestamp)
         self._result_list.unselect_all()
         self._result_scroller.hide()
         self._prev_query = ""
@@ -425,12 +400,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin, catapult.WindowMixin):
 
     def toggle(self, *args, **kwargs):
         self.hide() if self.is_visible() else self.show()
-
-    def unbind_toggle_key(self):
-        if not self._toggle_key: return
-        self.debug(f"Unbinding toggle key {self._toggle_key}")
-        Keybinder.unbind(self._toggle_key)
-        self._toggle_key = None
 
     def update(self):
         for plugin in self._plugins:

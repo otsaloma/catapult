@@ -54,7 +54,6 @@ class ConfigurationStore(catapult.DebugMixin):
         "max_results_visible": 8,
         "plugins": ["apps", "builtins", "calculator", "clipboard", "files", "session"],
         "theme": "dark",
-        "toggle_key": "<Control>space",
     }
 
     def __init__(self, path=None):
