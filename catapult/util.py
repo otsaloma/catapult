@@ -98,7 +98,7 @@ def list_plugins():
     for data_directory in catapult.DATA_DIRS:
         directory = data_directory / "plugins"
         if not directory.exists(): continue
-        for path in directory.glob("*.py"):
+        for path in directory.glob("**/*.py"):
             if path.stem in found: continue
             yield path.stem, path.resolve()
             found.add(path.stem)
