@@ -42,6 +42,8 @@ class BuiltinsPlugin(Plugin):
 
     def search(self, query):
         query = query.lower().strip()
+        # List all builtin commands with '?'.
+        query = ":" if query == "?" else query
         if not query.startswith(":"): return
         icon = lookup_icon(
             "io.otsaloma.catapult",
