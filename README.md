@@ -2,6 +2,8 @@ Catapult Launcher
 =================
 
 [![Gitter](https://badges.gitter.im/otsaloma/catapult.svg)](https://gitter.im/otsaloma/catapult)
+[![Plugins](https://img.shields.io/badge/community-plugins-blueviolet)](https://github.com/topics/catapult-plugin)
+[![Themes](https://img.shields.io/badge/community-themes-blueviolet)](https://github.com/topics/catapult-theme)
 
 Catapult is an app launcher for Linux. It allows you to easily launch
 apps, open files and do basic calculations with a keyboard-driven user

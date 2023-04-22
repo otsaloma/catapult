@@ -11,5 +11,5 @@ that can be expected to be of wide interest.
 So, if you need a new plugin or theme, the general suggestion is that
 you do that in your own repository, maintaining and distributing it
 yourself. You can add the topic "catapult-plugin" or "catapult-theme" to
-your repository and a link to those GitHub topic pages can eventually be
-included in the main Catapult website and README.
+your repository and users will then find them following links on the
+Catapult website and README.
