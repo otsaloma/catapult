@@ -215,6 +215,10 @@ class FilesPlugin(Plugin):
         query = query.lower().strip()
         for file in self._index:
             offset = file.title.lower().find(query)
+            if offset < 0 and file.location.endswith(":///"):
+                # Check location for special URIs too as the display name
+                # seems to sometimes be translated, sometimes not.
+                offset = file.location.lower().find(query)
             if offset < 0: continue
             self.debug(f"Found {file.location} for {query!r}")
             if file.location == "trash:///":
