@@ -78,6 +78,7 @@ class ClipboardPlugin(Plugin):
 
     def _get_blurb(self, text):
         text = text.strip()
+        if not text: return ""
         text = text.replace("\t", "⟶")
         lines = [x.strip() for x in text.splitlines()]
         # Avoid a very minimal blurb, such as '{' when copying JSON.
