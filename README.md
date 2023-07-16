@@ -31,7 +31,7 @@ Catapult requires the following.
 | Python       | ≥ 3.8   |
 | PyGObject    |         |
 | GLib         |         |
-| GTK          | ≥ 3.18  |
+| GTK          | ≥ 4.0   |
 | Pango        |         |
 | libqalculate |         |
 
@@ -39,8 +39,7 @@ On Debian/Ubuntu you can install these with the following command.
 
     sudo apt install gettext \
                      gir1.2-glib-2.0 \
-                     gir1.2-gtk-3.0 \
-                     gir1.2-keybinder-3.0 \
+                     gir1.2-gtk-4.0 \
                      gir1.2-pango-1.0 \
                      python3 \
                      python3-dev \
@@ -53,6 +52,26 @@ Then, to install Catapult, run commands
     sudo make PREFIX=/usr/local install
 
 ## Documentation
+
+### Keybinding to Activate Catapult
+
+Catapult cannot do a global toggle keybinding for you, instead you need
+to do it yourself in your desktop/distro settings. Catapult is a
+single-instance app, so simply executing `catapult` will show the
+existing instance and that is the command you can bind to your key of
+choice.
+
+* [GNOME](https://help.gnome.org/users/gnome-help/stable/keyboard-shortcuts-set.html.en)
+
+### Window Position on Screen
+
+Catapult cannot position its own window on your screen, which means that
+it will be positioned wherever your window manager defaults to or
+considers appropriate. You can configure your window manager to center
+all new windows by default, which should center the Catapult window too
+(excluding the search results).
+
+* GNOME: `gsettings set org.gnome.mutter center-new-windows true`
 
 ### Starting Automatically
 
@@ -92,20 +111,6 @@ Or, to use Ubuntu orange as the selection color, try
 ```css
 @define-color selected-bg-color #e95420;
 ```
-
-### Known Issues on Wayland
-
-* Catapult cannot do a global toggle keybinding (Control+Space by
-  default) for you, instead you need to do it yourself in your
-  desktop/distro settings. Catapult is a single-instance app, so simply
-  executing `catapult` will show the existing instance and that is the
-  command you can bind to your key of choice.
-
-* Window positioning might not work, which means that the Catapult
-  window will be positioned on your screen wherever your window manager
-  defaults to or considers appropriate. You can configure your window
-  manager to center all new windows by default, which should center the
-  Catapult window (excluding the search results).
 
 ### Developers
 
