@@ -302,12 +302,9 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             self.hide()
 
     def open_about_dialog(self):
-        def on_response(dialog, response):
-            dialog.destroy()
         self.hide()
         dialog = catapult.AboutDialog(self)
-        dialog.connect("response", on_response)
-        dialog.run()
+        dialog.show()
 
     def open_preferences_dialog(self):
         def on_response(dialog, response):
