@@ -18,8 +18,6 @@
 import logging
 import time
 
-START = time.time()
-
 
 class DebugMixin:
 
