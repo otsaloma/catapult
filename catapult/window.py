@@ -237,7 +237,13 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             (catapult.DATA_DIR / "catapult.css").read_text("utf-8"),
         ))
         self._css_provider = Gtk.CssProvider()
-        self._css_provider.load_from_data(bytes(css.encode()))
+        try:
+            # The call signature of 'load_from_data' seems to have changed
+            # in some GTK version. Also, the whole function is deprecated
+            # and since GTK 4.12 we should use 'load_from_string'.
+            self._css_provider.load_from_data(css, -1)
+        except Exception:
+            self._css_provider.load_from_data(bytes(css.encode()))
         display = Gdk.Display.get_default()
         style.add_provider_for_display(display, self._css_provider, priority)
 
