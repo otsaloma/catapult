@@ -21,15 +21,15 @@ import inspect
 import logging
 
 from catapult.i18n import _
-from gi.repository import Gdk
 from gi.repository import GObject
 from gi.repository import Gtk
 
 
 class PreferencesItem:
 
-    def __init__(self, conf=None):
+    def __init__(self, conf=None, parent=None):
         self.conf = conf
+        self.parent = parent
         self.label = None
         self.widget = None
 
@@ -60,53 +60,6 @@ class Theme(PreferencesItem):
         if not theme in self.themes: return
         catapult.conf.theme = theme
         window.load_css()
-
-
-class ToggleKey(PreferencesItem):
-
-    def __init__(self):
-        self.label = Gtk.Label(label=_("Activation key"))
-        self.widget = Gtk.Entry()
-        self.widget.catapult_key = None
-        self.widget.connect("key-press-event", self._on_key_press_event)
-
-    def dump(self, window):
-        keyval, mods = Gtk.accelerator_parse(catapult.conf.toggle_key)
-        label = Gtk.accelerator_get_label(keyval, mods)
-        self.widget.catapult_key = catapult.conf.toggle_key
-        self.widget.set_text(label)
-        self.widget.set_position(-1)
-        if window is not None:
-            # Avoid the main window popping up.
-            window.unbind_toggle_key()
-
-    def load(self, window):
-        key = self.widget.catapult_key
-        success = window.bind_toggle_key(key)
-        if not success: return
-        catapult.conf.toggle_key = key
-
-    def _on_key_press_event(self, widget, event):
-        if event.keyval in [Gdk.KEY_Tab, Gdk.KEY_Escape]:
-            return False
-        if event.keyval in [Gdk.KEY_BackSpace, Gdk.KEY_Delete]:
-            self.dump(None)
-            return True
-        mods = event.state
-        # Allow Mod1, which is usually Alt, remove the rest.
-        # https://mail.gnome.org/archives/gtk-list/2001-July/msg00153.html
-        for bad in [Gdk.ModifierType.MOD2_MASK,
-                    Gdk.ModifierType.MOD3_MASK,
-                    Gdk.ModifierType.MOD4_MASK,
-                    Gdk.ModifierType.MOD5_MASK]:
-            if mods & bad:
-                mods ^= bad
-        key = Gtk.accelerator_name(event.keyval, mods)
-        label = Gtk.accelerator_get_label(event.keyval, mods)
-        self.widget.catapult_key = key
-        self.widget.set_text(label)
-        self.widget.set_position(-1)
-        return True
 
 
 class TogglePlugin(PreferencesItem):
@@ -148,57 +101,59 @@ class TogglePlugin(PreferencesItem):
             item.widget.set_sensitive(active)
 
 
-class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin, catapult.WindowMixin):
+class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
 
     def __init__(self, window):
-        GObject.GObject.__init__(self)
+        GObject.GObject.__init__(self, use_header_bar=True)
         self.items = []
         self.main_window = window
         self.set_default_size(-1, 400)
         self.set_title(_("Preferences"))
         stack = Gtk.Stack()
-        stack.set_border_width(18)
-        stack.set_homogeneous(True)
+        stack.set_vhomogeneous(True)
         sidebar = Gtk.StackSidebar()
         sidebar.set_stack(stack)
         sidebar.set_vexpand(True)
-        sidebar.get_style_context().add_class("catapult-preferences-sidebar")
-        page = self.get_page([Theme, ToggleKey])
+        sidebar.add_css_class("catapult-preferences-sidebar")
+        page = self.get_page([Theme])
         stack.add_titled(page, "general", _("General"))
         for name in self.list_plugins():
             try:
                 cls = catapult.util.load_plugin_class(name)
                 cls.ensure_configuration()
                 toggle = TogglePlugin(name, cls.title)
-                preferences_items = [x(conf=cls.conf) for x in cls.preferences_items]
+                preferences_items = [x(conf=cls.conf, parent=self) for x in cls.preferences_items]
                 toggle.connect_items(preferences_items)
                 page = self.get_page([toggle] + preferences_items)
                 stack.add_titled(page, name, cls.title)
             except Exception:
                 logging.exception(f"Failed to load configuration for {name}")
-        content = self.get_content_area()
-        content.add(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
+        content = self.get_child()
+        content.append(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
         grid = Gtk.Grid()
         grid.attach(sidebar, 0, 0, 1, 1)
         grid.attach(stack, 1, 0, 1, 1)
-        content.add(grid)
-        self.show_all()
-        self.set_position_offset(0.5, 0.2)
+        content.append(grid)
+        self.show()
 
     def get_page(self, items):
         grid = Gtk.Grid()
         grid.set_column_homogeneous(True)
         grid.set_column_spacing(18)
+        grid.set_margin_bottom(18)
+        grid.set_margin_end(18)
+        grid.set_margin_start(18)
+        grid.set_margin_top(18)
         grid.set_row_spacing(12)
         for i, item in enumerate(items):
             if inspect.isclass(item):
                 item = item()
             item.dump(self.main_window)
             item.label.set_xalign(1)
-            item.label.get_style_context().add_class("dim-label")
+            item.label.add_css_class("dim-label")
             grid.attach(item.label, 0, i, 1, 1)
             box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
-            box.pack_start(item.widget, expand=False, fill=False, padding=0)
+            box.append(item.widget)
             grid.attach(box, 1, i, 2, 1)
             self.items.append(item)
         return grid

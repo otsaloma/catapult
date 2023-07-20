@@ -22,27 +22,28 @@ from catapult.api import Plugin
 from catapult.api import SearchResult
 from catapult.i18n import _
 
+def split(title):
+    return [x.strip() for x in title.split(";") if x.strip()]
+
 ACTIONS = [{
     "desktops": ["GNOME"],
-    "titles":   [_("Lock Screen")],
+    # TRANSLATORS: Include all possible variations separated by semicolons.
+    "titles":   split(_("Lock Screen")),
     "command":  "gnome-screensaver-command --lock",
 }, {
     "desktops": ["GNOME"],
-    # TRANSLATORS: Several terms are used in English. If your language
-    # only has one term, you can translate all variants to the same value.
-    "titles":   [_("Log Out"), _("Log Off")],
+    # TRANSLATORS: Include all possible variations separated by semicolons.
+    "titles":   split(_("Log Out;Log Off")),
     "command":  "gnome-session-quit --logout",
 }, {
     "desktops": ["GNOME"],
-    # TRANSLATORS: Several terms are used in English. If your language
-    # only has one term, you can translate all variants to the same value.
-    "titles":   [_("Power Off"), _("Shutdown")],
+    # TRANSLATORS: Include all possible variations separated by semicolons.
+    "titles":   split(_("Power Off;Shutdown")),
     "command":  "gnome-session-quit --power-off",
 }, {
     "desktops": ["GNOME"],
-    # TRANSLATORS: Several terms are used in English. If your language
-    # only has one term, you can translate all variants to the same value.
-    "titles":   [_("Reboot"), _("Restart")],
+    # TRANSLATORS: Include all possible variations separated by semicolons.
+    "titles":   split(_("Reboot;Restart")),
     "command":  "gnome-session-quit --reboot",
 }]
 

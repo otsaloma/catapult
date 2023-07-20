@@ -20,8 +20,5 @@ import catapult.test
 
 class TestAboutDialog(catapult.test.TestCase):
 
-    def run_dialog(self):
-        self.dialog.run()
-
     def setup_method(self, method):
         self.dialog = catapult.AboutDialog(None)

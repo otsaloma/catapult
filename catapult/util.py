@@ -52,14 +52,8 @@ def get_desktop_environment():
     return os.getenv("XDG_CURRENT_DESKTOP", "")
 
 def get_monitor():
-    # No monitor reported as primary by GDK under Wayland
-    # https://gitlab.gnome.org/GNOME/gtk/-/issues/1028
     display = Gdk.Display.get_default()
-    monitor = display.get_primary_monitor()
-    if monitor is not None:
-        return monitor
-    for i in range(display.get_n_monitors()):
-        monitor = display.get_monitor(i)
+    for monitor in display.get_monitors():
         if monitor is not None:
             return monitor
 
@@ -78,10 +72,6 @@ def is_plugin_class(obj):
 
 def is_uri(location):
     return re.match(r"^[a-z]+://", location) is not None
-
-def iterate_main():
-    while Gtk.events_pending():
-        Gtk.main_iteration()
 
 def list_custom_plugins():
     for name, module in list_plugins():
@@ -151,8 +141,9 @@ def load_theme(name):
 def lookup_icon(*names):
     # Note that this does not check if a sufficient size is found,
     # but usually that shouldn't be an issue.
-    theme = Gtk.IconTheme.get_default()
-    all_names = set(theme.list_icons())
+    display = Gdk.Display.get_default()
+    theme = Gtk.IconTheme.get_for_display(display)
+    all_names = set(theme.get_icon_names())
     for name in names:
         if name in all_names:
             return name

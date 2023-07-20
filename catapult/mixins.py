@@ -15,11 +15,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-import catapult
 import logging
 import time
-
-START = time.time()
 
 
 class DebugMixin:
@@ -32,18 +29,3 @@ class DebugMixin:
 
     def tock(self):
         return 1000 * (time.time() - self.__tick)
-
-
-class WindowMixin:
-
-    def set_position_offset(self, xoffset, yoffset):
-        self._monitor = catapult.util.get_monitor()
-        self._monitor_was_primary = self._monitor.is_primary()
-        window_width, window_height = self.get_size()
-        screen_width, screen_height = catapult.util.get_screen_size(self._monitor)
-        x = int(xoffset * (screen_width - window_width))
-        y = int(yoffset * screen_height)
-        self._position = (x, y)
-        # Moving a window will not work with all window managers.
-        # On stock GNOME, it works with X, not with Wayland.
-        self.move(x, y)

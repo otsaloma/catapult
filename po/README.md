@@ -1,4 +1,4 @@
 Translating Catapult
 ====================
 
-Please use Transifex: https://www.transifex.com/otsaloma/catapult/
+Please use Transifex: https://app.transifex.com/otsaloma/catapult/

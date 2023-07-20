@@ -22,11 +22,10 @@ import logging
 import os
 import sys
 
-gi.require_version("Gdk", "3.0")
+gi.require_version("Gdk", "4.0")
 gi.require_version("Gio", "2.0")
 gi.require_version("GObject", "2.0")
-gi.require_version("Gtk", "3.0")
-gi.require_version("Keybinder", "3.0")
+gi.require_version("Gtk", "4.0")
 gi.require_version("Pango", "1.0")
 
 from gi.repository import GLib
@@ -52,7 +51,6 @@ WAYLAND = (os.getenv("XDG_SESSION_TYPE", "") == "wayland" or
 from catapult import i18n # noqa
 from catapult import util # noqa
 from catapult.mixins import DebugMixin # noqa
-from catapult.mixins import WindowMixin # noqa
 from catapult.conf import ConfigurationStore # noqa
 from catapult.conf import PluginConfigurationStore # noqa
 conf = ConfigurationStore()

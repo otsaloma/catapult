@@ -44,8 +44,11 @@ class PatternEditDialog(Gtk.Dialog):
         self.set_default_response(Gtk.ResponseType.OK)
         self.set_transient_for(parent)
         header = self.get_header_bar()
-        header.set_title(_("Edit File Patterns"))
-        header.set_subtitle(_("Use shell-style wildcards * and **"))
+        label = Gtk.Label()
+        label.set_markup("<b>{}</b>\n<small>{}</small>".format(
+            _("Edit File Patterns"),
+            _("Use shell-style wildcards * and **")))
+        header.set_title_widget(label)
         self.text_view = Gtk.TextView()
         self.text_view.set_accepts_tab(False)
         self.text_view.set_bottom_margin(6)
@@ -54,17 +57,15 @@ class PatternEditDialog(Gtk.Dialog):
         self.text_view.set_right_margin(6)
         self.text_view.set_top_margin(6)
         self.text_view.set_wrap_mode(Gtk.WrapMode.NONE)
-        self.text_view.get_style_context().add_class("monospace")
+        self.text_view.add_css_class("monospace")
         scroller = Gtk.ScrolledWindow()
         scroller.set_policy(*((Gtk.PolicyType.AUTOMATIC,)*2))
-        scroller.set_shadow_type(Gtk.ShadowType.NONE)
         scroller.set_size_request(600, 371)
-        scroller.add(self.text_view)
+        scroller.set_child(self.text_view)
         content = self.get_content_area()
-        content.add(scroller)
+        content.append(scroller)
         text_buffer = self.text_view.get_buffer()
         text_buffer.set_text(text)
-        self.show_all()
 
     def get_text(self):
         text_buffer = self.text_view.get_buffer()
@@ -85,8 +86,10 @@ class FilesInclude(PreferencesItem):
         text = "\n".join(self.conf.include)
         parent = self.widget.get_ancestor(Gtk.Window)
         dialog = PatternEditDialog(parent, text)
+        dialog.set_modal(True)
+        dialog.set_transient_for(self.parent)
         dialog.connect("response", self._on_response)
-        dialog.run()
+        dialog.show()
 
     def _on_response(self, dialog, response):
         if response == Gtk.ResponseType.OK:
@@ -109,8 +112,10 @@ class FilesExclude(PreferencesItem):
         text = "\n".join(self.conf.exclude)
         parent = self.widget.get_ancestor(Gtk.Window)
         dialog = PatternEditDialog(parent, text)
+        dialog.set_modal(True)
+        dialog.set_transient_for(self.parent)
         dialog.connect("response", self._on_response)
-        dialog.run()
+        dialog.show()
 
     def _on_response(self, dialog, response):
         if response == Gtk.ResponseType.OK:
@@ -130,8 +135,8 @@ class FilesScanInterval(PreferencesItem):
         self.spin.set_range(1, 1440)
         self.unit = Gtk.Label(label=_("minutes"))
         self.widget = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
-        self.widget.pack_start(self.spin, expand=False, fill=False, padding=0)
-        self.widget.pack_start(self.unit, expand=False, fill=False, padding=0)
+        self.widget.append(self.spin)
+        self.widget.append(self.unit)
 
     def dump(self, window):
         value = self.conf.scan_interval

@@ -29,9 +29,6 @@ class TestWindow(catapult.test.TestCase):
         self.window.activate_plugin("apps")
         self.window.deactivate_plugin("apps")
 
-    def test_bind_toggle_key(self):
-        self.window.bind_toggle_key("<Shift><Control><Alt>F12")
-
     def test_get_query(self):
         self.window._input_entry.set_text("test")
         assert self.window.get_query() == "test"
@@ -62,6 +59,3 @@ class TestWindow(catapult.test.TestCase):
     def test_toggle(self):
         self.window.toggle()
         self.window.toggle()
-
-    def test_unbind_toggle_key(self):
-        self.window.unbind_toggle_key()

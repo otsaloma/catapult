@@ -2,6 +2,7 @@
 
 DESTDIR   =
 PREFIX    = /usr/local
+BINDIR    = $(DESTDIR)$(PREFIX)/bin
 DATADIR   = $(DESTDIR)$(PREFIX)/share
 LOCALEDIR = $(DESTDIR)$(PREFIX)/share/locale
 
@@ -42,7 +43,7 @@ build:
 
 check:
 	flake8 .
-	flake8 bin/*
+	flake8 bin/catapult-start
 
 clean:
 	rm -rf build
@@ -59,6 +60,10 @@ install:
 	CATAPULT_PREFIX=$(PREFIX) ./setup-partial.py install \
 	$(if $(SETUP_ROOT),--root=$(SETUP_ROOT),) \
 	$(if $(SETUP_PREFIX),--prefix=$(SETUP_PREFIX),)
+	@echo "INSTALLING SHELL SCRIPT..."
+	mkdir -p $(BINDIR)
+	cp -f bin/catapult $(BINDIR)
+	chmod +x $(BINDIR)/catapult
 	@echo "INSTALLING DATA FILES..."
 	mkdir -p $(DATADIR)/catapult/themes
 	cp -f data/catapult.css $(DATADIR)/catapult

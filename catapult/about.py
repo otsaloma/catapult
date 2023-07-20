@@ -22,14 +22,14 @@ from gi.repository import GObject
 from gi.repository import Gtk
 
 
-class AboutDialog(Gtk.AboutDialog, catapult.WindowMixin):
+class AboutDialog(Gtk.AboutDialog):
 
     def __init__(self, parent):
         GObject.GObject.__init__(self)
         self.set_artists(("Osmo Salomaa <otsaloma@iki.fi>",))
         self.set_authors(("Osmo Salomaa <otsaloma@iki.fi>",))
         self.set_comments(_("App launcher"))
-        self.set_copyright("Copyright © 2021–2022 Osmo Salomaa")
+        self.set_copyright("Copyright © 2021–2023 Osmo Salomaa")
         self.set_license_type(Gtk.License.GPL_3_0)
         self.set_logo_icon_name("io.otsaloma.catapult")
         self.set_program_name("Catapult")
@@ -45,5 +45,3 @@ class AboutDialog(Gtk.AboutDialog, catapult.WindowMixin):
         # to this translation; in that case, please write them on separate
         # lines seperated by newlines (\n).
         self.set_translator_credits(_("translator-credits"))
-
-        self.set_position_offset(0.5, 0.2)

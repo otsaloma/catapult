@@ -23,12 +23,19 @@
 @define-color selected-bg-color #1b6acb;
 @define-color selected-fg-color #fafafa;
 
+.catapult-window {
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .catapult-body {
   background-color: alpha(@bg-color, 0.9);
   border-radius: 12px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-  margin: 12px;
   padding: 12px 0 15px 0;
+
+  /* XXX: Causes an unavoidable light gray outside border. */
+  /* box-shadow: 0 0 6px rgba(0, 0, 0, 0.3); */
+  /* margin: 12px; */
+
 }
 
 .catapult-input-box {
@@ -51,6 +58,7 @@
   color: @fg-color;
   font-family: "Cascadia Code", monospace;
   font-size: 200%;
+  outline: none;
   padding: 12px 24px 9px 0;
 }
 

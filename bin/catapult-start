@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+import sys
+
+from pathlib import Path
+
+def prepare_paths():
+    # If running from source, add root directory to sys.path.
+    # '__file__' attribute missing implies a frozen installation.
+    if not "__file__" in globals(): return
+    root = Path(__file__).parent.parent.resolve()
+    if not root.joinpath("data", "io.otsaloma.catapult.desktop.in").exists(): return
+    sys.path.insert(0, str(root))
+
+prepare_paths()
+import catapult
+catapult.main(sys.argv[1:])
