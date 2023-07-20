@@ -43,7 +43,7 @@ build:
 
 check:
 	flake8 .
-	flake8 bin/*
+	flake8 bin/catapult-start
 
 clean:
 	rm -rf build
