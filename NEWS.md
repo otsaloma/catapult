@@ -1,7 +1,7 @@
 PENDING: Catapult 0.9
 =====================
 
-* Use GTK 4
+* Use GTK 4 (#15)
 * Drop Keybinder, users need to do the keybinding themselves
 * Window positioning on screen no longer works, users can configure
   their own window manager to center all new windows

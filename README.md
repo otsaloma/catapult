@@ -69,7 +69,8 @@ Catapult cannot position its own window on your screen, which means that
 it will be positioned wherever your window manager defaults to or
 considers appropriate. You can configure your window manager to center
 all new windows by default, which should center the Catapult window too
-(excluding the search results).
+(at least horizontally, vertically the window height changes along with
+the search results).
 
 * GNOME: `gsettings set org.gnome.mutter center-new-windows true`
 
@@ -84,10 +85,10 @@ autostart file manually, usually under `~/.config/autostart`.
 
 ### Customizing the Theme
 
-Since Catapult 0.6, you can override parts of the theme by editing
+You can override parts of the theme by editing
 `~/.config/catapult/user.css`, a file which is created the first time
-you start Catapult 0.6 or later. You can edit the file while Catapult is
-running and use `:reload-theme` in Catapult to apply the changes.
+you start Catapult. You can edit the file while Catapult is running and
+use `:reload-theme` in Catapult to apply the changes.
 
 For example, to use the GNOME default font (Cantarell) for everything,
 you can use
