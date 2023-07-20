@@ -41,6 +41,6 @@ setup(
     name="catapult",
     version=get_version(),
     packages=find_packages(exclude=["*.test"]),
-    scripts=["bin/catapult"],
+    scripts=["bin/catapult-start"],
     cmdclass={"install_lib": InstallLib},
 )
