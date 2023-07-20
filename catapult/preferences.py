@@ -103,14 +103,12 @@ class TogglePlugin(PreferencesItem):
 class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
 
     def __init__(self, window):
-        GObject.GObject.__init__(self)
+        GObject.GObject.__init__(self, use_header_bar=True)
         self.items = []
         self.main_window = window
         self.set_default_size(-1, 400)
         self.set_title(_("Preferences"))
         stack = Gtk.Stack()
-        # XXX: Use CSS
-        # stack.set_border_width(18)
         stack.set_vhomogeneous(True)
         sidebar = Gtk.StackSidebar()
         sidebar.set_stack(stack)
@@ -141,6 +139,10 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
         grid = Gtk.Grid()
         grid.set_column_homogeneous(True)
         grid.set_column_spacing(18)
+        grid.set_margin_bottom(18)
+        grid.set_margin_end(18)
+        grid.set_margin_start(18)
+        grid.set_margin_top(18)
         grid.set_row_spacing(12)
         for i, item in enumerate(items):
             if inspect.isclass(item):

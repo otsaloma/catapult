@@ -130,8 +130,8 @@ class FilesScanInterval(PreferencesItem):
         self.spin.set_range(1, 1440)
         self.unit = Gtk.Label(label=_("minutes"))
         self.widget = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
-        self.widget.pack_start(self.spin, expand=False, fill=False, padding=0)
-        self.widget.pack_start(self.unit, expand=False, fill=False, padding=0)
+        self.widget.append(self.spin)
+        self.widget.append(self.unit)
 
     def dump(self, window):
         value = self.conf.scan_interval

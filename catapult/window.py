@@ -307,15 +307,14 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         dialog.show()
 
     def open_preferences_dialog(self):
-        def on_response(dialog, response):
+        def on_close_request(dialog, *args, **kwargs):
             dialog.load(self)
             self.write_configuration()
             self.update()
-            dialog.destroy()
         self.hide()
         dialog = catapult.PreferencesDialog(self)
-        dialog.connect("response", on_response)
-        dialog.run()
+        dialog.connect("close-request", on_close_request)
+        dialog.show()
 
     def quit(self):
         self._search_manager.history.write()
