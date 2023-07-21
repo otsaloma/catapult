@@ -1,8 +1,10 @@
 [main]
 host = https://www.transifex.com
 
-[catapult.catapultpot]
-file_filter = po/<lang>.po
-source_file = po/catapult.pot
-source_lang = en
-type = PO
+[o:otsaloma:p:catapult:r:catapultpot]
+file_filter            = po/<lang>.po
+source_file            = po/catapult.pot
+source_lang            = en
+type                   = PO
+replace_edited_strings = false
+keep_translations      = false
