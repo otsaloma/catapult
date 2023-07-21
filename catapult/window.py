@@ -102,11 +102,12 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
                 logging.exception(f"Failed to initialize {name}")
 
     def _init_properties(self):
+        # XXX: Not needed anymore? (GTK 4.10.4)
         # We seem to need 'csd' and/or 'ssd' here, otherwise we get
         # graphical glitches with the transparent window background.
         # https://docs.gtk.org/gtk4/class.Window.html#css-nodes
-        self.add_css_class("csd")
-        self.add_css_class("ssd")
+        # self.add_css_class("csd")
+        # self.add_css_class("ssd")
         self.add_css_class("catapult-window")
         self.set_icon_name("io.otsaloma.catapult")
         Gtk.Window.set_default_icon_name("io.otsaloma.catapult")
