@@ -55,11 +55,11 @@ Then, to install Catapult, run commands
 
 ### Keybinding to Activate Catapult
 
-Catapult cannot do a global toggle keybinding for you, instead you need
-to do it yourself in your desktop/distro settings. Catapult is a
-single-instance app, so simply executing `catapult` will show the
-existing instance and that is the command you can bind to your key of
-choice.
+Catapult cannot do a global activation keybinding for you, instead you
+need to do it yourself in your desktop/distro settings. Catapult is a
+single-instance app, so executing `catapult` will start a new instance
+if not yet running or else activate the existing instance. So, that is
+the command you can bind to your key of choice.
 
 * [GNOME](https://help.gnome.org/users/gnome-help/stable/keyboard-shortcuts-set.html.en)
 
@@ -76,9 +76,12 @@ the search results).
 
 ### Starting Automatically
 
-Use tools provided by your desktop/distro to set Catapult to start
-automatically when you log in to your desktop. You can also create the
-autostart file manually, usually under `~/.config/autostart`.
+If you did a keybinding as above running command `catapult`, you
+shouldn't need to pre-start Catapult in the background, it will simply
+start the first time you need it. If, however, you find the initial
+startup slow (maybe indexing a lot of files), you can use tools provided
+by your desktop/distro to set Catapult to start automatically already
+when you log in to your desktop.
 
 * [GNOME](https://help.gnome.org/users/gnome-help/stable/shell-apps-auto-start.html.en)
 * [Ubuntu](https://help.ubuntu.com/stable/ubuntu-help/startup-applications.html.en)

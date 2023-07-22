@@ -43,6 +43,8 @@ class Application(Gtk.Application):
         if args.show:
             window.show()
         logging.info(_("Catapult ready"))
+        logging.info(_("See the documentation on how to activate Catapult:"))
+        logging.info("https://github.com/otsaloma/catapult#documentation")
 
     def _parse_arguments(self, args):
         parser = ArgumentParser(usage=_("catapult [OPTION...]"))
