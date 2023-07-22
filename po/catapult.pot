@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-21 23:49+0300\n"
+"POT-Creation-Date: 2023-07-23 01:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,16 +39,20 @@ msgstr ""
 msgid "Catapult ready"
 msgstr ""
 
-#: catapult/app.py:48
+#: catapult/app.py:46
+msgid "See the documentation on how to activate Catapult:"
+msgstr ""
+
+#: catapult/app.py:50
 msgid "catapult [OPTION...]"
 msgstr ""
 
-#: catapult/app.py:53
+#: catapult/app.py:55
 msgid "print details of indexing and search results"
 msgstr ""
 
-#: catapult/app.py:59
-msgid "show window immediately"
+#: catapult/app.py:61
+msgid "start, but don't show window"
 msgstr ""
 
 #: catapult/plugin.py:32

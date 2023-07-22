@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Heimen Stoffels <vistausss@fastmail.com>, 2022
+# Heimen Stoffels <vistausss@fastmail.com>, 2023
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-21 23:46+0300\n"
+"POT-Creation-Date: 2023-07-23 01:24+0300\n"
 "PO-Revision-Date: 2021-03-10 20:25+0000\n"
-"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>, 2022\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>, 2023\n"
 "Language-Team: Dutch (https://app.transifex.com/otsaloma/teams/118053/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,19 +41,23 @@ msgstr "Heimen Stoffels <vistausss@fastmail.com>"
 
 #: catapult/app.py:45
 msgid "Catapult ready"
+msgstr "Catapult is klaar voor gebruik"
+
+#: catapult/app.py:46
+msgid "See the documentation on how to activate Catapult:"
 msgstr ""
 
-#: catapult/app.py:48
+#: catapult/app.py:50
 msgid "catapult [OPTION...]"
 msgstr "catapult [OPTIE…]"
 
-#: catapult/app.py:53
+#: catapult/app.py:55
 msgid "print details of indexing and search results"
 msgstr "Toon de details van geïndexeerde en zoekresultaten"
 
-#: catapult/app.py:59
-msgid "show window immediately"
-msgstr "Toon het venster direct"
+#: catapult/app.py:61
+msgid "start, but don't show window"
+msgstr ""
 
 #: catapult/plugin.py:32
 msgid "Untitled"
@@ -163,17 +167,17 @@ msgstr "Scherm vergrendelen"
 #. TRANSLATORS: Include all possible variations separated by semicolons.
 #: catapult/plugins/session.py:36
 msgid "Log Out;Log Off"
-msgstr ""
+msgstr "Uitloggen;Afmelden"
 
 #. TRANSLATORS: Include all possible variations separated by semicolons.
 #: catapult/plugins/session.py:41
 msgid "Power Off;Shutdown"
-msgstr ""
+msgstr "Uitschakelen;Uitzetten;Afsluiten"
 
 #. TRANSLATORS: Include all possible variations separated by semicolons.
 #: catapult/plugins/session.py:46
 msgid "Reboot;Restart"
-msgstr ""
+msgstr "Herstarten;Opnieuw opstarten;"
 
 #: catapult/plugins/session.py:53
 msgid "Session"

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-21 23:49+0300\n"
-"PO-Revision-Date: 2023-07-21 23:50+0300\n"
+"POT-Creation-Date: 2023-07-23 01:24+0300\n"
+"PO-Revision-Date: 2023-07-23 01:26+0300\n"
 "Last-Translator: Osmo Salomaa <otsaloma@iki.fi>, 2023\n"
 "Language-Team: Finnish (https://app.transifex.com/otsaloma/teams/118053/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -43,17 +43,21 @@ msgstr "Osmo Salomaa <otsaloma@iki.fi>"
 msgid "Catapult ready"
 msgstr "Catapult valmis"
 
-#: catapult/app.py:48
+#: catapult/app.py:46
+msgid "See the documentation on how to activate Catapult:"
+msgstr "Katso dokumentaatiosta miten Catapult aktivoidaan:"
+
+#: catapult/app.py:50
 msgid "catapult [OPTION...]"
 msgstr "catapult [VALITSIN...]"
 
-#: catapult/app.py:53
+#: catapult/app.py:55
 msgid "print details of indexing and search results"
 msgstr "tulosta yksityiskohtia indeksoinnista ja hakutuloksista"
 
-#: catapult/app.py:59
-msgid "show window immediately"
-msgstr "näytä ikkuna saman tien"
+#: catapult/app.py:61
+msgid "start, but don't show window"
+msgstr "käynnistä, mutta älä näytä ikkunaa"
 
 #: catapult/plugin.py:32
 msgid "Untitled"
