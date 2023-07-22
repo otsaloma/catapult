@@ -81,7 +81,8 @@ shouldn't need to pre-start Catapult in the background, it will simply
 start the first time you need it. If, however, you find the initial
 startup slow (maybe indexing a lot of files), you can use tools provided
 by your desktop/distro to set Catapult to start automatically already
-when you log in to your desktop.
+when you log in to your desktop. To start in the background, use command
+`catapult --hide`.
 
 * [GNOME](https://help.gnome.org/users/gnome-help/stable/shell-apps-auto-start.html.en)
 * [Ubuntu](https://help.ubuntu.com/stable/ubuntu-help/startup-applications.html.en)

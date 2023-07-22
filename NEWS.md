@@ -6,6 +6,9 @@ PENDING: Catapult 0.9
 * Window positioning on screen no longer works, users can configure
   their own window manager to center all new windows
 * See the updated README regarding the above regressions
+* Show window initially by default, remove `--show`, add `--hide` (if
+  you have Catapult configured to start when you login to your desktop,
+  you probably want to add `--hide` there)
 
 2023-01-05: Catapult 0.6
 ========================

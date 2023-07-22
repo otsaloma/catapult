@@ -40,7 +40,7 @@ class Application(Gtk.Application):
         args = self._parse_arguments(args)
         window = catapult.Window()
         self.add_window(window)
-        if args.show:
+        if not args.hide:
             window.show()
         logging.info(_("Catapult ready"))
         logging.info(_("See the documentation on how to activate Catapult:"))
@@ -54,11 +54,11 @@ class Application(Gtk.Application):
                             default=False,
                             help=_("print details of indexing and search results"))
 
-        parser.add_argument("--show",
+        parser.add_argument("--hide",
                             action="store_true",
-                            dest="show",
+                            dest="hide",
                             default=False,
-                            help=_("show window immediately"))
+                            help=_("start, but don't show window"))
 
         parser.add_argument("--version",
                             action="version",
