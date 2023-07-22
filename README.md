@@ -41,6 +41,7 @@ On Debian/Ubuntu you can install these with the following command.
                      gir1.2-glib-2.0 \
                      gir1.2-gtk-4.0 \
                      gir1.2-pango-1.0 \
+                     libglib2.0-bin \
                      python3 \
                      python3-dev \
                      python3-gi \

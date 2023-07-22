@@ -1,5 +1,5 @@
-PENDING: Catapult 0.9
-=====================
+2023-07-23: Catapult 0.9
+========================
 
 * Use GTK 4 (#15)
 * Drop Keybinder, users need to do the keybinding themselves
@@ -9,6 +9,8 @@ PENDING: Catapult 0.9
 * Show window initially by default, remove `--show`, add `--hide` (if
   you have Catapult configured to start when you login to your desktop,
   you probably want to add `--hide` there)
+* Add dependency on the gapplication binary (part of GLib, but might
+  be packaged separately, e.g. libglib2.0-bin on Debian)
 
 2023-01-05: Catapult 0.6
 ========================
