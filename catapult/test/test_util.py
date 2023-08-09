@@ -31,6 +31,9 @@ class TestUtil(catapult.test.TestCase):
         assert path.read_text("utf-8") == "Hello"
         path.unlink()
 
+    def test_copy_text_to_clipboard(self):
+        catapult.util.copy_text_to_clipboard("Hello")
+
     def test_find_plugin(self):
         module = catapult.util.find_plugin("apps")
         assert inspect.ismodule(module)

@@ -1,3 +1,8 @@
+PENDING: Catapult 0.99
+======================
+
+* Fix copying to the clipboard
+
 2023-07-23: Catapult 0.9
 ========================
 

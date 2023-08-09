@@ -34,9 +34,15 @@ def atomic_write(path, text, encoding):
     temp_path.replace(path)
 
 def copy_text_to_clipboard(text):
-    clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
-    clipboard.set_text(text, -1)
-    clipboard.store()
+    # XXX: clipboard.set_text fails, work around using TextBuffer.
+    # AttributeError: 'GdkX11Clipboard' object has no attribute 'set_text'
+    display = Gdk.Display.get_default()
+    clipboard = display.get_clipboard()
+    buffer = Gtk.TextBuffer()
+    buffer.set_text(text)
+    bounds = buffer.get_bounds()
+    buffer.select_range(*bounds)
+    buffer.copy_clipboard(clipboard)
 
 def find_plugin(name):
     for candidate, module in list_plugins():
