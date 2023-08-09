@@ -1,5 +1,5 @@
-PENDING: Catapult 0.99
-======================
+2023-08-09: Catapult 0.99
+=========================
 
 * Fix copying to the clipboard
 
