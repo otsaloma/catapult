@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-23 01:24+0300\n"
+"POT-Creation-Date: 2023-08-09 22:55+0300\n"
 "PO-Revision-Date: 2021-03-10 20:25+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>, 2023\n"
 "Language-Team: Dutch (https://app.transifex.com/otsaloma/teams/118053/nl/)\n"
@@ -45,7 +45,7 @@ msgstr "Catapult is klaar voor gebruik"
 
 #: catapult/app.py:46
 msgid "See the documentation on how to activate Catapult:"
-msgstr ""
+msgstr "Bekĳk de documentatie om te zien hoe je Catapult kunt starten:"
 
 #: catapult/app.py:50
 msgid "catapult [OPTION...]"
@@ -57,7 +57,7 @@ msgstr "Toon de details van geïndexeerde en zoekresultaten"
 
 #: catapult/app.py:61
 msgid "start, but don't show window"
-msgstr ""
+msgstr "geminimaliseerd opstarten"
 
 #: catapult/plugin.py:32
 msgid "Untitled"
@@ -101,7 +101,7 @@ msgstr "Catapult afsluiten"
 
 #: catapult/plugins/builtins.py:115
 msgid "Update search index"
-msgstr "Zoekindex bijwerken"
+msgstr "Zoekindex bĳwerken"
 
 #: catapult/plugins/calculator.py:51
 msgid "Calculator"
@@ -191,7 +191,7 @@ msgstr ""
 "Met Catapult kun je snel programma's starten, bestanden openen en "
 "rekensommen verwerken met het toetsenbord."
 
-#: data/io.otsaloma.catapult.appdata.xml.in:41
+#: data/io.otsaloma.catapult.appdata.xml.in:42
 msgid "Main window"
 msgstr "Hoofdvenster"
 
