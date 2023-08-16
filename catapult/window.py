@@ -197,7 +197,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             row.result = None
             row.set_visible(False)
             self._result_list.remove(row)
-            self._result_list.add(row)
+            self._result_list.append(row)
             self._result_rows.remove(row)
             self._result_rows.append(row)
             if row_count := self.get_row_count():
