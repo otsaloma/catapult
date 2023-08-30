@@ -341,6 +341,22 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
     def reset_list_height(self):
         self._result_list_height_set = False
 
+    def _scroll_to_row(self, row):
+        if not row.is_visible(): return
+        x, y = row.translate_coordinates(self._result_list, 0, 0)
+        row_height = row.get_preferred_size()[1].height
+        list_height = self._result_scroller.get_preferred_size()[1].height
+        adjustment = self._result_scroller.get_vadjustment()
+        lower = adjustment.get_value()
+        upper = lower + list_height
+        if y < lower:
+            # Scroll up
+            adjustment.set_value(y)
+        if y > (upper - row_height):
+            # Scroll down
+            diff = y - (upper - row_height)
+            adjustment.set_value(lower + diff)
+
     def select_next_result(self):
         if not self._result_scroller.is_visible(): return
         row = self._result_list.get_selected_row()
@@ -350,9 +366,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         row = self._result_rows[index]
         if not row.is_visible(): return
         self._result_list.select_row(row)
-        row.grab_focus()
-        self._input_entry.grab_focus()
-        self._input_entry.set_position(-1)
+        self._scroll_to_row(row)
 
     def select_previous_result(self):
         if not self._result_scroller.is_visible(): return
@@ -362,9 +376,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         row = self._result_rows[index]
         if not row.is_visible(): return
         self._result_list.select_row(row)
-        row.grab_focus()
-        self._input_entry.grab_focus()
-        self._input_entry.set_position(-1)
+        self._scroll_to_row(row)
 
     def set_plugin_active(self, name, active):
         if active:
