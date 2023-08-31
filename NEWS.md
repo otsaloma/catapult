@@ -1,5 +1,5 @@
-PENDING: Catapult 0.999
-=======================
+2023-08-31: Catapult 0.999
+==========================
 
 * Fix result list scrolling
 * Fix deleting clipboard items (#20)
