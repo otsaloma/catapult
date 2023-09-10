@@ -16,6 +16,7 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult
+import contextlib
 
 from catapult.i18n import _
 from threading import Thread
@@ -69,6 +70,12 @@ class Plugin(catapult.DebugMixin):
 
     def search(self, query):
         raise NotImplementedError
+
+    @contextlib.contextmanager
+    def spinner(self):
+        window = catapult.app.get_active_window()
+        with window.spinner():
+            yield
 
     def update(self):
         pass
