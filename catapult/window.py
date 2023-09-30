@@ -426,7 +426,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         # we need to sleep a brief moment for the icon to actually change.
         icon_name = util.lookup_icon(*ICON_NAMES_LOADING) or ""
         self._input_icon.set_from_icon_name(icon_name)
-        time.sleep(1/100)
+        time.sleep(1/10)
         main_context = GLib.MainContext.default()
         while main_context.pending():
             main_context.iteration()
@@ -436,7 +436,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         # we need to sleep a brief moment for the icon to actually change.
         icon_name = util.lookup_icon(*ICON_NAMES_SEARCH) or ""
         self._input_icon.set_from_icon_name(icon_name)
-        time.sleep(1/100)
+        time.sleep(1/10)
         main_context = GLib.MainContext.default()
         while main_context.pending():
             main_context.iteration()
