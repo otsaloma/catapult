@@ -47,7 +47,6 @@ ACTIONS = [{
     "command":  "gnome-session-quit --reboot",
 }]
 
-
 class SessionPlugin(Plugin):
 
     title = _("Session")

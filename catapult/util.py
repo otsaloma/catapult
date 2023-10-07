@@ -26,7 +26,6 @@ from gi.repository import Gtk
 from importlib.machinery import SourceFileLoader
 from pathlib import Path
 
-
 def atomic_write(path, text, encoding):
     path = path.resolve()
     temp_path = path.with_name(path.name + ".new")

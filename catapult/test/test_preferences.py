@@ -18,7 +18,6 @@
 import catapult.preferences
 import catapult.test
 
-
 class TestPreferencesDialog(catapult.test.TestCase):
 
     def setup_method(self, method):

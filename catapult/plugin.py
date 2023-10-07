@@ -20,7 +20,6 @@ import catapult
 from catapult.i18n import _
 from threading import Thread
 
-
 class Plugin(catapult.DebugMixin):
 
     # conf is on purpose at class-level so that it's available,

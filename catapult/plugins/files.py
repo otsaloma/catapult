@@ -34,7 +34,6 @@ from gi.repository import GObject
 from gi.repository import Gtk
 from pathlib import Path
 
-
 class PatternEditDialog(Gtk.Dialog):
 
     def __init__(self, parent, text=""):
@@ -72,7 +71,6 @@ class PatternEditDialog(Gtk.Dialog):
         start, end = text_buffer.get_bounds()
         return text_buffer.get_text(start, end, False)
 
-
 class FilesInclude(PreferencesItem):
 
     def __init__(self, *args, **kwargs):
@@ -97,7 +95,6 @@ class FilesInclude(PreferencesItem):
             patterns = [x.strip() for x in patterns]
             self.conf.include = patterns
         dialog.destroy()
-
 
 class FilesExclude(PreferencesItem):
 
@@ -124,7 +121,6 @@ class FilesExclude(PreferencesItem):
             self.conf.exclude = patterns
         dialog.destroy()
 
-
 class FilesScanInterval(PreferencesItem):
 
     def __init__(self, *args, **kwargs):
@@ -146,7 +142,6 @@ class FilesScanInterval(PreferencesItem):
         value = self.spin.get_value_as_int()
         self.conf.scan_interval = value * 60
 
-
 @dataclass
 class File:
 
@@ -159,7 +154,6 @@ class File:
         if is_uri(self.location):
             return self.location
         return Path(self.location).as_uri()
-
 
 class FilesPlugin(Plugin):
 

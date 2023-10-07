@@ -22,7 +22,6 @@ from catapult.api import SearchResult
 from catapult.i18n import _
 from gi.repository import Gio
 
-
 class AppsPlugin(Plugin):
 
     title = _("Apps")

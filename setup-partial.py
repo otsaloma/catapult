@@ -8,7 +8,6 @@ from setuptools import find_packages
 from setuptools import setup
 from setuptools.command.install_lib import install_lib
 
-
 class InstallLib(install_lib):
 
     def install(self):
@@ -28,7 +27,6 @@ class InstallLib(install_lib):
         assert init_text.count(repl) == 1
         init_path.write_text(init_text, "utf-8")
         return install_lib.install(self)
-
 
 def get_version(fm="catapult/__init__.py"):
     for line in Path(fm).read_text("utf-8").splitlines():

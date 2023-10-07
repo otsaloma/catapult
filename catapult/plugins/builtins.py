@@ -20,7 +20,6 @@ from catapult.api import Plugin
 from catapult.api import SearchResult
 from catapult.i18n import _
 
-
 class BuiltinsPlugin(Plugin):
 
     title = "Builtins"

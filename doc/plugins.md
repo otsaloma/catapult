@@ -14,7 +14,6 @@ from catapult.api import copy_text_to_clipboard
 from catapult.api import Plugin
 from catapult.api import SearchResult
 
-
 class HelloPlugin(Plugin):
 
     title = "Hello"

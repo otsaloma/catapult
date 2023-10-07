@@ -21,7 +21,6 @@ from catapult.i18n  import _
 from gi.repository import GObject
 from gi.repository import Gtk
 
-
 class AboutDialog(Gtk.AboutDialog):
 
     def __init__(self, parent):

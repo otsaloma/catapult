@@ -22,7 +22,6 @@ import locale
 
 translation = gettext.NullTranslations()
 
-
 def bind(localedir=catapult.LOCALE_DIR):
     global translation
     with contextlib.suppress(Exception):

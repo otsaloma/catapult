@@ -21,7 +21,6 @@ import logging
 import math
 import time
 
-
 class History(catapult.DebugMixin):
 
     path = catapult.CONFIG_HOME / "history.json"

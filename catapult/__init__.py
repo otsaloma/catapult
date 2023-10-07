@@ -65,7 +65,6 @@ from catapult.preferences import PreferencesDialog # noqa
 from catapult.window import Window # noqa
 from catapult.app import Application # noqa
 
-
 def init_logging():
     level = logging.DEBUG if DEBUG else logging.INFO
     path = DATA_HOME / "catapult.log"

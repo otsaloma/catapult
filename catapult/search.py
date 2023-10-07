@@ -20,7 +20,6 @@ import logging
 
 from dataclasses import dataclass
 
-
 @dataclass
 class SearchResult:
 
@@ -38,7 +37,6 @@ class SearchResult:
             self.plugin.launch(window, self.id)
         except Exception:
             logging.exception(f"Failed to launch {self.plugin.name} result {self.id}")
-
 
 class SearchManager(catapult.DebugMixin):
 

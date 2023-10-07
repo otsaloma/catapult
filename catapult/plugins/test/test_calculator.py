@@ -17,7 +17,6 @@
 
 import catapult.test
 
-
 class TestCalculatorPlugin(catapult.test.TestCase):
 
     def setup_method(self, method):

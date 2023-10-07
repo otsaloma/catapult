@@ -18,7 +18,6 @@
 import logging
 import time
 
-
 class DebugMixin:
 
     def debug(self, message):

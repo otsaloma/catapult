@@ -17,7 +17,6 @@
 
 import catapult.test
 
-
 class TestClipboardPlugin(catapult.test.TestCase):
 
     def setup_method(self, method):

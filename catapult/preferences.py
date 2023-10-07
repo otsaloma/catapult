@@ -24,7 +24,6 @@ from catapult.i18n import _
 from gi.repository import GObject
 from gi.repository import Gtk
 
-
 class PreferencesItem:
 
     def __init__(self, conf=None, parent=None):
@@ -38,7 +37,6 @@ class PreferencesItem:
 
     def load(self, window):
         pass
-
 
 class Theme(PreferencesItem):
 
@@ -60,7 +58,6 @@ class Theme(PreferencesItem):
         if not theme in self.themes: return
         catapult.conf.theme = theme
         window.load_css()
-
 
 class TogglePlugin(PreferencesItem):
 
@@ -99,7 +96,6 @@ class TogglePlugin(PreferencesItem):
         for item in self._connected_items:
             item.label.set_sensitive(active)
             item.widget.set_sensitive(active)
-
 
 class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
 

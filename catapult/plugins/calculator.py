@@ -44,7 +44,6 @@ PATTERN = "^({})".format("|".join((
     r"\w+\(",    # Function call
 )))
 
-
 class CalculatorPlugin(Plugin):
 
     save_history = False

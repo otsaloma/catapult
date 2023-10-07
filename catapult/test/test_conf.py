@@ -23,7 +23,6 @@ import tempfile
 from pathlib import Path
 from unittest.mock import patch
 
-
 class TestConfigurationStore(catapult.test.TestCase):
 
     def setup_method(self, method):
@@ -79,7 +78,6 @@ class TestConfigurationStore(catapult.test.TestCase):
 
     def test_to_dict(self):
         assert self.conf.to_dict()
-
 
 class TestPluginConfigurationStore(TestConfigurationStore):
 

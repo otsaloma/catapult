@@ -28,7 +28,6 @@ from gi.repository import Gtk
 
 SOURCES = ["gpaste"]
 
-
 class ClipboardSource(PreferencesItem):
 
     def __init__(self, *args, **kwargs):
@@ -48,7 +47,6 @@ class ClipboardSource(PreferencesItem):
         value = SOURCES[index]
         self.conf.source = value
 
-
 class ClipboardTrigger(PreferencesItem):
 
     def __init__(self, *args, **kwargs):
@@ -63,7 +61,6 @@ class ClipboardTrigger(PreferencesItem):
     def load(self, window):
         if value := self.widget.get_text().strip():
             self.conf.trigger = value
-
 
 class ClipboardPlugin(Plugin):
 

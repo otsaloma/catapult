@@ -21,7 +21,6 @@ import tempfile
 
 from pathlib import Path
 
-
 class TestUtil(catapult.test.TestCase):
 
     def test_atomic_write(self):

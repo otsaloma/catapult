@@ -23,7 +23,6 @@ import shutil
 
 from pathlib import Path
 
-
 def migrate_0_3_apps(data, conf={}):
     # Keys separated into plugins/apps.json.
     conf["scan_interval"] = data.get("apps_scan_interval")
@@ -45,7 +44,6 @@ def migrate_0_3_files(data, conf={}):
     path.parent.mkdir(parents=True, exist_ok=True)
     text = json.dumps(conf, ensure_ascii=False, indent=2)
     catapult.util.atomic_write(path, text + "\n", "utf-8")
-
 
 class ConfigurationStore(catapult.DebugMixin):
 
@@ -118,8 +116,6 @@ class ConfigurationStore(catapult.DebugMixin):
             self.debug(f"Wrote configuration to {self._path!s}")
         except OSError:
             logging.exception(f"Writing {self._path!s} failed")
-
-
 
 class PluginConfigurationStore(ConfigurationStore):
 

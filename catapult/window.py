@@ -31,7 +31,6 @@ from gi.repository import Pango
 ICON_SIZE = Gtk.IconSize.LARGE
 ICON_SIZE_PX = 48
 
-
 class SearchResultRow(Gtk.ListBoxRow):
 
     def __init__(self):
@@ -67,7 +66,6 @@ class SearchResultRow(Gtk.ListBoxRow):
         (self.icon.set_from_gicon if isinstance(icon, Gio.Icon)
          else self.icon.set_from_icon_name)(icon)
         self.icon.set_icon_size(Gtk.IconSize.LARGE)
-
 
 class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
 

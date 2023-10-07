@@ -18,7 +18,6 @@
 import catapult.test
 import time
 
-
 class TestFilesPlugin(catapult.test.TestCase):
 
     def setup_method(self, method):

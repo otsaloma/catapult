@@ -21,7 +21,6 @@ import tempfile
 
 from pathlib import Path
 
-
 class TestHistory(catapult.test.TestCase):
 
     def setup_method(self, method):
