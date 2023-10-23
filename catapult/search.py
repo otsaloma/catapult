@@ -56,7 +56,11 @@ class SearchManager(catapult.DebugMixin):
         for plugin in plugins:
             self.tick()
             try:
-                yield from plugin.search(query)
+                for i, result in enumerate(plugin.search(query)):
+                    yield result
+                    if i + 1 >= catapult.conf.max_results_per_plugin:
+                        self.debug(f"Terminating after {i+1} results")
+                        break
                 elapsed = self.tock()
                 self.debug(f"{plugin.name} delivered in {elapsed:.0f} ms")
             except Exception:

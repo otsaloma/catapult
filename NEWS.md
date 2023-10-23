@@ -1,3 +1,9 @@
+PENDING: Catapult 1.0
+=====================
+
+* Limit results returned per plugin (default 24) to avoid issues with
+  huge file indexes paired with short query strings (#23)
+
 2023-08-31: Catapult 0.999
 ==========================
 
