@@ -47,13 +47,13 @@ class TestHistory(catapult.test.TestCase):
 
     def test_count(self):
         self.history.add("test", self.result)
-        assert self.history.count == 1
+        assert self.history.count == 4
         self.history.add("test", self.result)
-        assert self.history.count == 1
+        assert self.history.count == 4
         self.history.add("rest", self.result)
-        assert self.history.count == 2
+        assert self.history.count == 8
         self.history.add("rest", self.result)
-        assert self.history.count == 2
+        assert self.history.count == 8
 
     def test_get_score_factor(self):
         factor = self.history.get_score_factor
@@ -69,9 +69,9 @@ class TestHistory(catapult.test.TestCase):
 
     def test_prune(self):
         self.history.add("test", self.result)
-        assert self.history.count == 1
+        assert self.history.count == 4
         self.history.prune()
-        assert self.history.count == 1
+        assert self.history.count == 4
 
     def test_read_write(self):
         self.history.add("test", self.result)
