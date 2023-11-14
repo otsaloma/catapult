@@ -19,6 +19,7 @@ import catapult
 import json
 import logging
 import math
+import re
 import time
 
 class History(catapult.DebugMixin):
@@ -29,13 +30,15 @@ class History(catapult.DebugMixin):
         self._items = {}
         self._time_saved = -1
 
-    def add(self, query, result):
+    def add(self, query, result, backtrack=True):
         self.debug(f"Adding {query!r} → {result.plugin.name}: {result.id}")
         item = self._items
         item = item.setdefault(query, {})
         item = item.setdefault(result.plugin.name, {})
         item = item.setdefault(result.id, [])
         item.append(int(time.time()))
+        if backtrack and re.search(r"\w\w$", query):
+            return self.add(query[:-1], result, backtrack=backtrack)
 
     def contains(self, query, result):
         return bool(self._items

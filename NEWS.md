@@ -1,6 +1,9 @@
 PENDING: Catapult 1.0
 =====================
 
+* Remember choices also for prefixes of search query, e.g. if searching
+  for "music", also save choice for "musi", "mus", "mu" and "m" (this
+  should help avoid results jumping back forth in certain cases)
 * Limit results returned per plugin (default 24) to avoid issues with
   huge file indexes paired with short query strings (#23)
 
