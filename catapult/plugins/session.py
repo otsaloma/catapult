@@ -29,7 +29,7 @@ ACTIONS = [{
     "desktops": ["GNOME"],
     # TRANSLATORS: Include all possible variations separated by semicolons.
     "titles":   split(_("Lock Screen")),
-    "command":  "gnome-screensaver-command --lock",
+    "command":  "xdg-screensaver lock",
 }, {
     "desktops": ["GNOME"],
     # TRANSLATORS: Include all possible variations separated by semicolons.
