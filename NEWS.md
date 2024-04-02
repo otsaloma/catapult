@@ -3,11 +3,13 @@ PENDING: Catapult 1.0
 
 * Remember choices also for prefixes of search query, e.g. if searching
   for "music", also save choice for "musi", "mus", "mu" and "m" (this
-  should help avoid results jumping back forth in certain cases)
+  should help avoid results jumping back and forth in certain cases)
 * Limit results returned per plugin (default 24) to avoid issues with
   huge file indexes paired with short query strings (#23)
 * Use `xdg-screensaver lock` in the session plugin to lock the screen in
   GNOME (instead of the earlier `gnome-screensaver-command --lock`)
+* Update installation to use just a Makefile and a private package
+  under $PREFIX/share/catapult
 
 2023-08-31: Catapult 0.999
 ==========================

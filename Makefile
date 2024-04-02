@@ -6,31 +6,36 @@ BINDIR    = $(DESTDIR)$(PREFIX)/bin
 DATADIR   = $(DESTDIR)$(PREFIX)/share
 LOCALEDIR = $(DESTDIR)$(PREFIX)/share/locale
 
-# Allow overriding setup.py paths. Note that we can't set
-# SETUP_PREFIX=PREFIX as many distros are automatically adding
-# 'local', causing '/usr/local/local' and a broken install.
-# https://bugzilla.redhat.com/show_bug.cgi?id=2026979
-SETUP_ROOT   = $(DESTDIR)
-SETUP_PREFIX =
+# Paths to patch in files,
+# referring to installed, final paths.
+BINDIR_FINAL    = $(PREFIX)/bin
+DATADIR_FINAL   = $(PREFIX)/share
+LOCALEDIR_FINAL = $(PREFIX)/share/locale
 
 # EDITOR must wait!
 EDITOR = nano
 
-# TODO: Use either 'pip3 install' or 'python3 -m build' + 'python3 -m
-# installer' once either supports a sensible installation both from
-# source (--prefix=/usr/local, whether implicit or explicit) and
-# building a distro package (--destdir=pkg --prefix=/usr). As of 9/2022
-# it seems setup.py is deprecated, but there is no replacement.
-
 build:
 	@echo "BUILDING PYTHON PACKAGE..."
-	CATAPULT_PREFIX=$(PREFIX) ./setup-partial.py build
+	mkdir -p build/catapult/plugins
+	cp catapult/*.py build/catapult
+	cp catapult/plugins/*.py build/catapult/plugins
+	sed -i "s|^DATA_DIR = .*$$|DATA_DIR = Path('$(DATADIR_FINAL)/catapult')|" build/catapult/__init__.py
+	sed -i "s|^LOCALE_DIR = .*$$|LOCALE_DIR = Path('$(LOCALEDIR_FINAL)')|" build/catapult/__init__.py
+	fgrep -q "$(DATADIR_FINAL)/catapult" build/catapult/__init__.py
+	fgrep -q "$(LOCALEDIR_FINAL)" build/catapult/__init__.py
+	flake8 build/catapult
+	@echo "BUILDING SCRIPTS..."
+	mkdir -p build/bin
+	cp bin/catapult build/bin/catapult
+	cp bin/catapult-start.in build/bin/catapult-start
+	sed -i "s|%LIBDIR%|$(DATADIR_FINAL)/catapult|" build/bin/catapult-start
+	fgrep -q "$(DATADIR_FINAL)/catapult" build/bin/catapult-start
+	flake8 build/bin/catapult-start
+	chmod +x build/bin/catapult-start
 	@echo "BUILDING TRANSLATIONS..."
 	mkdir -p build/mo
-	for LANG in `cat po/LINGUAS`; do \
-	echo $$LANG; \
-	msgfmt po/$$LANG.po -o build/mo/$$LANG.mo; \
-	done
+	for LANG in `cat po/LINGUAS`; do msgfmt po/$$LANG.po -o build/mo/$$LANG.mo; done
 	@echo "BUILDING DESKTOP FILE..."
 	msgfmt --desktop -d po \
 	--template data/io.otsaloma.catapult.desktop.in \
@@ -44,6 +49,7 @@ build:
 check:
 	flake8 .
 	flake8 bin/catapult-start
+	flake8 bin/catapult-start.in
 
 clean:
 	rm -rf build
@@ -57,13 +63,13 @@ clean:
 install:
 	test -f build/.complete
 	@echo "INSTALLING PYTHON PACKAGE..."
-	CATAPULT_PREFIX=$(PREFIX) ./setup-partial.py install \
-	$(if $(SETUP_ROOT),--root=$(SETUP_ROOT),) \
-	$(if $(SETUP_PREFIX),--prefix=$(SETUP_PREFIX),)
-	@echo "INSTALLING SHELL SCRIPT..."
+	mkdir -p $(DATADIR)/catapult/catapult/plugins
+	cp -f build/catapult/*.py $(DATADIR)/catapult/catapult
+	cp -f build/catapult/plugins/*.py $(DATADIR)/catapult/catapult/plugins
+	@echo "INSTALLING SCRIPTS..."
 	mkdir -p $(BINDIR)
-	cp -f bin/catapult $(BINDIR)
-	chmod +x $(BINDIR)/catapult
+	cp -f build/bin/catapult $(BINDIR)
+	cp -f build/bin/catapult-start $(BINDIR)
 	@echo "INSTALLING DATA FILES..."
 	mkdir -p $(DATADIR)/catapult/themes
 	cp -f data/catapult.css $(DATADIR)/catapult
@@ -74,11 +80,8 @@ install:
 	cp -f data/icons/io.otsaloma.catapult.svg $(DATADIR)/icons/hicolor/scalable/apps
 	cp -f data/icons/io.otsaloma.catapult-symbolic.svg $(DATADIR)/icons/hicolor/symbolic/apps
 	@echo "INSTALLING TRANSLATIONS..."
-	for LANG in `cat po/LINGUAS`; do \
-	echo $$LANG; \
-	mkdir -p $(LOCALEDIR)/$$LANG/LC_MESSAGES; \
-	cp -f build/mo/$$LANG.mo $(LOCALEDIR)/$$LANG/LC_MESSAGES/catapult.mo; \
-	done
+	for LANG in `cat po/LINGUAS`; do mkdir -p $(LOCALEDIR)/$$LANG/LC_MESSAGES; done
+	for LANG in `cat po/LINGUAS`; do cp -f build/mo/$$LANG.mo $(LOCALEDIR)/$$LANG/LC_MESSAGES/catapult.mo; done
 	@echo "INSTALLING DESKTOP FILE..."
 	mkdir -p $(DATADIR)/applications
 	cp -f build/io.otsaloma.catapult.desktop $(DATADIR)/applications
@@ -94,6 +97,7 @@ release:
 	@echo "ADD RELEASE NOTES"
 	$(EDITOR) NEWS.md
 	$(EDITOR) data/io.otsaloma.catapult.appdata.xml.in
+	appstream-util validate-relax --nonet data/io.otsaloma.catapult.appdata.xml.in
 	killall catapult || true
 	sudo $(MAKE) PREFIX=/usr/local build install clean
 	/usr/local/bin/catapult --debug
