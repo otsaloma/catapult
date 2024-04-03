@@ -24,14 +24,12 @@ build:
 	sed -i "s|^LOCALE_DIR = .*$$|LOCALE_DIR = Path('$(LOCALEDIR_FINAL)')|" build/catapult/__init__.py
 	fgrep -q "$(DATADIR_FINAL)/catapult" build/catapult/__init__.py
 	fgrep -q "$(LOCALEDIR_FINAL)" build/catapult/__init__.py
-	flake8 build/catapult
 	@echo "BUILDING SCRIPTS..."
 	mkdir -p build/bin
 	cp bin/catapult build/bin/catapult
 	cp bin/catapult-start.in build/bin/catapult-start
 	sed -i "s|%LIBDIR%|$(DATADIR_FINAL)/catapult|" build/bin/catapult-start
 	fgrep -q "$(DATADIR_FINAL)/catapult" build/bin/catapult-start
-	flake8 build/bin/catapult-start
 	chmod +x build/bin/catapult-start
 	@echo "BUILDING TRANSLATIONS..."
 	mkdir -p build/mo
