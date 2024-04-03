@@ -1,5 +1,5 @@
-PENDING: Catapult 1.0
-=====================
+2024-04-03: Catapult 1.0
+========================
 
 * Remember choices also for prefixes of search query, e.g. if searching
   for "music", also save choice for "musi", "mus", "mu" and "m" (this
