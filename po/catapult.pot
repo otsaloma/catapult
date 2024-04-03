@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-31 23:32+0300\n"
+"POT-Creation-Date: 2024-04-03 21:53+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: catapult/about.py:31 data/io.otsaloma.catapult.appdata.xml.in:7
+#: catapult/about.py:30 data/io.otsaloma.catapult.appdata.xml.in:7
 msgid "App launcher"
 msgstr ""
 
-#: catapult/about.py:36 catapult/plugins/builtins.py:55
+#: catapult/about.py:35 catapult/plugins/builtins.py:54
 msgid "About Catapult"
 msgstr ""
 
@@ -31,127 +31,127 @@ msgstr ""
 #. address. You can also include other translators who have contributed
 #. to this translation; in that case, please write them on separate
 #. lines seperated by newlines (\n).
-#: catapult/about.py:47
+#: catapult/about.py:46
 msgid "translator-credits"
 msgstr ""
 
-#: catapult/app.py:45
+#: catapult/app.py:44
 msgid "Catapult ready"
 msgstr ""
 
-#: catapult/app.py:46
+#: catapult/app.py:45
 msgid "See the documentation on how to activate Catapult:"
 msgstr ""
 
-#: catapult/app.py:50
+#: catapult/app.py:49
 msgid "catapult [OPTION...]"
 msgstr ""
 
-#: catapult/app.py:55
+#: catapult/app.py:54
 msgid "print details of indexing and search results"
 msgstr ""
 
-#: catapult/app.py:61
+#: catapult/app.py:60
 msgid "start, but don't show window"
 msgstr ""
 
-#: catapult/plugin.py:32
+#: catapult/plugin.py:31
 msgid "Untitled"
 msgstr ""
 
-#: catapult/preferences.py:46
+#: catapult/preferences.py:44
 msgid "Theme"
 msgstr ""
 
-#: catapult/preferences.py:69
+#: catapult/preferences.py:66
 msgid "{} plugin"
 msgstr ""
 
-#: catapult/preferences.py:111
+#: catapult/preferences.py:107
 msgid "Preferences"
 msgstr ""
 
-#: catapult/preferences.py:119
+#: catapult/preferences.py:115
 msgid "General"
 msgstr ""
 
-#: catapult/plugins/apps.py:28
+#: catapult/plugins/apps.py:27
 msgid "Apps"
 msgstr ""
 
-#: catapult/plugins/builtins.py:67
+#: catapult/plugins/builtins.py:66
 msgid "Catapult preferences"
 msgstr ""
 
-#: catapult/plugins/builtins.py:79
+#: catapult/plugins/builtins.py:78
 msgid "Reload plugins"
 msgstr ""
 
-#: catapult/plugins/builtins.py:91
+#: catapult/plugins/builtins.py:90
 msgid "Reload theme"
 msgstr ""
 
-#: catapult/plugins/builtins.py:103
+#: catapult/plugins/builtins.py:102
 msgid "Quit Catapult"
 msgstr ""
 
-#: catapult/plugins/builtins.py:115
+#: catapult/plugins/builtins.py:114
 msgid "Update search index"
 msgstr ""
 
-#: catapult/plugins/calculator.py:51
+#: catapult/plugins/calculator.py:50
 msgid "Calculator"
 msgstr ""
 
-#: catapult/plugins/clipboard.py:36
+#: catapult/plugins/clipboard.py:35
 msgid "Source"
 msgstr ""
 
-#: catapult/plugins/clipboard.py:56
+#: catapult/plugins/clipboard.py:54
 msgid "Trigger"
 msgstr ""
 
-#: catapult/plugins/clipboard.py:73
+#: catapult/plugins/clipboard.py:70
 msgid "Clipboard"
 msgstr ""
 
-#: catapult/plugins/files.py:42
+#: catapult/plugins/files.py:41
 msgid "_Cancel"
 msgstr ""
 
-#: catapult/plugins/files.py:43
+#: catapult/plugins/files.py:42
 msgid "_OK"
 msgstr ""
 
-#: catapult/plugins/files.py:49
+#: catapult/plugins/files.py:48
 msgid "Edit File Patterns"
 msgstr ""
 
-#: catapult/plugins/files.py:50
+#: catapult/plugins/files.py:49
 msgid "Use shell-style wildcards * and **"
 msgstr ""
 
-#: catapult/plugins/files.py:80
+#: catapult/plugins/files.py:78
 msgid "Include patterns"
 msgstr ""
 
-#: catapult/plugins/files.py:82 catapult/plugins/files.py:108
+#: catapult/plugins/files.py:80 catapult/plugins/files.py:105
 msgid "Edit"
 msgstr ""
 
-#: catapult/plugins/files.py:106
+#: catapult/plugins/files.py:103
 msgid "Exclude patterns"
 msgstr ""
 
-#: catapult/plugins/files.py:132
+#: catapult/plugins/files.py:128
 msgid "Scan interval"
 msgstr ""
 
-#: catapult/plugins/files.py:136
+#: catapult/plugins/files.py:132
 msgid "minutes"
 msgstr ""
 
-#: catapult/plugins/files.py:172
+#: catapult/plugins/files.py:166
 msgid "Files"
 msgstr ""
 
@@ -175,7 +175,7 @@ msgstr ""
 msgid "Reboot;Restart"
 msgstr ""
 
-#: catapult/plugins/session.py:53
+#: catapult/plugins/session.py:52
 msgid "Session"
 msgstr ""
 
@@ -185,7 +185,7 @@ msgid ""
 "calculations with a keyboard-driven user interface."
 msgstr ""
 
-#: data/io.otsaloma.catapult.appdata.xml.in:43
+#: data/io.otsaloma.catapult.appdata.xml.in:44
 msgid "Main window"
 msgstr ""
 
