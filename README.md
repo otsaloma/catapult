@@ -1,7 +1,6 @@
 Catapult Launcher
 =================
 
-[![Chat](https://img.shields.io/badge/chat-linen-blue)](https://www.linen.dev/s/otsaloma/c/catapult)
 [![Plugins](https://img.shields.io/badge/community-plugins-blueviolet)](https://github.com/topics/catapult-plugin)
 [![Themes](https://img.shields.io/badge/community-themes-blueviolet)](https://github.com/topics/catapult-theme)
 
