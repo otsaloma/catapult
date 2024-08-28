@@ -2,4 +2,4 @@
 # Activate existing instance if running, else start a new instance.
 # Note that catapult-start will also activate an existing instance,
 # but much slower than gapplication, hence this wrapper script.
-gapplication launch io.otsaloma.catapult || "$0-start" "$@"
+gapplication launch io.otsaloma.catapult || exec "$0-start" "$@"
