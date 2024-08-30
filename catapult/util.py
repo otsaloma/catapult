@@ -20,6 +20,7 @@ import functools
 import inspect
 import os
 import re
+import urllib
 
 from gi.repository import Gdk
 from gi.repository import Gtk
@@ -138,8 +139,9 @@ def load_theme(name):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text.strip() + "\n", "utf-8")
     for name, path in list_themes():
-        # Change import references to absolute paths.
-        css = css.replace(f"@{name}@", str(path))
+        # Change import references to URIs.
+        uri = path_to_uri(path)
+        css = css.replace(f"@{name}@", uri)
     return css
 
 @functools.lru_cache(256)
@@ -152,3 +154,7 @@ def lookup_icon(*names):
     for name in names:
         if name in all_names:
             return name
+
+def path_to_uri(path):
+    path = str(Path(path).resolve())
+    return "file://{}".format(urllib.parse.quote(path))

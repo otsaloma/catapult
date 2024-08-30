@@ -1,3 +1,8 @@
+PENDING: Catapult 1.0.2/1.1
+===========================
+
+* Fix the light theme and `@import` rules in general (#28)
+
 2024-04-03: Catapult 1.0.1
 ==========================
 
