@@ -55,8 +55,9 @@ class History(catapult.DebugMixin):
         item = item.get(query, {})
         item = item.get(result.plugin.name, {})
         item = item.get(result.id, [])
-        # days = seq(0, 30, 1); qplot(days, exp(-0.15 * days), geom="line")
-        return 1 + sum(math.exp(-0.15 * (time.time() - x) / 86400) for x in item)
+        # R> library(ggplot2)
+        # R> days = seq(0, 30, 1); qplot(days, exp(-0.1 * days), geom="line") + ylim(0, 1)
+        return 1 + sum(math.exp(-0.1 * (time.time() - x) / 86400) for x in item)
 
     def items(self):
         for query in self._items:
