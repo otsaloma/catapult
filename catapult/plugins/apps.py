@@ -18,13 +18,37 @@
 import re
 
 from catapult.api import Plugin
+from catapult.api import PreferencesItem
+from catapult.api import get_desktop_environment
 from catapult.api import SearchResult
 from catapult.i18n import _
 from gi.repository import Gio
+from gi.repository import Gtk
+
+
+class AppsPluginPrefs(PreferencesItem):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        desktop = get_desktop_environment() or _("native")
+        label = _("Show non-{} apps").format(desktop)
+        self.label = Gtk.Label(label=label)
+        self.widget = Gtk.Switch()
+
+    def dump(self, window):
+        value = self.conf.ignore_only_show_in
+        self.widget.set_active(value)
+
+    def load(self, window):
+        value = self.widget.get_active()
+        self.conf.ignore_only_show_in = value
+
 
 class AppsPlugin(Plugin):
 
     title = _("Apps")
+    conf_defaults = {"ignore_only_show_in": False}
+    preferences_items = [AppsPluginPrefs]
 
     def __init__(self):
         super().__init__()
@@ -54,7 +78,8 @@ class AppsPlugin(Plugin):
     def _list_apps(self):
         key = lambda x: x.get_filename().lower()
         for app in sorted(Gio.AppInfo.get_all(), key=key):
-            if not app.should_show(): continue
+            if not self.conf.ignore_only_show_in:
+                if not app.should_show(): continue
             id = app.get_id()
             if id == "io.otsaloma.catapult.desktop": continue
             yield id, app
