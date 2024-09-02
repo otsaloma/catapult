@@ -1,6 +1,8 @@
-PENDING: Catapult 1.0.2/1.1
-===========================
+PENDING: Catapult 1.1
+=====================
 
+* Add setting to show non-native apps i.e. ignore the `OnlyShowIn`
+  attribute of desktop files (#29)
 * Fix the light theme and `@import` rules in general (#28)
 
 2024-04-03: Catapult 1.0.1
