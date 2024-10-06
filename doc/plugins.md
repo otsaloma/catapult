@@ -61,10 +61,6 @@ The API available for plugins is defined under `catapult.api`.
 
 https://github.com/otsaloma/catapult/blob/master/catapult/api.py
 
-Catapult is pre-1.0 software and the plugin API is liable to change in a
-backwards-incompatible manner with new releases, although efforts will
-be made to avoid that if reasonably possible.
-
 ## References
 
 * https://github.com/otsaloma/catapult/blob/master/catapult/plugin.py
