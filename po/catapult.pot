@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-03 21:53+0300\n"
+"POT-Creation-Date: 2024-10-06 22:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,7 +75,15 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: catapult/plugins/apps.py:27
+#: catapult/plugins/apps.py:33
+msgid "native"
+msgstr ""
+
+#: catapult/plugins/apps.py:34
+msgid "Show non-{} apps"
+msgstr ""
+
+#: catapult/plugins/apps.py:49
 msgid "Apps"
 msgstr ""
 
@@ -185,7 +193,7 @@ msgid ""
 "calculations with a keyboard-driven user interface."
 msgstr ""
 
-#: data/io.otsaloma.catapult.appdata.xml.in:44
+#: data/io.otsaloma.catapult.appdata.xml.in:46
 msgid "Main window"
 msgstr ""
 

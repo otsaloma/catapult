@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-03 21:53+0300\n"
-"PO-Revision-Date: 2024-04-03 21:54+0300\n"
+"POT-Creation-Date: 2024-10-06 22:21+0300\n"
+"PO-Revision-Date: 2024-10-06 22:23+0300\n"
 "Last-Translator: Osmo Salomaa <otsaloma@iki.fi>, 2023\n"
 "Language-Team: Finnish (https://app.transifex.com/otsaloma/teams/118053/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -79,7 +79,15 @@ msgstr "Asetukset"
 msgid "General"
 msgstr "Yleinen"
 
-#: catapult/plugins/apps.py:27
+#: catapult/plugins/apps.py:33
+msgid "native"
+msgstr "natiivi"
+
+#: catapult/plugins/apps.py:34
+msgid "Show non-{} apps"
+msgstr "Näytä ei-{} sovellukset"
+
+#: catapult/plugins/apps.py:49
 msgid "Apps"
 msgstr "Sovellukset"
 
@@ -192,7 +200,7 @@ msgstr ""
 "avaamisen ja pienten laskujen tekemisen näppäimistöpohjaisella "
 "käyttöliittymällä."
 
-#: data/io.otsaloma.catapult.appdata.xml.in:44
+#: data/io.otsaloma.catapult.appdata.xml.in:46
 msgid "Main window"
 msgstr "Pääikkuna"
 
