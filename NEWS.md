@@ -1,5 +1,5 @@
-PENDING: Catapult 1.1
-=====================
+2024-10-06: Catapult 1.1
+========================
 
 * Add setting to show non-native apps i.e. ignore the `OnlyShowIn`
   attribute of desktop files (#29)
