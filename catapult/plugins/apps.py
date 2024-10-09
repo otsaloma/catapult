@@ -58,6 +58,8 @@ class AppsPlugin(Plugin):
 
     def _get_description(self, app):
         description = app.get_commandline()
+        if description is None:
+            return
         description = re.sub(r" %\w\b", "", description)
         description = re.sub(r" --$", "", description)
         return description.strip()
