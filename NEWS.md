@@ -1,3 +1,8 @@
+PENDING: Catapult 1.2
+=====================
+
+* Don't index unlaunchable apps (#32)
+
 2024-10-06: Catapult 1.1
 ========================
 
