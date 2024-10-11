@@ -58,8 +58,6 @@ class AppsPlugin(Plugin):
 
     def _get_description(self, app):
         description = app.get_commandline()
-        if description is None:
-            return
         description = re.sub(r" %\w\b", "", description)
         description = re.sub(r" --$", "", description)
         return description.strip()
@@ -80,8 +78,8 @@ class AppsPlugin(Plugin):
     def _list_apps(self):
         key = lambda x: x.get_filename().lower()
         for app in sorted(Gio.AppInfo.get_all(), key=key):
-            if not self.conf.ignore_only_show_in:
-                if not app.should_show(): continue
+            if not self.conf.ignore_only_show_in and not app.should_show(): continue
+            if not app.get_commandline(): continue
             id = app.get_id()
             if id == "io.otsaloma.catapult.desktop": continue
             yield id, app
