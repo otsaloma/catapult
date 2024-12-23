@@ -20,7 +20,7 @@ import functools
 import inspect
 import os
 import re
-import urllib
+import urllib.parse
 
 from gi.repository import Gdk
 from gi.repository import Gtk
