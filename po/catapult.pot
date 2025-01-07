@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-06 22:21+0300\n"
+"POT-Creation-Date: 2025-01-07 23:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -193,7 +193,7 @@ msgid ""
 "calculations with a keyboard-driven user interface."
 msgstr ""
 
-#: data/io.otsaloma.catapult.appdata.xml.in:46
+#: data/io.otsaloma.catapult.appdata.xml.in:47
 msgid "Main window"
 msgstr ""
 
