@@ -1,7 +1,8 @@
-PENDING: Catapult 1.2
-=====================
+2025-01-07: Catapult 1.1.1
+==========================
 
 * Don't index unlaunchable apps (#32)
+* Fix compatibility with Python 3.13 (#35)
 
 2024-10-06: Catapult 1.1
 ========================
