@@ -18,6 +18,7 @@
 from . import apps # noqa
 from . import builtins # noqa
 from . import calculator # noqa
+from . import characters # noqa
 from . import clipboard # noqa
 from . import files # noqa
 from . import session # noqa

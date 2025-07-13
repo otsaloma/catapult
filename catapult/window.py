@@ -16,12 +16,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
+import array
+import cairo
 import catapult
 import itertools
 import logging
 
 from catapult import util
 from gi.repository import Gdk
+from gi.repository import GdkPixbuf
 from gi.repository import Gio
 from gi.repository import GLib
 from gi.repository import GObject
@@ -62,9 +65,45 @@ class SearchResultRow(Gtk.ListBoxRow):
         hbox.append(vbox)
         self.set_child(hbox)
 
-    def set_icon(self, icon):
-        (self.icon.set_from_gicon if isinstance(icon, Gio.Icon)
-         else self.icon.set_from_icon_name)(icon)
+    def set_icon(self, icon, default="application-x-executable"):
+        if isinstance(icon, cairo.ImageSurface):
+            try:
+                # Convert Cairo BGRA to GdkPixbuf RGBA.
+                raw = icon.get_data()
+                data = array.array("B")
+                for i in range(0, len(raw), 4):
+                    b, g, r, a = raw[i:i+4]
+                    data.extend([r, g, b, a])
+                pixbuf = GdkPixbuf.Pixbuf.new_from_data(data=data,
+                                                        colorspace=GdkPixbuf.Colorspace.RGB,
+                                                        has_alpha=True,
+                                                        bits_per_sample=8,
+                                                        width=icon.get_width(),
+                                                        height=icon.get_height(),
+                                                        rowstride=icon.get_stride())
+
+                self.icon.set_from_pixbuf(pixbuf)
+            except Exception:
+                logging.exception("Failed to set icon from cairo.ImageSurface")
+                self.icon.set_from_icon_name(default)
+        elif isinstance(icon, Gio.Icon):
+            self.icon.set_from_gicon(icon)
+        elif isinstance(icon, str) and icon.startswith("<svg"):
+            try:
+                data = icon.encode("utf-8")
+                loader = GdkPixbuf.PixbufLoader.new_with_type("svg")
+                scale_factor = self.get_scale_factor()
+                size = scale_factor * ICON_SIZE_PX
+                loader.set_size(size, size)
+                loader.write(data)
+                loader.close()
+                pixbuf = loader.get_pixbuf()
+                self.icon.set_from_pixbuf(pixbuf)
+            except Exception:
+                logging.exception("Failed to set icon from cairo.ImageSurface")
+                self.icon.set_from_icon_name(default)
+        elif isinstance(icon, str):
+            self.icon.set_from_icon_name(icon)
         self.icon.set_icon_size(Gtk.IconSize.LARGE)
 
 class Window(Gtk.ApplicationWindow, catapult.DebugMixin):

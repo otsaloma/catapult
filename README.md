@@ -25,23 +25,32 @@ indicated file-wise in the license headers of individual files.
 
 Catapult requires the following.
 
-| Dependency   | Version |
-| :----------- | :------ |
-| Python       | ≥ 3.8   |
-| PyGObject    |         |
-| GLib         |         |
-| GTK          | ≥ 4.0   |
-| Pango        |         |
-| libqalculate |         |
+| Dependency       | Version |
+| :--------------- | :------ |
+| Python           | ≥ 3.8   |
+| PyGObject        |         |
+| GLib             |         |
+| GTK              | ≥ 4.0   |
+| Cairo            |         |
+| Pango            |         |
+| libqalculate     |         |
+| Noto Sans        |         |
+| Noto Color Emoji |         |
+
+The Noto fonts are needed by the characters plugin which uses the fonts
+to render icons of characters and emojis on the fly.
 
 On Debian/Ubuntu you can install these with the following command.
 
-    sudo apt install gettext \
+    sudo apt install fonts-noto-core \
+                     fonts-noto-color-emoji \
+                     gettext \
                      gir1.2-glib-2.0 \
                      gir1.2-gtk-4.0 \
                      gir1.2-pango-1.0 \
                      libglib2.0-bin \
                      python3 \
+                     python3-cairo \
                      python3-dev \
                      python3-gi \
                      qalc

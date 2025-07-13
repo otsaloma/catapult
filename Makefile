@@ -17,13 +17,16 @@ EDITOR = nano
 
 build:
 	@echo "BUILDING PYTHON PACKAGE..."
-	mkdir -p build/catapult/plugins
+	mkdir -p build/catapult
 	cp catapult/*.py build/catapult
-	cp catapult/plugins/*.py build/catapult/plugins
 	sed -i "s|^DATA_DIR = .*$$|DATA_DIR = Path('$(DATADIR_FINAL)/catapult')|" build/catapult/__init__.py
 	sed -i "s|^LOCALE_DIR = .*$$|LOCALE_DIR = Path('$(LOCALEDIR_FINAL)')|" build/catapult/__init__.py
 	fgrep -q "$(DATADIR_FINAL)/catapult" build/catapult/__init__.py
 	fgrep -q "$(LOCALEDIR_FINAL)" build/catapult/__init__.py
+	mkdir -p build/catapult/plugins
+	cp catapult/plugins/*.py build/catapult/plugins
+	mkdir -p build/catapult/plugins/unicode
+	cp catapult/plugins/unicode/*.txt build/catapult/plugins/unicode
 	@echo "BUILDING SCRIPTS..."
 	mkdir -p build/bin
 	cp bin/catapult build/bin/catapult
@@ -61,9 +64,12 @@ clean:
 install:
 	test -f build/.complete
 	@echo "INSTALLING PYTHON PACKAGE..."
-	mkdir -p $(DATADIR)/catapult/catapult/plugins
+	mkdir -p $(DATADIR)/catapult/catapult
 	cp -f build/catapult/*.py $(DATADIR)/catapult/catapult
+	mkdir -p $(DATADIR)/catapult/catapult/plugins
 	cp -f build/catapult/plugins/*.py $(DATADIR)/catapult/catapult/plugins
+	mkdir -p $(DATADIR)/catapult/catapult/plugins/unicode
+	cp -f build/catapult/plugins/unicode/*.txt $(DATADIR)/catapult/catapult/plugins/unicode
 	@echo "INSTALLING SCRIPTS..."
 	mkdir -p $(BINDIR)
 	cp -f build/bin/catapult $(BINDIR)

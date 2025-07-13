@@ -22,6 +22,7 @@ from catapult.preferences import PreferencesItem # noqa
 from catapult.search import SearchResult # noqa
 from catapult.util import copy_text_to_clipboard # noqa
 from catapult.util import get_desktop_environment # noqa
+from catapult.util import get_scale_factor # noqa
 from catapult.util import is_path # noqa
 from catapult.util import is_uri # noqa
 from catapult.util import lookup_icon # noqa

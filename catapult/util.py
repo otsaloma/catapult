@@ -63,6 +63,10 @@ def get_monitor():
         if monitor is not None:
             return monitor
 
+def get_scale_factor():
+    label = Gtk.Label()
+    return label.get_scale_factor()
+
 def get_screen_size(monitor=None):
     monitor = monitor or get_monitor()
     rect = monitor.get_geometry()
