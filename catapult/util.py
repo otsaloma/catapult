@@ -49,6 +49,9 @@ def find_plugin(name):
         if candidate == name:
             return module
 
+def find_split_all(query, text):
+    return {x: text.find(x) for x in query.split()}
+
 def find_theme(name):
     for candidate, path in list_themes():
         if candidate == name:

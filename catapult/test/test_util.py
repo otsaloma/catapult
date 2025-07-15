@@ -37,6 +37,12 @@ class TestUtil(catapult.test.TestCase):
         module = catapult.util.find_plugin("apps")
         assert inspect.ismodule(module)
 
+    def test_find_split_all(self):
+        query = "sm eps xxx"
+        text  = "unicode greek small letter epsilon"
+        found = catapult.util.find_split_all(query, text)
+        assert found == {"sm": 14, "eps": 27, "xxx": -1}
+
     def test_find_theme(self):
         path = catapult.util.find_theme("dark")
         assert path.exists()

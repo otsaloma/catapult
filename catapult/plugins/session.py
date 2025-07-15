@@ -17,6 +17,7 @@
 
 import subprocess
 
+from catapult.api import find_split_all
 from catapult.api import get_desktop_environment
 from catapult.api import Plugin
 from catapult.api import SearchResult
@@ -60,7 +61,8 @@ class SessionPlugin(Plugin):
         desktop = get_desktop_environment()
         for action in ACTIONS:
             if desktop not in action["desktops"]: continue
-            offsets = [x.lower().find(query) for x in action["titles"]]
+            founds = [find_split_all(query, x.lower()) for x in action["titles"]]
+            offsets = [min(x.values()) for x in founds]
             offsets = [x for x in offsets if x >= 0]
             if not offsets: continue
             title = action["titles"][0]

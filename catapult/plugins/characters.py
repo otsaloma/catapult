@@ -19,6 +19,7 @@ import cairo
 import functools
 
 from catapult.api import copy_text_to_clipboard
+from catapult.api import find_split_all
 from catapult.api import get_scale_factor
 from catapult.api import Plugin
 from catapult.api import SearchResult
@@ -172,7 +173,8 @@ class CharactersPlugin(Plugin):
     def search(self, query):
         query = query.lower().strip()
         for i, character in enumerate(self._characters):
-            offset = character.name.lower().find(query)
+            found = find_split_all(query, character.name.lower())
+            offset = min(found.values())
             if offset < 0: continue
             if character.is_emoji:
                 # cairo.ImageSurface

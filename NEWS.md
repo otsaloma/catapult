@@ -2,6 +2,9 @@ PENDING: Catapult 1.2
 =====================
 
 * Add characters plugin to copy characters and emojis
+* Make all plugins work with space-separated multi-part queries where
+  all parts need to match, so you can e.g. search for "sm eps" to
+  find "UNICODE GREEK SMALL LETTER EPSILON"
 * Add dependency on Cairo
 * Add dependency on Noto Sans font
 * Add dependency on Noto Color Emoji font

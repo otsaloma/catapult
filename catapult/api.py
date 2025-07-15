@@ -21,6 +21,7 @@ from catapult.plugin import Plugin # noqa
 from catapult.preferences import PreferencesItem # noqa
 from catapult.search import SearchResult # noqa
 from catapult.util import copy_text_to_clipboard # noqa
+from catapult.util import find_split_all # noqa
 from catapult.util import get_desktop_environment # noqa
 from catapult.util import get_scale_factor # noqa
 from catapult.util import is_path # noqa

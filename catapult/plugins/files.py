@@ -22,6 +22,7 @@ import itertools
 import os
 import time
 
+from catapult.api import find_split_all
 from catapult.api import is_path
 from catapult.api import is_uri
 from catapult.api import Plugin
@@ -213,11 +214,13 @@ class FilesPlugin(Plugin):
     def search(self, query):
         query = query.lower().strip()
         for file in self._index:
-            offset = file.title.lower().find(query)
+            found = find_split_all(query, file.title.lower())
+            offset = min(found.values())
             if offset < 0 and file.location.endswith(":///"):
                 # Check location for special URIs too as the display name
                 # seems to sometimes be translated, sometimes not.
-                offset = file.location.lower().find(query)
+                found = find_split_all(query, file.location.lower())
+                offset = min(found.values())
             if offset < 0: continue
             self.debug(f"Found {file.location} for {query!r}")
             if file.location == "trash:///":
