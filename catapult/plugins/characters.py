@@ -162,7 +162,7 @@ class CharactersPlugin(Plugin):
         # because SVG rendering as done by GdkPixbuf does not support
         # some font features needed by Noto Color Emoji.
         scale_factor = get_scale_factor()
-        size = round(scale_factor * 48)
+        size = round(48 * scale_factor)
         surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, size, size)
         ctx = cairo.Context(surface)
         layout = PangoCairo.create_layout(ctx)
