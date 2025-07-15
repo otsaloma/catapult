@@ -27,7 +27,6 @@ from catapult.i18n import _
 from dataclasses import dataclass
 from gi.repository import Pango
 from gi.repository import PangoCairo
-from math import pi
 from pathlib import Path
 
 ICON_TEMPLATE = """
@@ -100,17 +99,6 @@ class CharactersPlugin(Plugin):
         self.debug(f"Loaded {len(self._characters)} characters")
         self.debug("Initialization complete")
 
-    def _draw_rounded_rectangle(self, ctx, area, radius, scale_factor):
-        # area: (top, bottom, left, right) edges in absolute coordinates.
-        # https://www.cairographics.org/cookbook/roundedrectangles/
-        a, b, c, d = map(lambda x: x * scale_factor, area)
-        radius *= scale_factor
-        ctx.arc(a + radius, c + radius, radius, 2*(pi/2), 3*(pi/2))
-        ctx.arc(b - radius, c + radius, radius, 3*(pi/2), 4*(pi/2))
-        ctx.arc(b - radius, d - radius, radius, 0*(pi/2), 1*(pi/2))
-        ctx.arc(a + radius, d - radius, radius, 1*(pi/2), 2*(pi/2))
-        ctx.close_path()
-
     def _find_block(self, code):
         for block in self._blocks:
             if block.start <= code <= block.end:
@@ -177,10 +165,6 @@ class CharactersPlugin(Plugin):
         size = round(scale_factor * 48)
         surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, size, size)
         ctx = cairo.Context(surface)
-        ctx.set_source_rgba(1, 1, 1, 1)
-        # XXX: Do we need a background? White?
-        # self._draw_rounded_rectangle(ctx, (5, 48-5, 5, 48-5), 3, scale_factor)
-        ctx.fill()
         layout = PangoCairo.create_layout(ctx)
         font_size = round(26 * scale_factor)
         font_desc = Pango.FontDescription(f"{character.font} {font_size}")
