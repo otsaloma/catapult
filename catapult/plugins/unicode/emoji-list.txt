@@ -1,0 +1,1910 @@
+U+1F600;cheerful|cheery|face|grin|grinning|happy|laugh|nice|smile|smiling|teeth
+U+1F603;awesome|big|eyes|face|grin|grinning|happy|mouth|open|smile|smiling|teeth|yay
+U+1F604;eye|eyes|face|grin|grinning|happy|laugh|lol|mouth|open|smile|smiling
+U+1F601;beaming|eye|eyes|face|grin|grinning|happy|nice|smile|smiling|teeth
+U+1F606;closed|eyes|face|grinning|haha|hahaha|happy|laugh|lol|mouth|open|rofl|smile|smiling|squinting
+U+1F605;cold|dejected|excited|face|grinning|mouth|nervous|open|smile|smiling|stress|stressed|sweat
+U+1F923;crying|face|floor|funny|haha|happy|hehe|hilarious|joy|laugh|lmao|lol|rofl|roflmao|rolling|tear
+U+1F602;crying|face|feels|funny|haha|happy|hehe|hilarious|joy|laugh|lmao|lol|rofl|roflmao|tear
+U+1F642;face|happy|slightly|smile|smiling
+U+1F643;face|hehe|smile|upside-down
+U+1FAE0;disappear|dissolve|embarrassed|face|haha|heat|hot|liquid|lol|melt|melting|sarcasm|sarcastic
+U+1F609;face|flirt|heartbreaker|sexy|slide|tease|wink|winking|winks
+U+1F60A;blush|eye|eyes|face|glad|satisfied|smile|smiling
+U+1F607;angel|angelic|angels|blessed|face|fairy|fairytale|fantasy|halo|happy|innocent|peaceful|smile|smiling|spirit|tale
+U+1F970;3|adore|crush|face|heart|hearts|ily|love|romance|smile|smiling|you
+U+1F60D;143|bae|eye|face|feels|heart-eyes|hearts|ily|kisses|love|romance|romantic|smile|xoxo
+U+1F929;excited|eyes|face|grinning|smile|star|star-struck|starry-eyed|wow
+U+1F618;adorbs|bae|blowing|face|flirt|heart|ily|kiss|love|lover|miss|muah|romantic|smooch|xoxo|you
+U+1F617;143|date|dating|face|flirt|ily|kiss|love|smooch|smooches|xoxo|you
+U+263A;face|happy|outlined|relaxed|smile|smiling
+U+1F61A;143|bae|blush|closed|date|dating|eye|eyes|face|flirt|ily|kisses|kissing|smooches|xoxo
+U+1F619;143|closed|date|dating|eye|eyes|face|flirt|ily|kiss|kisses|kissing|love|night|smile|smiling
+U+1F972;face|glad|grateful|happy|joy|pain|proud|relieved|smile|smiley|smiling|tear|touched
+U+1F60B;delicious|eat|face|food|full|hungry|savor|smile|smiling|tasty|um|yum|yummy
+U+1F61B;awesome|cool|face|nice|party|stuck-out|sweet|tongue
+U+1F61C;crazy|epic|eye|face|funny|joke|loopy|nutty|party|stuck-out|tongue|wacky|weirdo|wink|winking|yolo
+U+1F92A;crazy|eye|eyes|face|goofy|large|small|zany
+U+1F61D;closed|eye|eyes|face|gross|horrible|omg|squinting|stuck-out|taste|tongue|whatever|yolo
+U+1F911;face|money|money-mouth|mouth|paid
+U+1F917;face|hands|hug|hugging|open|smiling
+U+1F92D;face|giggle|giggling|hand|mouth|oops|realization|secret|shock|sudden|surprise|whoops|sudden realization
+U+1FAE2;amazement|awe|disbelief|embarrass|eyes|face|gasp|hand|mouth|omg|open|over|quiet|scared|shock|surprise
+U+1FAE3;captivated|embarrass|eye|face|hide|hiding|peek|peeking|peep|scared|shy|stare
+U+1F92B;face|quiet|shh|shush|shushing
+U+1F914;chin|consider|face|hmm|ponder|pondering|thinking|wondering
+U+1FAE1;face|good|luck|ma’am|OK|respect|salute|saluting|sir|troops|yes
+U+1F910;face|keep|mouth|quiet|secret|shut|zip|zipper|zipper-mouth
+U+1F928;disapproval|disbelief|distrust|emoji|eyebrow|face|hmm|mild|raised|skeptic|skeptical|skepticism|surprise|what|mild surprise|scepticism
+U+1F610;awkward|blank|deadpan|expressionless|face|fine|jealous|meh|neutral|oh|shade|straight|unamused|unhappy|unimpressed|whatever
+U+1F611;awkward|dead|expressionless|face|fine|inexpressive|jealous|meh|not|oh|omg|straight|uh|unhappy|unimpressed|whatever
+U+1F636;awkward|blank|expressionless|face|mouth|mouthless|mute|quiet|secret|silence|silent|speechless
+U+1FAE5;depressed|disappear|dotted|face|hidden|hide|introvert|invisible|line|meh|whatever|wtv
+U+1F636 U+200D U+1F32B U+FE0F;absentminded|clouds|face|fog|head
+U+1F60F;boss|dapper|face|flirt|homie|kidding|leer|shade|slick|sly|smirk|smug|snicker|suave|suspicious|swag
+U+1F612;...|bored|face|fine|jealous|jel|jelly|pissed|smh|ugh|uhh|unamused|unhappy|weird|whatever
+U+1F644;eyeroll|eyes|face|rolling|shade|ugh|whatever
+U+1F62C;awk|awkward|dentist|face|grimace|grimacing|grinning|smile|smiling
+U+1F62E U+200D U+1F4A8;blow|blowing|exhale|exhaling|exhausted|face|gasp|groan|relief|sigh|smiley|smoke|whisper|whistle
+U+1F925;face|liar|lie|lying|pinocchio
+U+1FAE8;crazy|daze|earthquake|face|omg|panic|shaking|shock|surprise|vibrate|whoa|wow
+U+1F642 U+200D U+2194 U+FE0F;head|horizontally|no|shake|shaking
+U+1F642 U+200D U+2195 U+FE0F;head|nod|shaking|vertically|yes
+U+1F60C;calm|face|peace|relief|relieved|zen
+U+1F614;awful|bored|dejected|died|disappointed|face|losing|lost|pensive|sad|sucks
+U+1F62A;crying|face|good|night|sad|sleep|sleeping|sleepy|tired
+U+1F924;drooling|face
+U+1F634;bed|bedtime|face|good|goodnight|nap|night|sleep|sleeping|tired|whatever|yawn|zzz
+U+1FAE9;bags|bored|exhausted|eyes|face|fatigued|late|sleepy|tired|weary
+U+1F637;cold|dentist|dermatologist|doctor|dr|face|germs|mask|medical|medicine|sick
+U+1F912;face|ill|sick|thermometer
+U+1F915;bandage|face|head-bandage|hurt|injury|ouch
+U+1F922;face|gross|nasty|nauseated|sick|vomit
+U+1F92E;barf|ew|face|gross|puke|sick|spew|throw|up|vomit|vomiting
+U+1F927;face|fever|flu|gesundheit|sick|sneeze|sneezing
+U+1F975;dying|face|feverish|heat|hot|panting|red-faced|stroke|sweating|tongue
+U+1F976;blue|blue-faced|cold|face|freezing|frostbite|icicles|subzero|teeth
+U+1F974;dizzy|drunk|eyes|face|intoxicated|mouth|tipsy|uneven|wavy|woozy
+U+1F635;crossed-out|dead|dizzy|eyes|face|feels|knocked|out|sick|tired
+U+1F635 U+200D U+1F4AB;confused|dizzy|eyes|face|hypnotized|omg|smiley|spiral|trouble|whoa|woah|woozy
+U+1F92F;blown|explode|exploding|head|mind|mindblown|no|shocked|way
+U+1F920;cowboy|cowgirl|face|hat
+U+1F973;bday|birthday|celebrate|celebration|excited|face|happy|hat|hooray|horn|party|partying
+U+1F978;disguise|eyebrow|face|glasses|incognito|moustache|mustache|nose|person|spy|tache|tash
+U+1F60E;awesome|beach|bright|bro|chilling|cool|face|rad|relaxed|shades|slay|smile|style|sunglasses|swag|win
+U+1F913;brainy|clever|expert|face|geek|gifted|glasses|intelligent|nerd|smart
+U+1F9D0;classy|face|fancy|monocle|rich|stuffy|wealthy
+U+1F615;befuddled|confused|confusing|dunno|face|frown|hm|meh|not|sad|sorry|sure
+U+1FAE4;confused|confusion|diagonal|disappointed|doubt|doubtful|face|frustrated|frustration|meh|mouth|skeptical|unsure|whatever|wtv
+U+1F61F;anxious|butterflies|face|nerves|nervous|sad|stress|stressed|surprised|worried|worry
+U+1F641;face|frown|frowning|sad|slightly
+U+2639;face|frown|frowning|sad
+U+1F62E;believe|face|forgot|mouth|omg|open|shocked|surprised|sympathy|unbelievable|unreal|whoa|wow|you
+U+1F62F;epic|face|hushed|omg|stunned|surprised|whoa|woah
+U+1F632;astonished|cost|face|no|omg|shocked|totally|way
+U+1F633;amazed|awkward|crazy|dazed|dead|disbelief|embarrassed|face|flushed|geez|heat|hot|impressed|jeez|what|wow
+U+1F97A;begging|big|eyes|face|mercy|not|pleading|please|pretty|puppy|sad|why
+U+1F979;admiration|aww|back|cry|embarrassed|face|feelings|grateful|gratitude|holding|joy|please|proud|resist|sad|tears
+U+1F626;caught|face|frown|frowning|guard|mouth|open|scared|scary|surprise|what|wow
+U+1F627;anguished|face|forgot|scared|scary|stressed|surprise|unhappy|what|wow
+U+1F628;afraid|anxious|blame|face|fear|fearful|scared|worried
+U+1F630;anxious|blue|cold|eek|face|mouth|nervous|open|rushed|scared|sweat|yikes
+U+1F625;anxious|call|close|complicated|disappointed|face|not|relieved|sad|sweat|time|whew
+U+1F622;awful|cry|crying|face|feels|miss|sad|tear|triste|unhappy
+U+1F62D;bawling|cry|crying|face|loudly|sad|sob|tear|tears|unhappy
+U+1F631;epic|face|fear|fearful|munch|scared|scream|screamer|screaming|shocked|surprised|woah
+U+1F616;annoyed|confounded|confused|cringe|distraught|face|feels|frustrated|mad|sad
+U+1F623;concentrate|concentration|face|focus|headache|persevere|persevering
+U+1F61E;awful|blame|dejected|disappointed|face|fail|losing|sad|unhappy
+U+1F613;close|cold|downcast|face|feels|headache|nervous|sad|scared|sweat|yikes
+U+1F629;crying|face|fail|feels|hungry|mad|nooo|sad|sleepy|tired|unhappy|weary
+U+1F62B;cost|face|feels|nap|sad|sneeze|tired
+U+1F971;bedtime|bored|face|goodnight|nap|night|sleep|sleepy|tired|whatever|yawn|yawning|zzz
+U+1F624;anger|angry|face|feels|fume|fuming|furious|fury|mad|nose|steam|triumph|unhappy|won
+U+1F621;anger|angry|enraged|face|feels|mad|maddening|pouting|rage|red|shade|unhappy|upset
+U+1F620;anger|angry|blame|face|feels|frustrated|mad|maddening|rage|shade|unhappy|upset
+U+1F92C;censor|cursing|cussing|face|mad|mouth|pissed|swearing|symbols
+U+1F608;demon|devil|evil|face|fairy|fairytale|fantasy|horns|purple|shade|smile|smiling|tale
+U+1F47F;angry|demon|devil|evil|face|fairy|fairytale|fantasy|horns|imp|mischievous|purple|shade|tale
+U+1F480;body|dead|death|face|fairy|fairytale|i’m|lmao|monster|skull|tale|yolo
+U+2620;bone|crossbones|dead|death|face|monster|skull
+U+1F4A9;bs|comic|doo|dung|face|fml|monster|pile|poo|poop|smelly|smh|stink|stinks|stinky|turd
+U+1F921;clown|face
+U+1F479;creature|devil|face|fairy|fairytale|fantasy|mask|monster|ogre|scary|tale|troll
+U+1F47A;angry|creature|face|fairy|fairytale|fantasy|goblin|mask|mean|monster|tale
+U+1F47B;boo|creature|excited|face|fairy|fairytale|fantasy|ghost|halloween|haunting|monster|scary|silly|tale
+U+1F47D;alien|creature|extraterrestrial|face|fairy|fairytale|fantasy|monster|space|tale|ufo
+U+1F47E;alien|creature|extraterrestrial|face|fairy|fairytale|fantasy|game|gamer|games|monster|pixelated|space|tale|ufo
+U+1F916;face|monster|robot
+U+1F63A;animal|cat|face|grinning|mouth|open|smile|smiling
+U+1F638;animal|cat|eye|eyes|face|grin|grinning|smile|smiling
+U+1F639;animal|cat|face|joy|laugh|laughing|lol|tear|tears
+U+1F63B;animal|cat|eye|face|heart|heart-eyes|love|smile|smiling
+U+1F63C;animal|cat|face|ironic|smile|wry
+U+1F63D;animal|cat|closed|eye|eyes|face|kiss|kissing
+U+1F640;animal|cat|face|oh|surprised|weary
+U+1F63F;animal|cat|cry|crying|face|sad|tear
+U+1F63E;animal|cat|face|pouting
+U+1F648;embarrassed|evil|face|forbidden|forgot|gesture|hide|monkey|no|omg|prohibited|scared|secret|smh|watch
+U+1F649;animal|ears|evil|face|forbidden|gesture|hear|listen|monkey|no|not|prohibited|secret|shh|tmi
+U+1F64A;animal|evil|face|forbidden|gesture|monkey|no|not|oops|prohibited|quiet|secret|speak|stealth
+U+1F48C;heart|letter|love|mail|romance|valentine
+U+1F498;143|adorbs|arrow|cupid|date|emotion|heart|ily|love|romance|valentine
+U+1F49D;143|anniversary|emotion|heart|ily|kisses|ribbon|valentine|xoxo
+U+1F496;143|emotion|excited|good|heart|ily|kisses|morning|night|sparkle|sparkling|xoxo
+U+1F497;143|emotion|excited|growing|heart|heartpulse|ily|kisses|muah|nervous|pulse|xoxo
+U+1F493;143|beating|cardio|emotion|heart|heartbeat|ily|love|pulsating|pulse
+U+1F49E;143|adorbs|anniversary|emotion|heart|hearts|revolving
+U+1F495;143|anniversary|date|dating|emotion|heart|hearts|ily|kisses|love|loving|two|xoxo
+U+1F49F;143|decoration|emotion|heart|hearth|purple|white
+U+2763;exclamation|heart|heavy|mark|punctuation
+U+1F494;break|broken|crushed|emotion|heart|heartbroken|lonely|sad
+U+2764 U+FE0F U+200D U+1F525;burn|fire|heart|love|lust|sacred
+U+2764 U+FE0F U+200D U+1FA79;healthier|heart|improving|mending|recovering|recuperating|well
+U+2764;emotion|heart|love|red
+U+1FA77;143|adorable|cute|emotion|heart|ily|like|love|pink|special|sweet
+U+1F9E1;143|heart|orange
+U+1F49B;143|cardiac|emotion|heart|ily|love|yellow
+U+1F49A;143|emotion|green|heart|ily|love|romantic
+U+1F499;143|blue|emotion|heart|ily|love|romance
+U+1FA75;143|blue|cute|cyan|emotion|heart|ily|light|like|love|sky|special|teal
+U+1F49C;143|bestest|emotion|heart|ily|love|purple
+U+1F90E;143|brown|heart
+U+1F5A4;black|evil|heart|wicked
+U+1FA76;143|emotion|gray|grey|heart|ily|love|silver|slate|special
+U+1F90D;143|heart|white
+U+1F48B;dating|emotion|heart|kiss|kissing|lips|mark|romance|sexy
+U+1F4AF;100|a+|agree|clearly|definitely|faithful|fleek|full|hundred|keep|perfect|point|score|TRUE|truth|yup
+U+1F4A2;anger|angry|comic|mad|symbol|upset
+U+1F4A5;bomb|boom|collide|collision|comic|explode
+U+1F4AB;comic|dizzy|shining|shooting|star|stars
+U+1F4A6;comic|drip|droplet|droplets|drops|splashing|squirt|sweat|water|wet|work|workout
+U+1F4A8;away|cloud|comic|dash|dashing|fart|fast|go|gone|gotta|running|smoke
+U+1F573;hole
+U+1F4AC;balloon|bubble|comic|dialog|message|sms|speech|talk|text|typing
+U+1F441 U+FE0F U+200D U+1F5E8 U+FE0F;balloon|bubble|eye|speech|witness
+U+1F5E8;balloon|bubble|dialog|left|speech
+U+1F5EF;anger|angry|balloon|bubble|mad|right
+U+1F4AD;balloon|bubble|cartoon|cloud|comic|daydream|decisions|dream|idea|invent|invention|realize|think|thoughts|wonder
+U+1F4A4;comic|good|goodnight|night|sleep|sleeping|sleepy|tired|zzz
+U+1F44B;bye|cya|g2g|greetings|gtg|hand|hello|hey|hi|later|outtie|ttfn|ttyl|wave|yo|you
+U+1F91A;back|backhand|hand|raised
+U+1F590;finger|fingers|hand|raised|splayed|stop
+U+270B;5|five|hand|high|raised|stop
+U+1F596;finger|hand|hands|salute|Vulcan
+U+1FAF1;hand|handshake|hold|reach|right|rightward|rightwards|shake
+U+1FAF2;hand|handshake|hold|left|leftward|leftwards|reach|shake
+U+1FAF3;dismiss|down|drop|dropped|hand|palm|pick|shoo|up
+U+1FAF4;beckon|catch|come|hand|hold|know|lift|me|offer|palm|tell
+U+1FAF7;block|five|halt|hand|high|hold|leftward|leftwards|pause|push|pushing|refuse|slap|stop|wait
+U+1FAF8;block|five|halt|hand|high|hold|pause|push|pushing|refuse|rightward|rightwards|slap|stop|wait
+U+1F44C;awesome|bet|dope|fleek|fosho|got|gotcha|hand|legit|OK|okay|pinch|rad|sure|sweet|three
+U+1F90C;fingers|gesture|hand|hold|huh|interrogation|patience|pinched|relax|sarcastic|ugh|what|zip
+U+1F90F;amount|bit|fingers|hand|little|pinching|small|sort
+U+270C;hand|peace|v|victory
+U+1F91E;cross|crossed|finger|fingers|hand|luck
+U+1FAF0;<3|crossed|expensive|finger|hand|heart|index|love|money|snap|thumb
+U+1F91F;fingers|gesture|hand|ILY|love|love-you|three|you
+U+1F918;finger|hand|horns|rock-on|sign
+U+1F919;call|hand|hang|loose|me|Shaka
+U+1F448;backhand|finger|hand|index|left|point|pointing
+U+1F449;backhand|finger|hand|index|point|pointing|right
+U+1F446;backhand|finger|hand|index|point|pointing|up
+U+1F595;finger|hand|middle
+U+1F447;backhand|down|finger|hand|index|point|pointing
+U+261D;finger|hand|index|point|pointing|this|up
+U+1FAF5;at|finger|hand|index|pointing|poke|viewer|you
+U+1F44D;+1|good|hand|like|thumb|up|yes
+U+1F44E;-1|bad|dislike|down|good|hand|no|nope|thumb|thumbs
+U+270A;clenched|fist|hand|punch|raised|solidarity
+U+1F44A;absolutely|agree|boom|bro|bruh|bump|clenched|correct|fist|hand|knuckle|oncoming|pound|punch|rock|ttyl
+U+1F91B;fist|left-facing|leftwards
+U+1F91C;fist|right-facing|rightwards
+U+1F44F;applause|approval|awesome|clap|congrats|congratulations|excited|good|great|hand|homie|job|nice|prayed|well|yay
+U+1F64C;celebration|gesture|hand|hands|hooray|praise|raised|raising
+U+1FAF6;<3|hands|heart|love|you
+U+1F450;hand|hands|hug|jazz|open|swerve
+U+1F932;cupped|dua|hands|palms|pray|prayer|together|up|wish|cupped hands
+U+1F91D;agreement|deal|hand|handshake|meeting|shake
+U+1F64F;appreciate|ask|beg|blessed|bow|cmon|five|folded|gesture|hand|high|please|pray|thanks|thx
+U+270D;hand|write|writing
+U+1F485;bored|care|cosmetics|done|makeup|manicure|nail|polish|whatever
+U+1F933;camera|phone|selfie
+U+1F4AA;arm|beast|bench|biceps|bodybuilder|bro|curls|flex|gains|gym|jacked|muscle|press|ripped|strong|weightlift
+U+1F9BE;accessibility|arm|mechanical|prosthetic
+U+1F9BF;accessibility|leg|mechanical|prosthetic
+U+1F9B5;bent|foot|kick|knee|leg|limb
+U+1F9B6;ankle|feet|foot|kick|stomp
+U+1F442;body|ear|ears|hear|hearing|listen|listening|sound
+U+1F9BB;accessibility|aid|ear|hard|hearing
+U+1F443;body|nose|noses|nosey|odor|smell|smells
+U+1F9E0;brain|intelligent|smart
+U+1FAC0;anatomical|beat|cardiology|heart|heartbeat|organ|pulse|real|red
+U+1FAC1;breath|breathe|exhalation|inhalation|lung|lungs|organ|respiration
+U+1F9B7;dentist|pearly|teeth|tooth|white
+U+1F9B4;bone|bones|dog|skeleton|wishbone
+U+1F440;body|eye|eyes|face|googly|look|looking|omg|peep|see|seeing
+U+1F441;1|body|eye|one
+U+1F445;body|lick|slurp|tongue
+U+1F444;beauty|body|kiss|kissing|lips|lipstick|mouth
+U+1FAE6;anxious|bite|biting|fear|flirt|flirting|kiss|lip|lipstick|nervous|sexy|uncomfortable|worried|worry
+U+1F476;babies|baby|children|goo|infant|newborn|pregnant|young
+U+1F9D2;bright-eyed|child|grandchild|kid|young|younger
+U+1F466;boy|bright-eyed|child|grandson|kid|son|young|younger
+U+1F467;bright-eyed|child|daughter|girl|granddaughter|kid|Virgo|young|younger|zodiac
+U+1F9D1;adult|person
+U+1F471;blond|blond-haired|human|person
+U+1F468;adult|bro|man
+U+1F9D4;beard|bearded|person|whiskers|bewhiskered
+U+1F9D4 U+200D U+2642 U+FE0F;beard|bearded|man|whiskers
+U+1F9D4 U+200D U+2640 U+FE0F;beard|bearded|whiskers|woman
+U+1F468 U+200D U+1F9B0;adult|bro|man|red hair
+U+1F468 U+200D U+1F9B1;adult|bro|curly hair|man
+U+1F468 U+200D U+1F9B3;adult|bro|man|white hair
+U+1F468 U+200D U+1F9B2;adult|bald|bro|man
+U+1F469;adult|lady|woman
+U+1F469 U+200D U+1F9B0;adult|lady|red hair|woman
+U+1F9D1 U+200D U+1F9B0;adult|person|red hair
+U+1F469 U+200D U+1F9B1;adult|curly hair|lady|woman
+U+1F9D1 U+200D U+1F9B1;adult|curly hair|person
+U+1F469 U+200D U+1F9B3;adult|lady|white hair|woman
+U+1F9D1 U+200D U+1F9B3;adult|person|white hair
+U+1F469 U+200D U+1F9B2;adult|bald|lady|woman
+U+1F9D1 U+200D U+1F9B2;adult|bald|person
+U+1F471 U+200D U+2640 U+FE0F;blond|blond-haired|blonde|hair|woman
+U+1F471 U+200D U+2642 U+FE0F;blond|blond-haired|hair|man
+U+1F9D3;adult|elderly|grandparent|old|person|wise
+U+1F474;adult|bald|elderly|gramps|grandfather|grandpa|man|old|wise
+U+1F475;adult|elderly|grandma|grandmother|granny|lady|old|wise|woman
+U+1F64D;annoyed|disappointed|disgruntled|disturbed|frown|frowning|frustrated|gesture|irritated|person|upset
+U+1F64D U+200D U+2642 U+FE0F;annoyed|disappointed|disgruntled|disturbed|frown|frowning|frustrated|gesture|irritated|man|upset
+U+1F64D U+200D U+2640 U+FE0F;annoyed|disappointed|disgruntled|disturbed|frown|frowning|frustrated|gesture|irritated|upset|woman
+U+1F64E;disappointed|downtrodden|frown|grimace|person|pouting|scowl|sulk|upset|whine
+U+1F64E U+200D U+2642 U+FE0F;disappointed|downtrodden|frown|grimace|man|pouting|scowl|sulk|upset|whine
+U+1F64E U+200D U+2640 U+FE0F;disappointed|downtrodden|frown|grimace|pouting|scowl|sulk|upset|whine|woman
+U+1F645;forbidden|gesture|hand|NO|not|person|prohibit
+U+1F645 U+200D U+2642 U+FE0F;forbidden|gesture|hand|man|NO|not|prohibit
+U+1F645 U+200D U+2640 U+FE0F;forbidden|gesture|hand|NO|not|prohibit|woman
+U+1F646;exercise|gesture|gesturing|hand|OK|omg|person
+U+1F646 U+200D U+2642 U+FE0F;exercise|gesture|gesturing|hand|man|OK|omg
+U+1F646 U+200D U+2640 U+FE0F;exercise|gesture|gesturing|hand|OK|omg|woman
+U+1F481;fetch|flick|flip|gossip|hand|person|sarcasm|sarcastic|sassy|seriously|tipping|whatever
+U+1F481 U+200D U+2642 U+FE0F;fetch|flick|flip|gossip|hand|man|sarcasm|sarcastic|sassy|seriously|tipping|whatever
+U+1F481 U+200D U+2640 U+FE0F;fetch|flick|flip|gossip|hand|sarcasm|sarcastic|sassy|seriously|tipping|whatever|woman
+U+1F64B;gesture|hand|here|know|me|person|pick|question|raise|raising
+U+1F64B U+200D U+2642 U+FE0F;gesture|hand|here|know|man|me|pick|question|raise|raising
+U+1F64B U+200D U+2640 U+FE0F;gesture|hand|here|know|me|pick|question|raise|raising|woman
+U+1F9CF;accessibility|deaf|ear|gesture|hear|person
+U+1F9CF U+200D U+2642 U+FE0F;accessibility|deaf|ear|gesture|hear|man
+U+1F9CF U+200D U+2640 U+FE0F;accessibility|deaf|ear|gesture|hear|woman
+U+1F647;apology|ask|beg|bow|bowing|favor|forgive|gesture|meditate|meditation|person|pity|regret|sorry
+U+1F647 U+200D U+2642 U+FE0F;apology|ask|beg|bow|bowing|favor|forgive|gesture|man|meditate|meditation|pity|regret|sorry
+U+1F647 U+200D U+2640 U+FE0F;apology|ask|beg|bow|bowing|favor|forgive|gesture|meditate|meditation|pity|regret|sorry|woman
+U+1F926;again|bewilder|disbelief|exasperation|facepalm|no|not|oh|omg|person|shock|smh
+U+1F926 U+200D U+2642 U+FE0F;again|bewilder|disbelief|exasperation|facepalm|man|no|not|oh|omg|shock|smh
+U+1F926 U+200D U+2640 U+FE0F;again|bewilder|disbelief|exasperation|facepalm|no|not|oh|omg|shock|smh|woman
+U+1F937;doubt|dunno|guess|idk|ignorance|indifference|knows|maybe|person|shrug|shrugging|whatever|who
+U+1F937 U+200D U+2642 U+FE0F;doubt|dunno|guess|idk|ignorance|indifference|knows|man|maybe|shrug|shrugging|whatever|who
+U+1F937 U+200D U+2640 U+FE0F;doubt|dunno|guess|idk|ignorance|indifference|knows|maybe|shrug|shrugging|whatever|who|woman
+U+1F9D1 U+200D U+2695 U+FE0F;doctor|health|healthcare|nurse|therapist|worker
+U+1F468 U+200D U+2695 U+FE0F;doctor|health|healthcare|man|nurse|therapist|worker
+U+1F469 U+200D U+2695 U+FE0F;doctor|health|healthcare|nurse|therapist|woman|worker
+U+1F9D1 U+200D U+1F393;graduate|student
+U+1F468 U+200D U+1F393;graduate|man|student
+U+1F469 U+200D U+1F393;graduate|student|woman
+U+1F9D1 U+200D U+1F3EB;instructor|lecturer|professor|teacher
+U+1F468 U+200D U+1F3EB;instructor|lecturer|man|professor|teacher
+U+1F469 U+200D U+1F3EB;instructor|lecturer|professor|teacher|woman
+U+1F9D1 U+200D U+2696 U+FE0F;judge|justice|law|scales
+U+1F468 U+200D U+2696 U+FE0F;judge|justice|law|man|scales
+U+1F469 U+200D U+2696 U+FE0F;judge|justice|law|scales|woman
+U+1F9D1 U+200D U+1F33E;farmer|gardener|rancher
+U+1F468 U+200D U+1F33E;farmer|gardener|man|rancher
+U+1F469 U+200D U+1F33E;farmer|gardener|rancher|woman
+U+1F9D1 U+200D U+1F373;chef|cook
+U+1F468 U+200D U+1F373;chef|cook|man
+U+1F469 U+200D U+1F373;chef|cook|woman
+U+1F9D1 U+200D U+1F527;electrician|mechanic|plumber|tradesperson
+U+1F468 U+200D U+1F527;electrician|man|mechanic|plumber|tradesperson
+U+1F469 U+200D U+1F527;electrician|mechanic|plumber|tradesperson|woman
+U+1F9D1 U+200D U+1F3ED;assembly|factory|industrial|worker
+U+1F468 U+200D U+1F3ED;assembly|factory|industrial|man|worker
+U+1F469 U+200D U+1F3ED;assembly|factory|industrial|woman|worker
+U+1F9D1 U+200D U+1F4BC;architect|business|manager|office|white-collar|worker
+U+1F468 U+200D U+1F4BC;architect|business|man|manager|office|white-collar|worker
+U+1F469 U+200D U+1F4BC;architect|business|manager|office|white-collar|woman|worker
+U+1F9D1 U+200D U+1F52C;biologist|chemist|engineer|mathematician|physicist|scientist
+U+1F468 U+200D U+1F52C;biologist|chemist|engineer|man|mathematician|physicist|scientist
+U+1F469 U+200D U+1F52C;biologist|chemist|engineer|mathematician|physicist|scientist|woman
+U+1F9D1 U+200D U+1F4BB;coder|computer|developer|inventor|software|technologist
+U+1F468 U+200D U+1F4BB;coder|computer|developer|inventor|man|software|technologist
+U+1F469 U+200D U+1F4BB;coder|computer|developer|inventor|software|technologist|woman
+U+1F9D1 U+200D U+1F3A4;actor|entertainer|rock|rockstar|singer|star
+U+1F468 U+200D U+1F3A4;actor|entertainer|man|rock|rockstar|singer|star
+U+1F469 U+200D U+1F3A4;actor|entertainer|rock|rockstar|singer|star|woman
+U+1F9D1 U+200D U+1F3A8;artist|palette
+U+1F468 U+200D U+1F3A8;artist|man|palette
+U+1F469 U+200D U+1F3A8;artist|palette|woman
+U+1F9D1 U+200D U+2708 U+FE0F;pilot|plane
+U+1F468 U+200D U+2708 U+FE0F;man|pilot|plane
+U+1F469 U+200D U+2708 U+FE0F;pilot|plane|woman
+U+1F9D1 U+200D U+1F680;astronaut|rocket|space
+U+1F468 U+200D U+1F680;astronaut|man|rocket|space
+U+1F469 U+200D U+1F680;astronaut|rocket|space|woman
+U+1F9D1 U+200D U+1F692;fire|firefighter|firetruck
+U+1F468 U+200D U+1F692;fire|firefighter|firetruck|man
+U+1F469 U+200D U+1F692;fire|firefighter|firetruck|woman
+U+1F46E;apprehend|arrest|citation|cop|law|officer|over|police|pulled|undercover
+U+1F46E U+200D U+2642 U+FE0F;apprehend|arrest|citation|cop|law|man|officer|over|police|pulled|undercover
+U+1F46E U+200D U+2640 U+FE0F;apprehend|arrest|citation|cop|law|officer|over|police|pulled|undercover|woman
+U+1F575;detective|sleuth|spy
+U+1F575 U+FE0F U+200D U+2642 U+FE0F;detective|man|sleuth|spy
+U+1F575 U+FE0F U+200D U+2640 U+FE0F;detective|sleuth|spy|woman
+U+1F482;buckingham|guard|helmet|london|palace
+U+1F482 U+200D U+2642 U+FE0F;buckingham|guard|helmet|london|man|palace
+U+1F482 U+200D U+2640 U+FE0F;buckingham|guard|helmet|london|palace|woman
+U+1F977;assassin|fight|fighter|hidden|ninja|person|secret|skills|sly|soldier|stealth|war
+U+1F477;build|construction|fix|hardhat|hat|man|person|rebuild|remodel|repair|work|worker
+U+1F477 U+200D U+2642 U+FE0F;build|construction|fix|hardhat|hat|man|rebuild|remodel|repair|work|worker
+U+1F477 U+200D U+2640 U+FE0F;build|construction|fix|hardhat|hat|man|rebuild|remodel|repair|woman|work|worker
+U+1FAC5;crown|monarch|noble|person|regal|royal|royalty
+U+1F934;crown|fairy|fairytale|fantasy|king|prince|royal|royalty|tale
+U+1F478;crown|fairy|fairytale|fantasy|princess|queen|royal|royalty|tale
+U+1F473;person|turban|wearing
+U+1F473 U+200D U+2642 U+FE0F;man|turban|wearing
+U+1F473 U+200D U+2640 U+FE0F;turban|wearing|woman
+U+1F472;cap|Chinese|gua|guapi|hat|mao|person|pi|skullcap
+U+1F9D5;bandana|head|headscarf|hijab|kerchief|mantilla|tichel|woman|head kerchief
+U+1F935;formal|person|tuxedo|wedding
+U+1F935 U+200D U+2642 U+FE0F;formal|groom|man|tuxedo|wedding
+U+1F935 U+200D U+2640 U+FE0F;formal|tuxedo|wedding|woman
+U+1F470;person|veil|wedding
+U+1F470 U+200D U+2642 U+FE0F;man|veil|wedding
+U+1F470 U+200D U+2640 U+FE0F;bride|veil|wedding|woman
+U+1F930;pregnant|woman
+U+1FAC3;belly|bloated|full|man|overeat|pregnant
+U+1FAC4;belly|bloated|full|overeat|person|pregnant|stuffed
+U+1F931;baby|breast|breast-feeding|feeding|mom|mother|nursing|woman
+U+1F469 U+200D U+1F37C;baby|feed|feeding|mom|mother|nanny|newborn|nursing|woman
+U+1F468 U+200D U+1F37C;baby|dad|father|feed|feeding|man|nanny|newborn|nursing
+U+1F9D1 U+200D U+1F37C;baby|feed|feeding|nanny|newborn|nursing|parent
+U+1F47C;angel|baby|church|face|fairy|fairytale|fantasy|tale
+U+1F385;celebration|Christmas|claus|fairy|fantasy|father|holiday|merry|santa|tale|xmas
+U+1F936;celebration|Christmas|claus|fairy|fantasy|holiday|merry|mother|Mrs|santa|tale|xmas
+U+1F9D1 U+200D U+1F384;celebration|Christmas|claus|fairy|fantasy|holiday|merry|Mx|santa|tale|xmas
+U+1F9B8;good|hero|superhero|superpower
+U+1F9B8 U+200D U+2642 U+FE0F;good|hero|man|superhero|superpower
+U+1F9B8 U+200D U+2640 U+FE0F;good|hero|heroine|superhero|superpower|woman
+U+1F9B9;bad|criminal|evil|superpower|supervillain|villain
+U+1F9B9 U+200D U+2642 U+FE0F;bad|criminal|evil|man|superpower|supervillain|villain
+U+1F9B9 U+200D U+2640 U+FE0F;bad|criminal|evil|superpower|supervillain|villain|woman
+U+1F9D9;fantasy|mage|magic|play|sorcerer|sorceress|sorcery|spell|summon|witch|wizard
+U+1F9D9 U+200D U+2642 U+FE0F;fantasy|mage|magic|man|play|sorcerer|sorceress|sorcery|spell|summon|witch|wizard
+U+1F9D9 U+200D U+2640 U+FE0F;fantasy|mage|magic|play|sorcerer|sorceress|sorcery|spell|summon|witch|wizard|woman
+U+1F9DA;fairy|fairytale|fantasy|myth|person|pixie|tale|wings
+U+1F9DA U+200D U+2642 U+FE0F;fairy|fairytale|fantasy|man|myth|Oberon|person|pixie|Puck|tale|wings
+U+1F9DA U+200D U+2640 U+FE0F;fairy|fairytale|fantasy|myth|person|pixie|tale|Titania|wings|woman
+U+1F9DB;blood|Dracula|fangs|halloween|scary|supernatural|teeth|undead|vampire
+U+1F9DB U+200D U+2642 U+FE0F;blood|fangs|halloween|man|scary|supernatural|teeth|undead|vampire
+U+1F9DB U+200D U+2640 U+FE0F;blood|fangs|halloween|scary|supernatural|teeth|undead|vampire|woman
+U+1F9DC;creature|fairytale|folklore|merperson|ocean|sea|siren|trident|mermaid|merman
+U+1F9DC U+200D U+2642 U+FE0F;creature|fairytale|folklore|merman|Neptune|ocean|Poseidon|sea|siren|trident|Triton
+U+1F9DC U+200D U+2640 U+FE0F;creature|fairytale|folklore|mermaid|merwoman|ocean|sea|siren|trident
+U+1F9DD;elf|elves|enchantment|fantasy|folklore|magic|magical|myth|LOTR style
+U+1F9DD U+200D U+2642 U+FE0F;elf|elves|enchantment|fantasy|folklore|magic|magical|man|myth
+U+1F9DD U+200D U+2640 U+FE0F;elf|elves|enchantment|fantasy|folklore|magic|magical|myth|woman
+U+1F9DE;djinn|fantasy|genie|jinn|lamp|myth|rub|wishes|(non-human color)
+U+1F9DE U+200D U+2642 U+FE0F;djinn|fantasy|genie|jinn|lamp|man|myth|rub|wishes
+U+1F9DE U+200D U+2640 U+FE0F;djinn|fantasy|genie|jinn|lamp|myth|rub|wishes|woman
+U+1F9DF;apocalypse|dead|halloween|horror|scary|undead|walking|zombie|(non-human color)
+U+1F9DF U+200D U+2642 U+FE0F;apocalypse|dead|halloween|horror|man|scary|undead|walking|zombie
+U+1F9DF U+200D U+2640 U+FE0F;apocalypse|dead|halloween|horror|scary|undead|walking|woman|zombie
+U+1F9CC;fairy|fantasy|monster|tale|troll|trolling
+U+1F486;face|getting|headache|massage|person|relax|relaxing|salon|soothe|spa|tension|therapy|treatment
+U+1F486 U+200D U+2642 U+FE0F;face|getting|headache|man|massage|relax|relaxing|salon|soothe|spa|tension|therapy|treatment
+U+1F486 U+200D U+2640 U+FE0F;face|getting|headache|massage|relax|relaxing|salon|soothe|spa|tension|therapy|treatment|woman
+U+1F487;barber|beauty|chop|cosmetology|cut|groom|hair|haircut|parlor|person|shears|style
+U+1F487 U+200D U+2642 U+FE0F;barber|beauty|chop|cosmetology|cut|groom|hair|haircut|man|parlor|person|shears|style
+U+1F487 U+200D U+2640 U+FE0F;barber|beauty|chop|cosmetology|cut|groom|hair|haircut|parlor|person|shears|style|woman
+U+1F6B6;amble|gait|hike|man|pace|pedestrian|person|stride|stroll|walk|walking
+U+1F6B6 U+200D U+2642 U+FE0F;amble|gait|hike|man|pace|pedestrian|stride|stroll|walk|walking
+U+1F6B6 U+200D U+2640 U+FE0F;amble|gait|hike|man|pace|pedestrian|stride|stroll|walk|walking|woman
+U+1F6B6 U+200D U+27A1 U+FE0F;amble|gait|hike|man|pace|pedestrian|person|stride|stroll|walk|walking
+U+1F6B6 U+200D U+2640 U+FE0F U+200D U+27A1 U+FE0F;amble|gait|hike|man|pace|pedestrian|stride|stroll|walk|walking|woman
+U+1F6B6 U+200D U+2642 U+FE0F U+200D U+27A1 U+FE0F;amble|gait|hike|man|pace|pedestrian|stride|stroll|walk|walking
+U+1F9CD;person|stand|standing
+U+1F9CD U+200D U+2642 U+FE0F;man|stand|standing
+U+1F9CD U+200D U+2640 U+FE0F;stand|standing|woman
+U+1F9CE;kneel|kneeling|knees|person
+U+1F9CE U+200D U+2642 U+FE0F;kneel|kneeling|knees|man
+U+1F9CE U+200D U+2640 U+FE0F;kneel|kneeling|knees|woman
+U+1F9CE U+200D U+27A1 U+FE0F;kneel|kneeling|knees|person
+U+1F9CE U+200D U+2640 U+FE0F U+200D U+27A1 U+FE0F;kneel|kneeling|knees|woman
+U+1F9CE U+200D U+2642 U+FE0F U+200D U+27A1 U+FE0F;kneel|kneeling|knees|man
+U+1F9D1 U+200D U+1F9AF;accessibility|blind|cane|person|probing|white
+U+1F9D1 U+200D U+1F9AF U+200D U+27A1 U+FE0F;accessibility|blind|cane|person|probing|white
+U+1F468 U+200D U+1F9AF;accessibility|blind|cane|man|probing|white
+U+1F468 U+200D U+1F9AF U+200D U+27A1 U+FE0F;accessibility|blind|cane|man|probing|white
+U+1F469 U+200D U+1F9AF;accessibility|blind|cane|probing|white|woman
+U+1F469 U+200D U+1F9AF U+200D U+27A1 U+FE0F;accessibility|blind|cane|probing|white|woman
+U+1F9D1 U+200D U+1F9BC;accessibility|motorized|person|wheelchair
+U+1F9D1 U+200D U+1F9BC U+200D U+27A1 U+FE0F;accessibility|motorized|person|wheelchair
+U+1F468 U+200D U+1F9BC;accessibility|man|motorized|wheelchair
+U+1F468 U+200D U+1F9BC U+200D U+27A1 U+FE0F;accessibility|man|motorized|wheelchair
+U+1F469 U+200D U+1F9BC;accessibility|motorized|wheelchair|woman
+U+1F469 U+200D U+1F9BC U+200D U+27A1 U+FE0F;accessibility|motorized|wheelchair|woman
+U+1F9D1 U+200D U+1F9BD;accessibility|manual|person|wheelchair
+U+1F9D1 U+200D U+1F9BD U+200D U+27A1 U+FE0F;accessibility|manual|person|wheelchair
+U+1F468 U+200D U+1F9BD;accessibility|man|manual|wheelchair
+U+1F468 U+200D U+1F9BD U+200D U+27A1 U+FE0F;accessibility|man|manual|wheelchair
+U+1F469 U+200D U+1F9BD;accessibility|manual|wheelchair|woman
+U+1F469 U+200D U+1F9BD U+200D U+27A1 U+FE0F;accessibility|manual|wheelchair|woman
+U+1F3C3;fast|hurry|marathon|move|person|quick|race|racing|run|rush|speed
+U+1F3C3 U+200D U+2642 U+FE0F;fast|hurry|man|marathon|move|quick|race|racing|run|rush|speed
+U+1F3C3 U+200D U+2640 U+FE0F;fast|hurry|marathon|move|quick|race|racing|run|rush|speed|woman
+U+1F3C3 U+200D U+27A1 U+FE0F;fast|hurry|marathon|move|person|quick|race|racing|run|rush|speed
+U+1F3C3 U+200D U+2640 U+FE0F U+200D U+27A1 U+FE0F;fast|hurry|marathon|move|quick|race|racing|run|rush|speed|woman
+U+1F3C3 U+200D U+2642 U+FE0F U+200D U+27A1 U+FE0F;fast|hurry|man|marathon|move|quick|race|racing|run|rush|speed
+U+1F483;dance|dancer|dancing|elegant|festive|flair|flamenco|groove|let’s|salsa|tango|woman
+U+1F57A;dance|dancer|dancing|elegant|festive|flair|flamenco|groove|let’s|man|salsa|tango
+U+1F574;business|levitating|person|suit
+U+1F46F;bestie|bff|bunny|counterpart|dancer|double|ear|identical|pair|party|partying|people|soulmate|twin|twinsies
+U+1F46F U+200D U+2642 U+FE0F;bestie|bff|bunny|counterpart|dancer|double|ear|identical|men|pair|party|partying|people|soulmate|twin|twinsies
+U+1F46F U+200D U+2640 U+FE0F;bestie|bff|bunny|counterpart|dancer|double|ear|identical|pair|party|partying|people|soulmate|twin|twinsies|women
+U+1F9D6;day|luxurious|pamper|person|relax|room|sauna|spa|steam|steambath|unwind|hamam|steam room
+U+1F9D6 U+200D U+2642 U+FE0F;day|luxurious|man|pamper|relax|room|sauna|spa|steam|steambath|unwind
+U+1F9D6 U+200D U+2640 U+FE0F;day|luxurious|pamper|relax|room|sauna|spa|steam|steambath|unwind|woman
+U+1F9D7;climb|climber|climbing|mountain|person|rock|scale|up
+U+1F9D7 U+200D U+2642 U+FE0F;climb|climber|climbing|man|mountain|rock|scale|up
+U+1F9D7 U+200D U+2640 U+FE0F;climb|climber|climbing|mountain|rock|scale|up|woman
+U+1F93A;fencer|fencing|person|sword
+U+1F3C7;horse|jockey|racehorse|racing|riding|sport
+U+26F7;ski|skier|snow
+U+1F3C2;ski|snow|snowboard|snowboarder|sport
+U+1F3CC;ball|birdie|caddy|driving|golf|golfing|green|person|pga|putt|range|tee
+U+1F3CC U+FE0F U+200D U+2642 U+FE0F;ball|birdie|caddy|driving|golf|golfing|green|man|pga|putt|range|tee
+U+1F3CC U+FE0F U+200D U+2640 U+FE0F;ball|birdie|caddy|driving|golf|golfing|green|pga|putt|range|tee|woman
+U+1F3C4;beach|ocean|person|sport|surf|surfer|surfing|swell|waves
+U+1F3C4 U+200D U+2642 U+FE0F;beach|man|ocean|sport|surf|surfer|surfing|swell|waves
+U+1F3C4 U+200D U+2640 U+FE0F;beach|ocean|person|sport|surf|surfer|surfing|swell|waves
+U+1F6A3;boat|canoe|cruise|fishing|lake|oar|paddle|person|raft|river|row|rowboat|rowing
+U+1F6A3 U+200D U+2642 U+FE0F;boat|canoe|cruise|fishing|lake|man|oar|paddle|raft|river|row|rowboat|rowing
+U+1F6A3 U+200D U+2640 U+FE0F;boat|canoe|cruise|fishing|lake|oar|paddle|raft|river|row|rowboat|rowing|woman
+U+1F3CA;freestyle|person|sport|swim|swimmer|swimming|triathlon
+U+1F3CA U+200D U+2642 U+FE0F;freestyle|man|sport|swim|swimmer|swimming|triathlon
+U+1F3CA U+200D U+2640 U+FE0F;freestyle|man|sport|swim|swimmer|swimming|triathlon
+U+26F9;athletic|ball|basketball|bouncing|championship|dribble|net|person|player|throw
+U+26F9 U+FE0F U+200D U+2642 U+FE0F;athletic|ball|basketball|bouncing|championship|dribble|man|net|player|throw
+U+26F9 U+FE0F U+200D U+2640 U+FE0F;athletic|ball|basketball|bouncing|championship|dribble|net|player|throw|woman
+U+1F3CB;barbell|bodybuilder|deadlift|lifter|lifting|person|powerlifting|weight|weightlifter|weights|workout
+U+1F3CB U+FE0F U+200D U+2642 U+FE0F;barbell|bodybuilder|deadlift|lifter|lifting|man|powerlifting|weight|weightlifter|weights|workout
+U+1F3CB U+FE0F U+200D U+2640 U+FE0F;barbell|bodybuilder|deadlift|lifter|lifting|powerlifting|weight|weightlifter|weights|woman|workout
+U+1F6B4;bicycle|bicyclist|bike|biking|cycle|cyclist|person|riding|sport
+U+1F6B4 U+200D U+2642 U+FE0F;bicycle|bicyclist|bike|biking|cycle|cyclist|man|riding|sport
+U+1F6B4 U+200D U+2640 U+FE0F;bicycle|bicyclist|bike|biking|cycle|cyclist|riding|sport|woman
+U+1F6B5;bicycle|bicyclist|bike|biking|cycle|cyclist|mountain|person|riding|sport
+U+1F6B5 U+200D U+2642 U+FE0F;bicycle|bicyclist|bike|biking|cycle|cyclist|man|mountain|riding|sport
+U+1F6B5 U+200D U+2640 U+FE0F;bicycle|bicyclist|bike|biking|cycle|cyclist|mountain|riding|sport|woman
+U+1F938;active|cartwheel|cartwheeling|excited|flip|gymnastics|happy|person|somersault
+U+1F938 U+200D U+2642 U+FE0F;active|cartwheel|cartwheeling|excited|flip|gymnastics|happy|man|somersault
+U+1F938 U+200D U+2640 U+FE0F;active|cartwheel|cartwheeling|excited|flip|gymnastics|happy|somersault|woman
+U+1F93C;combat|duel|grapple|people|ring|tournament|wrestle|wrestling
+U+1F93C U+200D U+2642 U+FE0F;combat|duel|grapple|men|ring|tournament|wrestle|wrestling
+U+1F93C U+200D U+2640 U+FE0F;combat|duel|grapple|ring|tournament|women|wrestle|wrestling
+U+1F93D;person|playing|polo|sport|swimming|water|waterpolo
+U+1F93D U+200D U+2642 U+FE0F;man|playing|polo|sport|swimming|water|waterpolo
+U+1F93D U+200D U+2640 U+FE0F;playing|polo|sport|swimming|water|waterpolo|woman
+U+1F93E;athletics|ball|catch|chuck|handball|hurl|lob|person|pitch|playing|sport|throw|toss
+U+1F93E U+200D U+2642 U+FE0F;athletics|ball|catch|chuck|handball|hurl|lob|man|pitch|playing|sport|throw|toss
+U+1F93E U+200D U+2640 U+FE0F;athletics|ball|catch|chuck|handball|hurl|lob|pitch|playing|sport|throw|toss|woman
+U+1F939;act|balance|balancing|handle|juggle|juggling|manage|multitask|person|skill
+U+1F939 U+200D U+2642 U+FE0F;act|balance|balancing|handle|juggle|juggling|man|manage|multitask|skill
+U+1F939 U+200D U+2640 U+FE0F;act|balance|balancing|handle|juggle|juggling|manage|multitask|skill|woman
+U+1F9D8;cross|legged|legs|lotus|meditation|peace|person|position|relax|serenity|yoga|yogi|zen
+U+1F9D8 U+200D U+2642 U+FE0F;cross|legged|legs|lotus|man|meditation|peace|position|relax|serenity|yoga|yogi|zen
+U+1F9D8 U+200D U+2640 U+FE0F;cross|legged|legs|lotus|meditation|peace|position|relax|serenity|woman|yoga|yogi|zen
+U+1F6C0;bath|bathtub|person|taking|tub
+U+1F6CC;bed|bedtime|good|goodnight|hotel|nap|night|person|sleep|tired|zzz
+U+1F9D1 U+200D U+1F91D U+200D U+1F9D1;bae|bestie|bff|couple|dating|flirt|friends|hand|hold|people|twins
+U+1F46D;bae|bestie|bff|couple|dating|flirt|friends|girls|hand|hold|sisters|twins|women
+U+1F46B;bae|bestie|bff|couple|dating|flirt|friends|hand|hold|man|twins|woman
+U+1F46C;bae|bestie|bff|boys|brothers|couple|dating|flirt|friends|hand|hold|men|twins
+U+1F48F;anniversary|babe|bae|couple|date|dating|heart|kiss|love|mwah|person|romance|together|xoxo
+U+1F469 U+200D U+2764 U+FE0F U+200D U+1F48B U+200D U+1F468;anniversary|babe|bae|couple|date|dating|heart|kiss|love|man|mwah|person|romance|together|woman|xoxo
+U+1F468 U+200D U+2764 U+FE0F U+200D U+1F48B U+200D U+1F468;anniversary|babe|bae|couple|date|dating|heart|kiss|love|man|mwah|person|romance|together|xoxo
+U+1F469 U+200D U+2764 U+FE0F U+200D U+1F48B U+200D U+1F469;anniversary|babe|bae|couple|date|dating|heart|kiss|love|mwah|person|romance|together|woman|xoxo
+U+1F491;anniversary|babe|bae|couple|dating|heart|kiss|love|person|relationship|romance|together|you
+U+1F469 U+200D U+2764 U+FE0F U+200D U+1F468;anniversary|babe|bae|couple|dating|heart|kiss|love|man|person|relationship|romance|together|woman|you
+U+1F468 U+200D U+2764 U+FE0F U+200D U+1F468;anniversary|babe|bae|couple|dating|heart|kiss|love|man|person|relationship|romance|together|you
+U+1F469 U+200D U+2764 U+FE0F U+200D U+1F469;anniversary|babe|bae|couple|dating|heart|kiss|love|person|relationship|romance|together|woman|you
+U+1F468 U+200D U+1F469 U+200D U+1F466;boy|child|family|man|woman
+U+1F468 U+200D U+1F469 U+200D U+1F467;child|family|girl|man|woman
+U+1F468 U+200D U+1F469 U+200D U+1F467 U+200D U+1F466;boy|child|family|girl|man|woman
+U+1F468 U+200D U+1F469 U+200D U+1F466 U+200D U+1F466;boy|child|family|man|woman
+U+1F468 U+200D U+1F469 U+200D U+1F467 U+200D U+1F467;child|family|girl|man|woman
+U+1F468 U+200D U+1F468 U+200D U+1F466;boy|child|family|man
+U+1F468 U+200D U+1F468 U+200D U+1F467;child|family|girl|man
+U+1F468 U+200D U+1F468 U+200D U+1F467 U+200D U+1F466;boy|child|family|girl|man
+U+1F468 U+200D U+1F468 U+200D U+1F466 U+200D U+1F466;boy|child|family|man
+U+1F468 U+200D U+1F468 U+200D U+1F467 U+200D U+1F467;child|family|girl|man
+U+1F469 U+200D U+1F469 U+200D U+1F466;boy|child|family|woman
+U+1F469 U+200D U+1F469 U+200D U+1F467;child|family|girl|woman
+U+1F469 U+200D U+1F469 U+200D U+1F467 U+200D U+1F466;boy|child|family|girl|woman
+U+1F469 U+200D U+1F469 U+200D U+1F466 U+200D U+1F466;boy|child|family|woman
+U+1F469 U+200D U+1F469 U+200D U+1F467 U+200D U+1F467;child|family|girl|woman
+U+1F468 U+200D U+1F466;boy|child|family|man
+U+1F468 U+200D U+1F466 U+200D U+1F466;boy|child|family|man
+U+1F468 U+200D U+1F467;child|family|girl|man
+U+1F468 U+200D U+1F467 U+200D U+1F466;boy|child|family|girl|man
+U+1F468 U+200D U+1F467 U+200D U+1F467;child|family|girl|man
+U+1F469 U+200D U+1F466;boy|child|family|woman
+U+1F469 U+200D U+1F466 U+200D U+1F466;boy|child|family|woman
+U+1F469 U+200D U+1F467;child|family|girl|woman
+U+1F469 U+200D U+1F467 U+200D U+1F466;boy|child|family|girl|woman
+U+1F469 U+200D U+1F467 U+200D U+1F467;child|family|girl|woman
+U+1F5E3;face|head|silhouette|speak|speaking
+U+1F464;bust|mysterious|shadow|silhouette
+U+1F465;bff|bust|busts|everyone|friend|friends|people|silhouette
+U+1FAC2;comfort|embrace|farewell|friendship|goodbye|hello|hug|hugging|love|people|thanks
+U+1F46A;child|family
+U+1F9D1 U+200D U+1F9D1 U+200D U+1F9D2;adult|child|family
+U+1F9D1 U+200D U+1F9D1 U+200D U+1F9D2 U+200D U+1F9D2;adult|child|family
+U+1F9D1 U+200D U+1F9D2;adult|child|family
+U+1F9D1 U+200D U+1F9D2 U+200D U+1F9D2;adult|child|family
+U+1F463;barefoot|clothing|footprint|footprints|omw|print|walk
+U+1FAC6;clue|crime|detective|fingerprint|forensics|identity|mystery|print|safety|trace
+U+1F9B0;ginger|hair|red|redhead
+U+1F9B1;afro|curly|hair|ringlets
+U+1F9B3;gray|hair|old|white
+U+1F9B2;bald|chemotherapy|hair|hairless|no|shaven
+U+1F435;animal|banana|face|monkey
+U+1F412;animal|banana|monkey
+U+1F98D;animal|gorilla
+U+1F9A7;animal|ape|monkey|orangutan
+U+1F436;adorbs|animal|dog|face|pet|puppies|puppy
+U+1F415;animal|animals|dog|dogs|pet
+U+1F9AE;accessibility|animal|blind|dog|guide
+U+1F415 U+200D U+1F9BA;accessibility|animal|assistance|dog|service
+U+1F429;animal|dog|fluffy|poodle
+U+1F43A;animal|face|wolf
+U+1F98A;animal|face|fox
+U+1F99D;animal|curious|raccoon|sly
+U+1F431;animal|cat|face|kitten|kitty|pet
+U+1F408;animal|animals|cat|cats|kitten|pet
+U+1F408 U+200D U+2B1B;animal|black|cat|feline|halloween|meow|unlucky
+U+1F981;alpha|animal|face|Leo|lion|mane|order|rawr|roar|safari|strong|zodiac
+U+1F42F;animal|big|cat|face|predator|tiger
+U+1F405;animal|big|cat|predator|tiger|zoo
+U+1F406;animal|big|cat|leopard|predator|zoo
+U+1F434;animal|dressage|equine|face|farm|horse|horses
+U+1FACE;alces|animal|antlers|elk|mammal|moose
+U+1FACF;animal|ass|burro|donkey|hinny|mammal|mule|stubborn
+U+1F40E;animal|equestrian|farm|horse|racehorse|racing
+U+1F984;face|unicorn
+U+1F993;animal|stripe|zebra
+U+1F98C;animal|deer
+U+1F9AC;animal|bison|buffalo|herd|wisent
+U+1F42E;animal|cow|face|farm|milk|moo
+U+1F402;animal|animals|bull|farm|ox|Taurus|zodiac
+U+1F403;animal|buffalo|water|zoo
+U+1F404;animal|animals|cow|farm|milk|moo
+U+1F437;animal|bacon|face|farm|pig|pork
+U+1F416;animal|bacon|farm|pig|pork|sow
+U+1F417;animal|boar|pig
+U+1F43D;animal|face|farm|nose|pig|smell|snout
+U+1F40F;animal|Aries|horns|male|ram|sheep|zodiac|zoo
+U+1F411;animal|baa|ewe|farm|female|fluffy|lamb|sheep|wool
+U+1F410;animal|Capricorn|farm|goat|milk|zodiac
+U+1F42A;animal|camel|desert|dromedary|hump|one
+U+1F42B;animal|bactrian|camel|desert|hump|two|two-hump
+U+1F999;alpaca|animal|guanaco|llama|vicuña|wool
+U+1F992;animal|giraffe|spots
+U+1F418;animal|elephant
+U+1F9A3;animal|extinction|large|mammoth|tusk|wooly
+U+1F98F;animal|rhinoceros
+U+1F99B;animal|hippo|hippopotamus
+U+1F42D;animal|face|mouse
+U+1F401;animal|animals|mouse
+U+1F400;animal|rat
+U+1F439;animal|face|hamster|pet
+U+1F430;animal|bunny|face|pet|rabbit
+U+1F407;animal|bunny|pet|rabbit
+U+1F43F;animal|chipmunk|squirrel
+U+1F9AB;animal|beaver|dam|teeth
+U+1F994;animal|hedgehog|spiny
+U+1F987;animal|bat|vampire
+U+1F43B;animal|bear|face|grizzly|growl|honey
+U+1F43B U+200D U+2744 U+FE0F;animal|arctic|bear|polar|white
+U+1F428;animal|australia|bear|down|face|koala|marsupial|under
+U+1F43C;animal|bamboo|face|panda
+U+1F9A5;lazy|sloth|slow
+U+1F9A6;animal|fishing|otter|playful
+U+1F9A8;animal|skunk|stink
+U+1F998;animal|joey|jump|kangaroo|marsupial
+U+1F9A1;animal|badger|honey|pester
+U+1F43E;feet|paw|paws|print|prints
+U+1F983;bird|gobble|thanksgiving|turkey
+U+1F414;animal|bird|chicken|ornithology
+U+1F413;animal|bird|ornithology|rooster
+U+1F423;animal|baby|bird|chick|egg|hatching
+U+1F424;animal|baby|bird|chick|ornithology
+U+1F425;animal|baby|bird|chick|front-facing|newborn|ornithology
+U+1F426;animal|bird|ornithology
+U+1F427;animal|antarctica|bird|ornithology|penguin
+U+1F54A;bird|dove|fly|ornithology|peace
+U+1F985;animal|bird|eagle|ornithology
+U+1F986;animal|bird|duck|ornithology
+U+1F9A2;animal|bird|cygnet|duckling|ornithology|swan|ugly
+U+1F989;animal|bird|ornithology|owl|wise
+U+1F9A4;animal|bird|dodo|extinction|large|ornithology
+U+1FAB6;bird|feather|flight|light|plumage
+U+1F9A9;animal|bird|flamboyant|flamingo|ornithology|tropical
+U+1F99A;animal|bird|colorful|ornithology|ostentatious|peacock|peahen|pretty|proud
+U+1F99C;animal|bird|ornithology|parrot|pirate|talk
+U+1FABD;angelic|ascend|aviation|bird|fly|flying|heavenly|mythology|soar|wing
+U+1F426 U+200D U+2B1B;animal|beak|bird|black|caw|corvid|crow|ornithology|raven|rook
+U+1FABF;animal|bird|duck|flock|fowl|gaggle|gander|geese|goose|honk|ornithology|silly
+U+1F426 U+200D U+1F525;ascend|ascension|emerge|fantasy|firebird|glory|immortal|phoenix|rebirth|reincarnation|reinvent|renewal|revival|revive|rise|transform
+U+1F438;animal|face|frog
+U+1F40A;animal|crocodile|zoo
+U+1F422;animal|terrapin|tortoise|turtle
+U+1F98E;animal|lizard|reptile
+U+1F40D;animal|bearer|Ophiuchus|serpent|snake|zodiac
+U+1F432;animal|dragon|face|fairy|fairytale|tale
+U+1F409;animal|dragon|fairy|fairytale|knights|tale
+U+1F995;brachiosaurus|brontosaurus|dinosaur|diplodocus|sauropod
+U+1F996;dinosaur|Rex|T|T-Rex|Tyrannosaurus|Tyrannosaurus Rex
+U+1F433;animal|beach|face|ocean|spouting|whale
+U+1F40B;animal|beach|ocean|whale
+U+1F42C;animal|beach|dolphin|flipper|ocean
+U+1F9AD;animal|lion|ocean|sea|seal
+U+1F41F;animal|dinner|fish|fishes|fishing|Pisces|zodiac
+U+1F420;animal|fish|fishes|tropical
+U+1F421;animal|blowfish|fish
+U+1F988;animal|fish|shark
+U+1F419;animal|creature|ocean|octopus
+U+1F41A;animal|beach|conch|sea|shell|spiral
+U+1FAB8;change|climate|coral|ocean|reef|sea
+U+1FABC;animal|aquarium|burn|invertebrate|jelly|jellyfish|life|marine|ocean|ouch|plankton|sea|sting|stinger|tentacles
+U+1F980;Cancer|crab|zodiac
+U+1F99E;animal|bisque|claws|lobster|seafood
+U+1F990;food|shellfish|shrimp|small
+U+1F991;animal|food|mollusk|squid
+U+1F9AA;diving|oyster|pearl
+U+1F40C;animal|escargot|garden|nature|slug|snail
+U+1F98B;butterfly|insect|pretty
+U+1F41B;animal|bug|garden|insect
+U+1F41C;animal|ant|garden|insect
+U+1F41D;animal|bee|bumblebee|honey|honeybee|insect|nature|spring
+U+1FAB2;animal|beetle|bug|insect
+U+1F41E;animal|beetle|garden|insect|lady|ladybird|ladybug|nature
+U+1F997;animal|bug|cricket|grasshopper|insect|Orthoptera
+U+1FAB3;animal|cockroach|insect|pest|roach
+U+1F577;animal|insect|spider
+U+1F578;spider|web
+U+1F982;Scorpio|scorpion|Scorpius|zodiac
+U+1F99F;bite|disease|fever|insect|malaria|mosquito|pest|virus
+U+1FAB0;animal|disease|fly|insect|maggot|pest|rotting
+U+1FAB1;animal|annelid|earthworm|parasite|worm
+U+1F9A0;amoeba|bacteria|microbe|science|virus
+U+1F490;anniversary|birthday|bouquet|date|flower|love|plant|romance
+U+1F338;blossom|cherry|flower|plant|spring|springtime
+U+1F4AE;flower|white
+U+1FAB7;beauty|Buddhism|calm|flower|Hinduism|lotus|peace|purity|serenity
+U+1F3F5;plant|rosette
+U+1F339;beauty|elegant|flower|love|plant|red|rose|valentine
+U+1F940;dying|flower|wilted
+U+1F33A;flower|hibiscus|plant
+U+1F33B;flower|outdoors|plant|sun|sunflower
+U+1F33C;blossom|buttercup|dandelion|flower|plant
+U+1F337;blossom|flower|growth|plant|tulip
+U+1FABB;bloom|bluebonnet|flower|hyacinth|indigo|lavender|lilac|lupine|plant|purple|shrub|snapdragon|spring|violet
+U+1F331;plant|sapling|seedling|sprout|young
+U+1FAB4;decor|grow|house|nurturing|plant|pot|potted
+U+1F332;christmas|evergreen|forest|pine|tree
+U+1F333;deciduous|forest|green|habitat|shedding|tree
+U+1F334;beach|palm|plant|tree|tropical
+U+1F335;cactus|desert|drought|nature|plant
+U+1F33E;ear|grain|grains|plant|rice|sheaf
+U+1F33F;herb|leaf|plant
+U+2618;irish|plant|shamrock
+U+1F340;4|clover|four|four-leaf|irish|leaf|lucky|plant
+U+1F341;falling|leaf|maple
+U+1F342;autumn|fall|fallen|falling|leaf
+U+1F343;blow|flutter|fluttering|leaf|wind
+U+1FAB9;branch|empty|home|nest|nesting
+U+1FABA;bird|branch|egg|eggs|nest|nesting
+U+1F344;fungus|mushroom|toadstool
+U+1FABE;bare|barren|branches|dead|drought|leafless|tree|trunk|winter|wood
+U+1F347;Dionysus|fruit|grape|grapes
+U+1F348;cantaloupe|fruit|melon
+U+1F349;fruit|watermelon
+U+1F34A;c|citrus|fruit|nectarine|orange|tangerine|vitamin
+U+1F34B;citrus|fruit|lemon|sour
+U+1F34B U+200D U+1F7E9;acidity|citrus|cocktail|fruit|garnish|key|lime|margarita|mojito|refreshing|salsa|sour|tangy|tequila|tropical|zest
+U+1F34C;banana|fruit|potassium
+U+1F34D;colada|fruit|pina|pineapple|tropical
+U+1F96D;food|fruit|mango|tropical
+U+1F34E;apple|diet|food|fruit|health|red|ripe
+U+1F34F;apple|fruit|green
+U+1F350;fruit|pear
+U+1F351;fruit|peach
+U+1F352;berries|cherries|cherry|fruit|red
+U+1F353;berry|fruit|strawberry
+U+1FAD0;berries|berry|bilberry|blue|blueberries|blueberry|food|fruit
+U+1F95D;food|fruit|kiwi
+U+1F345;food|fruit|tomato|vegetable
+U+1FAD2;food|olive
+U+1F965;coconut|colada|palm|piña
+U+1F951;avocado|food|fruit
+U+1F346;aubergine|eggplant|vegetable
+U+1F954;food|potato|vegetable
+U+1F955;carrot|food|vegetable
+U+1F33D;corn|crops|ear|farm|maize|maze
+U+1F336;hot|pepper
+U+1FAD1;bell|capsicum|food|pepper|vegetable
+U+1F952;cucumber|food|pickle|vegetable
+U+1F96C;bok|burgers|cabbage|choy|green|kale|leafy|lettuce|salad
+U+1F966;broccoli|cabbage|wild
+U+1F9C4;flavoring|garlic
+U+1F9C5;flavoring|onion
+U+1F95C;food|nut|peanut|peanuts|vegetable
+U+1FAD8;beans|food|kidney|legume|small
+U+1F330;almond|chestnut|plant
+U+1FADA;beer|ginger|health|herb|natural|root|spice
+U+1FADB;beans|beanstalk|edamame|legume|pea|pod|soybean|vegetable|veggie
+U+1F344 U+200D U+1F7EB;food|fungi|fungus|mushroom|nature|pizza|portobello|shiitake|shroom|spore|sprout|toppings|truffle|vegetable|vegetarian|veggie
+U+1FADC;beet|food|garden|radish|root|salad|turnip|vegetable|vegetarian
+U+1F35E;bread|carbs|food|grain|loaf|restaurant|toast|wheat
+U+1F950;bread|breakfast|crescent|croissant|food|french|roll
+U+1F956;baguette|bread|food|french
+U+1FAD3;arepa|bread|flatbread|food|gordita|lavash|naan|pita
+U+1F968;convoluted|pretzel|twisted
+U+1F96F;bagel|bakery|bread|breakfast|schmear
+U+1F95E;breakfast|crêpe|food|hotcake|pancake|pancakes
+U+1F9C7;breakfast|indecisive|iron|waffle
+U+1F9C0;cheese|wedge
+U+1F356;bone|meat
+U+1F357;bone|chicken|drumstick|hungry|leg|poultry|turkey
+U+1F969;chop|cut|lambchop|meat|porkchop|red|steak
+U+1F953;bacon|breakfast|food|meat
+U+1F354;burger|eat|fast|food|hamburger|hungry
+U+1F35F;fast|food|french|fries
+U+1F355;cheese|food|hungry|pepperoni|pizza|slice
+U+1F32D;dog|frankfurter|hot|hotdog|sausage
+U+1F96A;bread|sandwich
+U+1F32E;mexican|taco
+U+1F32F;burrito|mexican|wrap
+U+1FAD4;food|mexican|pamonha|tamale|wrapped
+U+1F959;falafel|flatbread|food|gyro|kebab|stuffed
+U+1F9C6;chickpea|falafel|meatball
+U+1F95A;breakfast|egg|food
+U+1F373;breakfast|cooking|easy|egg|fry|frying|over|pan|restaurant|side|sunny|up
+U+1F958;casserole|food|paella|pan|shallow
+U+1F372;food|pot|soup|stew
+U+1FAD5;cheese|chocolate|fondue|food|melted|pot|ski
+U+1F963;bowl|breakfast|cereal|congee|oatmeal|porridge|spoon
+U+1F957;food|green|salad
+U+1F37F;corn|movie|pop|popcorn
+U+1F9C8;butter|dairy
+U+1F9C2;condiment|flavor|mad|salt|salty|shaker|taste|upset
+U+1F96B;can|canned|food
+U+1F371;bento|box|food
+U+1F358;cracker|food|rice
+U+1F359;ball|food|Japanese|rice
+U+1F35A;cooked|food|rice
+U+1F35B;curry|food|rice
+U+1F35C;bowl|chopsticks|food|noodle|pho|ramen|soup|steaming
+U+1F35D;food|meatballs|pasta|restaurant|spaghetti
+U+1F360;food|potato|roasted|sweet
+U+1F362;food|kebab|oden|restaurant|seafood|skewer|stick
+U+1F363;food|sushi
+U+1F364;fried|prawn|shrimp|tempura
+U+1F365;cake|fish|food|pastry|restaurant|swirl
+U+1F96E;autumn|cake|festival|moon|yuèbǐng
+U+1F361;dango|dessert|Japanese|skewer|stick|sweet
+U+1F95F;dumpling|empanada|gyōza|jiaozi|pierogi|potsticker
+U+1F960;cookie|fortune|prophecy
+U+1F961;box|chopsticks|delivery|food|oyster|pail|takeout
+U+1F366;cream|dessert|food|ice|icecream|restaurant|serve|soft|sweet
+U+1F367;dessert|ice|restaurant|shaved|sweet
+U+1F368;cream|dessert|food|ice|restaurant|sweet
+U+1F369;breakfast|dessert|donut|doughnut|food|sweet
+U+1F36A;chip|chocolate|cookie|dessert|sweet
+U+1F382;bday|birthday|cake|celebration|dessert|happy|pastry|sweet
+U+1F370;cake|dessert|pastry|shortcake|slice|sweet
+U+1F9C1;bakery|cupcake|dessert|sprinkles|sugar|sweet|treat
+U+1F967;apple|filling|fruit|meat|pastry|pie|pumpkin|slice
+U+1F36B;bar|candy|chocolate|dessert|halloween|sweet|tooth
+U+1F36C;candy|cavities|dessert|halloween|restaurant|sweet|tooth|wrapper
+U+1F36D;candy|dessert|food|lollipop|restaurant|sweet
+U+1F36E;custard|dessert|pudding|sweet
+U+1F36F;barrel|bear|food|honey|honeypot|jar|pot|sweet
+U+1F37C;babies|baby|birth|born|bottle|drink|infant|milk|newborn
+U+1F95B;drink|glass|milk
+U+2615;beverage|cafe|caffeine|chai|coffee|drink|hot|morning|steaming|tea
+U+1FAD6;brew|drink|food|pot|tea|teapot
+U+1F375;beverage|cup|drink|handle|oolong|tea|teacup
+U+1F376;bar|beverage|bottle|cup|drink|restaurant|sake
+U+1F37E;bar|bottle|cork|drink|popping
+U+1F377;alcohol|bar|beverage|booze|club|drink|drinking|drinks|glass|restaurant|wine
+U+1F378;alcohol|bar|booze|club|cocktail|drink|drinking|drinks|glass|mad|martini|men
+U+1F379;alcohol|bar|booze|club|cocktail|drink|drinking|drinks|drunk|mai|party|tai|tropical|tropics
+U+1F37A;alcohol|ale|bar|beer|booze|drink|drinking|drinks|mug|octoberfest|oktoberfest|pint|stein|summer
+U+1F37B;alcohol|bar|beer|booze|bottoms|cheers|clink|clinking|drinking|drinks|mugs
+U+1F942;celebrate|clink|clinking|drink|glass|glasses
+U+1F943;glass|liquor|scotch|shot|tumbler|whiskey|whisky
+U+1FAD7;accident|drink|empty|glass|liquid|oops|pour|pouring|spill|water
+U+1F964;cup|drink|juice|malt|soda|soft|straw|water|soft drink
+U+1F9CB;boba|bubble|food|milk|pearl|tea
+U+1F9C3;beverage|box|juice|straw|sweet
+U+1F9C9;drink|mate
+U+1F9CA;cold|cube|ice|iceberg
+U+1F962;chopsticks|hashi|jeotgarak|kuaizi
+U+1F37D;cooking|dinner|eat|fork|knife|plate
+U+1F374;breakfast|breaky|cooking|cutlery|delicious|dinner|eat|feed|food|fork|hungry|knife|lunch|restaurant|yum|yummy
+U+1F944;eat|spoon|tableware
+U+1F52A;chef|cooking|hocho|kitchen|knife|tool|weapon
+U+1FAD9;condiment|container|empty|jar|nothing|sauce|store
+U+1F3FA;amphora|Aquarius|cooking|drink|jug|tool|weapon|zodiac
+U+1F30D;Africa|earth|Europe|Europe-Africa|globe|showing|world
+U+1F30E;Americas|earth|globe|showing|world
+U+1F30F;Asia|Asia-Australia|Australia|earth|globe|showing|world
+U+1F310;earth|globe|internet|meridians|web|world|worldwide
+U+1F5FA;map|world
+U+1F5FE;Japan|map
+U+1F9ED;compass|direction|magnetic|navigation|orienteering
+U+1F3D4;cold|mountain|snow|snow-capped
+U+26F0;mountain
+U+1F30B;eruption|mountain|nature|volcano
+U+1F5FB;fuji|mount|mountain|nature
+U+1F3D5;camping
+U+1F3D6;beach|umbrella
+U+1F3DC;desert
+U+1F3DD;desert|island
+U+1F3DE;national|park
+U+1F3DF;stadium
+U+1F3DB;building|classical
+U+1F3D7;building|construction|crane
+U+1F9F1;brick|bricks|clay|mortar|wall
+U+1FAA8;boulder|heavy|rock|solid|stone|tough
+U+1FAB5;log|lumber|timber|wood
+U+1F6D6;home|house|hut|roundhouse|shelter|yurt
+U+1F3D8;house|houses
+U+1F3DA;derelict|home|house
+U+1F3E0;building|country|heart|home|house|ranch|settle|simple|suburban|suburbia|where
+U+1F3E1;building|country|garden|heart|home|house|ranch|settle|simple|suburban|suburbia|where
+U+1F3E2;building|city|cubical|job|office
+U+1F3E3;building|Japanese|office|post
+U+1F3E4;building|European|office|post
+U+1F3E5;building|doctor|hospital|medicine
+U+1F3E6;bank|building
+U+1F3E8;building|hotel
+U+1F3E9;building|hotel|love
+U+1F3EA;24|building|convenience|hours|store
+U+1F3EB;building|school
+U+1F3EC;building|department|store
+U+1F3ED;building|factory
+U+1F3EF;building|castle|Japanese
+U+1F3F0;building|castle|European
+U+1F492;chapel|hitched|nuptials|romance|wedding
+U+1F5FC;Tokyo|tower
+U+1F5FD;liberty|Liberty|new|ny|nyc|statue|Statue|york
+U+26EA;bless|chapel|Christian|church|cross|religion
+U+1F54C;islam|masjid|mosque|Muslim|religion
+U+1F6D5;hindu|temple
+U+1F54D;Jew|Jewish|judaism|religion|synagogue|temple
+U+26E9;religion|shinto|shrine
+U+1F54B;hajj|islam|kaaba|Muslim|religion|umrah
+U+26F2;fountain
+U+26FA;camping|tent
+U+1F301;fog|foggy
+U+1F303;night|star|stars
+U+1F3D9;city|cityscape
+U+1F304;morning|mountains|over|sun|sunrise
+U+1F305;morning|nature|sun|sunrise
+U+1F306;at|building|city|cityscape|dusk|evening|landscape|sun|sunset
+U+1F307;building|dusk|sun|sunset
+U+1F309;at|bridge|night
+U+2668;hot|hotsprings|springs|steaming
+U+1F3A0;carousel|entertainment|horse
+U+1F6DD;amusement|park|play|playground|playing|slide|sliding|theme
+U+1F3A1;amusement|ferris|park|theme|wheel
+U+1F3A2;amusement|coaster|park|roller|theme
+U+1F488;barber|cut|fresh|haircut|pole|shave
+U+1F3AA;circus|tent
+U+1F682;caboose|engine|locomotive|railway|steam|train|trains|travel
+U+1F683;car|electric|railway|train|tram|travel|trolleybus
+U+1F684;high-speed|railway|shinkansen|speed|train
+U+1F685;bullet|high-speed|nose|railway|shinkansen|speed|train|travel
+U+1F686;arrived|choo|railway|train
+U+1F687;metro|subway|travel
+U+1F688;arrived|light|monorail|rail|railway
+U+1F689;railway|station|train
+U+1F68A;tram|trolleybus
+U+1F69D;monorail|vehicle
+U+1F69E;car|mountain|railway|trip
+U+1F68B;bus|car|tram|trolley|trolleybus
+U+1F68C;bus|school|vehicle
+U+1F68D;bus|cars|oncoming
+U+1F68E;bus|tram|trolley|trolleybus
+U+1F690;bus|drive|minibus|van|vehicle
+U+1F691;ambulance|emergency|vehicle
+U+1F692;engine|fire|truck
+U+1F693;5–0|car|cops|patrol|police
+U+1F694;car|oncoming|police
+U+1F695;cab|cabbie|car|drive|taxi|vehicle|yellow
+U+1F696;cab|cabbie|cars|drove|hail|oncoming|taxi|yellow
+U+1F697;automobile|car|driving|vehicle
+U+1F698;automobile|car|cars|drove|oncoming|vehicle
+U+1F699;car|drive|recreational|sport|sportutility|utility|vehicle
+U+1F6FB;automobile|car|flatbed|pick-up|pickup|transportation|truck
+U+1F69A;car|delivery|drive|truck|vehicle
+U+1F69B;articulated|car|drive|lorry|move|semi|truck|vehicle
+U+1F69C;tractor|vehicle
+U+1F3CE;car|racing|zoom
+U+1F3CD;motorcycle|racing
+U+1F6F5;motor|scooter
+U+1F9BD;accessibility|manual|wheelchair
+U+1F9BC;accessibility|motorized|wheelchair
+U+1F6FA;auto|rickshaw|tuk
+U+1F6B2;bicycle|bike|class|cycle|cycling|cyclist|gang|ride|spin|spinning
+U+1F6F4;kick|scooter
+U+1F6F9;board|skate|skateboard|skater|wheels
+U+1F6FC;blades|roller|skate|skates|sport
+U+1F68F;bus|busstop|stop
+U+1F6E3;highway|motorway|road
+U+1F6E4;railway|track|train
+U+1F6E2;drum|oil
+U+26FD;diesel|fuel|fuelpump|gas|gasoline|pump|station
+U+1F6DE;car|circle|tire|turn|vehicle|wheel
+U+1F6A8;alarm|alert|beacon|car|emergency|light|police|revolving|siren
+U+1F6A5;horizontal|intersection|light|signal|stop|stoplight|traffic
+U+1F6A6;drove|intersection|light|signal|stop|stoplight|traffic|vertical
+U+1F6D1;octagonal|sign|stop
+U+1F6A7;barrier|construction
+U+2693;anchor|ship|tool
+U+1F6DF;buoy|float|life|lifesaver|preserver|rescue|ring|safety|save|saver|swim
+U+26F5;boat|resort|sailboat|sailing|sea|yacht
+U+1F6F6;boat|canoe
+U+1F6A4;billionaire|boat|lake|luxury|millionaire|speedboat|summer|travel
+U+1F6F3;passenger|ship
+U+26F4;boat|ferry|passenger
+U+1F6E5;boat|motor|motorboat
+U+1F6A2;boat|passenger|ship|travel
+U+2708;aeroplane|airplane|fly|flying|jet|plane|travel
+U+1F6E9;aeroplane|airplane|plane|small
+U+1F6EB;aeroplane|airplane|check-in|departure|departures|plane
+U+1F6EC;aeroplane|airplane|arrival|arrivals|arriving|landing|plane
+U+1FA82;hang-glide|parachute|parasail|skydive
+U+1F4BA;chair|seat
+U+1F681;copter|helicopter|roflcopter|travel|vehicle
+U+1F69F;railway|suspension
+U+1F6A0;cable|cableway|gondola|lift|mountain|ski
+U+1F6A1;aerial|cable|car|gondola|ropeway|tramway
+U+1F6F0;satellite|space
+U+1F680;launch|rocket|rockets|space|travel
+U+1F6F8;aliens|extra|flying|saucer|terrestrial|UFO
+U+1F6CE;bell|bellhop|hotel
+U+1F9F3;bag|luggage|packing|roller|suitcase|travel
+U+231B;done|hourglass|sand|time|timer
+U+23F3;done|flowing|hourglass|hours|not|sand|timer|waiting|yolo
+U+231A;clock|time|watch
+U+23F0;alarm|clock|hours|hrs|late|time|waiting
+U+23F1;clock|stopwatch|time
+U+23F2;clock|timer
+U+1F570;clock|mantelpiece|time
+U+1F55B;12|12:00|clock|o’clock|time|twelve
+U+1F567;12|12:30|30|clock|thirty|time|twelve|twelve-thirty
+U+1F550;1|1:00|clock|o’clock|one|time
+U+1F55C;1|1:30|30|clock|one|one-thirty|thirty|time
+U+1F551;2|2:00|clock|o’clock|time|two
+U+1F55D;2|2:30|30|clock|thirty|time|two|two-thirty
+U+1F552;3|3:00|clock|o’clock|three|time
+U+1F55E;3|3:30|30|clock|thirty|three|three-thirty|time
+U+1F553;4|4:00|clock|four|o’clock|time
+U+1F55F;30|4|4:30|clock|four|four-thirty|thirty|time
+U+1F554;5|5:00|clock|five|o’clock|time
+U+1F560;30|5|5:30|clock|five|five-thirty|thirty|time
+U+1F555;6|6:00|clock|o’clock|six|time
+U+1F561;30|6|6:30|clock|six|six-thirty|thirty
+U+1F556;0|7|7:00|clock|o’clock|seven
+U+1F562;30|7|7:30|clock|seven|seven-thirty|thirty
+U+1F557;8|8:00|clock|eight|o’clock|time
+U+1F563;30|8|8:30|clock|eight|eight-thirty|thirty|time
+U+1F558;9|9:00|clock|nine|o’clock|time
+U+1F564;30|9|9:30|clock|nine|nine-thirty|thirty|time
+U+1F559;0|10|10:00|clock|o’clock|ten
+U+1F565;10|10:30|30|clock|ten|ten-thirty|thirty|time
+U+1F55A;11|11:00|clock|eleven|o’clock|time
+U+1F566;11|11:30|30|clock|eleven|eleven-thirty|thirty|time
+U+1F311;dark|moon|new|space
+U+1F312;crescent|dreams|moon|space|waxing
+U+1F313;first|moon|quarter|space
+U+1F314;gibbous|moon|space|waxing
+U+1F315;full|moon|space
+U+1F316;gibbous|moon|space|waning
+U+1F317;last|moon|quarter|space
+U+1F318;crescent|moon|space|waning
+U+1F319;crescent|moon|ramadan|space
+U+1F31A;face|moon|new|space
+U+1F31B;face|first|moon|quarter|space
+U+1F31C;dreams|face|last|moon|quarter
+U+1F321;thermometer|weather
+U+2600;bright|rays|space|sun|sunny|weather
+U+1F31D;bright|face|full|moon
+U+1F31E;beach|bright|day|face|heat|shine|sun|sunny|sunshine|weather
+U+1FA90;planet|ringed|saturn|saturnine
+U+2B50;astronomy|medium|star|stars|white
+U+1F31F;glittery|glow|glowing|night|shining|sparkle|star|win
+U+1F320;falling|night|shooting|space|star
+U+1F30C;milky|space|way
+U+2601;cloud|weather
+U+26C5;behind|cloud|cloudy|sun|weather
+U+26C8;cloud|lightning|rain|thunder|thunderstorm
+U+1F324;behind|cloud|sun|weather
+U+1F325;behind|cloud|sun|weather
+U+1F326;behind|cloud|rain|sun|weather
+U+1F327;cloud|rain|weather
+U+1F328;cloud|cold|snow|weather
+U+1F329;cloud|lightning|weather
+U+1F32A;cloud|tornado|weather|whirlwind
+U+1F32B;cloud|fog|weather
+U+1F32C;blow|cloud|face|wind
+U+1F300;cyclone|dizzy|hurricane|twister|typhoon|weather
+U+1F308;gay|genderqueer|glbt|glbtq|lesbian|lgbt|lgbtq|lgbtqia|nature|pride|queer|rain|rainbow|trans|transgender|weather
+U+1F302;closed|clothing|rain|umbrella
+U+2602;clothing|rain|umbrella
+U+2614;clothing|drop|drops|rain|umbrella|weather
+U+26F1;ground|rain|sun|umbrella
+U+26A1;danger|electric|electricity|high|lightning|nature|thunder|thunderbolt|voltage|zap
+U+2744;cold|snow|snowflake|weather
+U+2603;cold|man|snow|snowman
+U+26C4;cold|man|snow|snowman
+U+2604;comet|space
+U+1F525;af|burn|fire|flame|hot|lit|litaf|tool
+U+1F4A7;cold|comic|drop|droplet|nature|sad|sweat|tear|water|weather
+U+1F30A;nature|ocean|surf|surfer|surfing|water|wave
+U+1F383;celebration|halloween|jack|jack-o-lantern|lantern|pumpkin
+U+1F384;celebration|Christmas|tree
+U+1F386;boom|celebration|entertainment|fireworks|yolo
+U+1F387;boom|celebration|fireworks|sparkle|sparkler
+U+1F9E8;dynamite|explosive|fire|firecracker|fireworks|light|pop|popping|spark
+U+2728;*|magic|sparkle|sparkles|star
+U+1F388;balloon|birthday|celebrate|celebration
+U+1F389;awesome|birthday|celebrate|celebration|excited|hooray|party|popper|tada|woohoo
+U+1F38A;ball|celebrate|celebration|confetti|party|woohoo
+U+1F38B;banner|celebration|Japanese|tanabata|tree
+U+1F38D;bamboo|celebration|decoration|Japanese|pine|plant
+U+1F38E;celebration|doll|dolls|festival|Japanese
+U+1F38F;carp|celebration|streamer
+U+1F390;bell|celebration|chime|wind
+U+1F391;celebration|ceremony|moon|viewing
+U+1F9E7;envelope|gift|good|hóngbāo|lai|luck|money|red|see
+U+1F380;celebration|ribbon
+U+1F381;birthday|bow|box|celebration|christmas|gift|present|surprise|wrapped
+U+1F397;celebration|reminder|ribbon
+U+1F39F;admission|ticket|tickets
+U+1F3AB;admission|stub|ticket
+U+1F396;award|celebration|medal|military
+U+1F3C6;champion|champs|prize|slay|sport|trophy|victory|win|winning
+U+1F3C5;award|gold|medal|sports|winner
+U+1F947;1st|first|gold|medal|place
+U+1F948;2nd|medal|place|second|silver
+U+1F949;3rd|bronze|medal|place|third
+U+26BD;ball|football|futbol|soccer|sport
+U+26BE;ball|baseball|sport
+U+1F94E;ball|glove|softball|sports|underarm
+U+1F3C0;ball|basketball|hoop|sport
+U+1F3D0;ball|game|volleyball
+U+1F3C8;american|ball|bowl|football|sport|super
+U+1F3C9;ball|football|rugby|sport
+U+1F3BE;ball|racquet|sport|tennis
+U+1F94F;disc|flying|ultimate
+U+1F3B3;ball|bowling|game|sport|strike
+U+1F3CF;ball|bat|cricket|game
+U+1F3D1;ball|field|game|hockey|stick
+U+1F3D2;game|hockey|ice|puck|stick
+U+1F94D;ball|goal|lacrosse|sports|stick
+U+1F3D3;ball|bat|game|paddle|ping|pingpong|pong|table|tennis
+U+1F3F8;badminton|birdie|game|racquet|shuttlecock
+U+1F94A;boxing|glove
+U+1F94B;arts|judo|karate|martial|taekwondo|uniform
+U+1F945;goal|net
+U+26F3;flag|golf|hole|sport
+U+26F8;ice|skate|skating
+U+1F3A3;entertainment|fish|fishing|pole|sport
+U+1F93F;diving|mask|scuba|snorkeling
+U+1F3BD;athletics|running|sash|shirt
+U+1F3BF;ski|skis|snow|sport
+U+1F6F7;luge|sled|sledge|sleigh|snow|toboggan
+U+1F94C;curling|game|rock|stone
+U+1F3AF;bull|bullseye|dart|direct|entertainment|game|hit|target
+U+1FA80;fluctuate|toy|yo-yo
+U+1FA81;fly|kite|soar
+U+1F52B;gun|handgun|pistol|revolver|tool|water|weapon
+U+1F3B1;8|8ball|ball|billiard|eight|game|pool
+U+1F52E;ball|crystal|fairy|fairytale|fantasy|fortune|future|magic|tale|tool
+U+1FA84;magic|magician|wand|witch|wizard
+U+1F3AE;controller|entertainment|game|video
+U+1F579;game|joystick|video|videogame
+U+1F3B0;casino|gamble|gambling|game|machine|slot|slots
+U+1F3B2;dice|die|entertainment|game
+U+1F9E9;clue|interlocking|jigsaw|piece|puzzle
+U+1F9F8;bear|plaything|plush|stuffed|teddy|toy
+U+1FA85;candy|celebrate|celebration|cinco|de|festive|mayo|party|pinada|pinata|piñata
+U+1FAA9;ball|dance|disco|glitter|mirror|party
+U+1FA86;babooshka|baboushka|babushka|doll|dolls|matryoshka|nesting|russia
+U+2660;card|game|spade|suit
+U+2665;card|emotion|game|heart|hearts|suit
+U+2666;card|diamond|game|suit
+U+2663;card|club|clubs|game|suit
+U+265F;chess|dupe|expendable|pawn
+U+1F0CF;card|game|joker|wildcard
+U+1F004;dragon|game|mahjong|red
+U+1F3B4;card|cards|flower|game|Japanese|playing
+U+1F3AD;actor|actress|art|arts|entertainment|mask|performing|theater|theatre|thespian
+U+1F5BC;art|frame|framed|museum|painting|picture
+U+1F3A8;art|artist|artsy|arty|colorful|creative|entertainment|museum|painter|painting|palette
+U+1F9F5;needle|sewing|spool|string|thread
+U+1FAA1;embroidery|needle|sew|sewing|stitches|sutures|tailoring|thread
+U+1F9F6;ball|crochet|knit|yarn
+U+1FAA2;cord|knot|rope|tangled|tie|twine|twist
+U+1F453;clothing|eye|eyeglasses|eyewear|glasses
+U+1F576;dark|eye|eyewear|glasses|sunglasses
+U+1F97D;dive|eye|goggles|protection|scuba|swimming|welding
+U+1F97C;clothes|coat|doctor|dr|experiment|jacket|lab|scientist|white
+U+1F9BA;emergency|safety|vest
+U+1F454;clothing|employed|necktie|serious|shirt|tie
+U+1F455;blue|casual|clothes|clothing|collar|dressed|shirt|shopping|t-shirt|tshirt|weekend
+U+1F456;blue|casual|clothes|clothing|denim|dressed|jeans|pants|shopping|trousers|weekend
+U+1F9E3;bundle|cold|neck|scarf|up
+U+1F9E4;gloves|hand
+U+1F9E5;brr|bundle|coat|cold|jacket|up
+U+1F9E6;socks|stocking
+U+1F457;clothes|clothing|dress|dressed|fancy|shopping
+U+1F458;clothing|comfortable|kimono
+U+1F97B;clothing|dress|sari
+U+1FA71;bathing|one-piece|suit|swimsuit
+U+1FA72;bathing|briefs|one-piece|suit|swimsuit|underwear
+U+1FA73;bathing|pants|shorts|suit|swimsuit|underwear
+U+1F459;bathing|beach|bikini|clothing|pool|suit|swim
+U+1F45A;blouse|clothes|clothing|collar|dress|dressed|lady|shirt|shopping|woman|woman’s
+U+1FAAD;clack|clap|cool|cooling|dance|fan|flirt|flutter|folding|hand|hot|shy
+U+1F45B;clothes|clothing|coin|dress|fancy|handbag|purse|shopping
+U+1F45C;bag|clothes|clothing|dress|handbag|lady|purse|shopping
+U+1F45D;bag|clothes|clothing|clutch|dress|handbag|pouch|purse
+U+1F6CD;bag|bags|hotel|shopping
+U+1F392;backpack|backpacking|bag|bookbag|education|rucksack|satchel|school
+U+1FA74;beach|flip|flop|sandal|sandals|shoe|thong|thongs|zōri
+U+1F45E;brown|clothes|clothing|feet|foot|kick|man|man’s|shoe|shoes|shopping
+U+1F45F;athletic|clothes|clothing|fast|kick|running|shoe|shoes|shopping|sneaker|tennis
+U+1F97E;backpacking|boot|brown|camping|hiking|outdoors|shoe
+U+1F97F;ballet|comfy|flat|flats|shoe|slip-on|slipper
+U+1F460;clothes|clothing|dress|fashion|heel|heels|high-heeled|shoe|shoes|shopping|stiletto|woman
+U+1F461;clothing|sandal|shoe|woman|woman’s
+U+1FA70;ballet|dance|shoes
+U+1F462;boot|clothes|clothing|dress|shoe|shoes|shopping|woman|woman’s
+U+1FAAE;Afro|comb|groom|hair|pick
+U+1F451;clothing|crown|family|king|medieval|queen|royal|royalty|win
+U+1F452;clothes|clothing|garden|hat|hats|party|woman|woman’s
+U+1F3A9;clothes|clothing|fancy|formal|hat|magic|top|tophat
+U+1F393;cap|celebration|clothing|education|graduation|hat|scholar
+U+1F9E2;baseball|bent|billed|cap|dad|hat|baseball cap
+U+1FA96;army|helmet|military|soldier|war|warrior
+U+26D1;aid|cross|face|hat|helmet|rescue|worker’s
+U+1F4FF;beads|clothing|necklace|prayer|religion
+U+1F484;cosmetics|date|lipstick|makeup
+U+1F48D;diamond|engaged|engagement|married|ring|romance|shiny|sparkling|wedding
+U+1F48E;diamond|engagement|gem|jewel|money|romance|stone|wedding
+U+1F507;mute|muted|quiet|silent|sound|speaker
+U+1F508;low|soft|sound|speaker|volume
+U+1F509;medium|sound|speaker|volume
+U+1F50A;high|loud|music|sound|speaker|volume
+U+1F4E2;address|communication|loud|loudspeaker|public|sound
+U+1F4E3;cheering|megaphone|sound
+U+1F4EF;horn|post|postal
+U+1F514;bell|break|church|sound
+U+1F515;bell|forbidden|mute|no|not|prohibited|quiet|silent|slash|sound
+U+1F3BC;music|musical|note|score
+U+1F3B5;music|musical|note|sound
+U+1F3B6;music|musical|note|notes|sound
+U+1F399;mic|microphone|music|studio
+U+1F39A;level|music|slider
+U+1F39B;control|knobs|music
+U+1F3A4;karaoke|mic|microphone|music|sing|sound
+U+1F3A7;earbud|headphone|sound
+U+1F4FB;entertainment|radio|tbt|video
+U+1F3B7;instrument|music|sax|saxophone
+U+1FA97;accordion|box|concertina|instrument|music|squeeze|squeezebox
+U+1F3B8;guitar|instrument|music|strat
+U+1F3B9;instrument|keyboard|music|musical|piano
+U+1F3BA;instrument|music|trumpet
+U+1F3BB;instrument|music|violin
+U+1FA95;banjo|music|stringed
+U+1F941;drum|drumsticks|music
+U+1FA98;beat|conga|drum|instrument|long|rhythm
+U+1FA87;cha|dance|instrument|maracas|music|party|percussion|rattle|shake|shaker
+U+1FA88;band|fife|flautist|flute|instrument|marching|music|orchestra|piccolo|pipe|recorder|woodwind
+U+1FA89;cupid|harp|instrument|love|music|orchestra
+U+1F4F1;cell|communication|mobile|phone|telephone
+U+1F4F2;arrow|build|call|cell|communication|mobile|phone|receive|telephone
+U+260E;phone|telephone
+U+1F4DE;communication|phone|receiver|telephone|voip
+U+1F4DF;communication|pager
+U+1F4E0;communication|fax|machine
+U+1F50B;battery
+U+1FAAB;battery|drained|electronic|energy|low|power
+U+1F50C;electric|electricity|plug
+U+1F4BB;computer|laptop|office|pc|personal
+U+1F5A5;computer|desktop|monitor
+U+1F5A8;computer|printer
+U+2328;computer|keyboard
+U+1F5B1;computer|mouse
+U+1F5B2;computer|trackball
+U+1F4BD;computer|disk|minidisk|optical
+U+1F4BE;computer|disk|floppy
+U+1F4BF;blu-ray|CD|computer|disk|dvd|optical
+U+1F4C0;Blu-ray|cd|computer|disk|DVD|optical
+U+1F9EE;abacus|calculation|calculator
+U+1F3A5;bollywood|camera|cinema|film|hollywood|movie|record
+U+1F39E;cinema|film|frames|movie
+U+1F4FD;cinema|film|movie|projector|video
+U+1F3AC;action|board|clapper|movie
+U+1F4FA;television|tv|video
+U+1F4F7;camera|photo|selfie|snap|tbt|trip|video
+U+1F4F8;camera|flash|video
+U+1F4F9;camcorder|camera|tbt|video
+U+1F4FC;old|school|tape|vcr|vhs|video|videocassette
+U+1F50D;glass|lab|left|left-pointing|magnifying|science|search|tilted|tool
+U+1F50E;contact|glass|lab|magnifying|right|right-pointing|science|search|tilted|tool
+U+1F56F;candle|light
+U+1F4A1;bulb|comic|electric|idea|light
+U+1F526;electric|flashlight|light|tool|torch
+U+1F3EE;bar|lantern|light|paper|red|restaurant
+U+1FA94;diya|lamp|light|oil
+U+1F4D4;book|cover|decorated|decorative|education|notebook|school|writing
+U+1F4D5;book|closed|education
+U+1F4D6;book|education|fantasy|knowledge|library|novels|open|reading
+U+1F4D7;book|education|fantasy|green|library|reading
+U+1F4D8;blue|book|education|fantasy|library|reading
+U+1F4D9;book|education|fantasy|library|orange|reading
+U+1F4DA;book|books|education|fantasy|knowledge|library|novels|reading|school|study
+U+1F4D3;notebook
+U+1F4D2;ledger|notebook
+U+1F4C3;curl|document|page|paper
+U+1F4DC;paper|scroll
+U+1F4C4;document|facing|page|paper|up
+U+1F4F0;communication|news|newspaper|paper
+U+1F5DE;news|newspaper|paper|rolled|rolled-up
+U+1F4D1;bookmark|mark|marker|tabs
+U+1F516;bookmark|mark
+U+1F3F7;label|tag
+U+1F4B0;bag|bank|bet|billion|cash|cost|dollar|gold|million|money|moneybag|paid|paying|pot|rich|win
+U+1FA99;coin|dollar|euro|gold|metal|money|rich|silver|treasure
+U+1F4B4;bank|banknote|bill|currency|money|note|yen
+U+1F4B5;bank|banknote|bill|currency|dollar|money|note
+U+1F4B6;100|bank|banknote|bill|currency|euro|money|note|rich
+U+1F4B7;bank|banknote|bill|billion|cash|currency|money|note|pound|pounds
+U+1F4B8;bank|banknote|bill|billion|cash|dollar|fly|million|money|note|pay|wings
+U+1F4B3;bank|card|cash|charge|credit|money|pay
+U+1F9FE;accounting|bookkeeping|evidence|invoice|proof|receipt
+U+1F4B9;bank|chart|currency|graph|growth|increasing|market|money|rise|trend|upward|yen
+U+2709;e-mail|email|envelope|letter
+U+1F4E7;e-mail|email|letter|mail
+U+1F4E8;delivering|e-mail|email|envelope|incoming|letter|mail|receive|sent
+U+1F4E9;arrow|communication|down|e-mail|email|envelope|letter|mail|outgoing|send|sent
+U+1F4E4;box|email|letter|mail|outbox|sent|tray
+U+1F4E5;box|email|inbox|letter|mail|receive|tray|zero
+U+1F4E6;box|communication|delivery|package|parcel|shipping
+U+1F4EB;closed|communication|flag|mail|mailbox|postbox|raised
+U+1F4EA;closed|flag|lowered|mail|mailbox|postbox
+U+1F4EC;flag|mail|mailbox|open|postbox|raised
+U+1F4ED;flag|lowered|mail|mailbox|open|postbox
+U+1F4EE;mail|mailbox|postbox
+U+1F5F3;ballot|box
+U+270F;pencil
+U+2712;black|nib|pen
+U+1F58B;fountain|pen
+U+1F58A;ballpoint|pen
+U+1F58C;paintbrush|painting
+U+1F58D;crayon
+U+1F4DD;communication|media|memo|notes|pencil
+U+1F4BC;briefcase|office
+U+1F4C1;file|folder
+U+1F4C2;file|folder|open
+U+1F5C2;card|dividers|index
+U+1F4C5;calendar|date
+U+1F4C6;calendar|tear-off
+U+1F5D2;note|notepad|pad|spiral
+U+1F5D3;calendar|pad|spiral
+U+1F4C7;card|index|old|rolodex|school
+U+1F4C8;chart|data|graph|growth|increasing|right|trend|up|upward
+U+1F4C9;chart|data|decreasing|down|downward|graph|negative|trend
+U+1F4CA;bar|chart|data|graph
+U+1F4CB;clipboard|do|list|notes
+U+1F4CC;collage|pin|pushpin
+U+1F4CD;location|map|pin|pushpin|round
+U+1F4CE;paperclip
+U+1F587;link|linked|paperclip|paperclips
+U+1F4CF;angle|edge|math|ruler|straight|straightedge
+U+1F4D0;angle|math|rule|ruler|set|slide|triangle|triangular
+U+2702;cut|cutting|paper|scissors|tool
+U+1F5C3;box|card|file
+U+1F5C4;cabinet|file|filing|paper
+U+1F5D1;can|garbage|trash|waste|wastebasket
+U+1F512;closed|lock|locked|private
+U+1F513;cracked|lock|open|unlock|unlocked
+U+1F50F;ink|lock|locked|nib|pen|privacy
+U+1F510;bike|closed|key|lock|locked|secure
+U+1F511;key|keys|lock|major|password|unlock
+U+1F5DD;clue|key|lock|old
+U+1F528;hammer|home|improvement|repairs|tool
+U+1FA93;ax|axe|chop|hatchet|split|wood
+U+26CF;hammer|mining|pick|tool
+U+2692;hammer|pick|tool
+U+1F6E0;hammer|spanner|tool|wrench
+U+1F5E1;dagger|knife|weapon
+U+2694;crossed|swords|weapon
+U+1F4A3;bomb|boom|comic|dangerous|explosion|hot
+U+1FA83;boomerang|rebound|repercussion|weapon
+U+1F3F9;archer|archery|arrow|bow|Sagittarius|tool|weapon|zodiac
+U+1F6E1;shield|weapon
+U+1FA9A;carpenter|carpentry|cut|lumber|saw|tool|trim
+U+1F527;home|improvement|spanner|tool|wrench
+U+1FA9B;flathead|handy|screw|screwdriver|tool
+U+1F529;bolt|home|improvement|nut|tool
+U+2699;cog|cogwheel|gear|tool
+U+1F5DC;clamp|compress|tool|vice
+U+2696;balance|justice|Libra|scale|scales|tool|weight|zodiac
+U+1F9AF;accessibility|blind|cane|probing|white
+U+1F517;link|links
+U+26D3 U+FE0F U+200D U+1F4A5;break|breaking|broken|chain|cuffs|freedom
+U+26D3;chain|chains
+U+1FA9D;catch|crook|curve|ensnare|hook|point|selling
+U+1F9F0;box|chest|mechanic|red|tool|toolbox
+U+1F9F2;attraction|horseshoe|magnet|magnetic|negative|positive|shape|u
+U+1FA9C;climb|ladder|rung|step
+U+1FA8F;bury|dig|garden|hole|plant|scoop|shovel|snow|spade
+U+2697;alembic|chemistry|tool
+U+1F9EA;chemist|chemistry|experiment|lab|science|test|tube
+U+1F9EB;bacteria|biologist|biology|culture|dish|lab|petri
+U+1F9EC;biologist|dna|evolution|gene|genetics|life
+U+1F52C;experiment|lab|microscope|science|tool
+U+1F52D;contact|extraterrestrial|science|telescope|tool
+U+1F4E1;aliens|antenna|contact|dish|satellite|science
+U+1F489;doctor|flu|medicine|needle|shot|sick|syringe|tool|vaccination
+U+1FA78;bleed|blood|donation|drop|injury|medicine|menstruation
+U+1F48A;doctor|drugs|medicated|medicine|pill|pills|sick|vitamin
+U+1FA79;adhesive|bandage
+U+1FA7C;aid|cane|crutch|disability|help|hurt|injured|mobility|stick
+U+1FA7A;doctor|heart|medicine|stethoscope
+U+1FA7B;bones|doctor|medical|skeleton|skull|x-ray|xray
+U+1F6AA;back|closet|door|front
+U+1F6D7;accessibility|elevator|hoist|lift
+U+1FA9E;makeup|mirror|reflection|reflector|speculum
+U+1FA9F;air|frame|fresh|opening|transparent|view|window
+U+1F6CF;bed|hotel|sleep
+U+1F6CB;couch|hotel|lamp
+U+1FA91;chair|seat|sit
+U+1F6BD;bathroom|toilet
+U+1FAA0;cup|force|plumber|plunger|poop|suction|toilet
+U+1F6BF;shower|water
+U+1F6C1;bath|bathtub
+U+1FAA4;bait|cheese|lure|mouse|mousetrap|snare|trap
+U+1FA92;razor|sharp|shave
+U+1F9F4;bottle|lotion|moisturizer|shampoo|sunscreen
+U+1F9F7;diaper|pin|punk|rock|safety
+U+1F9F9;broom|cleaning|sweeping|witch
+U+1F9FA;basket|farming|laundry|picnic
+U+1F9FB;paper|roll|toilet|towels
+U+1FAA3;bucket|cask|pail|vat
+U+1F9FC;bar|bathing|clean|cleaning|lather|soap|soapdish
+U+1FAE7;bubble|bubbles|burp|clean|floating|pearl|soap|underwater
+U+1FAA5;bathroom|brush|clean|dental|hygiene|teeth|toiletry|toothbrush
+U+1F9FD;absorbing|cleaning|porous|soak|sponge
+U+1F9EF;extinguish|extinguisher|fire|quench
+U+1F6D2;cart|shopping|trolley
+U+1F6AC;cigarette|smoking
+U+26B0;coffin|dead|death|vampire
+U+1FAA6;cemetery|dead|grave|graveyard|headstone|memorial|rip|tomb|tombstone
+U+26B1;ashes|death|funeral|urn
+U+1F9FF;amulet|bead|blue|charm|evil-eye|nazar|talisman
+U+1FAAC;amulet|Fatima|fortune|guide|hamsa|hand|Mary|Miriam|palm|protect|protection
+U+1F5FF;face|moai|moyai|statue|stoneface|travel
+U+1FAA7;card|demonstration|notice|picket|placard|plaque|protest|sign
+U+1FAAA;card|credentials|document|ID|identification|license|security
+U+1F3E7;ATM|automated|bank|cash|money|sign|teller
+U+1F6AE;bin|litter|litterbin|sign
+U+1F6B0;drinking|potable|water
+U+267F;access|handicap|symbol|wheelchair
+U+1F6B9;bathroom|lavatory|man|men’s|restroom|room|toilet|WC
+U+1F6BA;bathroom|lavatory|restroom|room|toilet|WC|woman|women’s
+U+1F6BB;bathroom|lavatory|restroom|toilet|WC
+U+1F6BC;baby|changing|symbol
+U+1F6BE;bathroom|closet|lavatory|restroom|toilet|water|WC
+U+1F6C2;control|passport
+U+1F6C3;customs|packing
+U+1F6C4;arrived|baggage|bags|case|checked|claim|journey|packing|plane|ready|travel|trip
+U+1F6C5;baggage|case|left|locker|luggage
+U+26A0;caution|warning
+U+1F6B8;child|children|crossing|pedestrian|traffic
+U+26D4;do|entry|fail|forbidden|no|not|pass|prohibited|traffic
+U+1F6AB;entry|forbidden|no|not|prohibited|smoke
+U+1F6B3;bicycle|bicycles|bike|forbidden|no|not|prohibited
+U+1F6AD;forbidden|no|not|prohibited|smoke|smoking
+U+1F6AF;forbidden|litter|littering|no|not|prohibited
+U+1F6B1;dry|non-drinking|non-potable|prohibited|water
+U+1F6B7;forbidden|no|not|pedestrian|pedestrians|prohibited
+U+1F4F5;cell|forbidden|mobile|no|not|phone|phones|prohibited|telephone
+U+1F51E;18|age|eighteen|forbidden|no|not|one|prohibited|restriction|underage
+U+2622;radioactive|sign
+U+2623;biohazard|sign
+U+2B06;arrow|cardinal|direction|north|up
+U+2197;arrow|direction|intercardinal|northeast|up-right
+U+27A1;arrow|cardinal|direction|east|right
+U+2198;arrow|direction|down-right|intercardinal|southeast
+U+2B07;arrow|cardinal|direction|down|south
+U+2199;arrow|direction|down-left|intercardinal|southwest
+U+2B05;arrow|cardinal|direction|left|west
+U+2196;arrow|direction|intercardinal|northwest|up-left
+U+2195;arrow|up-down
+U+2194;arrow|left-right
+U+21A9;arrow|curving|left|right
+U+21AA;arrow|curving|left|right
+U+2934;arrow|curving|right|up
+U+2935;arrow|curving|down|right
+U+1F503;arrow|arrows|clockwise|refresh|reload|vertical
+U+1F504;again|anticlockwise|arrow|arrows|button|counterclockwise|deja|refresh|rewindershins|vu
+U+1F519;arrow|BACK
+U+1F51A;arrow|END
+U+1F51B;arrow|mark|ON!
+U+1F51C;arrow|brb|omw|SOON
+U+1F51D;arrow|homie|TOP|up
+U+1F6D0;place|pray|religion|worship
+U+269B;atheist|atom|symbol
+U+1F549;Hindu|om|religion
+U+2721;David|Jew|Jewish|judaism|religion|star
+U+2638;Buddhist|dharma|religion|wheel
+U+262F;difficult|lives|religion|tao|taoist|total|yang|yin|yinyang
+U+271D;christ|Christian|cross|latin|religion
+U+2626;Christian|cross|orthodox|religion
+U+262A;crescent|islam|Muslim|ramadan|religion|star
+U+262E;healing|peace|peaceful|symbol
+U+1F54E;candelabrum|candlestick|hanukkah|jewish|judaism|menorah|religion
+U+1F52F;dotted|fortune|jewish|judaism|six-pointed|star
+U+1FAAF;Deg|Fateh|Khalsa|Khanda|religion|Sikh|Sikhism|Tegh
+U+2648;Aries|horoscope|ram|zodiac
+U+2649;bull|horoscope|ox|Taurus|zodiac
+U+264A;Gemini|horoscope|twins|zodiac
+U+264B;Cancer|crab|horoscope|zodiac
+U+264C;horoscope|Leo|lion|zodiac
+U+264D;horoscope|Virgo|zodiac
+U+264E;balance|horoscope|justice|Libra|scales|zodiac
+U+264F;horoscope|Scorpio|scorpion|Scorpius|zodiac
+U+2650;archer|horoscope|Sagittarius|zodiac
+U+2651;Capricorn|goat|horoscope|zodiac
+U+2652;Aquarius|bearer|horoscope|water|zodiac
+U+2653;fish|horoscope|Pisces|zodiac
+U+26CE;bearer|Ophiuchus|serpent|snake|zodiac
+U+1F500;arrow|button|crossed|shuffle|tracks
+U+1F501;arrow|button|clockwise|repeat
+U+1F502;arrow|button|clockwise|once|repeat|single
+U+25B6;arrow|button|play|right|triangle
+U+23E9;arrow|button|double|fast|fast-forward|forward
+U+23ED;arrow|button|next|scene|track|triangle
+U+23EF;arrow|button|pause|play|right|triangle
+U+25C0;arrow|button|left|reverse|triangle
+U+23EA;arrow|button|double|fast|reverse|rewind
+U+23EE;arrow|button|last|previous|scene|track|triangle
+U+1F53C;arrow|button|red|up|upwards
+U+23EB;arrow|button|double|fast|up
+U+1F53D;arrow|button|down|downwards|red
+U+23EC;arrow|button|double|down|fast
+U+23F8;bar|button|double|pause|vertical
+U+23F9;button|square|stop
+U+23FA;button|circle|record
+U+23CF;button|eject
+U+1F3A6;camera|cinema|film|movie
+U+1F505;brightness|button|dim|low
+U+1F506;bright|brightness|button|light
+U+1F4F6;antenna|bar|bars|cell|communication|mobile|phone|signal|telephone
+U+1F6DC;broadband|computer|connectivity|hotspot|internet|network|router|smartphone|wi-fi|wifi|wireless|wlan
+U+1F4F3;cell|communication|mobile|mode|phone|telephone|vibration
+U+1F4F4;cell|mobile|off|phone|telephone
+U+2640;female|sign|woman
+U+2642;male|man|sign
+U+26A7;symbol|transgender
+U+2716;×|cancel|multiplication|multiply|sign|x
+U+2795;+|plus
+U+2796;-|−|heavy|math|minus|sign
+U+2797;÷|divide|division|heavy|math|sign
+U+1F7F0;answer|equal|equality|equals|heavy|math|sign
+U+267E;forever|infinity|unbounded|universal
+U+203C;!|!!|bangbang|double|exclamation|mark|punctuation
+U+2049;!|!?|?|exclamation|interrobang|mark|punctuation|question
+U+2753;?|mark|punctuation|question|red
+U+2754;?|mark|outlined|punctuation|question|white
+U+2755;!|exclamation|mark|outlined|punctuation|white
+U+2757;!|exclamation|mark|punctuation|red
+U+3030;dash|punctuation|wavy
+U+1F4B1;bank|currency|exchange|money
+U+1F4B2;billion|cash|charge|currency|dollar|heavy|million|money|pay|sign
+U+2695;aesculapius|medical|medicine|staff|symbol
+U+267B;recycle|recycling|symbol
+U+269C;fleur-de-lis|knights
+U+1F531;anchor|emblem|poseidon|ship|tool|trident
+U+1F4DB;badge|name
+U+1F530;beginner|chevron|green|Japanese|leaf|symbol|tool|yellow
+U+2B55;circle|heavy|hollow|large|o|red
+U+2705;✓|button|check|checked|checkmark|complete|completed|done|fixed|mark|tick
+U+2611;✓|ballot|box|check|checked|done|off|tick
+U+2714;✓|check|checked|checkmark|done|heavy|mark|tick
+U+274C;×|cancel|cross|mark|multiplication|multiply|x
+U+274E;×|button|cross|mark|multiplication|multiply|square|x
+U+27B0;curl|curly|loop
+U+27BF;curl|curly|double|loop
+U+303D;alternation|mark|part
+U+2733;*|asterisk|eight-spoked
+U+2734;*|eight-pointed|star
+U+2747;*|sparkle
+U+00A9;C|copyright
+U+00AE;R|registered
+U+2122;mark|TM|trade|trademark
+U+1FADF;drip|holi|ink|liquid|mess|paint|spill|splatter|stain
+U+0023 U+FE0F U+20E3;keycap
+U+002A U+FE0F U+20E3;keycap
+U+0030 U+FE0F U+20E3;keycap
+U+0031 U+FE0F U+20E3;keycap
+U+0032 U+FE0F U+20E3;keycap
+U+0033 U+FE0F U+20E3;keycap
+U+0034 U+FE0F U+20E3;keycap
+U+0035 U+FE0F U+20E3;keycap
+U+0036 U+FE0F U+20E3;keycap
+U+0037 U+FE0F U+20E3;keycap
+U+0038 U+FE0F U+20E3;keycap
+U+0039 U+FE0F U+20E3;keycap
+U+1F51F;keycap
+U+1F520;ABCD|input|latin|letters|uppercase
+U+1F521;abcd|input|latin|letters|lowercase
+U+1F522;1234|input|numbers
+U+1F523;&|%|♪|〒|input|symbols
+U+1F524;abc|alphabet|input|latin|letters
+U+1F170;blood|button|type
+U+1F18E;AB|blood|button|type
+U+1F171;B|blood|button|type
+U+1F191;button|CL
+U+1F192;button|COOL
+U+1F193;button|FREE
+U+2139;I|information
+U+1F194;button|ID|identity
+U+24C2;circle|circled|M
+U+1F195;button|NEW
+U+1F196;button|NG
+U+1F17E;blood|button|O|type
+U+1F197;button|OK|okay
+U+1F17F;button|P|parking
+U+1F198;button|help|SOS
+U+1F199;button|mark|UP|UP!
+U+1F19A;button|versus|VS
+U+1F201;button|here|Japanese|katakana
+U+1F202;button|charge|Japanese|katakana|service
+U+1F237;amount|button|ideograph|Japanese|monthly
+U+1F236;button|charge|free|ideograph|Japanese|not
+U+1F22F;button|ideograph|Japanese|reserved
+U+1F250;bargain|button|ideograph|Japanese
+U+1F239;button|discount|ideograph|Japanese
+U+1F21A;button|charge|free|ideograph|Japanese
+U+1F232;button|ideograph|Japanese|prohibited
+U+1F251;acceptable|button|ideograph|Japanese
+U+1F238;application|button|ideograph|Japanese
+U+1F234;button|grade|ideograph|Japanese|passing
+U+1F233;button|ideograph|Japanese|vacancy
+U+3297;button|congratulations|ideograph|Japanese
+U+3299;button|ideograph|Japanese|secret
+U+1F23A;business|button|ideograph|Japanese|open
+U+1F235;button|ideograph|Japanese|no|vacancy
+U+1F534;circle|geometric|red
+U+1F7E0;circle|orange
+U+1F7E1;circle|yellow
+U+1F7E2;circle|green
+U+1F535;blue|circle|geometric
+U+1F7E3;circle|purple
+U+1F7E4;brown|circle
+U+26AB;black|circle|geometric
+U+26AA;circle|geometric|white
+U+1F7E5;card|penalty|red|square
+U+1F7E7;orange|square
+U+1F7E8;card|penalty|square|yellow
+U+1F7E9;green|square
+U+1F7E6;blue|square
+U+1F7EA;purple|square
+U+1F7EB;brown|square
+U+2B1B;black|geometric|large|square
+U+2B1C;geometric|large|square|white
+U+25FC;black|geometric|medium|square
+U+25FB;geometric|medium|square|white
+U+25FE;black|geometric|medium-small|square
+U+25FD;geometric|medium-small|square|white
+U+25AA;black|geometric|small|square
+U+25AB;geometric|small|square|white
+U+1F536;diamond|geometric|large|orange
+U+1F537;blue|diamond|geometric|large
+U+1F538;diamond|geometric|orange|small
+U+1F539;blue|diamond|geometric|small
+U+1F53A;geometric|pointed|red|triangle|up
+U+1F53B;down|geometric|pointed|red|triangle
+U+1F4A0;comic|diamond|dot|geometric
+U+1F518;button|geometric|radio
+U+1F533;button|geometric|outlined|square|white
+U+1F532;black|button|geometric|square
+U+1F3C1;checkered|chequered|finish|flag|flags|game|race|racing|sport|win
+U+1F6A9;construction|flag|golf|post|triangular
+U+1F38C;celebration|cross|crossed|flags|Japanese
+U+1F3F4;black|flag|waving
+U+1F3F3;flag|waving|white
+U+1F3F3 U+FE0F U+200D U+1F308;bisexual|flag|gay|genderqueer|glbt|glbtq|lesbian|lgbt|lgbtq|lgbtqia|pride|queer|rainbow|trans|transgender
+U+1F3F3 U+FE0F U+200D U+26A7 U+FE0F;blue|flag|light|pink|transgender|white
+U+1F3F4 U+200D U+2620 U+FE0F;flag|Jolly|pirate|plunder|Roger|treasure
+U+1F1E6 U+1F1E8;flag
+U+1F1E6 U+1F1E9;flag
+U+1F1E6 U+1F1EA;flag
+U+1F1E6 U+1F1EB;flag
+U+1F1E6 U+1F1EC;flag
+U+1F1E6 U+1F1EE;flag
+U+1F1E6 U+1F1F1;flag
+U+1F1E6 U+1F1F2;flag
+U+1F1E6 U+1F1F4;flag
+U+1F1E6 U+1F1F6;flag
+U+1F1E6 U+1F1F7;flag
+U+1F1E6 U+1F1F8;flag
+U+1F1E6 U+1F1F9;flag
+U+1F1E6 U+1F1FA;flag
+U+1F1E6 U+1F1FC;flag
+U+1F1E6 U+1F1FD;flag
+U+1F1E6 U+1F1FF;flag
+U+1F1E7 U+1F1E6;flag
+U+1F1E7 U+1F1E7;flag
+U+1F1E7 U+1F1E9;flag
+U+1F1E7 U+1F1EA;flag
+U+1F1E7 U+1F1EB;flag
+U+1F1E7 U+1F1EC;flag
+U+1F1E7 U+1F1ED;flag
+U+1F1E7 U+1F1EE;flag
+U+1F1E7 U+1F1EF;flag
+U+1F1E7 U+1F1F1;flag
+U+1F1E7 U+1F1F2;flag
+U+1F1E7 U+1F1F3;flag
+U+1F1E7 U+1F1F4;flag
+U+1F1E7 U+1F1F6;flag
+U+1F1E7 U+1F1F7;flag
+U+1F1E7 U+1F1F8;flag
+U+1F1E7 U+1F1F9;flag
+U+1F1E7 U+1F1FB;flag
+U+1F1E7 U+1F1FC;flag
+U+1F1E7 U+1F1FE;flag
+U+1F1E7 U+1F1FF;flag
+U+1F1E8 U+1F1E6;flag
+U+1F1E8 U+1F1E8;flag
+U+1F1E8 U+1F1E9;flag
+U+1F1E8 U+1F1EB;flag
+U+1F1E8 U+1F1EC;flag
+U+1F1E8 U+1F1ED;flag
+U+1F1E8 U+1F1EE;flag
+U+1F1E8 U+1F1F0;flag
+U+1F1E8 U+1F1F1;flag
+U+1F1E8 U+1F1F2;flag
+U+1F1E8 U+1F1F3;flag
+U+1F1E8 U+1F1F4;flag
+U+1F1E8 U+1F1F5;flag
+U+1F1E8 U+1F1F6;flag
+U+1F1E8 U+1F1F7;flag
+U+1F1E8 U+1F1FA;flag
+U+1F1E8 U+1F1FB;flag
+U+1F1E8 U+1F1FC;flag
+U+1F1E8 U+1F1FD;flag
+U+1F1E8 U+1F1FE;flag
+U+1F1E8 U+1F1FF;flag
+U+1F1E9 U+1F1EA;flag
+U+1F1E9 U+1F1EC;flag
+U+1F1E9 U+1F1EF;flag
+U+1F1E9 U+1F1F0;flag
+U+1F1E9 U+1F1F2;flag
+U+1F1E9 U+1F1F4;flag
+U+1F1E9 U+1F1FF;flag
+U+1F1EA U+1F1E6;flag
+U+1F1EA U+1F1E8;flag
+U+1F1EA U+1F1EA;flag
+U+1F1EA U+1F1EC;flag
+U+1F1EA U+1F1ED;flag
+U+1F1EA U+1F1F7;flag
+U+1F1EA U+1F1F8;flag
+U+1F1EA U+1F1F9;flag
+U+1F1EA U+1F1FA;flag
+U+1F1EB U+1F1EE;flag
+U+1F1EB U+1F1EF;flag
+U+1F1EB U+1F1F0;flag
+U+1F1EB U+1F1F2;flag
+U+1F1EB U+1F1F4;flag
+U+1F1EB U+1F1F7;flag
+U+1F1EC U+1F1E6;flag
+U+1F1EC U+1F1E7;flag
+U+1F1EC U+1F1E9;flag
+U+1F1EC U+1F1EA;flag
+U+1F1EC U+1F1EB;flag
+U+1F1EC U+1F1EC;flag
+U+1F1EC U+1F1ED;flag
+U+1F1EC U+1F1EE;flag
+U+1F1EC U+1F1F1;flag
+U+1F1EC U+1F1F2;flag
+U+1F1EC U+1F1F3;flag
+U+1F1EC U+1F1F5;flag
+U+1F1EC U+1F1F6;flag
+U+1F1EC U+1F1F7;flag
+U+1F1EC U+1F1F8;flag
+U+1F1EC U+1F1F9;flag
+U+1F1EC U+1F1FA;flag
+U+1F1EC U+1F1FC;flag
+U+1F1EC U+1F1FE;flag
+U+1F1ED U+1F1F0;flag
+U+1F1ED U+1F1F2;flag
+U+1F1ED U+1F1F3;flag
+U+1F1ED U+1F1F7;flag
+U+1F1ED U+1F1F9;flag
+U+1F1ED U+1F1FA;flag
+U+1F1EE U+1F1E8;flag
+U+1F1EE U+1F1E9;flag
+U+1F1EE U+1F1EA;flag
+U+1F1EE U+1F1F1;flag
+U+1F1EE U+1F1F2;flag
+U+1F1EE U+1F1F3;flag
+U+1F1EE U+1F1F4;flag
+U+1F1EE U+1F1F6;flag
+U+1F1EE U+1F1F7;flag
+U+1F1EE U+1F1F8;flag
+U+1F1EE U+1F1F9;flag
+U+1F1EF U+1F1EA;flag
+U+1F1EF U+1F1F2;flag
+U+1F1EF U+1F1F4;flag
+U+1F1EF U+1F1F5;flag
+U+1F1F0 U+1F1EA;flag
+U+1F1F0 U+1F1EC;flag
+U+1F1F0 U+1F1ED;flag
+U+1F1F0 U+1F1EE;flag
+U+1F1F0 U+1F1F2;flag
+U+1F1F0 U+1F1F3;flag
+U+1F1F0 U+1F1F5;flag
+U+1F1F0 U+1F1F7;flag
+U+1F1F0 U+1F1FC;flag
+U+1F1F0 U+1F1FE;flag
+U+1F1F0 U+1F1FF;flag
+U+1F1F1 U+1F1E6;flag
+U+1F1F1 U+1F1E7;flag
+U+1F1F1 U+1F1E8;flag
+U+1F1F1 U+1F1EE;flag
+U+1F1F1 U+1F1F0;flag
+U+1F1F1 U+1F1F7;flag
+U+1F1F1 U+1F1F8;flag
+U+1F1F1 U+1F1F9;flag
+U+1F1F1 U+1F1FA;flag
+U+1F1F1 U+1F1FB;flag
+U+1F1F1 U+1F1FE;flag
+U+1F1F2 U+1F1E6;flag
+U+1F1F2 U+1F1E8;flag
+U+1F1F2 U+1F1E9;flag
+U+1F1F2 U+1F1EA;flag
+U+1F1F2 U+1F1EB;flag
+U+1F1F2 U+1F1EC;flag
+U+1F1F2 U+1F1ED;flag
+U+1F1F2 U+1F1F0;flag
+U+1F1F2 U+1F1F1;flag
+U+1F1F2 U+1F1F2;flag
+U+1F1F2 U+1F1F3;flag
+U+1F1F2 U+1F1F4;flag
+U+1F1F2 U+1F1F5;flag
+U+1F1F2 U+1F1F6;flag
+U+1F1F2 U+1F1F7;flag
+U+1F1F2 U+1F1F8;flag
+U+1F1F2 U+1F1F9;flag
+U+1F1F2 U+1F1FA;flag
+U+1F1F2 U+1F1FB;flag
+U+1F1F2 U+1F1FC;flag
+U+1F1F2 U+1F1FD;flag
+U+1F1F2 U+1F1FE;flag
+U+1F1F2 U+1F1FF;flag
+U+1F1F3 U+1F1E6;flag
+U+1F1F3 U+1F1E8;flag
+U+1F1F3 U+1F1EA;flag
+U+1F1F3 U+1F1EB;flag
+U+1F1F3 U+1F1EC;flag
+U+1F1F3 U+1F1EE;flag
+U+1F1F3 U+1F1F1;flag
+U+1F1F3 U+1F1F4;flag
+U+1F1F3 U+1F1F5;flag
+U+1F1F3 U+1F1F7;flag
+U+1F1F3 U+1F1FA;flag
+U+1F1F3 U+1F1FF;flag
+U+1F1F4 U+1F1F2;flag
+U+1F1F5 U+1F1E6;flag
+U+1F1F5 U+1F1EA;flag
+U+1F1F5 U+1F1EB;flag
+U+1F1F5 U+1F1EC;flag
+U+1F1F5 U+1F1ED;flag
+U+1F1F5 U+1F1F0;flag
+U+1F1F5 U+1F1F1;flag
+U+1F1F5 U+1F1F2;flag
+U+1F1F5 U+1F1F3;flag
+U+1F1F5 U+1F1F7;flag
+U+1F1F5 U+1F1F8;flag
+U+1F1F5 U+1F1F9;flag
+U+1F1F5 U+1F1FC;flag
+U+1F1F5 U+1F1FE;flag
+U+1F1F6 U+1F1E6;flag
+U+1F1F7 U+1F1EA;flag
+U+1F1F7 U+1F1F4;flag
+U+1F1F7 U+1F1F8;flag
+U+1F1F7 U+1F1FA;flag
+U+1F1F7 U+1F1FC;flag
+U+1F1F8 U+1F1E6;flag
+U+1F1F8 U+1F1E7;flag
+U+1F1F8 U+1F1E8;flag
+U+1F1F8 U+1F1E9;flag
+U+1F1F8 U+1F1EA;flag
+U+1F1F8 U+1F1EC;flag
+U+1F1F8 U+1F1ED;flag
+U+1F1F8 U+1F1EE;flag
+U+1F1F8 U+1F1EF;flag
+U+1F1F8 U+1F1F0;flag
+U+1F1F8 U+1F1F1;flag
+U+1F1F8 U+1F1F2;flag
+U+1F1F8 U+1F1F3;flag
+U+1F1F8 U+1F1F4;flag
+U+1F1F8 U+1F1F7;flag
+U+1F1F8 U+1F1F8;flag
+U+1F1F8 U+1F1F9;flag
+U+1F1F8 U+1F1FB;flag
+U+1F1F8 U+1F1FD;flag
+U+1F1F8 U+1F1FE;flag
+U+1F1F8 U+1F1FF;flag
+U+1F1F9 U+1F1E6;flag
+U+1F1F9 U+1F1E8;flag
+U+1F1F9 U+1F1E9;flag
+U+1F1F9 U+1F1EB;flag
+U+1F1F9 U+1F1EC;flag
+U+1F1F9 U+1F1ED;flag
+U+1F1F9 U+1F1EF;flag
+U+1F1F9 U+1F1F0;flag
+U+1F1F9 U+1F1F1;flag
+U+1F1F9 U+1F1F2;flag
+U+1F1F9 U+1F1F3;flag
+U+1F1F9 U+1F1F4;flag
+U+1F1F9 U+1F1F7;flag
+U+1F1F9 U+1F1F9;flag
+U+1F1F9 U+1F1FB;flag
+U+1F1F9 U+1F1FC;flag
+U+1F1F9 U+1F1FF;flag
+U+1F1FA U+1F1E6;flag
+U+1F1FA U+1F1EC;flag
+U+1F1FA U+1F1F2;flag
+U+1F1FA U+1F1F3;flag
+U+1F1FA U+1F1F8;flag
+U+1F1FA U+1F1FE;flag
+U+1F1FA U+1F1FF;flag
+U+1F1FB U+1F1E6;flag
+U+1F1FB U+1F1E8;flag
+U+1F1FB U+1F1EA;flag
+U+1F1FB U+1F1EC;flag
+U+1F1FB U+1F1EE;flag
+U+1F1FB U+1F1F3;flag
+U+1F1FB U+1F1FA;flag
+U+1F1FC U+1F1EB;flag
+U+1F1FC U+1F1F8;flag
+U+1F1FD U+1F1F0;flag
+U+1F1FE U+1F1EA;flag
+U+1F1FE U+1F1F9;flag
+U+1F1FF U+1F1E6;flag
+U+1F1FF U+1F1F2;flag
+U+1F1FF U+1F1FC;flag
+U+1F3F4 U+E0067 U+E0062 U+E0065 U+E006E U+E0067 U+E007F;flag
+U+1F3F4 U+E0067 U+E0062 U+E0073 U+E0063 U+E0074 U+E007F;flag
+U+1F3F4 U+E0067 U+E0062 U+E0077 U+E006C U+E0073 U+E007F;flag
