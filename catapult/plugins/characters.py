@@ -57,6 +57,13 @@ class Character:
     block: str
     name:  str
     value: str
+    terms: str
+    search_target: str = ""
+
+    def finalize(self):
+        # Make this derived string a proper attribute so that
+        # we can search fast without having to rebuild this.
+        self.search_target = f"{self.name.lower()} {self.terms.lower()}".strip()
 
     @property
     def font(self):
@@ -130,6 +137,7 @@ class CharactersPlugin(Plugin):
                 yield Block(start=start, end=end, name=name.strip())
 
     def _load_characters(self):
+        emoji_terms = dict(self._load_emoji_terms())
         path = Path(__file__).parent / "unicode" / "UnicodeData.txt"
         for line in path.read_text("utf-8").splitlines():
             line = line.strip()
@@ -141,9 +149,25 @@ class CharactersPlugin(Plugin):
             code = int(code, 16)
             value = chr(code)
             block = self._find_block(code)
-            character = Character(block=block, name=f"UNICODE {name}", value=value)
+            terms = emoji_terms.get(value, "")
+            character = Character(block=block, name=f"UNICODE {name}", value=value, terms=terms)
             if character.is_supported:
+                character.finalize()
                 yield character
+
+    def _load_emoji_terms(self):
+        path = Path(__file__).parent / "unicode" / "emoji-list.txt"
+        for line in path.read_text("utf-8").splitlines():
+            line = line.strip()
+            if not line: continue
+            codes, terms = line.split(";", 1)
+            characters = []
+            for code in codes.split():
+                assert code.startswith("U+")
+                characters.append(int(code[2:], 16))
+            assert characters
+            value = "".join(chr(x) for x in characters)
+            yield value, terms.strip()
 
     def _render_cairo_icon(self, character):
         # We need this instead of the simpler ICON_TEMPLATE for emojis,
@@ -173,7 +197,7 @@ class CharactersPlugin(Plugin):
     def search(self, query):
         query = query.lower().strip()
         for i, character in enumerate(self._characters):
-            found = find_split_all(query, character.name.lower())
+            found = find_split_all(query, character.search_target)
             offset = min(found.values())
             if offset < 0: continue
             if character.is_emoji:
