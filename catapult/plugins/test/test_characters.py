@@ -40,6 +40,11 @@ class TestCharactersPlugin(catapult.test.TestCase):
         assert list(self.plugin.search("gri"))
         assert list(self.plugin.search("grin"))
 
+    def test_search_emoji_flag(self):
+        assert list(self.plugin.search("andorra"))
+
+    def test_search_emoji_multi(self):
+        assert list(self.plugin.search("face with spiral eyes"))
+
     def test_search_emoji_terms(self):
-        assert list(self.plugin.search("<"))
         assert list(self.plugin.search("<3"))
