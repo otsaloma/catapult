@@ -82,6 +82,9 @@ class Character:
 
     @property
     def is_supported(self):
+        if len(self.value) > 1:
+            # Can't check emoji sequences!
+            return True
         font = get_pango_font(self.font)
         return font.has_char(self.value)
 
@@ -94,7 +97,9 @@ class CharactersPlugin(Plugin):
         self._blocks = list(self._load_blocks())
         self._blocks.sort(key=lambda x: x.start)
         self.debug(f"Loaded {len(self._blocks)} blocks")
-        self._characters = list(self._load_characters())
+        self._characters = []
+        self._characters += list(self._load_emojis())
+        self._characters += list(self._load_characters())
         self._characters.sort(key=lambda x: x.name)
         self.debug(f"Loaded {len(self._characters)} characters")
         self.debug("Initialization complete")
@@ -125,7 +130,8 @@ class CharactersPlugin(Plugin):
                 yield Block(start=start, end=end, name=name.strip())
 
     def _load_characters(self):
-        emoji_terms = dict(self._load_emoji_terms())
+        # Skip emojis that were already loaded from emoji-list.
+        existing = set(x.value for x in self._characters)
         path = Path(__file__).parent / "unicode" / "UnicodeData.txt"
         for line in path.read_text("utf-8").splitlines():
             line = line.strip()
@@ -136,26 +142,37 @@ class CharactersPlugin(Plugin):
             if category.startswith("C"): continue
             code = int(code, 16)
             value = chr(code)
+            if value in existing: continue
             block = self._find_block(code)
-            terms = emoji_terms.get(value, "")
-            character = Character(block=block, name=f"UNICODE {name}", value=value, terms=terms)
+            character = Character(block=block,
+                                  name=f"UNICODE {name}",
+                                  value=value,
+                                  terms="")
+
             if character.is_supported:
                 character.finalize()
                 yield character
 
-    def _load_emoji_terms(self):
+    def _load_emojis(self):
         path = Path(__file__).parent / "unicode" / "emoji-list.txt"
         for line in path.read_text("utf-8").splitlines():
             line = line.strip()
             if not line: continue
-            codes, terms = line.split(";", 1)
-            characters = []
-            for code in codes.split():
+            str_codes, name, terms = line.split(";")
+            int_codes = []
+            for code in str_codes.split():
                 assert code.startswith("U+")
-                characters.append(int(code[2:], 16))
-            assert characters
-            value = "".join(chr(x) for x in characters)
-            yield value, terms.strip()
+                int_codes.append(int(code[2:], 16))
+            assert int_codes
+            value = "".join(chr(x) for x in int_codes)
+            character = Character(block="Emoticons",
+                                  name=f"UNICODE {name}",
+                                  value=value,
+                                  terms=terms)
+
+            if character.is_supported:
+                character.finalize()
+                yield character
 
     def _render_cairo_icon(self, character):
         # We need this instead of the simpler ICON_TEMPLATE for emojis,
@@ -191,7 +208,7 @@ class CharactersPlugin(Plugin):
                 # SVG string
                 icon = ICON_TEMPLATE.format(character.value)
             yield SearchResult(
-                description=f"\\u{ord(character.value):04x}",
+                description="".join(f"\\u{ord(x):04x}" for x in character.value),
                 fuzzy=False,
                 icon=icon,
                 id=character.value,

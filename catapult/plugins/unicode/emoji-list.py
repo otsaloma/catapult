@@ -10,6 +10,9 @@ with open("emoji-list.txt", "w") as f:
     for tr in soup.select("table tr"):
         if code := tr.select("td.code"):
             code = code[0].text
-            if terms := tr.select("td.name:last-child"):
-                terms = terms[0].text.replace(" | ", "|")
-                f.write(f"{code};{terms}\n")
+            if len(tr.select("td.name")) == 2:
+                name, terms = tr.select("td.name")
+                name = name.text.upper()
+                terms = terms.text.replace(" | ", "|")
+                print((code, name, terms))
+                f.write(f"{code};{name};{terms}\n")
