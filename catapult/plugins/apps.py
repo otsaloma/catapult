@@ -19,7 +19,6 @@ import re
 
 from catapult.api import Plugin
 from catapult.api import PreferencesItem
-from catapult.api import get_desktop_environment
 from catapult.api import SearchResult
 from catapult.i18n import _
 from gi.repository import Gio
@@ -30,8 +29,10 @@ class AppsPluginPrefs(PreferencesItem):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        desktop = get_desktop_environment() or _("native")
-        label = _("Show non-{} apps").format(desktop)
+        # TRANSLATORS: Ignore the desktop file OnlyShowIn key
+        # and show all apps in all desktops.
+        # https://specifications.freedesktop.org/desktop-entry-spec/latest/recognized-keys.html
+        label = _("Show foreign platform apps")
         self.label = Gtk.Label(label=label)
         self.widget = Gtk.Switch()
 
