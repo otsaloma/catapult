@@ -100,7 +100,7 @@ class CharactersPlugin(Plugin):
         self._characters = []
         self._characters += list(self._load_emojis())
         self._characters += list(self._load_characters())
-        self._characters.sort(key=lambda x: x.name)
+        self._characters.sort(key=lambda x: x.value)
         self.debug(f"Loaded {len(self._characters)} characters")
         self.debug("Initialization complete")
 
