@@ -2,28 +2,32 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
+# Translators:
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2025
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-18 23:28+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2025-07-18 23:22+0300\n"
+"PO-Revision-Date: 2021-03-10 20:25+0000\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>, 2025\n"
+"Language-Team: Portuguese (https://app.transifex.com/otsaloma/teams/118053/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: catapult/about.py:30 data/io.otsaloma.catapult.appdata.xml.in:7
 msgid "App launcher"
-msgstr ""
+msgstr "Lançador de aplicações"
 
 #: catapult/about.py:35 catapult/plugins/builtins.py:54
 msgid "About Catapult"
-msgstr ""
+msgstr "Acerca do Catapulta"
 
 #. TRANSLATORS: This is a special message that shouldn't be translated
 #. literally. It is used in the about dialog to give credits to the
@@ -33,82 +37,83 @@ msgstr ""
 #. lines seperated by newlines (\n).
 #: catapult/about.py:46
 msgid "translator-credits"
-msgstr ""
+msgstr "Hugo Carvalho <hugokarvalho@hotmail.com>"
 
 #: catapult/app.py:44
 msgid "Catapult ready"
-msgstr ""
+msgstr "Catapult pronto"
 
 #: catapult/app.py:45
 msgid "See the documentation on how to activate Catapult:"
-msgstr ""
+msgstr "Consulte a documentação sobre como ativar o Catapult:"
 
 #: catapult/app.py:49
 msgid "catapult [OPTION...]"
-msgstr ""
+msgstr "catapult [OPTION...]"
 
 #: catapult/app.py:54
 msgid "print details of indexing and search results"
-msgstr ""
+msgstr "mostrar detalhes da indexação e dos resultados da pesquisa"
 
 #: catapult/app.py:60
 msgid "start, but don't show window"
-msgstr ""
+msgstr "iniciar, mas não mostrar a janela"
 
 #: catapult/plugin.py:31
 msgid "Untitled"
-msgstr ""
+msgstr "Sem título"
 
 #: catapult/preferences.py:44
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: catapult/preferences.py:66
 msgid "{} plugin"
-msgstr ""
+msgstr "{} plugin"
 
 #: catapult/preferences.py:107
 msgid "Preferences"
-msgstr ""
+msgstr "Preferências"
 
 #: catapult/preferences.py:115
 msgid "General"
-msgstr ""
+msgstr "Geral"
 
 #. TRANSLATORS: Ignore the desktop file OnlyShowIn key
 #. and show all apps in all desktops.
-#. https://specifications.freedesktop.org/desktop-entry-spec/latest/recognized-keys.html
+#. https://specifications.freedesktop.org/desktop-entry-
+#. spec/latest/recognized-keys.html
 #: catapult/plugins/apps.py:35
 msgid "Show foreign platform apps"
 msgstr ""
 
 #: catapult/plugins/apps.py:50
 msgid "Apps"
-msgstr ""
+msgstr "Aplicações"
 
 #: catapult/plugins/builtins.py:66
 msgid "Catapult preferences"
-msgstr ""
+msgstr "Preferências do Catapult"
 
 #: catapult/plugins/builtins.py:78
 msgid "Reload plugins"
-msgstr ""
+msgstr "Recarregar plugins"
 
 #: catapult/plugins/builtins.py:90
 msgid "Reload theme"
-msgstr ""
+msgstr "Recarregar tema"
 
 #: catapult/plugins/builtins.py:102
 msgid "Quit Catapult"
-msgstr ""
+msgstr "Sair do Catapult"
 
 #: catapult/plugins/builtins.py:114
 msgid "Update search index"
-msgstr ""
+msgstr "Atualizar o índice de pesquisa"
 
 #: catapult/plugins/calculator.py:50
 msgid "Calculator"
-msgstr ""
+msgstr "Calculadora"
 
 #: catapult/plugins/characters.py:93
 msgid "Characters"
@@ -116,95 +121,99 @@ msgstr ""
 
 #: catapult/plugins/clipboard.py:35
 msgid "Source"
-msgstr ""
+msgstr "Fonte"
 
 #: catapult/plugins/clipboard.py:54
 msgid "Trigger"
-msgstr ""
+msgstr "Acionador"
 
 #: catapult/plugins/clipboard.py:70
 msgid "Clipboard"
-msgstr ""
+msgstr "Área de transferência"
 
 #: catapult/plugins/files.py:42
 msgid "_Cancel"
-msgstr ""
+msgstr "_Cancelar"
 
 #: catapult/plugins/files.py:43
 msgid "_OK"
-msgstr ""
+msgstr "_OK"
 
 #: catapult/plugins/files.py:49
 msgid "Edit File Patterns"
-msgstr ""
+msgstr "Editar padrões de ficheiros"
 
 #: catapult/plugins/files.py:50
 msgid "Use shell-style wildcards * and **"
-msgstr ""
+msgstr "“Utilizar os caracteres de pesquisa * e ** na shell”"
 
 #: catapult/plugins/files.py:79
 msgid "Include patterns"
-msgstr ""
+msgstr "Incluir padrões"
 
 #: catapult/plugins/files.py:81 catapult/plugins/files.py:106
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: catapult/plugins/files.py:104
 msgid "Exclude patterns"
-msgstr ""
+msgstr "Excluir padrões"
 
 #: catapult/plugins/files.py:129
 msgid "Scan interval"
-msgstr ""
+msgstr "Intervalo de atualização"
 
 #: catapult/plugins/files.py:133
 msgid "minutes"
-msgstr ""
+msgstr "minutos"
 
 #: catapult/plugins/files.py:167
 msgid "Files"
-msgstr ""
+msgstr "Ficheiros"
 
 #. TRANSLATORS: Include all possible variations separated by semicolons.
 #: catapult/plugins/session.py:32
 msgid "Lock Screen"
-msgstr ""
+msgstr "Bloquear ecrã"
 
 #. TRANSLATORS: Include all possible variations separated by semicolons.
 #: catapult/plugins/session.py:37
 msgid "Log Out;Log Off"
-msgstr ""
+msgstr "Sair;Terminar sessão"
 
 #. TRANSLATORS: Include all possible variations separated by semicolons.
 #: catapult/plugins/session.py:42
 msgid "Power Off;Shutdown"
-msgstr ""
+msgstr "Desligar;Encerrar"
 
 #. TRANSLATORS: Include all possible variations separated by semicolons.
 #: catapult/plugins/session.py:47
 msgid "Reboot;Restart"
-msgstr ""
+msgstr "Reiniciar"
 
 #: catapult/plugins/session.py:53
 msgid "Session"
-msgstr ""
+msgstr "Sessão"
 
 #: data/io.otsaloma.catapult.appdata.xml.in:9
 msgid ""
 "Catapult allows you to easily launch apps, open files and do basic "
 "calculations with a keyboard-driven user interface."
 msgstr ""
+"O Catapult permite-lhe lançar facilmente aplicações, abrir ficheiros e "
+"efetuar cálculos básicos com uma interface de utilizador orientada para o "
+"teclado."
 
 #: data/io.otsaloma.catapult.appdata.xml.in:48
 msgid "Main window"
-msgstr ""
+msgstr "Janela principal"
 
 #: data/io.otsaloma.catapult.desktop.in:4
 msgid "Launch apps and open files"
-msgstr ""
+msgstr "Lançar aplicações e abrir ficheiros"
 
-#. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#. TRANSLATORS: Search terms to find this application. Do NOT translate or
+#. localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.otsaloma.catapult.desktop.in:9
 msgid "launcher;"
-msgstr ""
+msgstr "lançador;"
