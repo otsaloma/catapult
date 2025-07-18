@@ -1,5 +1,5 @@
-PENDING: Catapult 1.2
-=====================
+2025-07-18: Catapult 1.2
+========================
 
 * Add characters plugin to copy characters and emojis
 * Make all plugins work with space-separated multi-part queries where
