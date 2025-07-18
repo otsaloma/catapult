@@ -100,7 +100,7 @@ class SearchResultRow(Gtk.ListBoxRow):
                 pixbuf = loader.get_pixbuf()
                 self.icon.set_from_pixbuf(pixbuf)
             except Exception:
-                logging.exception("Failed to set icon from cairo.ImageSurface")
+                logging.exception("Failed to set icon from SVG string")
                 self.icon.set_from_icon_name(default)
         elif isinstance(icon, str):
             self.icon.set_from_icon_name(icon)
