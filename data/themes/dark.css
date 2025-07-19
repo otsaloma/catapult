@@ -103,3 +103,7 @@
   color: alpha(@fg-color, 0.7);
   font-family: "Cascadia Code", monospace;
 }
+
+.catapult-info-text {
+  line-height: 1.5;
+}

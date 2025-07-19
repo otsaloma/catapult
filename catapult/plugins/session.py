@@ -15,6 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
+import itertools
 import subprocess
 
 from catapult.api import find_split_all
@@ -51,6 +52,11 @@ ACTIONS = [{
 class SessionPlugin(Plugin):
 
     title = _("Session")
+
+    def get_info(self):
+        desktops = [y for x in ACTIONS for y in x["desktops"]]
+        desktops = "\n".join(sorted(set(desktops)))
+        return "\n".join((_("Supported desktops:"), desktops))
 
     def launch(self, window, id):
         self.debug(f"Launching {id}")

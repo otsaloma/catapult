@@ -87,6 +87,10 @@ class ClipboardPlugin(Plugin):
             return lines[0][:100]
         return f"{lines[0]}  +{len(lines)-1}"[:100]
 
+    def get_info(self):
+        n = len(list(self.list_history()))
+        return _("{} items in clipboard history").format(n)
+
     def delete(self, window, id):
         if self.conf.source == "gpaste" and shutil.which("gpaste-client"):
             self.debug(f"Deleting {id!r}")

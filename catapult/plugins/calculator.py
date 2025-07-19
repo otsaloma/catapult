@@ -16,6 +16,7 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import re
+import shutil
 import subprocess
 
 from catapult.api import copy_text_to_clipboard
@@ -52,6 +53,11 @@ class CalculatorPlugin(Plugin):
     def __init__(self):
         super().__init__()
         Thread(target=self.update_exchange_rates, daemon=True).start()
+
+    def get_info(self):
+        if path := shutil.which("qalc"):
+            return _("Using {}").format(path)
+        return _("{} not found").format("qalc")
 
     def launch(self, window, id):
         self.debug(f"Copying {id!r} to the clipboard")

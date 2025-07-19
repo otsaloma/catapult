@@ -185,6 +185,10 @@ class FilesPlugin(Plugin):
         file = Gio.File.new_for_uri(location)
         return file.query_info("*", Gio.FileQueryInfoFlags.NONE, None)
 
+    def get_info(self):
+        n = len(self._index)
+        return _("{} files indexed").format(n)
+
     def launch(self, window, id):
         file = Gio.File.new_for_uri(id)
         app = file.query_default_handler()

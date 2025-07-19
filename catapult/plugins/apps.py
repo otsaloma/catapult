@@ -66,6 +66,10 @@ class AppsPlugin(Plugin):
     def _get_fuzzy(self, app, query):
         return query not in app.get_name().lower()
 
+    def get_info(self):
+        n = len(self._index)
+        return _("{} apps indexed").format(n)
+
     def _get_offset(self, app, query):
         offset = app.get_name().lower().find(query)
         return offset if offset >= 0 else 1000

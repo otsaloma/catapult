@@ -242,6 +242,11 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
                 row = self._result_rows[index]
                 self._result_list.select_row(row)
 
+    def get_plugin_if_active(self, name):
+        for plugin in self._plugins:
+            if plugin.name == name:
+                return plugin
+
     def get_query(self):
         return self._input_entry.get_text()
 

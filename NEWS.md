@@ -1,3 +1,9 @@
+PENDING: Catapult 1.3
+=====================
+
+* Add info about plugin requirements and indexing status to the
+  preferences dialog
+
 2025-07-18: Catapult 1.2
 ========================
 

@@ -29,10 +29,13 @@ from gi.repository import Pango
 from gi.repository import PangoCairo
 from pathlib import Path
 
-ICON_TEMPLATE = """
+FONT_REGULAR = "Noto Sans"
+FONT_EMOJI = "Noto Color Emoji"
+
+ICON_TEMPLATE = f"""
 <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
   <rect x="5" y="5" width="38" height="38" rx="3" ry="3" fill="white"/>
-  <text x="24" y="34" font-family="Noto Sans" font-size="28" text-anchor="middle" fill="black">{}</text>
+  <text x="24" y="34" font-family="{FONT_REGULAR}" font-size="28" text-anchor="middle" fill="black">{{}}</text>
 </svg>
 """.strip()
 
@@ -42,6 +45,11 @@ def get_pango_font(font):
     font_map = PangoCairo.font_map_get_default()
     context = font_map.create_context()
     return context.load_font(font_desc)
+
+@functools.cache
+def is_font_available(font):
+    font_map = PangoCairo.font_map_get_default()
+    return font in set(x.get_name() for x in font_map.list_families())
 
 @dataclass
 class Block:
@@ -66,7 +74,7 @@ class Character:
 
     @property
     def font(self):
-        return "Noto Color Emoji" if self.is_emoji else "Noto Sans"
+        return FONT_EMOJI if self.is_emoji else FONT_REGULAR
 
     @property
     def is_emoji(self):
@@ -108,6 +116,18 @@ class CharactersPlugin(Plugin):
         for block in self._blocks:
             if block.start <= code <= block.end:
                 return block.name
+
+    def get_info(self):
+        def font_available(font):
+            if is_font_available(font):
+                return _("Using {}").format(font)
+            return _("{} not found").format(font)
+        nemoji = sum(x.is_emoji for x in self._characters)
+        nother = len(self._characters) - nemoji
+        return "\n".join((_("{} characters indexed").format(nother),
+                          _("{} emojis indexed").format(nemoji),
+                          font_available(FONT_REGULAR),
+                          font_available(FONT_EMOJI)))
 
     def launch(self, window, id):
         self.debug(f"Copying {id!r} to the clipboard")
@@ -177,7 +197,7 @@ class CharactersPlugin(Plugin):
     def _render_cairo_icon(self, character):
         # We need this instead of the simpler ICON_TEMPLATE for emojis,
         # because SVG rendering as done by GdkPixbuf does not support
-        # some font features needed by Noto Color Emoji.
+        # some font features needed by FONT_EMOJI.
         scale_factor = get_scale_factor()
         size = round(48 * scale_factor)
         surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, size, size)

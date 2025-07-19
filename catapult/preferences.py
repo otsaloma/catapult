@@ -120,7 +120,10 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
                 toggle = TogglePlugin(name, cls.title)
                 preferences_items = [x(conf=cls.conf, parent=self) for x in cls.preferences_items]
                 toggle.connect_items(preferences_items)
-                page = self.get_page([toggle] + preferences_items)
+                items = [toggle] + preferences_items
+                plugin = window.get_plugin_if_active(name)
+                info = plugin.get_info() if plugin else ""
+                page = self.get_page(items, info)
                 stack.add_titled(page, name, cls.title)
             except Exception:
                 logging.exception(f"Failed to load configuration for {name}")
@@ -132,7 +135,7 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
         content.append(grid)
         self.show()
 
-    def get_page(self, items):
+    def get_page(self, items, info=""):
         grid = Gtk.Grid()
         grid.set_column_homogeneous(True)
         grid.set_column_spacing(18)
@@ -152,6 +155,14 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
             box.append(item.widget)
             grid.attach(box, 1, i, 2, 1)
             self.items.append(item)
+        if info:
+            label = Gtk.Label(label=info)
+            label.set_margin_top(18)
+            label.set_xalign(0)
+            label.add_css_class("catapult-info-text")
+            label.add_css_class("dim-label")
+            label.add_css_class("numeric")
+            grid.attach(label, 1, i+1, 2, 1)
         return grid
 
     def list_plugins(self):

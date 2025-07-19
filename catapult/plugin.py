@@ -42,6 +42,9 @@ class Plugin(catapult.DebugMixin):
         if cls.conf: return
         cls.read_configuration()
 
+    def get_info(self):
+        return ""
+
     @classmethod
     def get_name(cls):
         return cls.__module__.split(".")[-1]
