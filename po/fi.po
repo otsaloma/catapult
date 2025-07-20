@@ -2,17 +2,17 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # Osmo Salomaa <otsaloma@iki.fi>, 2025
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-18 23:28+0300\n"
-"PO-Revision-Date: 2025-07-18 23:30+0300\n"
+"POT-Creation-Date: 2025-07-20 22:20+0300\n"
+"PO-Revision-Date: 2025-07-20 22:24+0300\n"
 "Last-Translator: Osmo Salomaa <otsaloma@iki.fi>, 2025\n"
 "Language-Team: Finnish (https://app.transifex.com/otsaloma/teams/118053/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -91,6 +91,10 @@ msgstr "Näytä vieraat alustasovellukset"
 msgid "Apps"
 msgstr "Sovellukset"
 
+#: catapult/plugins/apps.py:71
+msgid "{} apps indexed"
+msgstr "{} sovellusta indeksoitu"
+
 #: catapult/plugins/builtins.py:66
 msgid "Catapult preferences"
 msgstr "Catapultin asetukset"
@@ -111,13 +115,29 @@ msgstr "Lopeta Catapult"
 msgid "Update search index"
 msgstr "Päivitä hakuindeksi"
 
-#: catapult/plugins/calculator.py:50
+#: catapult/plugins/calculator.py:51
 msgid "Calculator"
 msgstr "Laskin"
 
-#: catapult/plugins/characters.py:93
+#: catapult/plugins/calculator.py:59 catapult/plugins/characters.py:123
+msgid "Using {}"
+msgstr "Käytetään {}"
+
+#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:124
+msgid "{} not found"
+msgstr "{} ei löydetty"
+
+#: catapult/plugins/characters.py:101
 msgid "Characters"
 msgstr "Merkit"
+
+#: catapult/plugins/characters.py:127
+msgid "{} characters indexed"
+msgstr "{} merkkiä indeksoitu"
+
+#: catapult/plugins/characters.py:128
+msgid "{} emojis indexed"
+msgstr "{} emojia indeksoitu"
 
 #: catapult/plugins/clipboard.py:35
 msgid "Source"
@@ -130,6 +150,10 @@ msgstr "Kytkin"
 #: catapult/plugins/clipboard.py:70
 msgid "Clipboard"
 msgstr "Leikepöytä"
+
+#: catapult/plugins/clipboard.py:92
+msgid "{} items in clipboard history"
+msgstr "{} kohdetta leikepöydän historiassa"
 
 #: catapult/plugins/files.py:42
 msgid "_Cancel"
@@ -171,6 +195,10 @@ msgstr "minuuttia"
 msgid "Files"
 msgstr "Tiedostot"
 
+#: catapult/plugins/files.py:190
+msgid "{} files indexed"
+msgstr "{} tiedostoa indeksoitu"
+
 #. TRANSLATORS: Include all possible variations separated by semicolons.
 #: catapult/plugins/session.py:32
 msgid "Lock Screen"
@@ -195,6 +223,10 @@ msgstr "Uudelleenkäynnistä"
 msgid "Session"
 msgstr "Istunto"
 
+#: catapult/plugins/session.py:58
+msgid "Supported desktops:"
+msgstr "Tuetut työpöydät:"
+
 #: data/io.otsaloma.catapult.appdata.xml.in:9
 msgid ""
 "Catapult allows you to easily launch apps, open files and do basic "
@@ -204,7 +236,7 @@ msgstr ""
 "avaamisen ja pienten laskujen tekemisen näppäimistöpohjaisella "
 "käyttöliittymällä."
 
-#: data/io.otsaloma.catapult.appdata.xml.in:48
+#: data/io.otsaloma.catapult.appdata.xml.in:49
 msgid "Main window"
 msgstr "Pääikkuna"
 

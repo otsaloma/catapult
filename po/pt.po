@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-18 23:22+0300\n"
+"POT-Creation-Date: 2025-07-20 22:20+0300\n"
 "PO-Revision-Date: 2021-03-10 20:25+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>, 2025\n"
 "Language-Team: Portuguese (https://app.transifex.com/otsaloma/teams/118053/pt/)\n"
@@ -91,6 +91,10 @@ msgstr ""
 msgid "Apps"
 msgstr "Aplicações"
 
+#: catapult/plugins/apps.py:71
+msgid "{} apps indexed"
+msgstr ""
+
 #: catapult/plugins/builtins.py:66
 msgid "Catapult preferences"
 msgstr "Preferências do Catapult"
@@ -111,12 +115,28 @@ msgstr "Sair do Catapult"
 msgid "Update search index"
 msgstr "Atualizar o índice de pesquisa"
 
-#: catapult/plugins/calculator.py:50
+#: catapult/plugins/calculator.py:51
 msgid "Calculator"
 msgstr "Calculadora"
 
-#: catapult/plugins/characters.py:93
+#: catapult/plugins/calculator.py:59 catapult/plugins/characters.py:123
+msgid "Using {}"
+msgstr ""
+
+#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:124
+msgid "{} not found"
+msgstr ""
+
+#: catapult/plugins/characters.py:101
 msgid "Characters"
+msgstr ""
+
+#: catapult/plugins/characters.py:127
+msgid "{} characters indexed"
+msgstr ""
+
+#: catapult/plugins/characters.py:128
+msgid "{} emojis indexed"
 msgstr ""
 
 #: catapult/plugins/clipboard.py:35
@@ -130,6 +150,10 @@ msgstr "Acionador"
 #: catapult/plugins/clipboard.py:70
 msgid "Clipboard"
 msgstr "Área de transferência"
+
+#: catapult/plugins/clipboard.py:92
+msgid "{} items in clipboard history"
+msgstr ""
 
 #: catapult/plugins/files.py:42
 msgid "_Cancel"
@@ -171,6 +195,10 @@ msgstr "minutos"
 msgid "Files"
 msgstr "Ficheiros"
 
+#: catapult/plugins/files.py:190
+msgid "{} files indexed"
+msgstr ""
+
 #. TRANSLATORS: Include all possible variations separated by semicolons.
 #: catapult/plugins/session.py:32
 msgid "Lock Screen"
@@ -195,6 +223,10 @@ msgstr "Reiniciar"
 msgid "Session"
 msgstr "Sessão"
 
+#: catapult/plugins/session.py:58
+msgid "Supported desktops:"
+msgstr ""
+
 #: data/io.otsaloma.catapult.appdata.xml.in:9
 msgid ""
 "Catapult allows you to easily launch apps, open files and do basic "
@@ -204,7 +236,7 @@ msgstr ""
 "efetuar cálculos básicos com uma interface de utilizador orientada para o "
 "teclado."
 
-#: data/io.otsaloma.catapult.appdata.xml.in:48
+#: data/io.otsaloma.catapult.appdata.xml.in:49
 msgid "Main window"
 msgstr "Janela principal"
 

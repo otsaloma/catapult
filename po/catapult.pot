@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-18 23:28+0300\n"
+"POT-Creation-Date: 2025-07-20 22:20+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,6 +86,10 @@ msgstr ""
 msgid "Apps"
 msgstr ""
 
+#: catapult/plugins/apps.py:71
+msgid "{} apps indexed"
+msgstr ""
+
 #: catapult/plugins/builtins.py:66
 msgid "Catapult preferences"
 msgstr ""
@@ -106,12 +110,28 @@ msgstr ""
 msgid "Update search index"
 msgstr ""
 
-#: catapult/plugins/calculator.py:50
+#: catapult/plugins/calculator.py:51
 msgid "Calculator"
 msgstr ""
 
-#: catapult/plugins/characters.py:93
+#: catapult/plugins/calculator.py:59 catapult/plugins/characters.py:123
+msgid "Using {}"
+msgstr ""
+
+#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:124
+msgid "{} not found"
+msgstr ""
+
+#: catapult/plugins/characters.py:101
 msgid "Characters"
+msgstr ""
+
+#: catapult/plugins/characters.py:127
+msgid "{} characters indexed"
+msgstr ""
+
+#: catapult/plugins/characters.py:128
+msgid "{} emojis indexed"
 msgstr ""
 
 #: catapult/plugins/clipboard.py:35
@@ -124,6 +144,10 @@ msgstr ""
 
 #: catapult/plugins/clipboard.py:70
 msgid "Clipboard"
+msgstr ""
+
+#: catapult/plugins/clipboard.py:92
+msgid "{} items in clipboard history"
 msgstr ""
 
 #: catapult/plugins/files.py:42
@@ -166,6 +190,10 @@ msgstr ""
 msgid "Files"
 msgstr ""
 
+#: catapult/plugins/files.py:190
+msgid "{} files indexed"
+msgstr ""
+
 #. TRANSLATORS: Include all possible variations separated by semicolons.
 #: catapult/plugins/session.py:32
 msgid "Lock Screen"
@@ -190,13 +218,17 @@ msgstr ""
 msgid "Session"
 msgstr ""
 
+#: catapult/plugins/session.py:58
+msgid "Supported desktops:"
+msgstr ""
+
 #: data/io.otsaloma.catapult.appdata.xml.in:9
 msgid ""
 "Catapult allows you to easily launch apps, open files and do basic "
 "calculations with a keyboard-driven user interface."
 msgstr ""
 
-#: data/io.otsaloma.catapult.appdata.xml.in:48
+#: data/io.otsaloma.catapult.appdata.xml.in:49
 msgid "Main window"
 msgstr ""
 
