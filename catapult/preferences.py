@@ -161,7 +161,7 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
             self.items.append(item)
         if info:
             label = Gtk.Label(label=info)
-            label.set_margin_top(18)
+            label.set_margin_top(12)
             label.set_xalign(0)
             label.add_css_class("catapult-info-text")
             label.add_css_class("dim-label")
