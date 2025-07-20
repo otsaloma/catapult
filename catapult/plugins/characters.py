@@ -17,6 +17,7 @@
 
 import cairo
 import functools
+import html
 
 from catapult.api import copy_text_to_clipboard
 from catapult.api import find_split_all
@@ -226,7 +227,7 @@ class CharactersPlugin(Plugin):
                 icon = self._render_cairo_icon(character)
             else:
                 # SVG string
-                icon = ICON_TEMPLATE.format(character.value)
+                icon = ICON_TEMPLATE.format(html.escape(character.value))
             yield SearchResult(
                 description="".join(f"\\u{ord(x):04x}" for x in character.value),
                 fuzzy=False,
