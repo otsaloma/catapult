@@ -122,7 +122,11 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
                 toggle.connect_items(preferences_items)
                 items = [toggle] + preferences_items
                 plugin = window.get_plugin_if_active(name)
-                info = plugin.get_info() if plugin else ""
+                try:
+                    info = plugin.get_info() if plugin else ""
+                except Exception:
+                    logging.exception(f"Failed to get_info from {name}")
+                    info = ""
                 page = self.get_page(items, info)
                 stack.add_titled(page, name, cls.title)
             except Exception:
