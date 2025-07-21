@@ -29,6 +29,7 @@ from dataclasses import dataclass
 from gi.repository import Pango
 from gi.repository import PangoCairo
 from pathlib import Path
+from statistics import fmean
 
 FONT_REGULAR = "Noto Sans"
 FONT_EMOJI = "Noto Color Emoji"
@@ -220,8 +221,9 @@ class CharactersPlugin(Plugin):
         query = query.lower().strip()
         for i, character in enumerate(self._characters):
             found = find_split_all(query, character.search_target)
-            offset = min(found.values())
-            if offset < 0: continue
+            min_offset = min(found.values())
+            mean_offset = fmean(found.values())
+            if min_offset < 0: continue
             if character.is_emoji:
                 # cairo.ImageSurface
                 icon = self._render_cairo_icon(character)
@@ -233,8 +235,8 @@ class CharactersPlugin(Plugin):
                 fuzzy=False,
                 icon=icon,
                 id=character.value,
-                offset=offset,
+                offset=min_offset,
                 plugin=self,
-                score=0.9*0.9**offset,
+                score=0.9*0.9**mean_offset,
                 title=character.name,
             )
