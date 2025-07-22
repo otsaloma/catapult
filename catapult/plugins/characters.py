@@ -30,6 +30,7 @@ from gi.repository import Pango
 from gi.repository import PangoCairo
 from pathlib import Path
 from statistics import fmean
+from threading import Thread
 
 FONT_REGULAR = "Noto Sans"
 FONT_EMOJI = "Noto Color Emoji"
@@ -104,14 +105,9 @@ class CharactersPlugin(Plugin):
 
     def __init__(self):
         super().__init__()
-        self._blocks = list(self._load_blocks())
-        self._blocks.sort(key=lambda x: x.start)
-        self.debug(f"Loaded {len(self._blocks)} blocks")
+        self._blocks = []
         self._characters = []
-        self._characters += list(self._load_emojis())
-        self._characters += list(self._load_characters())
-        self._characters.sort(key=lambda x: x.value)
-        self.debug(f"Loaded {len(self._characters)} characters")
+        Thread(target=self._load, daemon=True).start()
         self.debug("Initialization complete")
 
     def _find_block(self, code):
@@ -134,6 +130,16 @@ class CharactersPlugin(Plugin):
     def launch(self, window, id):
         self.debug(f"Copying {id!r} to the clipboard")
         copy_text_to_clipboard(id)
+
+    def _load(self):
+        self._blocks = list(self._load_blocks())
+        self._blocks.sort(key=lambda x: x.start)
+        self.debug(f"Loaded {len(self._blocks)} blocks")
+        self._characters = []
+        self._characters += list(self._load_emojis())
+        self._characters += list(self._load_characters())
+        self._characters.sort(key=lambda x: x.value)
+        self.debug(f"Loaded {len(self._characters)} characters")
 
     def _load_blocks(self):
         # We're not currently using the block info, but we're including
