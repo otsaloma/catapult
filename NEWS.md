@@ -1,10 +1,11 @@
-PENDING: Catapult 1.3
-=====================
+2025-07-25: Catapult 1.3
+========================
 
 * Add info about plugin requirements and indexing status to the
   preferences dialog
 * Fix characters plugin icon rendering for characters that need to be
   escaped in SVG, such as ampersand, less than and greater than
+* Fix characters plugin result ordering
 
 2025-07-18: Catapult 1.2
 ========================
