@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-20 22:20+0300\n"
+"POT-Creation-Date: 2025-07-24 23:29+0300\n"
 "PO-Revision-Date: 2021-03-10 20:25+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>, 2025\n"
 "Language-Team: Portuguese (https://app.transifex.com/otsaloma/teams/118053/pt/)\n"
@@ -119,23 +119,23 @@ msgstr "Atualizar o índice de pesquisa"
 msgid "Calculator"
 msgstr "Calculadora"
 
-#: catapult/plugins/calculator.py:59 catapult/plugins/characters.py:123
+#: catapult/plugins/calculator.py:59 catapult/plugins/characters.py:121
 msgid "Using {}"
 msgstr ""
 
-#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:124
+#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:122
 msgid "{} not found"
 msgstr ""
 
-#: catapult/plugins/characters.py:101
+#: catapult/plugins/characters.py:104
 msgid "Characters"
 msgstr ""
 
-#: catapult/plugins/characters.py:127
+#: catapult/plugins/characters.py:125
 msgid "{} characters indexed"
 msgstr ""
 
-#: catapult/plugins/characters.py:128
+#: catapult/plugins/characters.py:126
 msgid "{} emojis indexed"
 msgstr ""
 

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-20 22:20+0300\n"
+"POT-Creation-Date: 2025-07-24 23:29+0300\n"
 "PO-Revision-Date: 2021-03-10 20:25+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>, 2025\n"
 "Language-Team: Dutch (https://app.transifex.com/otsaloma/teams/118053/nl/)\n"
@@ -93,7 +93,7 @@ msgstr "Programma's"
 
 #: catapult/plugins/apps.py:71
 msgid "{} apps indexed"
-msgstr ""
+msgstr "{} programma's geïndexeerd"
 
 #: catapult/plugins/builtins.py:66
 msgid "Catapult preferences"
@@ -119,25 +119,25 @@ msgstr "Zoekindex bĳwerken"
 msgid "Calculator"
 msgstr "Rekenmachine"
 
-#: catapult/plugins/calculator.py:59 catapult/plugins/characters.py:123
+#: catapult/plugins/calculator.py:59 catapult/plugins/characters.py:121
 msgid "Using {}"
-msgstr ""
+msgstr "Gebruikmakend van {}"
 
-#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:124
+#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:122
 msgid "{} not found"
-msgstr ""
+msgstr "{} is niet aangetroffen"
 
-#: catapult/plugins/characters.py:101
+#: catapult/plugins/characters.py:104
 msgid "Characters"
 msgstr "Tekens"
 
-#: catapult/plugins/characters.py:127
+#: catapult/plugins/characters.py:125
 msgid "{} characters indexed"
-msgstr ""
+msgstr "{} tekens geïndexeerd"
 
-#: catapult/plugins/characters.py:128
+#: catapult/plugins/characters.py:126
 msgid "{} emojis indexed"
-msgstr ""
+msgstr "{} emoji's geïndexeerd"
 
 #: catapult/plugins/clipboard.py:35
 msgid "Source"
@@ -153,7 +153,7 @@ msgstr "Klembord"
 
 #: catapult/plugins/clipboard.py:92
 msgid "{} items in clipboard history"
-msgstr ""
+msgstr "{} items in de klembordgeschiedenis"
 
 #: catapult/plugins/files.py:42
 msgid "_Cancel"
@@ -197,7 +197,7 @@ msgstr "Bestanden"
 
 #: catapult/plugins/files.py:190
 msgid "{} files indexed"
-msgstr ""
+msgstr "{} bestanden geïndexeerd"
 
 #. TRANSLATORS: Include all possible variations separated by semicolons.
 #: catapult/plugins/session.py:32
@@ -225,7 +225,7 @@ msgstr "Sessie"
 
 #: catapult/plugins/session.py:58
 msgid "Supported desktops:"
-msgstr ""
+msgstr "Ondersteunde werkomgevingen:"
 
 #: data/io.otsaloma.catapult.appdata.xml.in:9
 msgid ""
