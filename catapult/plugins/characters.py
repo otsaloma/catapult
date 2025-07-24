@@ -35,19 +35,19 @@ from threading import Thread
 FONT_REGULAR = "Noto Sans"
 FONT_EMOJI = "Noto Color Emoji"
 
+PANGO_FONTS = {
+    # This would look nicer in a memoized function, but that doesn't for some
+    # reason work correctly in threaded use as below for the initial data load.
+    FONT_REGULAR: PangoCairo.font_map_get_default().create_context().load_font(Pango.FontDescription(FONT_REGULAR)),
+    FONT_EMOJI: PangoCairo.font_map_get_default().create_context().load_font(Pango.FontDescription(FONT_EMOJI)),
+}
+
 ICON_TEMPLATE = f"""
 <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
   <rect x="5" y="5" width="38" height="38" rx="3" ry="3" fill="white"/>
   <text x="24" y="34" font-family="{FONT_REGULAR}" font-size="28" text-anchor="middle" fill="black">{{}}</text>
 </svg>
 """.strip()
-
-@functools.cache
-def get_pango_font(font):
-    font_desc = Pango.FontDescription(font)
-    font_map = PangoCairo.font_map_get_default()
-    context = font_map.create_context()
-    return context.load_font(font_desc)
 
 @functools.cache
 def is_font_available(font):
@@ -96,7 +96,7 @@ class Character:
         if len(self.value) > 1:
             # Can't check emoji sequences!
             return True
-        font = get_pango_font(self.font)
+        font = PANGO_FONTS[self.font]
         return font.has_char(self.value)
 
 class CharactersPlugin(Plugin):
@@ -107,6 +107,7 @@ class CharactersPlugin(Plugin):
         super().__init__()
         self._blocks = []
         self._characters = []
+        self.data_loaded = False
         Thread(target=self._load, daemon=True).start()
         self.debug("Initialization complete")
 
@@ -140,6 +141,7 @@ class CharactersPlugin(Plugin):
         self._characters += list(self._load_characters())
         self._characters.sort(key=lambda x: x.value)
         self.debug(f"Loaded {len(self._characters)} characters")
+        self.data_loaded = True
 
     def _load_blocks(self):
         # We're not currently using the block info, but we're including

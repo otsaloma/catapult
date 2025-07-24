@@ -16,14 +16,21 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult.test
+import time
 
 class TestCharactersPlugin(catapult.test.TestCase):
 
     def setup_method(self, method):
         self.plugin = catapult.plugins.characters.CharactersPlugin()
+        for i in range(100):
+            if not self.plugin.data_loaded:
+                time.sleep(0.1)
 
     def test___init__(self):
-        assert self.plugin._characters
+        nemoji = sum(x.is_emoji for x in self.plugin._characters)
+        nother = len(self.plugin._characters) - nemoji
+        assert nemoji > 0
+        assert nother > 0
 
     def test_search(self):
         assert list(self.plugin.search("e"))
