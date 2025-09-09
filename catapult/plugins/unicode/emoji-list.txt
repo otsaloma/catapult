@@ -55,7 +55,7 @@ U+1F614;PENSIVE FACE;awful|bored|dejected|died|disappointed|face|losing|lost|pen
 U+1F62A;SLEEPY FACE;crying|face|good|night|sad|sleep|sleeping|sleepy|tired
 U+1F924;DROOLING FACE;drooling|face
 U+1F634;SLEEPING FACE;bed|bedtime|face|good|goodnight|nap|night|sleep|sleeping|tired|whatever|yawn|zzz
-U+1FAE9;⊛ FACE WITH BAGS UNDER EYES;bags|bored|exhausted|eyes|face|fatigued|late|sleepy|tired|weary
+U+1FAE9;FACE WITH BAGS UNDER EYES;bags|bored|exhausted|eyes|face|fatigued|late|sleepy|tired|weary
 U+1F637;FACE WITH MEDICAL MASK;cold|dentist|dermatologist|doctor|dr|face|germs|mask|medical|medicine|sick
 U+1F912;FACE WITH THERMOMETER;face|ill|sick|thermometer
 U+1F915;FACE WITH HEAD-BANDAGE;bandage|face|head-bandage|hurt|injury|ouch
@@ -83,6 +83,7 @@ U+1F62E;FACE WITH OPEN MOUTH;believe|face|forgot|mouth|omg|open|shocked|surprise
 U+1F62F;HUSHED FACE;epic|face|hushed|omg|stunned|surprised|whoa|woah
 U+1F632;ASTONISHED FACE;astonished|cost|face|no|omg|shocked|totally|way
 U+1F633;FLUSHED FACE;amazed|awkward|crazy|dazed|dead|disbelief|embarrassed|face|flushed|geez|heat|hot|impressed|jeez|what|wow
+U+1FAEA;DISTORTED FACE;anxiety|bloated|panic|shocked|surprised|vulnerable
 U+1F97A;PLEADING FACE;begging|big|eyes|face|mercy|not|pleading|please|pretty|puppy|sad|why
 U+1F979;FACE HOLDING BACK TEARS;admiration|aww|back|cry|embarrassed|face|feelings|grateful|gratitude|holding|joy|please|proud|resist|sad|tears
 U+1F626;FROWNING FACE WITH OPEN MOUTH;caught|face|frown|frowning|guard|mouth|open|scared|scary|surprise|what|wow
@@ -156,6 +157,7 @@ U+1F90D;WHITE HEART;143|heart|white
 U+1F48B;KISS MARK;dating|emotion|heart|kiss|kissing|lips|mark|romance|sexy
 U+1F4AF;HUNDRED POINTS;100|a+|agree|clearly|definitely|faithful|fleek|full|hundred|keep|perfect|point|score|TRUE|truth|yup
 U+1F4A2;ANGER SYMBOL;anger|angry|comic|mad|symbol|upset
+U+1FAEF;FIGHT CLOUD;argument|brawl|debate|disagreement|fight|ruckus|wrestle
 U+1F4A5;COLLISION;bomb|boom|collide|collision|comic|explode
 U+1F4AB;DIZZY;comic|dizzy|shining|shooting|star|stars
 U+1F4A6;SWEAT DROPLETS;comic|drip|droplet|droplets|drops|splashing|squirt|sweat|water|wet|work|workout
@@ -400,6 +402,7 @@ U+1F9DF;ZOMBIE;apocalypse|dead|halloween|horror|scary|undead|walking|zombie|(non
 U+1F9DF U+200D U+2642 U+FE0F;MAN ZOMBIE;apocalypse|dead|halloween|horror|man|scary|undead|walking|zombie
 U+1F9DF U+200D U+2640 U+FE0F;WOMAN ZOMBIE;apocalypse|dead|halloween|horror|scary|undead|walking|woman|zombie
 U+1F9CC;TROLL;fairy|fantasy|monster|tale|troll|trolling
+U+1FAC8;HAIRY CREATURE;bigfoot|cryptid|forest|giant|hairy|sasquatch|woodwose|yeti
 U+1F486;PERSON GETTING MASSAGE;face|getting|headache|massage|person|relax|relaxing|salon|soothe|spa|tension|therapy|treatment
 U+1F486 U+200D U+2642 U+FE0F;MAN GETTING MASSAGE;face|getting|headache|man|massage|relax|relaxing|salon|soothe|spa|tension|therapy|treatment
 U+1F486 U+200D U+2640 U+FE0F;WOMAN GETTING MASSAGE;face|getting|headache|massage|relax|relaxing|salon|soothe|spa|tension|therapy|treatment|woman
@@ -409,42 +412,43 @@ U+1F487 U+200D U+2640 U+FE0F;WOMAN GETTING HAIRCUT;barber|beauty|chop|cosmetolog
 U+1F6B6;PERSON WALKING;amble|gait|hike|man|pace|pedestrian|person|stride|stroll|walk|walking
 U+1F6B6 U+200D U+2642 U+FE0F;MAN WALKING;amble|gait|hike|man|pace|pedestrian|stride|stroll|walk|walking
 U+1F6B6 U+200D U+2640 U+FE0F;WOMAN WALKING;amble|gait|hike|man|pace|pedestrian|stride|stroll|walk|walking|woman
-U+1F6B6 U+200D U+27A1 U+FE0F;PERSON WALKING FACING RIGHT;amble|gait|hike|man|pace|pedestrian|person|stride|stroll|walk|walking
-U+1F6B6 U+200D U+2640 U+FE0F U+200D U+27A1 U+FE0F;WOMAN WALKING FACING RIGHT;amble|gait|hike|man|pace|pedestrian|stride|stroll|walk|walking|woman
-U+1F6B6 U+200D U+2642 U+FE0F U+200D U+27A1 U+FE0F;MAN WALKING FACING RIGHT;amble|gait|hike|man|pace|pedestrian|stride|stroll|walk|walking
+U+1F6B6 U+200D U+27A1 U+FE0F;PERSON WALKING: FACING RIGHT;amble|facing|gait|hike|man|pace|pedestrian|person|right|stride|stroll|walk|walking
+U+1F6B6 U+200D U+2640 U+FE0F U+200D U+27A1 U+FE0F;WOMAN WALKING: FACING RIGHT;amble|facing|gait|hike|man|pace|pedestrian|right|stride|stroll|walk|walking|woman
+U+1F6B6 U+200D U+2642 U+FE0F U+200D U+27A1 U+FE0F;MAN WALKING: FACING RIGHT;amble|facing|gait|hike|man|pace|pedestrian|right|stride|stroll|walk|walking
 U+1F9CD;PERSON STANDING;person|stand|standing
 U+1F9CD U+200D U+2642 U+FE0F;MAN STANDING;man|stand|standing
 U+1F9CD U+200D U+2640 U+FE0F;WOMAN STANDING;stand|standing|woman
 U+1F9CE;PERSON KNEELING;kneel|kneeling|knees|person
 U+1F9CE U+200D U+2642 U+FE0F;MAN KNEELING;kneel|kneeling|knees|man
 U+1F9CE U+200D U+2640 U+FE0F;WOMAN KNEELING;kneel|kneeling|knees|woman
-U+1F9CE U+200D U+27A1 U+FE0F;PERSON KNEELING FACING RIGHT;kneel|kneeling|knees|person
-U+1F9CE U+200D U+2640 U+FE0F U+200D U+27A1 U+FE0F;WOMAN KNEELING FACING RIGHT;kneel|kneeling|knees|woman
-U+1F9CE U+200D U+2642 U+FE0F U+200D U+27A1 U+FE0F;MAN KNEELING FACING RIGHT;kneel|kneeling|knees|man
+U+1F9CE U+200D U+27A1 U+FE0F;PERSON KNEELING: FACING RIGHT;facing|kneel|kneeling|knees|person|right
+U+1F9CE U+200D U+2640 U+FE0F U+200D U+27A1 U+FE0F;WOMAN KNEELING: FACING RIGHT;facing|kneel|kneeling|knees|right|woman
+U+1F9CE U+200D U+2642 U+FE0F U+200D U+27A1 U+FE0F;MAN KNEELING: FACING RIGHT;facing|kneel|kneeling|knees|man|right
 U+1F9D1 U+200D U+1F9AF;PERSON WITH WHITE CANE;accessibility|blind|cane|person|probing|white
-U+1F9D1 U+200D U+1F9AF U+200D U+27A1 U+FE0F;PERSON WITH WHITE CANE FACING RIGHT;accessibility|blind|cane|person|probing|white
+U+1F9D1 U+200D U+1F9AF U+200D U+27A1 U+FE0F;PERSON WITH WHITE CANE: FACING RIGHT;accessibility|blind|cane|facing|person|probing|right|white
 U+1F468 U+200D U+1F9AF;MAN WITH WHITE CANE;accessibility|blind|cane|man|probing|white
-U+1F468 U+200D U+1F9AF U+200D U+27A1 U+FE0F;MAN WITH WHITE CANE FACING RIGHT;accessibility|blind|cane|man|probing|white
+U+1F468 U+200D U+1F9AF U+200D U+27A1 U+FE0F;MAN WITH WHITE CANE: FACING RIGHT;accessibility|blind|cane|facing|man|probing|right|white
 U+1F469 U+200D U+1F9AF;WOMAN WITH WHITE CANE;accessibility|blind|cane|probing|white|woman
-U+1F469 U+200D U+1F9AF U+200D U+27A1 U+FE0F;WOMAN WITH WHITE CANE FACING RIGHT;accessibility|blind|cane|probing|white|woman
+U+1F469 U+200D U+1F9AF U+200D U+27A1 U+FE0F;WOMAN WITH WHITE CANE: FACING RIGHT;accessibility|blind|cane|facing|probing|right|white|woman
 U+1F9D1 U+200D U+1F9BC;PERSON IN MOTORIZED WHEELCHAIR;accessibility|motorized|person|wheelchair
-U+1F9D1 U+200D U+1F9BC U+200D U+27A1 U+FE0F;PERSON IN MOTORIZED WHEELCHAIR FACING RIGHT;accessibility|motorized|person|wheelchair
+U+1F9D1 U+200D U+1F9BC U+200D U+27A1 U+FE0F;PERSON IN MOTORIZED WHEELCHAIR: FACING RIGHT;accessibility|facing|motorized|person|right|wheelchair
 U+1F468 U+200D U+1F9BC;MAN IN MOTORIZED WHEELCHAIR;accessibility|man|motorized|wheelchair
-U+1F468 U+200D U+1F9BC U+200D U+27A1 U+FE0F;MAN IN MOTORIZED WHEELCHAIR FACING RIGHT;accessibility|man|motorized|wheelchair
+U+1F468 U+200D U+1F9BC U+200D U+27A1 U+FE0F;MAN IN MOTORIZED WHEELCHAIR: FACING RIGHT;accessibility|facing|man|motorized|right|wheelchair
 U+1F469 U+200D U+1F9BC;WOMAN IN MOTORIZED WHEELCHAIR;accessibility|motorized|wheelchair|woman
-U+1F469 U+200D U+1F9BC U+200D U+27A1 U+FE0F;WOMAN IN MOTORIZED WHEELCHAIR FACING RIGHT;accessibility|motorized|wheelchair|woman
+U+1F469 U+200D U+1F9BC U+200D U+27A1 U+FE0F;WOMAN IN MOTORIZED WHEELCHAIR: FACING RIGHT;accessibility|facing|motorized|right|wheelchair|woman
 U+1F9D1 U+200D U+1F9BD;PERSON IN MANUAL WHEELCHAIR;accessibility|manual|person|wheelchair
-U+1F9D1 U+200D U+1F9BD U+200D U+27A1 U+FE0F;PERSON IN MANUAL WHEELCHAIR FACING RIGHT;accessibility|manual|person|wheelchair
+U+1F9D1 U+200D U+1F9BD U+200D U+27A1 U+FE0F;PERSON IN MANUAL WHEELCHAIR: FACING RIGHT;accessibility|facing|manual|person|right|wheelchair
 U+1F468 U+200D U+1F9BD;MAN IN MANUAL WHEELCHAIR;accessibility|man|manual|wheelchair
-U+1F468 U+200D U+1F9BD U+200D U+27A1 U+FE0F;MAN IN MANUAL WHEELCHAIR FACING RIGHT;accessibility|man|manual|wheelchair
+U+1F468 U+200D U+1F9BD U+200D U+27A1 U+FE0F;MAN IN MANUAL WHEELCHAIR: FACING RIGHT;accessibility|facing|man|manual|right|wheelchair
 U+1F469 U+200D U+1F9BD;WOMAN IN MANUAL WHEELCHAIR;accessibility|manual|wheelchair|woman
-U+1F469 U+200D U+1F9BD U+200D U+27A1 U+FE0F;WOMAN IN MANUAL WHEELCHAIR FACING RIGHT;accessibility|manual|wheelchair|woman
+U+1F469 U+200D U+1F9BD U+200D U+27A1 U+FE0F;WOMAN IN MANUAL WHEELCHAIR: FACING RIGHT;accessibility|facing|manual|right|wheelchair|woman
 U+1F3C3;PERSON RUNNING;fast|hurry|marathon|move|person|quick|race|racing|run|rush|speed
 U+1F3C3 U+200D U+2642 U+FE0F;MAN RUNNING;fast|hurry|man|marathon|move|quick|race|racing|run|rush|speed
 U+1F3C3 U+200D U+2640 U+FE0F;WOMAN RUNNING;fast|hurry|marathon|move|quick|race|racing|run|rush|speed|woman
-U+1F3C3 U+200D U+27A1 U+FE0F;PERSON RUNNING FACING RIGHT;fast|hurry|marathon|move|person|quick|race|racing|run|rush|speed
-U+1F3C3 U+200D U+2640 U+FE0F U+200D U+27A1 U+FE0F;WOMAN RUNNING FACING RIGHT;fast|hurry|marathon|move|quick|race|racing|run|rush|speed|woman
-U+1F3C3 U+200D U+2642 U+FE0F U+200D U+27A1 U+FE0F;MAN RUNNING FACING RIGHT;fast|hurry|man|marathon|move|quick|race|racing|run|rush|speed
+U+1F3C3 U+200D U+27A1 U+FE0F;PERSON RUNNING: FACING RIGHT;facing|fast|hurry|marathon|move|person|quick|race|racing|right|run|rush|speed
+U+1F3C3 U+200D U+2640 U+FE0F U+200D U+27A1 U+FE0F;WOMAN RUNNING: FACING RIGHT;facing|fast|hurry|marathon|move|quick|race|racing|right|run|rush|speed|woman
+U+1F3C3 U+200D U+2642 U+FE0F U+200D U+27A1 U+FE0F;MAN RUNNING: FACING RIGHT;facing|fast|hurry|man|marathon|move|quick|race|racing|right|run|rush|speed
+U+1F9D1 U+200D U+1FA70;BALLET DANCER;ballet|dancer|graceful|perform|twirl
 U+1F483;WOMAN DANCING;dance|dancer|dancing|elegant|festive|flair|flamenco|groove|let’s|salsa|tango|woman
 U+1F57A;MAN DANCING;dance|dancer|dancing|elegant|festive|flair|flamenco|groove|let’s|man|salsa|tango
 U+1F574;PERSON IN SUIT LEVITATING;business|levitating|person|suit
@@ -552,7 +556,7 @@ U+1F9D1 U+200D U+1F9D1 U+200D U+1F9D2 U+200D U+1F9D2;FAMILY: ADULT, ADULT, CHILD
 U+1F9D1 U+200D U+1F9D2;FAMILY: ADULT, CHILD;adult|child|family
 U+1F9D1 U+200D U+1F9D2 U+200D U+1F9D2;FAMILY: ADULT, CHILD, CHILD;adult|child|family
 U+1F463;FOOTPRINTS;barefoot|clothing|footprint|footprints|omw|print|walk
-U+1FAC6;⊛ FINGERPRINT;clue|crime|detective|fingerprint|forensics|identity|mystery|print|safety|trace
+U+1FAC6;FINGERPRINT;clue|crime|detective|fingerprint|forensics|identity|mystery|print|safety|trace
 U+1F9B0;RED HAIR;ginger|hair|red|redhead
 U+1F9B1;CURLY HAIR;afro|curly|hair|ringlets
 U+1F9B3;WHITE HAIR;gray|hair|old|white
@@ -657,6 +661,7 @@ U+1F996;T-REX;dinosaur|Rex|T|T-Rex|Tyrannosaurus|Tyrannosaurus Rex
 U+1F433;SPOUTING WHALE;animal|beach|face|ocean|spouting|whale
 U+1F40B;WHALE;animal|beach|ocean|whale
 U+1F42C;DOLPHIN;animal|beach|dolphin|flipper|ocean
+U+1FACD;ORCA;marine|ocean|whale
 U+1F9AD;SEAL;animal|lion|ocean|sea|seal
 U+1F41F;FISH;animal|dinner|fish|fishes|fishing|Pisces|zodiac
 U+1F420;TROPICAL FISH;animal|fish|fishes|tropical
@@ -715,7 +720,7 @@ U+1F343;LEAF FLUTTERING IN WIND;blow|flutter|fluttering|leaf|wind
 U+1FAB9;EMPTY NEST;branch|empty|home|nest|nesting
 U+1FABA;NEST WITH EGGS;bird|branch|egg|eggs|nest|nesting
 U+1F344;MUSHROOM;fungus|mushroom|toadstool
-U+1FABE;⊛ LEAFLESS TREE;bare|barren|branches|dead|drought|leafless|tree|trunk|winter|wood
+U+1FABE;LEAFLESS TREE;bare|barren|branches|dead|drought|leafless|tree|trunk|winter|wood
 U+1F347;GRAPES;Dionysus|fruit|grape|grapes
 U+1F348;MELON;cantaloupe|fruit|melon
 U+1F349;WATERMELON;fruit|watermelon
@@ -754,7 +759,7 @@ U+1F330;CHESTNUT;almond|chestnut|plant
 U+1FADA;GINGER ROOT;beer|ginger|health|herb|natural|root|spice
 U+1FADB;PEA POD;beans|beanstalk|edamame|legume|pea|pod|soybean|vegetable|veggie
 U+1F344 U+200D U+1F7EB;BROWN MUSHROOM;food|fungi|fungus|mushroom|nature|pizza|portobello|shiitake|shroom|spore|sprout|toppings|truffle|vegetable|vegetarian|veggie
-U+1FADC;⊛ ROOT VEGETABLE;beet|food|garden|radish|root|salad|turnip|vegetable|vegetarian
+U+1FADC;ROOT VEGETABLE;beet|food|garden|radish|root|salad|turnip|vegetable|vegetarian
 U+1F35E;BREAD;bread|carbs|food|grain|loaf|restaurant|toast|wheat
 U+1F950;CROISSANT;bread|breakfast|crescent|croissant|food|french|roll
 U+1F956;BAGUETTE BREAD;baguette|bread|food|french
@@ -856,6 +861,7 @@ U+1F5FE;MAP OF JAPAN;Japan|map
 U+1F9ED;COMPASS;compass|direction|magnetic|navigation|orienteering
 U+1F3D4;SNOW-CAPPED MOUNTAIN;cold|mountain|snow|snow-capped
 U+26F0;MOUNTAIN;mountain
+U+1F6D8;LANDSLIDE;avalanche|danger|disaster|earthquake|mountain|mudslide|rocks
 U+1F30B;VOLCANO;eruption|mountain|nature|volcano
 U+1F5FB;MOUNT FUJI;fuji|mount|mountain|nature
 U+1F3D5;CAMPING;camping
@@ -1216,17 +1222,18 @@ U+1F3A4;MICROPHONE;karaoke|mic|microphone|music|sing|sound
 U+1F3A7;HEADPHONE;earbud|headphone|sound
 U+1F4FB;RADIO;entertainment|radio|tbt|video
 U+1F3B7;SAXOPHONE;instrument|music|sax|saxophone
+U+1F3BA;TRUMPET;instrument|music|trumpet
+U+1FA8A;TROMBONE;brass|instrument|jazz|music|sad|slide
 U+1FA97;ACCORDION;accordion|box|concertina|instrument|music|squeeze|squeezebox
 U+1F3B8;GUITAR;guitar|instrument|music|strat
 U+1F3B9;MUSICAL KEYBOARD;instrument|keyboard|music|musical|piano
-U+1F3BA;TRUMPET;instrument|music|trumpet
 U+1F3BB;VIOLIN;instrument|music|violin
 U+1FA95;BANJO;banjo|music|stringed
 U+1F941;DRUM;drum|drumsticks|music
 U+1FA98;LONG DRUM;beat|conga|drum|instrument|long|rhythm
 U+1FA87;MARACAS;cha|dance|instrument|maracas|music|party|percussion|rattle|shake|shaker
 U+1FA88;FLUTE;band|fife|flautist|flute|instrument|marching|music|orchestra|piccolo|pipe|recorder|woodwind
-U+1FA89;⊛ HARP;cupid|harp|instrument|love|music|orchestra
+U+1FA89;HARP;cupid|harp|instrument|love|music|orchestra
 U+1F4F1;MOBILE PHONE;cell|communication|mobile|phone|telephone
 U+1F4F2;MOBILE PHONE WITH ARROW;arrow|build|call|cell|communication|mobile|phone|receive|telephone
 U+260E;TELEPHONE;phone|telephone
@@ -1280,8 +1287,9 @@ U+1F5DE;ROLLED-UP NEWSPAPER;news|newspaper|paper|rolled|rolled-up
 U+1F4D1;BOOKMARK TABS;bookmark|mark|marker|tabs
 U+1F516;BOOKMARK;bookmark|mark
 U+1F3F7;LABEL;label|tag
-U+1F4B0;MONEY BAG;bag|bank|bet|billion|cash|cost|dollar|gold|million|money|moneybag|paid|paying|pot|rich|win
 U+1FA99;COIN;coin|dollar|euro|gold|metal|money|rich|silver|treasure
+U+1F4B0;MONEY BAG;bag|bank|bet|billion|cash|cost|dollar|gold|million|money|moneybag|paid|paying|pot|rich|win
+U+1FA8E;TREASURE CHEST;gem|gold|jewels|loot|money|prize|silver|valuables|wealth
 U+1F4B4;YEN BANKNOTE;bank|banknote|bill|currency|money|note|yen
 U+1F4B5;DOLLAR BANKNOTE;bank|banknote|bill|currency|dollar|money|note
 U+1F4B6;EURO BANKNOTE;100|bank|banknote|bill|currency|euro|money|note|rich
@@ -1365,7 +1373,7 @@ U+1FA9D;HOOK;catch|crook|curve|ensnare|hook|point|selling
 U+1F9F0;TOOLBOX;box|chest|mechanic|red|tool|toolbox
 U+1F9F2;MAGNET;attraction|horseshoe|magnet|magnetic|negative|positive|shape|u
 U+1FA9C;LADDER;climb|ladder|rung|step
-U+1FA8F;⊛ SHOVEL;bury|dig|garden|hole|plant|scoop|shovel|snow|spade
+U+1FA8F;SHOVEL;bury|dig|garden|hole|plant|scoop|shovel|snow|spade
 U+2697;ALEMBIC;alembic|chemistry|tool
 U+1F9EA;TEST TUBE;chemist|chemistry|experiment|lab|science|test|tube
 U+1F9EB;PETRI DISH;bacteria|biologist|biology|culture|dish|lab|petri
@@ -1551,19 +1559,19 @@ U+2747;SPARKLE;*|sparkle
 U+00A9;COPYRIGHT;C|copyright
 U+00AE;REGISTERED;R|registered
 U+2122;TRADE MARK;mark|TM|trade|trademark
-U+1FADF;⊛ SPLATTER;drip|holi|ink|liquid|mess|paint|spill|splatter|stain
+U+1FADF;SPLATTER;drip|holi|ink|liquid|mess|paint|spill|splatter|stain
 U+0023 U+FE0F U+20E3;KEYCAP: #;keycap
 U+002A U+FE0F U+20E3;KEYCAP: *;keycap
-U+0030 U+FE0F U+20E3;KEYCAP: 0;keycap
-U+0031 U+FE0F U+20E3;KEYCAP: 1;keycap
-U+0032 U+FE0F U+20E3;KEYCAP: 2;keycap
-U+0033 U+FE0F U+20E3;KEYCAP: 3;keycap
-U+0034 U+FE0F U+20E3;KEYCAP: 4;keycap
-U+0035 U+FE0F U+20E3;KEYCAP: 5;keycap
-U+0036 U+FE0F U+20E3;KEYCAP: 6;keycap
-U+0037 U+FE0F U+20E3;KEYCAP: 7;keycap
-U+0038 U+FE0F U+20E3;KEYCAP: 8;keycap
-U+0039 U+FE0F U+20E3;KEYCAP: 9;keycap
+U+0030 U+FE0F U+20E3;KEYCAP: 0;0|keycap|zero
+U+0031 U+FE0F U+20E3;KEYCAP: 1;1|keycap|one
+U+0032 U+FE0F U+20E3;KEYCAP: 2;2|keycap|two
+U+0033 U+FE0F U+20E3;KEYCAP: 3;3|keycap|three
+U+0034 U+FE0F U+20E3;KEYCAP: 4;4|four|keycap
+U+0035 U+FE0F U+20E3;KEYCAP: 5;5|five|keycap
+U+0036 U+FE0F U+20E3;KEYCAP: 6;6|keycap|six
+U+0037 U+FE0F U+20E3;KEYCAP: 7;7|keycap|seven
+U+0038 U+FE0F U+20E3;KEYCAP: 8;8|eight|keycap
+U+0039 U+FE0F U+20E3;KEYCAP: 9;9|keycap|nine
 U+1F51F;KEYCAP: 10;keycap
 U+1F520;INPUT LATIN UPPERCASE;ABCD|input|latin|letters|uppercase
 U+1F521;INPUT LATIN LOWERCASE;abcd|input|latin|letters|lowercase
@@ -1697,7 +1705,7 @@ U+1F1E8 U+1F1F2;FLAG: CAMEROON;flag
 U+1F1E8 U+1F1F3;FLAG: CHINA;flag
 U+1F1E8 U+1F1F4;FLAG: COLOMBIA;flag
 U+1F1E8 U+1F1F5;FLAG: CLIPPERTON ISLAND;flag
-U+1F1E8 U+1F1F6;⊛ FLAG: SARK;flag
+U+1F1E8 U+1F1F6;FLAG: SARK;flag
 U+1F1E8 U+1F1F7;FLAG: COSTA RICA;flag
 U+1F1E8 U+1F1FA;FLAG: CUBA;flag
 U+1F1E8 U+1F1FB;FLAG: CAPE VERDE;flag

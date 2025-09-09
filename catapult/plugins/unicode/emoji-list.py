@@ -12,7 +12,7 @@ with open("emoji-list.txt", "w") as f:
             code = code[0].text
             if len(tr.select("td.name")) == 2:
                 name, terms = tr.select("td.name")
-                name = name.text.upper()
+                name = name.text.upper().strip("⊛ ")
                 terms = terms.text.replace(" | ", "|")
                 print((code, name, terms))
                 f.write(f"{code};{name};{terms}\n")

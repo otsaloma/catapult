@@ -1,3 +1,10 @@
+PENDING: Catapult 1.4
+=====================
+
+* Bump characters plugin Unicode data files to version to 17
+  (you'll also need the latest Noto Color Emoji font for new emojis to
+  show up in Catapult, test e.g. with "distorted face")
+
 2025-07-25: Catapult 1.3
 ========================
 
