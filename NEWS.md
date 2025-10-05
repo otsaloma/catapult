@@ -1,5 +1,5 @@
-PENDING: Catapult 1.4
-=====================
+2025-10-05: Catapult 1.4
+========================
 
 * Bump characters plugin Unicode data files to version to 17
   (you'll also need the latest Noto Color Emoji font for new emojis to
