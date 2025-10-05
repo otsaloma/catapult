@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 23:29+0300\n"
-"PO-Revision-Date: 2025-07-24 23:29+0300\n"
+"POT-Creation-Date: 2025-10-05 23:06+0300\n"
+"PO-Revision-Date: 2025-10-05 23:06+0300\n"
 "Last-Translator: Osmo Salomaa <otsaloma@iki.fi>, 2025\n"
 "Language-Team: Finnish (https://app.transifex.com/otsaloma/teams/118053/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -119,11 +119,11 @@ msgstr "Päivitä hakuindeksi"
 msgid "Calculator"
 msgstr "Laskin"
 
-#: catapult/plugins/calculator.py:59 catapult/plugins/characters.py:121
+#: catapult/plugins/calculator.py:59 catapult/plugins/characters.py:122
 msgid "Using {}"
 msgstr "Käytetään {}"
 
-#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:122
+#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:123
 msgid "{} not found"
 msgstr "{} ei löydetty"
 
@@ -131,11 +131,11 @@ msgstr "{} ei löydetty"
 msgid "Characters"
 msgstr "Merkit"
 
-#: catapult/plugins/characters.py:125
+#: catapult/plugins/characters.py:126
 msgid "{} characters indexed"
 msgstr "{} merkkiä indeksoitu"
 
-#: catapult/plugins/characters.py:126
+#: catapult/plugins/characters.py:127
 msgid "{} emojis indexed"
 msgstr "{} emojia indeksoitu"
 
@@ -236,7 +236,7 @@ msgstr ""
 "avaamisen ja pienten laskujen tekemisen näppäimistöpohjaisella "
 "käyttöliittymällä."
 
-#: data/io.otsaloma.catapult.appdata.xml.in:49
+#: data/io.otsaloma.catapult.appdata.xml.in:50
 msgid "Main window"
 msgstr "Pääikkuna"
 

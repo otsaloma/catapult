@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 23:29+0300\n"
+"POT-Creation-Date: 2025-10-05 23:06+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -114,11 +114,11 @@ msgstr ""
 msgid "Calculator"
 msgstr ""
 
-#: catapult/plugins/calculator.py:59 catapult/plugins/characters.py:121
+#: catapult/plugins/calculator.py:59 catapult/plugins/characters.py:122
 msgid "Using {}"
 msgstr ""
 
-#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:122
+#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:123
 msgid "{} not found"
 msgstr ""
 
@@ -126,11 +126,11 @@ msgstr ""
 msgid "Characters"
 msgstr ""
 
-#: catapult/plugins/characters.py:125
+#: catapult/plugins/characters.py:126
 msgid "{} characters indexed"
 msgstr ""
 
-#: catapult/plugins/characters.py:126
+#: catapult/plugins/characters.py:127
 msgid "{} emojis indexed"
 msgstr ""
 
@@ -228,7 +228,7 @@ msgid ""
 "calculations with a keyboard-driven user interface."
 msgstr ""
 
-#: data/io.otsaloma.catapult.appdata.xml.in:49
+#: data/io.otsaloma.catapult.appdata.xml.in:50
 msgid "Main window"
 msgstr ""
 

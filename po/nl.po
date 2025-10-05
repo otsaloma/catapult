@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 23:29+0300\n"
+"POT-Creation-Date: 2025-10-05 23:06+0300\n"
 "PO-Revision-Date: 2021-03-10 20:25+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>, 2025\n"
 "Language-Team: Dutch (https://app.transifex.com/otsaloma/teams/118053/nl/)\n"
@@ -119,11 +119,11 @@ msgstr "Zoekindex bĳwerken"
 msgid "Calculator"
 msgstr "Rekenmachine"
 
-#: catapult/plugins/calculator.py:59 catapult/plugins/characters.py:121
+#: catapult/plugins/calculator.py:59 catapult/plugins/characters.py:122
 msgid "Using {}"
 msgstr "Gebruikmakend van {}"
 
-#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:122
+#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:123
 msgid "{} not found"
 msgstr "{} is niet aangetroffen"
 
@@ -131,11 +131,11 @@ msgstr "{} is niet aangetroffen"
 msgid "Characters"
 msgstr "Tekens"
 
-#: catapult/plugins/characters.py:125
+#: catapult/plugins/characters.py:126
 msgid "{} characters indexed"
 msgstr "{} tekens geïndexeerd"
 
-#: catapult/plugins/characters.py:126
+#: catapult/plugins/characters.py:127
 msgid "{} emojis indexed"
 msgstr "{} emoji's geïndexeerd"
 
@@ -235,7 +235,7 @@ msgstr ""
 "Met Catapult kun je snel programma's starten, bestanden openen en "
 "rekensommen verwerken met het toetsenbord."
 
-#: data/io.otsaloma.catapult.appdata.xml.in:49
+#: data/io.otsaloma.catapult.appdata.xml.in:50
 msgid "Main window"
 msgstr "Hoofdvenster"
 
