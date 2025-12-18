@@ -19,8 +19,10 @@
 import array
 import cairo
 import catapult
+import contextlib
 import itertools
 import logging
+import time
 
 from catapult import util
 from gi.repository import Gdk
@@ -30,6 +32,20 @@ from gi.repository import GLib
 from gi.repository import GObject
 from gi.repository import Gtk
 from gi.repository import Pango
+
+ICON_NAMES_LOADING = [
+    "content-loading-symbolic",
+    "image-loading-symbolic",
+    "content-loading",
+    "image-loading",
+]
+
+ICON_NAMES_SEARCH = [
+    "system-search-symbolic",
+    "edit-find-symbolic",
+    "system-search",
+    "edit-find",
+]
 
 ICON_SIZE = Gtk.IconSize.LARGE
 ICON_SIZE_PX = 48
@@ -115,6 +131,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._icon_theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default())
         self._icon_theme_handler_id = None
         self._input_entry = Gtk.Entry()
+        self._input_icon = Gtk.Image()
         self._plugins = []
         self._position = (0, 0)
         self._prev_query = ""
@@ -163,22 +180,16 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
 
     def _init_widgets(self):
         screen_width, screen_height = catapult.util.get_screen_size()
-        input_icon = Gtk.Image()
-        input_icon.set_pixel_size(ICON_SIZE_PX/2)
-        input_icon.set_from_icon_name(util.lookup_icon(
-            "system-search-symbolic",
-            "edit-find-symbolic",
-            "system-search",
-            "edit-find",
-        ) or "")
-        input_icon.set_icon_size(Gtk.IconSize.LARGE)
-        input_icon.add_css_class("catapult-input-icon")
+        self._input_icon.set_pixel_size(ICON_SIZE_PX/2)
+        self._input_icon.set_from_icon_name(util.lookup_icon(*ICON_NAMES_SEARCH) or "")
+        self._input_icon.set_icon_size(Gtk.IconSize.LARGE)
+        self._input_icon.add_css_class("catapult-input-icon")
         self._input_entry.add_css_class("catapult-input-entry")
         self._input_entry.set_hexpand(True)
         input_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
         input_box.add_css_class("catapult-input-box")
         input_box.set_hexpand(True)
-        input_box.append(input_icon)
+        input_box.append(self._input_icon)
         input_box.append(self._input_entry)
         self._body = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
         self._body.add_css_class("catapult-body")
@@ -451,6 +462,32 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._input_entry.set_text("")
         self._input_entry.grab_focus()
         super().show()
+
+    def spin_start(self):
+        # XXX: Main context iteration doesn't seem to be enough,
+        # we need to sleep a brief moment for the icon to actually change.
+        icon_name = util.lookup_icon(*ICON_NAMES_LOADING) or ""
+        self._input_icon.set_from_icon_name(icon_name)
+        time.sleep(1/10)
+        main_context = GLib.MainContext.default()
+        while main_context.pending():
+            main_context.iteration()
+
+    def spin_stop(self):
+        # XXX: Main context iteration doesn't seem to be enough,
+        # we need to sleep a brief moment for the icon to actually change.
+        icon_name = util.lookup_icon(*ICON_NAMES_SEARCH) or ""
+        self._input_icon.set_from_icon_name(icon_name)
+        time.sleep(1/10)
+        main_context = GLib.MainContext.default()
+        while main_context.pending():
+            main_context.iteration()
+
+    @contextlib.contextmanager
+    def spinner(self):
+        self.spin_start()
+        yield
+        self.spin_stop()
 
     def toggle(self, *args, **kwargs):
         self.hide() if self.is_visible() else self.show()
