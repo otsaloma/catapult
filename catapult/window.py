@@ -447,8 +447,11 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self.present()
         self._result_list.unselect_all()
         self._result_scroller.hide()
-        self._prev_query = ""
+        self._prev_query = None
         self._input_entry.set_text("")
+        # Run blank query search, which we don't get from the entry
+        # text notify signal if the text already was blank.
+        self._on_input_entry_notify_text_do()
         self._input_entry.grab_focus()
         super().show()
 

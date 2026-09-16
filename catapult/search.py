@@ -72,8 +72,9 @@ class SearchManager(catapult.DebugMixin):
         result.launch(window)
 
     def search(self, plugins, query):
-        if not query: return []
         self.debug(f"Starting search for {query!r}")
+        if not query:
+            plugins = [x for x in plugins if x.name == "windows"]
         if query.strip().startswith(":"):
             plugins = [x for x in plugins if x.name == "builtins"]
         results = list(self._get_results(plugins, query))

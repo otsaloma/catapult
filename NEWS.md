@@ -1,3 +1,10 @@
+PENDING: Catapult 1.5
+=====================
+
+* Add windows plugin to list open windows, most recently used first,
+  when the search query is blank (requires GNOME Shell and enabling the
+  Catapult Windows extension installed along with Catapult)
+
 2025-10-05: Catapult 1.4
 ========================
 

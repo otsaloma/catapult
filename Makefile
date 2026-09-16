@@ -78,6 +78,9 @@ install:
 	mkdir -p $(DATADIR)/catapult/themes
 	cp -f data/catapult.css $(DATADIR)/catapult
 	cp -f data/themes/*.css $(DATADIR)/catapult/themes
+	@echo "INSTALLING GNOME SHELL EXTENSION..."
+	mkdir -p $(DATADIR)/gnome-shell/extensions/catapult-windows@otsaloma.io
+	cp -f data/gnome-shell/catapult-windows@otsaloma.io/* $(DATADIR)/gnome-shell/extensions/catapult-windows@otsaloma.io
 	@echo "INSTALLING ICONS..."
 	mkdir -p $(DATADIR)/icons/hicolor/scalable/apps
 	mkdir -p $(DATADIR)/icons/hicolor/symbolic/apps

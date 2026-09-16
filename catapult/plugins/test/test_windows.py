@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2021 Osmo Salomaa
+# Copyright (C) 2026 Osmo Salomaa
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,14 +15,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-# When adding a plugin, also add it to PreferencesDialog.list_plugins
-# and consider adding it to ConfigurationStore._defaults.
+import catapult.test
 
-from . import apps # noqa
-from . import builtins # noqa
-from . import calculator # noqa
-from . import characters # noqa
-from . import clipboard # noqa
-from . import files # noqa
-from . import session # noqa
-from . import windows # noqa
+class TestWindowsPlugin(catapult.test.TestCase):
+
+    def setup_method(self, method):
+        self.plugin = catapult.plugins.windows.WindowsPlugin()
+
+    def test_search(self):
+        list(self.plugin.search(""))
+        assert not list(self.plugin.search("x"))
