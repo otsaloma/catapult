@@ -58,7 +58,11 @@ class WindowsPlugin(Plugin):
             return
         windows = [x for x in reply.unpack()[0] if x[2] != "io.otsaloma.catapult.desktop"]
         for i, (id, title, app_id, app_name) in enumerate(windows):
-            app = Gio.DesktopAppInfo.new(app_id) if app_id.endswith(".desktop") else None
+            try:
+                app = Gio.DesktopAppInfo.new(app_id)
+            except TypeError:
+                # The app ID may not resolve to a desktop file.
+                app = None
             yield SearchResult(
                 description=app_name,
                 fuzzy=False,
