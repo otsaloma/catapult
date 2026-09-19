@@ -26,6 +26,13 @@ class TestWindowsPlugin(catapult.test.TestCase):
     def setup_method(self, method):
         self.plugin = catapult.plugins.windows.WindowsPlugin()
 
+    def test_delete(self):
+        self.plugin._call = Mock()
+        assert self.plugin.delete(None, "42")
+        self.plugin._call.assert_called_once_with("Close", GLib.Variant("(t)", (42,)), None)
+        self.plugin._call.side_effect = GLib.Error("error")
+        assert not self.plugin.delete(None, "42")
+
     def test_on_result_selected(self):
         self.plugin._call = Mock()
         result = SimpleNamespace(plugin=self.plugin, id="42")
