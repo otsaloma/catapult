@@ -26,6 +26,10 @@ class WindowsPlugin(Plugin):
     save_history = False
     title = _("Windows")
 
+    def __init__(self):
+        super().__init__()
+        self._previewing = False
+
     def _call(self, method, parameters, reply_type):
         # See data/gnome-shell/catapult-windows@otsaloma.io.
         bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
@@ -47,6 +51,23 @@ class WindowsPlugin(Plugin):
     def launch(self, window, id):
         self.debug(f"Activating window {id}")
         self._call("Activate", GLib.Variant("(t)", (int(id),)), None)
+
+    def on_result_selected(self, result):
+        if result is None or result.plugin is not self:
+            return self.on_window_hide()
+        try:
+            self._call("Preview", GLib.Variant("(t)", (int(result.id),)), None)
+            self._previewing = True
+        except GLib.Error as error:
+            self.debug(f"Failed to preview window: {error.message}")
+
+    def on_window_hide(self):
+        if not self._previewing: return
+        self._previewing = False
+        try:
+            self._call("ClearPreview", None, None)
+        except GLib.Error as error:
+            self.debug(f"Failed to clear window preview: {error.message}")
 
     def search(self, query):
         # Only list windows on a blank query, i.e. before typing anything.

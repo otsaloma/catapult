@@ -17,6 +17,8 @@
 
 import catapult.test
 
+from unittest.mock import Mock
+
 class TestWindow(catapult.test.TestCase):
 
     def setup_method(self, method):
@@ -38,6 +40,21 @@ class TestWindow(catapult.test.TestCase):
 
     def test__on_icon_theme_changed(self):
         self.window._icon_theme.emit("changed")
+
+    def test_result_selection(self):
+        self.window._plugins = []
+        self.window._scroll_to_row = Mock()
+        result = Mock(icon="", title="Window", description="")
+        self.window._search_manager.search = Mock(return_value=[result])
+        self.window.show()
+        assert self.window._result_list.get_selected_row() is None
+        self.window.select_next_result()
+        assert self.window._result_list.get_selected_row() is self.window._result_rows[0]
+        self.window.select_previous_result()
+        assert self.window._result_list.get_selected_row() is None
+        self.window._input_entry.set_text("query")
+        self.window._on_input_entry_notify_text_do()
+        assert self.window._result_list.get_selected_row() is self.window._result_rows[0]
 
     def test_select_next_result(self):
         self.window.select_next_result()

@@ -153,8 +153,9 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self.set_resizable(False)
 
     def _init_signal_handlers(self):
-        self.connect("notify::has-toplevel-focus", self._on_notify_has_toplevel_focus)
+        self.connect("notify::is-active", self._on_notify_is_active)
         self._input_entry.connect("notify::text", self._on_input_entry_notify_text)
+        self._result_list.connect("row-selected", self._on_result_list_row_selected)
         self._icon_theme_handler_id = self._icon_theme.connect("changed", self._on_icon_theme_changed)
         controller = Gtk.EventControllerKey()
         controller.set_propagation_phase(Gtk.PropagationPhase.CAPTURE)
@@ -308,6 +309,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         query = self.get_query()
         if query == self._prev_query: return
         self._prev_query = query
+        self._result_list.unselect_all()
         results = self._search_manager.search(self._plugins, query)
         for result, row in itertools.zip_longest(results, self._result_rows):
             row.query = query
@@ -318,7 +320,8 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             row.title_label.set_text(result.title or "")
             row.description_label.set_text(result.description or "")
             self._set_result_list_height(row)
-        self._result_list.select_row(self._result_rows[0])
+        if query:
+            self._result_list.select_row(self._result_rows[0])
         self._result_scroller.get_vadjustment().set_value(0)
         self._result_scroller.set_visible(bool(results))
 
@@ -346,9 +349,19 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             self.hide()
             return True
 
-    def _on_notify_has_toplevel_focus(self, *args, **kwargs):
-        if not self.has_toplevel_focus():
-            self.hide()
+    def _on_notify_is_active(self, *args, **kwargs):
+        if not self.is_active():
+            return self.hide()
+        row = self._result_list.get_selected_row()
+        self._on_result_list_row_selected(self._result_list, row)
+
+    def _on_result_list_row_selected(self, result_list, row):
+        result = row.result if row and self.is_active() else None
+        for plugin in self._plugins:
+            try:
+                plugin.on_result_selected(result)
+            except Exception:
+                logging.exception(f"on_result_selected failed for {plugin.name}")
 
     def open_about_dialog(self):
         self.hide()
@@ -366,6 +379,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         dialog.show()
 
     def quit(self):
+        self.hide()
         self._search_manager.history.write()
         self.write_configuration()
         self.destroy()
@@ -413,7 +427,9 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
     def select_previous_result(self):
         if not self._result_scroller.is_visible(): return
         row = self._result_list.get_selected_row()
-        index = row.get_index() if row else 1
+        index = row.get_index() if row else 0
+        if index == 0 and not self.get_query():
+            return self._result_list.unselect_all()
         index = max(0, index - 1)
         row = self._result_rows[index]
         if not row.is_visible(): return

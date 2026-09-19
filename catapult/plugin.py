@@ -56,6 +56,9 @@ class Plugin(catapult.DebugMixin):
     def name(self):
         return self.get_name()
 
+    def on_result_selected(self, result):
+        pass
+
     def on_window_hide(self):
         pass
 

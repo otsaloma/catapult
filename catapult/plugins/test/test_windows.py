@@ -17,10 +17,22 @@
 
 import catapult.test
 
+from gi.repository import GLib
+from types import SimpleNamespace
+from unittest.mock import Mock
+
 class TestWindowsPlugin(catapult.test.TestCase):
 
     def setup_method(self, method):
         self.plugin = catapult.plugins.windows.WindowsPlugin()
+
+    def test_on_result_selected(self):
+        self.plugin._call = Mock()
+        result = SimpleNamespace(plugin=self.plugin, id="42")
+        self.plugin.on_result_selected(result)
+        self.plugin._call.assert_called_once_with("Preview", GLib.Variant("(t)", (42,)), None)
+        self.plugin.on_result_selected(None)
+        self.plugin._call.assert_called_with("ClearPreview", None, None)
 
     def test_search(self):
         list(self.plugin.search(""))
