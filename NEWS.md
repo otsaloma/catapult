@@ -4,6 +4,7 @@
   most recently used first, when the search query is blank (requires
   GNOME Shell and enabling the Catapult Windows extension installed
   along with Catapult)
+- Fix plugin loading to not use an API to be removed in Python 3.15
 
 # 2025-10-05: Catapult 1.4
 

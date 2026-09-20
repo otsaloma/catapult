@@ -24,7 +24,8 @@ import urllib.parse
 
 from gi.repository import Gdk
 from gi.repository import Gtk
-from importlib.machinery import SourceFileLoader
+from importlib.util import module_from_spec
+from importlib.util import spec_from_file_location
 from pathlib import Path
 
 def atomic_write(path, text, encoding):
@@ -128,8 +129,10 @@ def load_plugin_class(name):
 def load_plugin_module(name):
     module = find_plugin(name)
     if inspect.ismodule(module): return module
-    loader = SourceFileLoader(name, str(module))
-    return loader.load_module(name)
+    spec = spec_from_file_location(name, module)
+    module = module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 def load_theme(name):
     css = find_theme(name).read_text("utf-8")
