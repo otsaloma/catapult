@@ -69,9 +69,8 @@ class Character:
     name:  str
     value: str
     terms: str
-    search_target: str = ""
 
-    def finalize(self):
+    def __post_init__(self):
         # Make this derived string a proper attribute so that
         # we can search fast without having to rebuild this.
         self.search_target = f"{self.name.lower()} {self.terms.lower()}".strip()
@@ -145,9 +144,9 @@ class CharactersPlugin(Plugin):
         self.data_loaded = True
 
     def _load_blocks(self):
-        # We're not currently using the block info, but we're including
-        # it for completeness, so that it's easy to experiment with
-        # filtering out generally uninteresting blocks etc.
+        # We only need blocks to tell emojis from other characters, but
+        # we're loading them all for completeness, so that it's easy to
+        # experiment with filtering out uninteresting blocks etc.
         path = Path(__file__).parent / "unicode" / "Blocks.txt"
         for line in path.read_text("utf-8").splitlines():
             line = line.strip()
@@ -181,7 +180,6 @@ class CharactersPlugin(Plugin):
                                   terms="")
 
             if character.is_supported:
-                character.finalize()
                 yield character
 
     def _load_emojis(self):
@@ -202,7 +200,6 @@ class CharactersPlugin(Plugin):
                                   terms=terms)
 
             if character.is_supported:
-                character.finalize()
                 yield character
 
     def _render_cairo_icon(self, character):
