@@ -80,8 +80,8 @@ install:
 	@echo "INSTALLING ICONS..."
 	mkdir -p $(DESTDIR)$(DATADIR)/icons/hicolor/scalable/apps
 	mkdir -p $(DESTDIR)$(DATADIR)/icons/hicolor/symbolic/apps
-	cp -f data/icons/io.otsaloma.catapult.svg $(DESTDIR)$(DATADIR)/icons/hicolor/scalable/apps
-	cp -f data/icons/io.otsaloma.catapult-symbolic.svg $(DESTDIR)$(DATADIR)/icons/hicolor/symbolic/apps
+	cp -f data/io.otsaloma.catapult.svg $(DESTDIR)$(DATADIR)/icons/hicolor/scalable/apps
+	cp -f data/io.otsaloma.catapult-symbolic.svg $(DESTDIR)$(DATADIR)/icons/hicolor/symbolic/apps
 	@echo "INSTALLING TRANSLATIONS..."
 	for MO in build/mo/*.mo; do \
 	LOCALE=`basename $$MO .mo`; \
