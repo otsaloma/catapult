@@ -1,0 +1,23 @@
+#!/bin/sh
+set -ex
+cd "$(dirname "$0")/.."
+ROOT=$(mktemp -d)
+
+# Installation from source to a PREFIX.
+make PREFIX=$ROOT/prefix build install
+test -x $ROOT/prefix/bin/catapult
+grep -qF "$ROOT/prefix/share/catapult" $ROOT/prefix/bin/catapult
+grep -qF "$ROOT/prefix/share/locale" $ROOT/prefix/share/catapult/catapult/__init__.py
+env -C / PYTHONPATH=$ROOT/prefix/share/catapult python3 -c "import catapult"
+
+# Distro packaging with DESTDIR and PREFIX.
+make DESTDIR=$ROOT/destdir PREFIX=/usr build install
+test -x $ROOT/destdir/usr/bin/catapult
+grep -qF "/usr/share/catapult" $ROOT/destdir/usr/bin/catapult
+grep -qF "/usr/share/locale" $ROOT/destdir/usr/share/catapult/catapult/__init__.py
+env -C / PYTHONPATH=$ROOT/destdir/usr/share/catapult python3 -c "import catapult"
+
+rm -rf $ROOT
+make clean
+set +x
+echo "ALL OK"
