@@ -30,7 +30,7 @@ class TestWindowsPlugin(catapult.test.TestCase):
         self.plugin._call = Mock()
         assert self.plugin.delete(None, "42")
         self.plugin._call.assert_called_once_with("Close", GLib.Variant("(t)", (42,)), None)
-        self.plugin._call.side_effect = GLib.Error("error")
+        self.plugin._call.return_value = None
         assert not self.plugin.delete(None, "42")
 
     def test_on_result_selected(self):

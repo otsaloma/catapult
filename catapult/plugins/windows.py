@@ -32,25 +32,28 @@ class WindowsPlugin(Plugin):
 
     def _call(self, method, parameters, reply_type):
         # See data/gnome-shell/catapult-windows@otsaloma.io.
-        bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
-        return bus.call_sync("org.gnome.Shell",
-                             "/org/gnome/Shell/Extensions/CatapultWindows",
-                             "org.gnome.Shell.Extensions.CatapultWindows",
-                             method,
-                             parameters,
-                             reply_type,
-                             Gio.DBusCallFlags.NONE,
-                             1000,
-                             None)
+        try:
+            bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
+            reply = bus.call_sync("org.gnome.Shell",
+                                  "/org/gnome/Shell/Extensions/CatapultWindows",
+                                  "org.gnome.Shell.Extensions.CatapultWindows",
+                                  method,
+                                  parameters,
+                                  reply_type,
+                                  Gio.DBusCallFlags.NONE,
+                                  1000,
+                                  None)
+
+            # Without a reply type, the reply is an empty tuple, which
+            # is falsy, so return True to mark success.
+            return reply if reply_type else True
+        except GLib.Error as error:
+            self.debug(f"Failed to call {method}: {error.message}")
+            return None
 
     def delete(self, window, id):
         self.debug(f"Closing window {id}")
-        try:
-            self._call("Close", GLib.Variant("(t)", (int(id),)), None)
-            return True
-        except GLib.Error as error:
-            self.debug(f"Failed to close window: {error.message}")
-            return False
+        return bool(self._call("Close", GLib.Variant("(t)", (int(id),)), None))
 
     def get_info(self):
         return "\n".join((
@@ -64,28 +67,19 @@ class WindowsPlugin(Plugin):
     def on_result_selected(self, result):
         if result is None or result.plugin is not self:
             return self.on_window_hide()
-        try:
-            self._call("Preview", GLib.Variant("(t)", (int(result.id),)), None)
+        if self._call("Preview", GLib.Variant("(t)", (int(result.id),)), None):
             self._previewing = True
-        except GLib.Error as error:
-            self.debug(f"Failed to preview window: {error.message}")
 
     def on_window_hide(self):
         if not self._previewing: return
         self._previewing = False
-        try:
-            self._call("ClearPreview", None, None)
-        except GLib.Error as error:
-            self.debug(f"Failed to clear window preview: {error.message}")
+        self._call("ClearPreview", None, None)
 
     def search(self, query):
         # Only list windows on a blank query, i.e. before typing anything.
         if query: return
-        try:
-            reply = self._call("List", None, GLib.VariantType("(a(tsss))"))
-        except GLib.Error as error:
-            self.debug(f"Failed to list windows: {error.message}")
-            return
+        reply = self._call("List", None, GLib.VariantType("(a(tsss))"))
+        if reply is None: return
         windows = [x for x in reply.unpack()[0] if x[2] != "io.otsaloma.catapult.desktop"]
         for i, (id, title, app_id, app_name) in enumerate(windows):
             try:
