@@ -17,7 +17,6 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult
-import inspect
 import logging
 
 from catapult.i18n import _
@@ -111,7 +110,7 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
         sidebar.set_stack(stack)
         sidebar.set_vexpand(True)
         sidebar.add_css_class("catapult-preferences-sidebar")
-        page = self.get_page([Theme])
+        page = self.get_page([Theme()])
         stack.add_titled(page, "general", _("General"))
         for name in self.list_plugins():
             try:
@@ -150,8 +149,6 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
         grid.set_margin_top(18)
         grid.set_row_spacing(12)
         for i, item in enumerate(items):
-            if inspect.isclass(item):
-                item = item()
             item.dump(self.main_window)
             item.label.set_xalign(1)
             item.label.add_css_class("dim-label")
