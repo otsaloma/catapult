@@ -1,10 +1,13 @@
 name: Test
-on: [push, pull_request]
+on:
+  push:
+    branches: [master]
+  pull_request:
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
       - run: python3 -c "import sys; print(sys.version)"
       - run: >
           sudo apt-get update && sudo apt-get install -y
@@ -12,7 +15,6 @@ jobs:
           fonts-noto-core
           fonts-noto-color-emoji
           gettext
-          gir1.2-glib-2.0
           gir1.2-gtk-4.0
           gir1.2-pango-1.0
           python3
@@ -22,8 +24,7 @@ jobs:
           python3-pytest
           qalc
           xvfb
-      - run: make check
-      # XXX: Segfaulting since 7/2025.
-      # - run: xvfb-run pytest-3 .
-      - run: sudo make PREFIX=/usr/local build install clean
-      - run: sudo make DESTDIR=pkg PREFIX=/usr build install clean
+
+      - run: xvfb-run make check
+      - run: xvfb-run pytest catapult
+      - run: xvfb-run tools/test-install
