@@ -23,28 +23,6 @@ import shutil
 
 from pathlib import Path
 
-def migrate_0_3_apps(data, conf={}):
-    # Keys separated into plugins/apps.json.
-    conf["scan_interval"] = data.get("apps_scan_interval")
-    conf = {k: v for k, v in conf.items() if v}
-    path = catapult.CONFIG_HOME / "plugins" / "apps.json"
-    if not conf or path.exists(): return
-    path.parent.mkdir(parents=True, exist_ok=True)
-    text = json.dumps(conf, ensure_ascii=False, indent=2)
-    catapult.util.atomic_write(path, text + "\n", "utf-8")
-
-def migrate_0_3_files(data, conf={}):
-    # Keys separated into plugins/files.json.
-    conf["exclude"] = data.get("files_exclude")
-    conf["include"] = data.get("files_include")
-    conf["scan_interval"] = data.get("files_scan_interval")
-    conf = {k: v for k, v in conf.items() if v}
-    path = catapult.CONFIG_HOME / "plugins" / "files.json"
-    if not conf or path.exists(): return
-    path.parent.mkdir(parents=True, exist_ok=True)
-    text = json.dumps(conf, ensure_ascii=False, indent=2)
-    catapult.util.atomic_write(path, text + "\n", "utf-8")
-
 class ConfigurationStore(catapult.DebugMixin):
 
     _defaults = {
@@ -60,29 +38,10 @@ class ConfigurationStore(catapult.DebugMixin):
         self._path = Path(path or default)
         self.restore_defaults()
 
-    def migrate(self, data):
-        try:
-            data = copy.deepcopy(data)
-            version = tuple(map(int, data["version"].split(".")))
-        except Exception:
-            print(json.dumps(data, ensure_ascii=False, indent=2))
-            logging.exception("Failed to parse config data for migration")
-            return data
-        if version < (0, 2, 999):
-            try:
-                self.debug("Migrating configuration to 0.3...")
-                migrate_0_3_apps(data)
-                migrate_0_3_files(data)
-            except Exception:
-                print(json.dumps(data, ensure_ascii=False, indent=2))
-                logging.exception("Failed to migrate configuration to 0.3")
-        return data
-
     def read(self):
         if not self._path.exists(): return
         text = self._path.read_text("utf-8")
         data = json.loads(text)
-        data = self.migrate(data)
         for key, value in data.items():
             if key not in self._defaults: continue
             setattr(self, key, value)
@@ -124,6 +83,3 @@ class PluginConfigurationStore(ConfigurationStore):
         self._defaults = copy.deepcopy(defaults)
         self._path = catapult.CONFIG_HOME / "plugins" / f"{plugin_name}.json"
         self.restore_defaults()
-
-    def migrate(self, data):
-        return data

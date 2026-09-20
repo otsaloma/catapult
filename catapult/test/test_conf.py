@@ -16,12 +16,10 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 import catapult.test
-import json
 import os
 import tempfile
 
 from pathlib import Path
-from unittest.mock import patch
 
 class TestConfigurationStore(catapult.test.TestCase):
 
@@ -31,43 +29,6 @@ class TestConfigurationStore(catapult.test.TestCase):
 
     def teardown_method(self, method):
         os.remove(self.temp_path)
-
-    def test_migrate_0_3(self):
-        config_home = Path(tempfile.mkdtemp())
-        with patch("catapult.CONFIG_HOME", config_home):
-            data = {
-                "apps_scan_interval": 100,
-                "files_exclude": ["test"],
-                "files_include": ["rest"],
-                "files_scan_interval": 200,
-                "version": "0.2",
-            }
-            text = json.dumps(data, ensure_ascii=False, indent=2)
-            path = config_home / "catapult.json"
-            path.write_text(text, "utf-8")
-            conf = catapult.ConfigurationStore()
-            conf.read()
-            assert config_home.joinpath("catapult.json.bak").exists()
-            # Keys separated into plugins/apps.json.
-            path = config_home / "plugins" / "apps.json"
-            data = json.loads(path.read_text("utf-8"))
-            assert data == {
-                "scan_interval": 100,
-            }
-            # Keys separated into plugins/files.json.
-            path = config_home / "plugins" / "files.json"
-            data = json.loads(path.read_text("utf-8"))
-            assert data == {
-                "exclude": ["test"],
-                "include": ["rest"],
-                "scan_interval": 200,
-            }
-        config_home.joinpath("plugins", "apps.json").unlink()
-        config_home.joinpath("plugins", "files.json").unlink()
-        config_home.joinpath("plugins").rmdir()
-        config_home.joinpath("catapult.json").unlink()
-        config_home.joinpath("catapult.json.bak").unlink()
-        config_home.rmdir()
 
     def test_read_write(self):
         self.conf.theme = "1"
