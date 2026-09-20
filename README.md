@@ -28,7 +28,7 @@ Catapult requires the following.
 | :--------------- | :------ |
 | Python           | ≥ 3.9   |
 | PyGObject        | ≥ 3.40  |
-| GTK              | ≥ 4.0   |
+| GTK              | ≥ 4.12  |
 | Cairo            |         |
 | Pango            |         |
 | libqalculate     |         |

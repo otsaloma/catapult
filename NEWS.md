@@ -6,6 +6,9 @@
   along with Catapult)
 - Fix plugin loading to not use an API to be removed in Python 3.15
 - Fix plugin titles and session plugin actions to be translated
+- Fix theme reloading to replace the previous theme's CSS instead of
+  layering on top of it
+- Require GTK ≥ 4.12
 - Update `Makefile` so that `make build` takes no variables and only
   `make install` needs `PREFIX` and `DESTDIR`
 
