@@ -19,7 +19,6 @@ __version__ = "1.4"
 
 import gi
 import logging
-import os
 import sys
 
 gi.require_version("Gdk", "4.0")
@@ -45,9 +44,6 @@ DATA_DIRS = [DATA_DIR, DATA_HOME, Path("/usr/local/share/catapult")]
 # DEBUG will be properly set in Application when arguments are parsed,
 # but some debug prints will need the value to be set already before that.
 DEBUG = "--debug" in sys.argv[1:]
-
-WAYLAND = (os.getenv("XDG_SESSION_TYPE", "") == "wayland" or
-           os.getenv("WAYLAND_DISPLAY", ""))
 
 from catapult import i18n
 from catapult import util

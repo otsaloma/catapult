@@ -31,7 +31,6 @@ from gi.repository import GObject
 from gi.repository import Gtk
 from gi.repository import Pango
 
-ICON_SIZE = Gtk.IconSize.LARGE
 ICON_SIZE_PX = 48
 
 class SearchResultRow(Gtk.ListBoxRow):
@@ -110,13 +109,11 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
 
     def __init__(self):
         GObject.GObject.__init__(self)
-        self._body = None
         self._css_provider = None
         self._icon_theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default())
         self._icon_theme_handler_id = None
         self._input_entry = Gtk.Entry()
         self._plugins = []
-        self._position = (0, 0)
         self._prev_query = ""
         self._result_list = Gtk.ListBox()
         self._result_list_height_set = False
@@ -181,13 +178,13 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         input_box.set_hexpand(True)
         input_box.append(input_icon)
         input_box.append(self._input_entry)
-        self._body = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
-        self._body.add_css_class("catapult-body")
+        body = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
+        body.add_css_class("catapult-body")
         # Catch mouse press events anywhere on the edges of the window.
         gesture = Gtk.GestureClick()
-        self._body.add_controller(gesture)
+        body.add_controller(gesture)
         gesture.connect("pressed", self._on_gesture_pressed)
-        self._body.append(input_box)
+        body.append(input_box)
         self._result_scroller.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         self._result_scroller.set_max_content_height(int(0.5 * screen_height))
         self._result_scroller.set_propagate_natural_height(True)
@@ -200,9 +197,9 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             self._result_list.append(row)
             self._result_rows.append(row)
         self._result_scroller.set_child(self._result_list)
-        self._body.append(self._result_scroller)
+        body.append(self._result_scroller)
         self._result_scroller.hide()
-        self.set_child(self._body)
+        self.set_child(body)
 
     def activate_plugin(self, name):
         if name in [x.name for x in self._plugins]: return
@@ -393,9 +390,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
                 self.activate_plugin(name)
             except Exception:
                 logging.exception(f"Failed to reload {name}")
-
-    def reset_list_height(self):
-        self._result_list_height_set = False
 
     def _scroll_to_row(self, row):
         if not row.is_visible(): return
