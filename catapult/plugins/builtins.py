@@ -19,6 +19,16 @@ from catapult.api import lookup_icon
 from catapult.api import Plugin
 from catapult.api import SearchResult
 from catapult.i18n import _
+from catapult.i18n import __
+
+COMMANDS = {
+    ":about":          __("About Catapult"),
+    ":preferences":    __("Catapult preferences"),
+    ":quit":           __("Quit Catapult"),
+    ":reload-plugins": __("Reload plugins"),
+    ":reload-theme":   __("Reload theme"),
+    ":update":         __("Update search index"),
+}
 
 class BuiltinsPlugin(Plugin):
 
@@ -30,12 +40,12 @@ class BuiltinsPlugin(Plugin):
             return window.open_about_dialog()
         if id == ":preferences":
             return window.open_preferences_dialog()
+        if id == ":quit":
+            return window.quit()
         if id == ":reload-plugins":
             return window.reload_plugins()
         if id == ":reload-theme":
             return window.load_css()
-        if id == ":quit":
-            return window.quit()
         if id == ":update":
             return window.update()
 
@@ -48,75 +58,16 @@ class BuiltinsPlugin(Plugin):
             "io.otsaloma.catapult",
             "application-x-executable",
         )
-        if ":about".startswith(query):
-            self.debug(f"Found :about for {query!r}")
+        for id, description in COMMANDS.items():
+            if not id.startswith(query): continue
+            self.debug(f"Found {id} for {query!r}")
             yield SearchResult(
-                description=_("About Catapult"),
+                description=_(description),
                 fuzzy=False,
                 icon=icon,
-                id=":about",
+                id=id,
                 offset=0,
                 plugin=self,
                 score=1,
-                title=":about",
-            )
-        if ":preferences".startswith(query):
-            self.debug(f"Found :preferences for {query!r}")
-            yield SearchResult(
-                description=_("Catapult preferences"),
-                fuzzy=False,
-                icon=icon,
-                id=":preferences",
-                offset=0,
-                plugin=self,
-                score=1,
-                title=":preferences",
-            )
-        if ":reload-plugins".startswith(query):
-            self.debug(f"Found :reload-plugins for {query!r}")
-            yield SearchResult(
-                description=_("Reload plugins"),
-                fuzzy=False,
-                icon=icon,
-                id=":reload-plugins",
-                offset=0,
-                plugin=self,
-                score=1,
-                title=":reload-plugins",
-            )
-        if ":reload-theme".startswith(query):
-            self.debug(f"Found :reload-theme for {query!r}")
-            yield SearchResult(
-                description=_("Reload theme"),
-                fuzzy=False,
-                icon=icon,
-                id=":reload-theme",
-                offset=0,
-                plugin=self,
-                score=1,
-                title=":reload-theme",
-            )
-        if ":quit".startswith(query):
-            self.debug(f"Found :quit for {query!r}")
-            yield SearchResult(
-                description=_("Quit Catapult"),
-                fuzzy=False,
-                icon=icon,
-                id=":quit",
-                offset=0,
-                plugin=self,
-                score=1,
-                title=":quit",
-            )
-        if ":update".startswith(query):
-            self.debug(f"Found :update for {query!r}")
-            yield SearchResult(
-                description=_("Update search index"),
-                fuzzy=False,
-                icon=icon,
-                id=":update",
-                offset=0,
-                plugin=self,
-                score=1,
-                title=":update",
+                title=id,
             )
