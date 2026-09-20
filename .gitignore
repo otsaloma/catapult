@@ -1,5 +1,9 @@
-.claude
+*~
+.cache
+.claude/settings.local.json
+.pytest_cache
 __pycache__
 build
-catapult.egg-info
 dist
+locale
+po/LINGUAS
