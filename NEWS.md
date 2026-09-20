@@ -5,6 +5,8 @@
   GNOME Shell and enabling the Catapult Windows extension installed
   along with Catapult)
 - Fix plugin loading to not use an API to be removed in Python 3.15
+- Update `Makefile` so that `make build` takes no variables and only
+  `make install` needs `PREFIX` and `DESTDIR`
 
 # 2025-10-05: Catapult 1.4
 

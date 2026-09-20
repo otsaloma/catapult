@@ -1,42 +1,33 @@
 # -*- coding: utf-8-unix -*-
 
-DESTDIR   =
+# Installation directories without DESTDIR.
+# Only used by install, build uses no variables at all.
 PREFIX    = /usr/local
-BINDIR    = $(DESTDIR)$(PREFIX)/bin
-DATADIR   = $(DESTDIR)$(PREFIX)/share
-LOCALEDIR = $(DESTDIR)$(PREFIX)/share/locale
-
-# Paths to patch in files,
-# referring to installed, final paths.
-BINDIR_FINAL    = $(PREFIX)/bin
-DATADIR_FINAL   = $(PREFIX)/share
-LOCALEDIR_FINAL = $(PREFIX)/share/locale
+BINDIR    = $(PREFIX)/bin
+DATADIR   = $(PREFIX)/share
+LIBDIR    = $(DATADIR)/catapult
+LOCALEDIR = $(DATADIR)/locale
 
 # EDITOR must wait!
 EDITOR = nano
 
+# Packagers tend to just run 'make'.
+.DEFAULT_GOAL = build
+
 build:
 	@echo "BUILDING PYTHON PACKAGE..."
-	mkdir -p build/catapult
-	cp catapult/*.py build/catapult
-	sed -i "s|^DATA_DIR = .*$$|DATA_DIR = Path('$(DATADIR_FINAL)/catapult')|" build/catapult/__init__.py
-	sed -i "s|^LOCALE_DIR = .*$$|LOCALE_DIR = Path('$(LOCALEDIR_FINAL)')|" build/catapult/__init__.py
-	fgrep -q "$(DATADIR_FINAL)/catapult" build/catapult/__init__.py
-	fgrep -q "$(LOCALEDIR_FINAL)" build/catapult/__init__.py
-	mkdir -p build/catapult/plugins
-	cp catapult/plugins/*.py build/catapult/plugins
-	mkdir -p build/catapult/plugins/unicode
-	cp catapult/plugins/unicode/*.txt build/catapult/plugins/unicode
-	@echo "BUILDING SCRIPTS..."
-	mkdir -p build/bin
-	cp bin/catapult build/bin/catapult
-	cp bin/catapult-start.in build/bin/catapult-start
-	sed -i "s|%LIBDIR%|$(DATADIR_FINAL)/catapult|" build/bin/catapult-start
-	fgrep -q "$(DATADIR_FINAL)/catapult" build/bin/catapult-start
-	chmod +x build/bin/catapult-start
+	rm -rf build
+	mkdir -p build
+	cp -R catapult build
+	find build -type d -name __pycache__ -prune -exec rm -rf {} +
+	find build -type d -name test -prune -exec rm -rf {} +
+	# Source data for emoji-list.txt, not needed at runtime.
+	find build/catapult/plugins/unicode -type f ! -name "*.txt" -delete
 	@echo "BUILDING TRANSLATIONS..."
+	rm -f po/LINGUAS
+	ls po/*.po | cut -d/ -f2 | cut -d. -f1 > po/LINGUAS
 	mkdir -p build/mo
-	for LANG in `cat po/LINGUAS`; do msgfmt po/$$LANG.po -o build/mo/$$LANG.mo; done
+	for LOCALE in `cat po/LINGUAS`; do msgfmt po/$$LOCALE.po -o build/mo/$$LOCALE.mo; done
 	@echo "BUILDING DESKTOP FILE..."
 	msgfmt --desktop -d po \
 	--template data/io.otsaloma.catapult.desktop.in \
@@ -48,53 +39,62 @@ build:
 	touch build/.complete
 
 check:
-	flake8 .
+	flake8 catapult
 	flake8 bin/catapult-start
 	flake8 bin/catapult-start.in
+	flake8 conftest.py
 
 clean:
 	rm -rf build
-	rm -rf catapult.egg-info
 	rm -rf dist
-	rm -rf __pycache__
-	rm -rf */__pycache__
-	rm -rf */*/__pycache__
-	rm -rf */*/*/__pycache__
+	rm -f po/LINGUAS
+	rm -f po/*~
+	find . -type d -name __pycache__ -prune -exec rm -rf {} +
+	find . -type d -name .pytest_cache -prune -exec rm -rf {} +
 
 install:
 	test -f build/.complete
 	@echo "INSTALLING PYTHON PACKAGE..."
-	mkdir -p $(DATADIR)/catapult/catapult
-	cp -f build/catapult/*.py $(DATADIR)/catapult/catapult
-	mkdir -p $(DATADIR)/catapult/catapult/plugins
-	cp -f build/catapult/plugins/*.py $(DATADIR)/catapult/catapult/plugins
-	mkdir -p $(DATADIR)/catapult/catapult/plugins/unicode
-	cp -f build/catapult/plugins/unicode/*.txt $(DATADIR)/catapult/catapult/plugins/unicode
-	@echo "INSTALLING SCRIPTS..."
-	mkdir -p $(BINDIR)
-	cp -f build/bin/catapult $(BINDIR)
-	cp -f build/bin/catapult-start $(BINDIR)
+	rm -rf $(DESTDIR)$(LIBDIR)/catapult
+	mkdir -p $(DESTDIR)$(LIBDIR)
+	cp -R build/catapult $(DESTDIR)$(LIBDIR)
+	sed \
+	-e "s|^DATA_DIR = .*$$|DATA_DIR = Path('$(LIBDIR)')|" \
+	-e "s|^LOCALE_DIR = .*$$|LOCALE_DIR = Path('$(LOCALEDIR)')|" \
+	build/catapult/__init__.py > $(DESTDIR)$(LIBDIR)/catapult/__init__.py
+	grep -qF "$(LIBDIR)" $(DESTDIR)$(LIBDIR)/catapult/__init__.py
+	grep -qF "$(LOCALEDIR)" $(DESTDIR)$(LIBDIR)/catapult/__init__.py
+	@echo "INSTALLING LAUNCHERS..."
+	mkdir -p $(DESTDIR)$(BINDIR)
+	cp -f bin/catapult $(DESTDIR)$(BINDIR)
+	sed "s|%LIBDIR%|$(LIBDIR)|" bin/catapult-start.in > $(DESTDIR)$(BINDIR)/catapult-start
+	grep -qF "$(LIBDIR)" $(DESTDIR)$(BINDIR)/catapult-start
+	chmod +x $(DESTDIR)$(BINDIR)/catapult-start
 	@echo "INSTALLING DATA FILES..."
-	mkdir -p $(DATADIR)/catapult/themes
-	cp -f data/catapult.css $(DATADIR)/catapult
-	cp -f data/themes/*.css $(DATADIR)/catapult/themes
+	mkdir -p $(DESTDIR)$(LIBDIR)/themes
+	cp -f data/catapult.css $(DESTDIR)$(LIBDIR)
+	cp -f data/themes/*.css $(DESTDIR)$(LIBDIR)/themes
 	@echo "INSTALLING GNOME SHELL EXTENSION..."
-	mkdir -p $(DATADIR)/gnome-shell/extensions/catapult-windows@otsaloma.io
-	cp -f data/gnome-shell/catapult-windows@otsaloma.io/* $(DATADIR)/gnome-shell/extensions/catapult-windows@otsaloma.io
+	mkdir -p $(DESTDIR)$(DATADIR)/gnome-shell/extensions/catapult-windows@otsaloma.io
+	cp -f data/gnome-shell/catapult-windows@otsaloma.io/* $(DESTDIR)$(DATADIR)/gnome-shell/extensions/catapult-windows@otsaloma.io
 	@echo "INSTALLING ICONS..."
-	mkdir -p $(DATADIR)/icons/hicolor/scalable/apps
-	mkdir -p $(DATADIR)/icons/hicolor/symbolic/apps
-	cp -f data/icons/io.otsaloma.catapult.svg $(DATADIR)/icons/hicolor/scalable/apps
-	cp -f data/icons/io.otsaloma.catapult-symbolic.svg $(DATADIR)/icons/hicolor/symbolic/apps
+	mkdir -p $(DESTDIR)$(DATADIR)/icons/hicolor/scalable/apps
+	mkdir -p $(DESTDIR)$(DATADIR)/icons/hicolor/symbolic/apps
+	cp -f data/icons/io.otsaloma.catapult.svg $(DESTDIR)$(DATADIR)/icons/hicolor/scalable/apps
+	cp -f data/icons/io.otsaloma.catapult-symbolic.svg $(DESTDIR)$(DATADIR)/icons/hicolor/symbolic/apps
 	@echo "INSTALLING TRANSLATIONS..."
-	for LANG in `cat po/LINGUAS`; do mkdir -p $(LOCALEDIR)/$$LANG/LC_MESSAGES; done
-	for LANG in `cat po/LINGUAS`; do cp -f build/mo/$$LANG.mo $(LOCALEDIR)/$$LANG/LC_MESSAGES/catapult.mo; done
+	for MO in build/mo/*.mo; do \
+	LOCALE=`basename $$MO .mo`; \
+	mkdir -p $(DESTDIR)$(LOCALEDIR)/$$LOCALE/LC_MESSAGES; \
+	cp -f $$MO $(DESTDIR)$(LOCALEDIR)/$$LOCALE/LC_MESSAGES/catapult.mo; \
+	done
 	@echo "INSTALLING DESKTOP FILE..."
-	mkdir -p $(DATADIR)/applications
-	cp -f build/io.otsaloma.catapult.desktop $(DATADIR)/applications
+	mkdir -p $(DESTDIR)$(DATADIR)/applications
+	cp -f build/io.otsaloma.catapult.desktop $(DESTDIR)$(DATADIR)/applications
 	@echo "INSTALLING APPDATA FILE..."
-	mkdir -p $(DATADIR)/metainfo
-	cp -f build/io.otsaloma.catapult.appdata.xml $(DATADIR)/metainfo
+	mkdir -p $(DESTDIR)$(DATADIR)/metainfo
+	cp -f build/io.otsaloma.catapult.appdata.xml $(DESTDIR)$(DATADIR)/metainfo
+	test -z "$(DESTDIR)" && update-desktop-database "$(DATADIR)/applications" || true
 
 # Interactive!
 release:
@@ -104,15 +104,15 @@ release:
 	@echo "ADD RELEASE NOTES"
 	$(EDITOR) NEWS.md
 	$(EDITOR) data/io.otsaloma.catapult.appdata.xml.in
-	appstream-util validate-relax --nonet data/io.otsaloma.catapult.appdata.xml.in
+	appstreamcli validate --no-net data/io.otsaloma.catapult.appdata.xml.in
 	killall catapult || true
-	sudo $(MAKE) PREFIX=/usr/local build install clean
+	sudo $(MAKE) build install clean
 	/usr/local/bin/catapult --debug
 	tools/release
 	@echo "REMEMBER TO UPDATE WEBSITE"
 
 test:
-	py.test -xs .
+	pytest -xs catapult
 
 # Interactive!
 translations:
