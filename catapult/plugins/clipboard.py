@@ -89,7 +89,7 @@ class ClipboardPlugin(Plugin):
         return f"{lines[0]}  +{len(lines)-1}"[:100]
 
     def get_info(self):
-        n = len(list(self.list_history()))
+        n = len(self.list_history())
         return _("{} items in clipboard history").format(n)
 
     def delete(self, window, id):
@@ -104,28 +104,28 @@ class ClipboardPlugin(Plugin):
         copy_text_to_clipboard(self._index[id])
 
     def list_history(self):
-        self._index = {}
+        items = {}
         if self.conf.source == "gpaste" and shutil.which("gpaste-client"):
             command = "LANG=C gpaste-client history --zero"
             process = subprocess.run(command, shell=True, capture_output=True)
             output = process.stdout.decode("utf-8")
             for line in output.split("\x00"):
-                if len(self._index) >= 100: break
+                if len(items) >= 100: break
                 if not line.strip(): continue
                 id, text = line.split(": ", maxsplit=1)
                 if text.startswith("[Files]"): continue
                 if text.startswith("[Image,"): continue
-                self._index[id] = text
-                yield id, text
+                items[id] = text
+        return items
 
     def search(self, query):
         query = query.lower().strip()
         if query != self.conf.trigger: return
+        self._index = self.list_history()
         prev_text = ""
-        for i, (id, text) in enumerate(self.list_history()):
-            if self._index[id] == prev_text: continue
-            blurb = self._get_blurb(self._index[id])
-            prev_text = self._index[id]
+        for i, (id, text) in enumerate(self._index.items()):
+            if text == prev_text: continue
+            prev_text = text
             yield SearchResult(
                 description=_(self.title),
                 fuzzy=False,
@@ -134,5 +134,5 @@ class ClipboardPlugin(Plugin):
                 offset=0,
                 plugin=self,
                 score=2+1*0.9**i,
-                title=blurb,
+                title=self._get_blurb(text),
             )
