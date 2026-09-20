@@ -22,6 +22,12 @@ import locale
 
 translation = gettext.NullTranslations()
 
+class __(str):
+    # Wrapper class for marking lazy translations, i.e. strings defined
+    # at import time, before bind, and thus to be translated with '_'
+    # only once actually used.
+    pass
+
 def bind(localedir=catapult.LOCALE_DIR):
     global translation
     with contextlib.suppress(Exception):

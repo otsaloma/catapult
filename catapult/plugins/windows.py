@@ -18,13 +18,14 @@
 from catapult.api import Plugin
 from catapult.api import SearchResult
 from catapult.i18n import _
+from catapult.i18n import __
 from gi.repository import Gio
 from gi.repository import GLib
 
 class WindowsPlugin(Plugin):
 
     save_history = False
-    title = _("Windows")
+    title = __("Windows")
 
     def __init__(self):
         super().__init__()

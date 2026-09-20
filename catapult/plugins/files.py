@@ -29,6 +29,7 @@ from catapult.api import Plugin
 from catapult.api import PreferencesItem
 from catapult.api import SearchResult
 from catapult.i18n import _
+from catapult.i18n import __
 from dataclasses import dataclass
 from gi.repository import Gio
 from gi.repository import GObject
@@ -164,7 +165,7 @@ class FilesPlugin(Plugin):
         "scan_interval": 900, # s
     }
     preferences_items = [FilesInclude, FilesExclude, FilesScanInterval]
-    title = _("Files")
+    title = __("Files")
 
     def __init__(self):
         super().__init__()

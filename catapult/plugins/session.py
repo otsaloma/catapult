@@ -22,35 +22,33 @@ from catapult.api import get_desktop_environment
 from catapult.api import Plugin
 from catapult.api import SearchResult
 from catapult.i18n import _
-
-def split(title):
-    return [x.strip() for x in title.split(";") if x.strip()]
+from catapult.i18n import __
 
 ACTIONS = [{
     "desktops": ["GNOME"],
     # TRANSLATORS: Include all possible variations separated by semicolons.
-    "titles":   split(_("Lock Screen")),
+    "titles":   __("Lock Screen"),
     "command":  "xdg-screensaver lock",
 }, {
     "desktops": ["GNOME"],
     # TRANSLATORS: Include all possible variations separated by semicolons.
-    "titles":   split(_("Log Out;Log Off")),
+    "titles":   __("Log Out;Log Off"),
     "command":  "gnome-session-quit --logout",
 }, {
     "desktops": ["GNOME"],
     # TRANSLATORS: Include all possible variations separated by semicolons.
-    "titles":   split(_("Power Off;Shutdown")),
+    "titles":   __("Power Off;Shutdown"),
     "command":  "gnome-session-quit --power-off",
 }, {
     "desktops": ["GNOME"],
     # TRANSLATORS: Include all possible variations separated by semicolons.
-    "titles":   split(_("Reboot;Restart")),
+    "titles":   __("Reboot;Restart"),
     "command":  "gnome-session-quit --reboot",
 }]
 
 class SessionPlugin(Plugin):
 
-    title = _("Session")
+    title = __("Session")
 
     def get_info(self):
         desktops = [y for x in ACTIONS for y in x["desktops"]]
@@ -66,11 +64,12 @@ class SessionPlugin(Plugin):
         desktop = get_desktop_environment()
         for action in ACTIONS:
             if desktop not in action["desktops"]: continue
-            founds = [find_split_all(query, x.lower()) for x in action["titles"]]
+            titles = [x.strip() for x in _(action["titles"]).split(";") if x.strip()]
+            founds = [find_split_all(query, x.lower()) for x in titles]
             offsets = [min(x.values()) for x in founds]
             offsets = [x for x in offsets if x >= 0]
             if not offsets: continue
-            title = action["titles"][0]
+            title = titles[0]
             self.debug(f"Found {title} for {query!r}")
             yield SearchResult(
                 description=action["command"],

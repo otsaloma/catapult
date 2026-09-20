@@ -24,6 +24,7 @@ from catapult.api import Plugin
 from catapult.api import PreferencesItem
 from catapult.api import SearchResult
 from catapult.i18n import _
+from catapult.i18n import __
 from gi.repository import Gtk
 
 SOURCES = ["gpaste"]
@@ -67,7 +68,7 @@ class ClipboardPlugin(Plugin):
     conf_defaults = {"source": "gpaste", "trigger": "cc"}
     preferences_items = [ClipboardSource, ClipboardTrigger]
     save_history = False
-    title = _("Clipboard")
+    title = __("Clipboard")
 
     def __init__(self):
         super().__init__()
@@ -126,7 +127,7 @@ class ClipboardPlugin(Plugin):
             blurb = self._get_blurb(self._index[id])
             prev_text = self._index[id]
             yield SearchResult(
-                description=self.title,
+                description=_(self.title),
                 fuzzy=False,
                 icon=lookup_icon("printer", "text-x-generic"),
                 id=id,

@@ -25,6 +25,7 @@ from catapult.api import get_scale_factor
 from catapult.api import Plugin
 from catapult.api import SearchResult
 from catapult.i18n import _
+from catapult.i18n import __
 from dataclasses import dataclass
 from gi.repository import Pango
 from gi.repository import PangoCairo
@@ -101,7 +102,7 @@ class Character:
 
 class CharactersPlugin(Plugin):
 
-    title = _("Characters")
+    title = __("Characters")
 
     def __init__(self):
         super().__init__()

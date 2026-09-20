@@ -21,6 +21,7 @@ from catapult.api import Plugin
 from catapult.api import PreferencesItem
 from catapult.api import SearchResult
 from catapult.i18n import _
+from catapult.i18n import __
 from gi.repository import Gio
 from gi.repository import Gtk
 
@@ -47,7 +48,7 @@ class AppsPluginPrefs(PreferencesItem):
 
 class AppsPlugin(Plugin):
 
-    title = _("Apps")
+    title = __("Apps")
     conf_defaults = {"ignore_only_show_in": False}
     preferences_items = [AppsPluginPrefs]
 

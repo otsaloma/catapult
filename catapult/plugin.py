@@ -17,7 +17,7 @@
 
 import catapult
 
-from catapult.i18n import _
+from catapult.i18n import __
 from threading import Thread
 
 class Plugin(catapult.DebugMixin):
@@ -28,7 +28,7 @@ class Plugin(catapult.DebugMixin):
     conf_defaults = {}
     preferences_items = []
     save_history = True
-    title = _("Untitled")
+    title = __("Untitled")
 
     def __init__(self):
         self.ensure_configuration()

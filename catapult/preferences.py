@@ -117,7 +117,8 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
             try:
                 cls = catapult.util.load_plugin_class(name)
                 cls.ensure_configuration()
-                toggle = TogglePlugin(name, cls.title)
+                title = _(cls.title)
+                toggle = TogglePlugin(name, title)
                 preferences_items = [x(conf=cls.conf, parent=self) for x in cls.preferences_items]
                 toggle.connect_items(preferences_items)
                 items = [toggle] + preferences_items
@@ -128,7 +129,7 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
                     logging.exception(f"Failed to get_info from {name}")
                     info = ""
                 page = self.get_page(items, info)
-                stack.add_titled(page, name, cls.title)
+                stack.add_titled(page, name, title)
             except Exception:
                 logging.exception(f"Failed to load configuration for {name}")
         content = self.get_child()

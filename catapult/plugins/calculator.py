@@ -24,6 +24,7 @@ from catapult.api import lookup_icon
 from catapult.api import Plugin
 from catapult.api import SearchResult
 from catapult.i18n import _
+from catapult.i18n import __
 from threading import Thread
 
 COMMAND = " ".join((
@@ -48,7 +49,7 @@ PATTERN = "^({})".format("|".join((
 class CalculatorPlugin(Plugin):
 
     save_history = False
-    title = _("Calculator")
+    title = __("Calculator")
 
     def __init__(self):
         super().__init__()
