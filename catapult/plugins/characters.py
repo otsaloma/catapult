@@ -225,11 +225,11 @@ class CharactersPlugin(Plugin):
 
     def search(self, query):
         query = query.lower().strip()
-        for i, character in enumerate(self._characters):
+        for character in self._characters:
             found = find_split_all(query, character.search_target)
             min_offset = min(found.values())
-            mean_offset = fmean(found.values())
             if min_offset < 0: continue
+            mean_offset = fmean(found.values())
             if character.is_emoji:
                 # cairo.ImageSurface
                 icon = self._render_cairo_icon(character)
