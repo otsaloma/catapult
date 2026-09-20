@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-05 23:06+0300\n"
+"POT-Creation-Date: 2026-09-20 21:20+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "App launcher"
 msgstr ""
 
-#: catapult/about.py:35 catapult/plugins/builtins.py:54
+#: catapult/about.py:35 catapult/plugins/builtins.py:25
 msgid "About Catapult"
 msgstr ""
 
@@ -59,66 +59,70 @@ msgstr ""
 msgid "Untitled"
 msgstr ""
 
-#: catapult/preferences.py:44
+#: catapult/preferences.py:43
 msgid "Theme"
 msgstr ""
 
-#: catapult/preferences.py:66
+#: catapult/preferences.py:65
+#, python-brace-format
 msgid "{} plugin"
 msgstr ""
 
-#: catapult/preferences.py:107
+#: catapult/preferences.py:106
 msgid "Preferences"
 msgstr ""
 
-#: catapult/preferences.py:115
+#: catapult/preferences.py:114
 msgid "General"
 msgstr ""
 
 #. TRANSLATORS: Ignore the desktop file OnlyShowIn key
 #. and show all apps in all desktops.
 #. https://specifications.freedesktop.org/desktop-entry-spec/latest/recognized-keys.html
-#: catapult/plugins/apps.py:35
+#: catapult/plugins/apps.py:36
 msgid "Show foreign platform apps"
 msgstr ""
 
-#: catapult/plugins/apps.py:50
+#: catapult/plugins/apps.py:51
 msgid "Apps"
 msgstr ""
 
-#: catapult/plugins/apps.py:71
+#: catapult/plugins/apps.py:69
+#, python-brace-format
 msgid "{} apps indexed"
 msgstr ""
 
-#: catapult/plugins/builtins.py:66
+#: catapult/plugins/builtins.py:26
 msgid "Catapult preferences"
 msgstr ""
 
-#: catapult/plugins/builtins.py:78
-msgid "Reload plugins"
-msgstr ""
-
-#: catapult/plugins/builtins.py:90
-msgid "Reload theme"
-msgstr ""
-
-#: catapult/plugins/builtins.py:102
+#: catapult/plugins/builtins.py:27
 msgid "Quit Catapult"
 msgstr ""
 
-#: catapult/plugins/builtins.py:114
+#: catapult/plugins/builtins.py:28
+msgid "Reload plugins"
+msgstr ""
+
+#: catapult/plugins/builtins.py:29
+msgid "Reload theme"
+msgstr ""
+
+#: catapult/plugins/builtins.py:30
 msgid "Update search index"
 msgstr ""
 
-#: catapult/plugins/calculator.py:51
+#: catapult/plugins/calculator.py:52
 msgid "Calculator"
 msgstr ""
 
-#: catapult/plugins/calculator.py:59 catapult/plugins/characters.py:122
+#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:122
+#, python-brace-format
 msgid "Using {}"
 msgstr ""
 
-#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:123
+#: catapult/plugins/calculator.py:61 catapult/plugins/characters.py:123
+#, python-brace-format
 msgid "{} not found"
 msgstr ""
 
@@ -127,99 +131,115 @@ msgid "Characters"
 msgstr ""
 
 #: catapult/plugins/characters.py:126
+#, python-brace-format
 msgid "{} characters indexed"
 msgstr ""
 
 #: catapult/plugins/characters.py:127
+#, python-brace-format
 msgid "{} emojis indexed"
 msgstr ""
 
-#: catapult/plugins/clipboard.py:35
+#: catapult/plugins/clipboard.py:36
 msgid "Source"
 msgstr ""
 
-#: catapult/plugins/clipboard.py:54
+#: catapult/plugins/clipboard.py:55
 msgid "Trigger"
 msgstr ""
 
-#: catapult/plugins/clipboard.py:70
+#: catapult/plugins/clipboard.py:71
 msgid "Clipboard"
 msgstr ""
 
-#: catapult/plugins/clipboard.py:92
+#: catapult/plugins/clipboard.py:93
+#, python-brace-format
 msgid "{} items in clipboard history"
 msgstr ""
 
-#: catapult/plugins/files.py:42
+#: catapult/plugins/files.py:43
 msgid "_Cancel"
 msgstr ""
 
-#: catapult/plugins/files.py:43
+#: catapult/plugins/files.py:44
 msgid "_OK"
 msgstr ""
 
-#: catapult/plugins/files.py:49
+#: catapult/plugins/files.py:50
 msgid "Edit File Patterns"
 msgstr ""
 
-#: catapult/plugins/files.py:50
+#: catapult/plugins/files.py:51
 msgid "Use shell-style wildcards * and **"
 msgstr ""
 
-#: catapult/plugins/files.py:79
-msgid "Include patterns"
-msgstr ""
-
-#: catapult/plugins/files.py:81 catapult/plugins/files.py:106
+#: catapult/plugins/files.py:83
 msgid "Edit"
 msgstr ""
 
-#: catapult/plugins/files.py:104
+#: catapult/plugins/files.py:103
+msgid "Include patterns"
+msgstr ""
+
+#: catapult/plugins/files.py:108
 msgid "Exclude patterns"
 msgstr ""
 
-#: catapult/plugins/files.py:129
+#: catapult/plugins/files.py:114
 msgid "Scan interval"
 msgstr ""
 
-#: catapult/plugins/files.py:133
+#: catapult/plugins/files.py:118
 msgid "minutes"
 msgstr ""
 
-#: catapult/plugins/files.py:167
+#: catapult/plugins/files.py:152
 msgid "Files"
 msgstr ""
 
-#: catapult/plugins/files.py:190
+#: catapult/plugins/files.py:175
+#, python-brace-format
 msgid "{} files indexed"
 msgstr ""
 
 #. TRANSLATORS: Include all possible variations separated by semicolons.
-#: catapult/plugins/session.py:32
+#: catapult/plugins/session.py:30
 msgid "Lock Screen"
 msgstr ""
 
 #. TRANSLATORS: Include all possible variations separated by semicolons.
-#: catapult/plugins/session.py:37
+#: catapult/plugins/session.py:35
 msgid "Log Out;Log Off"
 msgstr ""
 
 #. TRANSLATORS: Include all possible variations separated by semicolons.
-#: catapult/plugins/session.py:42
+#: catapult/plugins/session.py:40
 msgid "Power Off;Shutdown"
 msgstr ""
 
 #. TRANSLATORS: Include all possible variations separated by semicolons.
-#: catapult/plugins/session.py:47
+#: catapult/plugins/session.py:45
 msgid "Reboot;Restart"
 msgstr ""
 
-#: catapult/plugins/session.py:53
+#: catapult/plugins/session.py:51
 msgid "Session"
 msgstr ""
 
-#: catapult/plugins/session.py:58
+#: catapult/plugins/session.py:56
 msgid "Supported desktops:"
+msgstr ""
+
+#: catapult/plugins/windows.py:28
+msgid "Windows"
+msgstr ""
+
+#: catapult/plugins/windows.py:61
+msgid "Requires GNOME Shell"
+msgstr ""
+
+#: catapult/plugins/windows.py:62
+msgid "And the Catapult Windows extension"
 msgstr ""
 
 #: data/io.otsaloma.catapult.appdata.xml.in:9
@@ -228,7 +248,7 @@ msgid ""
 "calculations with a keyboard-driven user interface."
 msgstr ""
 
-#: data/io.otsaloma.catapult.appdata.xml.in:50
+#: data/io.otsaloma.catapult.appdata.xml.in:51
 msgid "Main window"
 msgstr ""
 
