@@ -129,11 +129,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
 
     def _init_plugins(self):
         for name in catapult.conf.plugins:
-            try:
-                self.debug(f"Initializing plugin {name}")
-                self._plugins.append(catapult.util.load_plugin(name))
-            except Exception:
-                logging.exception(f"Failed to initialize {name}")
+            self.activate_plugin(name)
 
     def _init_properties(self):
         # XXX: Not needed anymore? (GTK 4.10.4)
@@ -207,7 +203,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             self.debug(f"Activating plugin {name}")
             self._plugins.append(catapult.util.load_plugin(name))
         except Exception:
-            logging.exception("Failed to activate {name}")
+            logging.exception(f"Failed to activate {name}")
 
     def deactivate_plugin(self, name):
         self.debug(f"Deactivating plugin {name}")
