@@ -64,16 +64,9 @@ class AppsPlugin(Plugin):
         description = re.sub(r" --$", "", description)
         return description.strip()
 
-    def _get_fuzzy(self, app, query):
-        return query not in app.get_name().lower()
-
     def get_info(self):
         n = len(self._index)
         return _("{} apps indexed").format(n)
-
-    def _get_offset(self, app, query):
-        offset = app.get_name().lower().find(query)
-        return offset if offset >= 0 else 1000
 
     def launch(self, window, id):
         if not id in self._index: return
@@ -100,16 +93,18 @@ class AppsPlugin(Plugin):
             for id in batch:
                 if id not in self._index: continue
                 app = self._index[id]
+                name = app.get_name()
+                offset = name.lower().find(query)
                 self.debug(f"Found {id} for {query!r}")
                 yield SearchResult(
                     description=self._get_description(app),
-                    fuzzy=self._get_fuzzy(app, query),
+                    fuzzy=offset < 0,
                     icon=app.get_icon() or "application-x-executable",
-                    id=app.get_id(),
-                    offset=self._get_offset(app, query),
+                    id=id,
+                    offset=offset if offset >= 0 else 1000,
                     plugin=self,
                     score=1.1*0.9**i,
-                    title=app.get_name(),
+                    title=name,
                 )
 
     def update(self):
