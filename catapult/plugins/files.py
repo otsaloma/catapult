@@ -73,21 +73,20 @@ class PatternEditDialog(Gtk.Dialog):
         start, end = text_buffer.get_bounds()
         return text_buffer.get_text(start, end, False)
 
-class FilesInclude(PreferencesItem):
+class FilesPatterns(PreferencesItem):
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, label, option, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.label = Gtk.Label(label=_("Include patterns"))
+        self.option = option
+        self.label = Gtk.Label(label=label)
         self.widget = Gtk.Button()
         self.widget.set_label(_("Edit"))
         self.widget.connect("clicked", self._on_clicked)
 
     def _on_clicked(self, *args, **kwargs):
-        text = "\n".join(self.conf.include)
-        parent = self.widget.get_ancestor(Gtk.Window)
-        dialog = PatternEditDialog(parent, text)
+        text = "\n".join(getattr(self.conf, self.option))
+        dialog = PatternEditDialog(self.parent, text)
         dialog.set_modal(True)
-        dialog.set_transient_for(self.parent)
         dialog.connect("response", self._on_response)
         dialog.show()
 
@@ -95,33 +94,18 @@ class FilesInclude(PreferencesItem):
         if response == Gtk.ResponseType.OK:
             patterns = dialog.get_text().strip().splitlines()
             patterns = [x.strip() for x in patterns]
-            self.conf.include = patterns
+            setattr(self.conf, self.option, patterns)
         dialog.destroy()
 
-class FilesExclude(PreferencesItem):
+class FilesInclude(FilesPatterns):
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.label = Gtk.Label(label=_("Exclude patterns"))
-        self.widget = Gtk.Button()
-        self.widget.set_label(_("Edit"))
-        self.widget.connect("clicked", self._on_clicked)
+        super().__init__(_("Include patterns"), "include", *args, **kwargs)
 
-    def _on_clicked(self, *args, **kwargs):
-        text = "\n".join(self.conf.exclude)
-        parent = self.widget.get_ancestor(Gtk.Window)
-        dialog = PatternEditDialog(parent, text)
-        dialog.set_modal(True)
-        dialog.set_transient_for(self.parent)
-        dialog.connect("response", self._on_response)
-        dialog.show()
+class FilesExclude(FilesPatterns):
 
-    def _on_response(self, dialog, response):
-        if response == Gtk.ResponseType.OK:
-            patterns = dialog.get_text().strip().splitlines()
-            patterns = [x.strip() for x in patterns]
-            self.conf.exclude = patterns
-        dialog.destroy()
+    def __init__(self, *args, **kwargs):
+        super().__init__(_("Exclude patterns"), "exclude", *args, **kwargs)
 
 class FilesScanInterval(PreferencesItem):
 
