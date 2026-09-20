@@ -1,5 +1,4 @@
-Contributing to Catapult
-========================
+# Contributing to Catapult
 
 ## Plugins and Themes
 

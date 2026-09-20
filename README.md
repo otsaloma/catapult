@@ -1,5 +1,4 @@
-Catapult Launcher
-=================
+# Catapult Launcher
 
 [![Plugins](https://img.shields.io/badge/community-plugins-blueviolet)](https://github.com/topics/catapult-plugin)
 [![Themes](https://img.shields.io/badge/community-themes-blueviolet)](https://github.com/topics/catapult-theme)
@@ -19,7 +18,7 @@ indicated file-wise in the license headers of individual files.
 
 ### Packages
 
-* [Arch Linux](https://aur.archlinux.org/packages/catapult)
+- [Arch Linux](https://aur.archlinux.org/packages/catapult)
 
 ### Source
 
@@ -29,7 +28,6 @@ Catapult requires the following.
 | :--------------- | :------ |
 | Python           | ≥ 3.8   |
 | PyGObject        |         |
-| GLib             |         |
 | GTK              | ≥ 4.0   |
 | Cairo            |         |
 | Pango            |         |
@@ -45,19 +43,18 @@ On Debian/Ubuntu you can install these with the following command.
     sudo apt install fonts-noto-core \
                      fonts-noto-color-emoji \
                      gettext \
-                     gir1.2-glib-2.0 \
                      gir1.2-gtk-4.0 \
                      gir1.2-pango-1.0 \
                      libglib2.0-bin \
+                     make \
                      python3 \
                      python3-cairo \
-                     python3-dev \
                      python3-gi \
                      qalc
 
 Then, to install Catapult, run commands
 
-    make PREFIX=/usr/local build
+    make build
     sudo make PREFIX=/usr/local install
 
 ## Documentation
@@ -70,7 +67,7 @@ single-instance app, so executing `catapult` will start a new instance
 if not yet running or else activate the existing instance. So, that is
 the command you can bind to your key of choice.
 
-* [GNOME](https://help.gnome.org/users/gnome-help/stable/keyboard-shortcuts-set.html.en)
+- [GNOME](https://help.gnome.org/users/gnome-help/stable/keyboard-shortcuts-set.html.en)
 
 ### Window Position on Screen
 
@@ -81,7 +78,7 @@ all new windows by default, which should center the Catapult window too
 (at least horizontally, vertically the window height changes along with
 the search results).
 
-* GNOME: `gsettings set org.gnome.mutter center-new-windows true`
+- GNOME: `gsettings set org.gnome.mutter center-new-windows true`
 
 ### Starting Automatically
 
@@ -93,8 +90,8 @@ by your desktop/distro to set Catapult to start automatically already
 when you log in to your desktop. To start in the background, use command
 `catapult --hide`.
 
-* [GNOME](https://help.gnome.org/users/gnome-help/stable/shell-apps-auto-start.html.en)
-* [Ubuntu](https://help.ubuntu.com/stable/ubuntu-help/startup-applications.html.en)
+- [GNOME](https://help.gnome.org/users/gnome-help/stable/shell-apps-auto-start.html.en)
+- [Ubuntu](https://help.ubuntu.com/stable/ubuntu-help/startup-applications.html.en)
 
 ### Customizing the Theme
 
@@ -128,5 +125,5 @@ Or, to use Ubuntu orange as the selection color, try
 
 ### Developers
 
-* [Writing Plugins](https://github.com/otsaloma/catapult/blob/master/doc/plugins.md)
-* [Writing Themes](https://github.com/otsaloma/catapult/blob/master/doc/themes.md)
+- [Writing Plugins](https://github.com/otsaloma/catapult/blob/master/doc/plugins.md)
+- [Writing Themes](https://github.com/otsaloma/catapult/blob/master/doc/themes.md)
