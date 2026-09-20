@@ -17,14 +17,8 @@
 
 class TestCase:
 
-    def setUp(self):
-        self.setup_method(None)
-
     def setup_method(self, method):
         pass
-
-    def tearDown(self):
-        self.teardown_method(None)
 
     def teardown_method(self, method):
         pass
