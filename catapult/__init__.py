@@ -49,22 +49,22 @@ DEBUG = "--debug" in sys.argv[1:]
 WAYLAND = (os.getenv("XDG_SESSION_TYPE", "") == "wayland" or
            os.getenv("WAYLAND_DISPLAY", ""))
 
-from catapult import i18n # noqa
-from catapult import util # noqa
-from catapult.mixins import DebugMixin # noqa
-from catapult.conf import ConfigurationStore # noqa
-from catapult.conf import PluginConfigurationStore # noqa
+from catapult import i18n
+from catapult import util
+from catapult.mixins import DebugMixin
+from catapult.conf import ConfigurationStore
+from catapult.conf import PluginConfigurationStore
 conf = ConfigurationStore()
-from catapult.preferences import PreferencesItem # noqa
-from catapult.plugin import Plugin # noqa
-from catapult import plugins # noqa
-from catapult.history import History # noqa
-from catapult.search import SearchManager # noqa
-from catapult.search import SearchResult # noqa
-from catapult.about import AboutDialog # noqa
-from catapult.preferences import PreferencesDialog # noqa
-from catapult.window import Window # noqa
-from catapult.app import Application # noqa
+from catapult.preferences import PreferencesItem
+from catapult.plugin import Plugin
+from catapult import plugins
+from catapult.history import History
+from catapult.search import SearchManager
+from catapult.search import SearchResult
+from catapult.about import AboutDialog
+from catapult.preferences import PreferencesDialog
+from catapult.window import Window
+from catapult.app import Application
 
 def init_logging():
     level = logging.DEBUG if DEBUG else logging.INFO

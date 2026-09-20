@@ -18,11 +18,11 @@
 # When adding a plugin, also add it to PreferencesDialog.list_plugins
 # and consider adding it to ConfigurationStore._defaults.
 
-from . import apps # noqa
-from . import builtins # noqa
-from . import calculator # noqa
-from . import characters # noqa
-from . import clipboard # noqa
-from . import files # noqa
-from . import session # noqa
-from . import windows # noqa
+from . import apps
+from . import builtins
+from . import calculator
+from . import characters
+from . import clipboard
+from . import files
+from . import session
+from . import windows
