@@ -2,27 +2,18 @@
 
 ## Environment
 
-See `README.md` for which versions of Python, GTK, etc. we're currently
-targeting. Regarding operating systems, we currently target only Linux
-and *BSD, but try to avoid any OS-specific code. On Linux, we want to
-support all relevant desktops and display servers, but GNOME + Wayland
-is whose conventions we want to follow closest.
+See `README.md` for dependency versions. Target Linux and *BSD; avoid
+OS-specific code. Support relevant Linux desktops and display servers,
+following GNOME + Wayland conventions most closely.
 
 ## GTK Documentation
 
 Documentation for GTK and associated libraries is available as GIR files
-under `/usr/share/gir-1.0`. Grep those for any symbols you need.
-
-- `/usr/share/gir-1.0/Gdk-4.0.gir`
-- `/usr/share/gir-1.0/Gio-2.0.gir`
-- `/usr/share/gir-1.0/GLibUnix-2.0.gir`
-- `/usr/share/gir-1.0/GObject-2.0.gir`
-- `/usr/share/gir-1.0/Gtk-4.0.gir` etc.
-
-Make sure you can access that GIR documentation; abort if not. Never
-guess how the API works, always check from the documentation. Keep in
-mind that we use Python and some of the documentation has been written
-for C. You'll need adapt what you see there, for example:
+under `/usr/share/gir-1.0`. Grep those for any symbols you need. Make
+sure you can access that GIR documentation; abort if not. Never guess
+how the API works, always check from the documentation. Keep in mind
+that we use Python and some of the documentation has been written for C.
+You'll need adapt what you see there, for example:
 
 - `GTK_ALIGN_CENTER` → `Gtk.Align.CENTER`
 - `gtk_box_new(...)` → `Gtk.Box(...)`
@@ -37,43 +28,30 @@ you suspect your changes affect other modules, use `make check` and
 
 ## Running the GUI
 
-You can run the GUI as `timeout --signal=TERM 5 bin/catapult-start` so
-it self-terminates (exit 124) instead of blocking; the console output is
-then captured for inspection. Don't use `bin/catapult`, it delegates to
-`gapplication`, which launches the installed version, not the source
-repo.
+Run a brief GUI check with diagnostics enabled: `G_ENABLE_DIAGNOSTIC=1
+timeout 5 bin/catapult-start 2>&1`. Exit 124 is expected on timeout. Use
+`pytest -s` to expose GTK/GLib warnings in tests, and
+`G_DEBUG=fatal-warnings` to stop on warnings when debugging.
 
-Catapult is a single-instance app. If an instance is already running,
-any new process merely activates that one and exits immediately with
-zero output, so check with `pgrep -af catapult-start` first.
+Check `pgrep -af catapult-start` first: Catapult is single-instance, so
+a new process activates any existing instance and exits without output.
+Don't use `bin/catapult`; it delegates to `gapplication`, which launches
+the installed version, not this checkout.
 
-To see all warnings, set `G_ENABLE_DIAGNOSTIC=1` (forces GTK to emit
-deprecation warnings) and read stderr (`2>&1`). GTK/GLib warnings go
-through the GLib log system, not Python `warnings`, so `pytest` needs
-`-s` to show them. Use `G_DEBUG=fatal-warnings` to turn a warning into a
-fatal error (with traceback) when tracking down its source.
-
-Note that some previous version of catapult might be installed under a
-system directory, such as `/usr/local`. When running a standalone
-verification script, make sure your `PYTHONPATH` or `sys.path` points to
-the source repo. Check `catapult.__file__` in the script if unsure.
+Standalone scripts must import catapult from this checkout, not an
+installed copy. Set `PYTHONPATH` or `sys.path` accordingly; verify
+`catapult.__file__` if unsure.
 
 ## Screenshots
 
-To screenshot the app, run a standalone script that creates a `window =
-catapult.Window()` and shows it, then in a `GLib.timeout_add` callback
-(~1500 ms, inside a `GLib.MainLoop`) render it to PNG:
+For unattended screenshots, render the app's own widgets to PNG using
+`Gtk.WidgetPaintable`, `Gtk.Snapshot` and the widget's native renderer
+(`render_texture`, then `save_to_png`). This avoids Wayland screenshot
+permissions.
 
-```python
-paintable = Gtk.WidgetPaintable(widget=window)
-snapshot = Gtk.Snapshot()
-paintable.snapshot(snapshot, paintable.get_intrinsic_width(), paintable.get_intrinsic_height())
-texture = window.get_native().get_renderer().render_texture(snapshot.to_node())
-texture.save_to_png(path)
-```
+Use a standalone script running the app and its GTK main loop; capture
+after the target window is visible and has rendered. Capture dialogs
+separately; existing dialog test setup methods can help construct them.
 
-This captures the window content regardless of the Wayland compositor.
-Don't go through `catapult.Application`, which creates its window only
-once activated, and activation goes to the existing instance if one is
-running. The same recipe works for dialogs (snapshot the dialog widget
-instead), such as built via the dialog test classes' `setup_method`.
+Create and show `catapult.Window()` directly, not through
+`catapult.Application`, whose activation goes to any existing instance.
