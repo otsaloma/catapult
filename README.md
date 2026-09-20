@@ -26,8 +26,8 @@ Catapult requires the following.
 
 | Dependency       | Version |
 | :--------------- | :------ |
-| Python           | ≥ 3.8   |
-| PyGObject        |         |
+| Python           | ≥ 3.9   |
+| PyGObject        | ≥ 3.40  |
 | GTK              | ≥ 4.0   |
 | Cairo            |         |
 | Pango            |         |
@@ -36,7 +36,10 @@ Catapult requires the following.
 | Noto Color Emoji |         |
 
 The Noto fonts are needed by the characters plugin which uses the fonts
-to render icons of characters and emojis on the fly.
+to render icons of characters and emojis on the fly. The `catapult`
+launcher uses the `gapplication` binary to activate an already running
+instance; it comes with GLib, but is often packaged separately from the
+library. During installation you also need make and gettext.
 
 On Debian/Ubuntu you can install these with the following command.
 
@@ -50,6 +53,7 @@ On Debian/Ubuntu you can install these with the following command.
                      python3 \
                      python3-cairo \
                      python3-gi \
+                     python3-gi-cairo \
                      qalc
 
 Then, to install Catapult, run commands
