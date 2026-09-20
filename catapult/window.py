@@ -148,6 +148,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
     def _init_signal_handlers(self):
         self.connect("notify::is-active", self._on_notify_is_active)
         self._input_entry.connect("notify::text", self._on_input_entry_notify_text)
+        self._result_list.connect("row-activated", self._on_result_list_row_activated)
         self._result_list.connect("row-selected", self._on_result_list_row_selected)
         self._icon_theme_handler_id = self._icon_theme.connect("changed", self._on_icon_theme_changed)
         controller = Gtk.EventControllerKey()
@@ -176,9 +177,9 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         input_box.append(self._input_entry)
         body = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
         body.add_css_class("catapult-body")
-        # Catch mouse press events anywhere on the edges of the window.
+        # Catch mouse press events on the margins around the input field.
         gesture = Gtk.GestureClick()
-        body.add_controller(gesture)
+        input_box.add_controller(gesture)
         gesture.connect("pressed", self._on_gesture_pressed)
         body.append(input_box)
         self._result_scroller.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
@@ -276,7 +277,14 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             (catapult.DATA_DIR / "catapult.css").read_text("utf-8"),
         )))
 
-    def _on_gesture_pressed(self, *args, **kwargs):
+    def _on_gesture_pressed(self, gesture, n_press, x, y):
+        picked = gesture.get_widget().pick(x, y, Gtk.PickFlags.DEFAULT)
+        if picked is not None and (
+            picked is self._input_entry
+            or picked.is_ancestor(self._input_entry)
+        ):
+            # Let the entry handle clicks for cursor positioning.
+            return
         self._input_entry.set_text(":")
         self._input_entry.set_position(-1)
 
@@ -339,6 +347,10 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             return self.hide()
         row = self._result_list.get_selected_row()
         self._on_result_list_row_selected(self._result_list, row)
+
+    def _on_result_list_row_activated(self, result_list, row):
+        self._result_list.select_row(row)
+        self.launch_selected()
 
     def _on_result_list_row_selected(self, result_list, row):
         result = row.result if row and self.is_active() else None

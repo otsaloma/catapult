@@ -38,6 +38,22 @@ class TestWindow(catapult.test.TestCase):
         self.window.show()
         self.window.hide()
 
+    def test__on_gesture_pressed(self):
+        entry = self.window._input_entry
+        input_box = entry.get_parent()
+        gesture = Mock()
+        for picked, expected in (
+            (entry, "query"),
+            (entry.get_first_child(), "query"),
+            (input_box, ":"),
+            (input_box.get_first_child(), ":"),
+            (None, ":"),
+        ):
+            entry.set_text("query")
+            gesture.get_widget.return_value.pick.return_value = picked
+            self.window._on_gesture_pressed(gesture, 1, 0, 0)
+            assert self.window.get_query() == expected
+
     def test__on_icon_theme_changed(self):
         self.window._icon_theme.emit("changed")
 
