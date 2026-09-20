@@ -1,5 +1,4 @@
-Writing Themes
-==============
+# Writing Themes
 
 To write a custom theme for Catapult, put the following CSS into file
 `~/.local/share/catapult/themes/hello.css`. Then in Catapult, type

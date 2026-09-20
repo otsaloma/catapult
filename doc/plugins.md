@@ -1,5 +1,4 @@
-Writing Plugins
-===============
+# Writing Plugins
 
 To write a custom plugin for Catapult, put the following Python code
 into file `~/.local/share/catapult/plugins/hello.py`. Then in Catapult,
@@ -43,11 +42,11 @@ class HelloPlugin(Plugin):
 If your plugin needs to be user-configurable, i.e. needs items in the
 preferences dialog and a configuration file, then do the following.
 
-* Define your preferences as subclasses of
+- Define your preferences as subclasses of
   `catapult.api.PreferencesItem` and list those under your plugin's
   class attribute `preferences_items`.
 
-* List your configuration options under your plugin's class attribute
+- List your configuration options under your plugin's class attribute
   `conf_defaults`. Based on that a `PluginConfigurationStore` object
   will be made available under your plugin class as `conf` and likewise
   for each preferences item instance. Plugin configuration files are
@@ -63,6 +62,6 @@ https://github.com/otsaloma/catapult/blob/master/catapult/api.py
 
 ## References
 
-* https://github.com/otsaloma/catapult/blob/master/catapult/plugin.py
-* https://github.com/otsaloma/catapult/tree/master/catapult/plugins
-* https://lazka.github.io/pgi-docs/
+- https://github.com/otsaloma/catapult/blob/master/catapult/plugin.py
+- https://github.com/otsaloma/catapult/tree/master/catapult/plugins
+- https://lazka.github.io/pgi-docs/
