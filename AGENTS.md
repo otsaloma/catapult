@@ -37,9 +37,15 @@ you suspect your changes affect other modules, use `make check` and
 
 ## Running the GUI
 
-You can run the GUI as `timeout --signal=TERM 5 bin/catapult` so it
-self-terminates (exit 124) instead of blocking; the console output is
-then captured for inspection.
+You can run the GUI as `timeout --signal=TERM 5 bin/catapult-start` so
+it self-terminates (exit 124) instead of blocking; the console output is
+then captured for inspection. Don't use `bin/catapult`, it delegates to
+`gapplication`, which launches the installed version, not the source
+repo.
+
+Catapult is a single-instance app. If an instance is already running,
+any new process merely activates that one and exits immediately with
+zero output, so check with `pgrep -af catapult-start` first.
 
 To see all warnings, set `G_ENABLE_DIAGNOSTIC=1` (forces GTK to emit
 deprecation warnings) and read stderr (`2>&1`). GTK/GLib warnings go
@@ -54,10 +60,9 @@ the source repo. Check `catapult.__file__` in the script if unsure.
 
 ## Screenshots
 
-To screenshot the app, run a standalone script that creates
-`catapult.Application(paths)`, then in a `GLib.timeout_add` callback
-(~1500 ms, inside a `GLib.MainLoop`) render the `window =
-app.get_active_window()` to PNG:
+To screenshot the app, run a standalone script that creates a `window =
+catapult.Window()` and shows it, then in a `GLib.timeout_add` callback
+(~1500 ms, inside a `GLib.MainLoop`) render it to PNG:
 
 ```python
 paintable = Gtk.WidgetPaintable(widget=window)
@@ -68,5 +73,7 @@ texture.save_to_png(path)
 ```
 
 This captures the window content regardless of the Wayland compositor.
-The same recipe works for dialogs (snapshot the dialog widget instead),
-such as built via the dialog test classes' `setup_method`.
+Don't go through `catapult.Application`, which creates its window only
+once activated, and activation goes to the existing instance if one is
+running. The same recipe works for dialogs (snapshot the dialog widget
+instead), such as built via the dialog test classes' `setup_method`.
