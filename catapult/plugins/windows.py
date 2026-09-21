@@ -52,10 +52,6 @@ class WindowsPlugin(Plugin):
             self.debug(f"Failed to call {method}: {error.message}")
             return None
 
-    def delete(self, window, id):
-        self.debug(f"Closing window {id}")
-        return bool(self._call("Close", GLib.Variant("(t)", (int(id),)), None))
-
     def get_info(self):
         return "\n".join((
             _("Requires GNOME Shell"),

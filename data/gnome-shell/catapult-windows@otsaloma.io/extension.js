@@ -17,9 +17,6 @@ const INTERFACE = `
     <method name="Activate">
       <arg type="t" direction="in" name="id"/>
     </method>
-    <method name="Close">
-      <arg type="t" direction="in" name="id"/>
-    </method>
     <method name="Preview">
       <arg type="t" direction="in" name="id"/>
     </method>
@@ -86,15 +83,6 @@ export default class CatapultWindowsExtension extends Extension {
 
     ClearPreview() {
         this._finishPreview();
-    }
-
-    Close(id) {
-        const window = this._listWindows().find(w => w.get_id() === id);
-        if (!window)
-            return;
-        if (this._preview?.window === window)
-            this.ClearPreview();
-        window.delete(global.get_current_time());
     }
 
     List() {
