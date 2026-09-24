@@ -258,6 +258,10 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._result_list.unselect_all()
         super().hide()
 
+    def _hide_if_inactive(self):
+        if self.is_visible() and not self.is_active():
+            self.hide()
+
     def launch_selected(self):
         row = self._result_list.get_selected_row()
         if row is None: return
@@ -344,7 +348,11 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
 
     def _on_notify_is_active(self, *args, **kwargs):
         if not self.is_active():
-            return self.hide()
+            # A plugin can block the main loop with an external prompt,
+            # e.g. for a passphrase, after which focus-out and focus-in
+            # get processed back to back, so recheck before hiding.
+            GLib.timeout_add(100, self._hide_if_inactive)
+            return
         row = self._result_list.get_selected_row()
         self._on_result_list_row_selected(self._result_list, row)
 
