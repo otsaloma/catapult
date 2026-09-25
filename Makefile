@@ -74,7 +74,9 @@ install:
 	mkdir -p $(DESTDIR)$(LIBDIR)/themes
 	cp -f data/catapult.css $(DESTDIR)$(LIBDIR)
 	cp -f data/themes/*.css $(DESTDIR)$(LIBDIR)/themes
-	@echo "INSTALLING GNOME SHELL EXTENSION..."
+	@echo "INSTALLING GNOME SHELL EXTENSIONS..."
+	mkdir -p $(DESTDIR)$(DATADIR)/gnome-shell/extensions/catapult-clipboard@otsaloma.io
+	cp -f data/gnome-shell/catapult-clipboard@otsaloma.io/* $(DESTDIR)$(DATADIR)/gnome-shell/extensions/catapult-clipboard@otsaloma.io
 	mkdir -p $(DESTDIR)$(DATADIR)/gnome-shell/extensions/catapult-windows@otsaloma.io
 	cp -f data/gnome-shell/catapult-windows@otsaloma.io/* $(DESTDIR)$(DATADIR)/gnome-shell/extensions/catapult-windows@otsaloma.io
 	@echo "INSTALLING ICONS..."

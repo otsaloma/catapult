@@ -1,0 +1,8 @@
+{
+  "name": "Catapult Clipboard",
+  "description": "Record clipboard history and provide a D-Bus interface for the Catapult launcher to list it.",
+  "uuid": "catapult-clipboard@otsaloma.io",
+  "shell-version": ["49", "50"],
+  "url": "https://github.com/otsaloma/catapult",
+  "donations": {"paypal": "otsaloma"}
+}

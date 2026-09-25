@@ -25,9 +25,11 @@ from catapult.api import PreferencesItem
 from catapult.api import SearchResult
 from catapult.i18n import _
 from catapult.i18n import __
+from gi.repository import Gio
+from gi.repository import GLib
 from gi.repository import Gtk
 
-SOURCES = ["gpaste"]
+SOURCES = ["gnome-shell", "gpaste"]
 
 class ClipboardSource(PreferencesItem):
 
@@ -65,7 +67,7 @@ class ClipboardTrigger(PreferencesItem):
 
 class ClipboardPlugin(Plugin):
 
-    conf_defaults = {"source": "gpaste", "trigger": "cc"}
+    conf_defaults = {"source": "gnome-shell", "trigger": "cc"}
     preferences_items = [ClipboardSource, ClipboardTrigger]
     save_history = False
     title = __("Clipboard")
@@ -73,6 +75,24 @@ class ClipboardPlugin(Plugin):
     def __init__(self):
         super().__init__()
         self._index = {}
+
+    def _call(self, method, parameters, reply_type):
+        # See data/gnome-shell/catapult-clipboard@otsaloma.io.
+        try:
+            bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
+            return bus.call_sync("org.gnome.Shell",
+                                 "/org/gnome/Shell/Extensions/CatapultClipboard",
+                                 "org.gnome.Shell.Extensions.CatapultClipboard",
+                                 method,
+                                 parameters,
+                                 reply_type,
+                                 Gio.DBusCallFlags.NONE,
+                                 1000,
+                                 None)
+
+        except GLib.Error as error:
+            self.debug(f"Failed to call {method}: {error.message}")
+            return None
 
     def _get_blurb(self, text):
         text = text.strip()
@@ -90,9 +110,20 @@ class ClipboardPlugin(Plugin):
 
     def get_info(self):
         n = len(self.list_history())
-        return _("{} items in clipboard history").format(n)
+        info = _("{} items in clipboard history").format(n)
+        if self.conf.source == "gnome-shell":
+            return "\n".join((
+                info,
+                _("Requires GNOME Shell"),
+                _("And the Catapult Clipboard extension")))
+        return info
 
     def delete(self, window, id):
+        if self.conf.source == "gnome-shell":
+            self.debug(f"Deleting {id!r}")
+            parameters = GLib.Variant("(t)", (int(id),))
+            reply = self._call("Delete", parameters, GLib.VariantType("(b)"))
+            return reply is not None and reply.unpack()[0]
         if self.conf.source == "gpaste" and shutil.which("gpaste-client"):
             self.debug(f"Deleting {id!r}")
             command = f"gpaste-client delete {id}"
@@ -105,6 +136,11 @@ class ClipboardPlugin(Plugin):
 
     def list_history(self):
         items = {}
+        if self.conf.source == "gnome-shell":
+            reply = self._call("List", None, GLib.VariantType("(a(ts))"))
+            if reply is None: return items
+            for id, text in reply.unpack()[0]:
+                items[str(id)] = text
         if self.conf.source == "gpaste" and shutil.which("gpaste-client"):
             command = "LANG=C gpaste-client history --zero"
             process = subprocess.run(command, shell=True, capture_output=True)

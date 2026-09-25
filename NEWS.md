@@ -4,6 +4,9 @@
   most recently used first, when the search query is blank (requires
   GNOME Shell and enabling the Catapult Windows extension installed
   along with Catapult)
+- Add gnome-shell clipboard source and make it the default, recording
+  the latest 100 text items in memory (requires GNOME Shell and enabling
+  the Catapult Clipboard extension installed along with Catapult)
 - Activating search results on mouse click (#30)
 - Fix plugin loading to not use an API to be removed in Python 3.15
 - Fix plugin titles and session plugin actions to be translated
