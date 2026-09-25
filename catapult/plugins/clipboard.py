@@ -110,13 +110,15 @@ class ClipboardPlugin(Plugin):
 
     def get_info(self):
         n = len(self.list_history())
-        info = _("{} items in clipboard history").format(n)
-        if self.conf.source == "gnome-shell":
+        return _("{} items in clipboard history").format(n)
+
+    @classmethod
+    def get_static_info(cls):
+        if cls.conf.source == "gnome-shell":
             return "\n".join((
-                info,
                 _("Requires GNOME Shell"),
                 _("And the Catapult Clipboard extension")))
-        return info
+        return ""
 
     def delete(self, window, id):
         if self.conf.source == "gnome-shell":

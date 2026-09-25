@@ -49,6 +49,10 @@ class Plugin(catapult.DebugMixin):
     def get_name(cls):
         return cls.__module__.split(".")[-1]
 
+    @classmethod
+    def get_static_info(cls):
+        return ""
+
     def launch(self, window, id):
         raise NotImplementedError
 

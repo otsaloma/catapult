@@ -55,7 +55,8 @@ class CalculatorPlugin(Plugin):
         super().__init__()
         Thread(target=self.update_exchange_rates, daemon=True).start()
 
-    def get_info(self):
+    @classmethod
+    def get_static_info(cls):
         if path := shutil.which("qalc"):
             return _("Using {}").format(path)
         return _("{} not found").format("qalc")

@@ -50,7 +50,8 @@ class SessionPlugin(Plugin):
 
     title = __("Session")
 
-    def get_info(self):
+    @classmethod
+    def get_static_info(cls):
         desktops = [y for x in ACTIONS for y in x["desktops"]]
         desktops = "\n".join(sorted(set(desktops)))
         return "\n".join((_("Supported desktops:"), desktops))

@@ -117,15 +117,18 @@ class CharactersPlugin(Plugin):
                 return block.name
 
     def get_info(self):
+        nemoji = sum(x.is_emoji for x in self._characters)
+        nother = len(self._characters) - nemoji
+        return "\n".join((_("{} characters indexed").format(nother),
+                          _("{} emojis indexed").format(nemoji)))
+
+    @classmethod
+    def get_static_info(cls):
         def font_available(font):
             if is_font_available(font):
                 return _("Using {}").format(font)
             return _("{} not found").format(font)
-        nemoji = sum(x.is_emoji for x in self._characters)
-        nother = len(self._characters) - nemoji
-        return "\n".join((_("{} characters indexed").format(nother),
-                          _("{} emojis indexed").format(nemoji),
-                          font_available(FONT_REGULAR),
+        return "\n".join((font_available(FONT_REGULAR),
                           font_available(FONT_EMOJI)))
 
     def launch(self, window, id):

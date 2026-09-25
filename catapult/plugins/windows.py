@@ -52,7 +52,8 @@ class WindowsPlugin(Plugin):
             self.debug(f"Failed to call {method}: {error.message}")
             return None
 
-    def get_info(self):
+    @classmethod
+    def get_static_info(cls):
         return "\n".join((
             _("Requires GNOME Shell"),
             _("And the Catapult Windows extension")))

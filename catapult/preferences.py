@@ -124,8 +124,9 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
                 plugin = window.get_plugin_if_active(name)
                 try:
                     info = plugin.get_info() if plugin else ""
+                    info = "\n".join(filter(None, (info, cls.get_static_info())))
                 except Exception:
-                    logging.exception(f"Failed to get_info from {name}")
+                    logging.exception(f"Failed to get info from {name}")
                     info = ""
                 page = self.get_page(items, info)
                 stack.add_titled(page, name, title)
