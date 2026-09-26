@@ -6,6 +6,7 @@
 - Add gnome-shell clipboard source and make it the default, recording
   the latest 100 text items in memory (requires GNOME Shell and enabling
   the Catapult Clipboard extension installed along with Catapult)
+- Allow filtering clipboard history, e.g. "cc http"
 - Activate search results on mouse click (#30)
 - Fix plugin titles and session plugin actions to be translated
 - Fix theme reloading to replace the previous CSS

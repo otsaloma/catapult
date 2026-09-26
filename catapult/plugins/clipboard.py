@@ -157,13 +157,14 @@ class ClipboardPlugin(Plugin):
         return items
 
     def search(self, query):
-        query = query.lower().strip()
-        if query != self.conf.trigger: return
+        trigger, *parts = query.lower().split() or [""]
+        if trigger != self.conf.trigger: return
         self._index = self.list_history()
         prev_text = ""
         for i, (id, text) in enumerate(self._index.items()):
             if text == prev_text: continue
             prev_text = text
+            if any(x not in text.lower() for x in parts): continue
             yield SearchResult(
                 description=_(self.title),
                 fuzzy=False,
