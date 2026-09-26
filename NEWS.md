@@ -1,20 +1,18 @@
 # PENDING: Catapult 1.5
 
-- Add windows plugin to list open windows on the current workspace,
-  most recently used first, when the search query is blank (requires
-  GNOME Shell and enabling the Catapult Windows extension installed
-  along with Catapult)
+- Add windows plugin to list open windows on the current workspace (like
+  Alt+Tab), when the search query is blank (requires GNOME Shell and
+  enabling the Catapult Windows extension installed along with Catapult)
 - Add gnome-shell clipboard source and make it the default, recording
   the latest 100 text items in memory (requires GNOME Shell and enabling
   the Catapult Clipboard extension installed along with Catapult)
-- Activating search results on mouse click (#30)
-- Fix plugin loading to not use an API to be removed in Python 3.15
+- Activate search results on mouse click (#30)
 - Fix plugin titles and session plugin actions to be translated
-- Fix theme reloading to replace the previous theme's CSS instead of
-  layering on top of it
-- Require GTK ≥ 4.12
+- Fix theme reloading to replace the previous CSS
+- Fix Python 3.15 compatibility
+- Raise GTK dependency to ≥ 4.12
 - Update `Makefile` so that `make build` takes no variables and only
-  `make install` needs `PREFIX` and `DESTDIR`
+  `make install` takes `PREFIX` and `DESTDIR`
 
 # 2025-10-05: Catapult 1.4
 
