@@ -32,7 +32,7 @@ class WindowsPlugin(Plugin):
         self._previewing = False
 
     def _call(self, method, parameters, reply_type):
-        # See data/gnome-shell/catapult-windows@otsaloma.io.
+        # See gnome-shell/catapult-windows@otsaloma.io.
         try:
             bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
             reply = bus.call_sync("org.gnome.Shell",

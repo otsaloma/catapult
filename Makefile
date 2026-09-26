@@ -76,9 +76,9 @@ install:
 	cp -f data/themes/*.css $(DESTDIR)$(LIBDIR)/themes
 	@echo "INSTALLING GNOME SHELL EXTENSIONS..."
 	mkdir -p $(DESTDIR)$(DATADIR)/gnome-shell/extensions/catapult-clipboard@otsaloma.io
-	cp -f data/gnome-shell/catapult-clipboard@otsaloma.io/* $(DESTDIR)$(DATADIR)/gnome-shell/extensions/catapult-clipboard@otsaloma.io
+	cp -f gnome-shell/catapult-clipboard@otsaloma.io/* $(DESTDIR)$(DATADIR)/gnome-shell/extensions/catapult-clipboard@otsaloma.io
 	mkdir -p $(DESTDIR)$(DATADIR)/gnome-shell/extensions/catapult-windows@otsaloma.io
-	cp -f data/gnome-shell/catapult-windows@otsaloma.io/* $(DESTDIR)$(DATADIR)/gnome-shell/extensions/catapult-windows@otsaloma.io
+	cp -f gnome-shell/catapult-windows@otsaloma.io/* $(DESTDIR)$(DATADIR)/gnome-shell/extensions/catapult-windows@otsaloma.io
 	@echo "INSTALLING ICONS..."
 	mkdir -p $(DESTDIR)$(DATADIR)/icons/hicolor/scalable/apps
 	mkdir -p $(DESTDIR)$(DATADIR)/icons/hicolor/symbolic/apps

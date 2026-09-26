@@ -77,7 +77,7 @@ class ClipboardPlugin(Plugin):
         self._index = {}
 
     def _call(self, method, parameters, reply_type):
-        # See data/gnome-shell/catapult-clipboard@otsaloma.io.
+        # See gnome-shell/catapult-clipboard@otsaloma.io.
         try:
             bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
             return bus.call_sync("org.gnome.Shell",
