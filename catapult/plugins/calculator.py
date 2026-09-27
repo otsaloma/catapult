@@ -27,17 +27,16 @@ from catapult.i18n import _
 from catapult.i18n import __
 from threading import Thread
 
-COMMAND = " ".join((
+COMMAND = [
     "qalc",
-    "-s 'decimal comma off'",
-    "-s 'fractions off'",
-    "-s 'precision 6'",
-    "-s 'save definitions no'",
-    "-s 'save mode no'",
-    "-s 'unicode on'",
-    "-s 'update exchange rates 0'",
-    "'{}'",
-))
+    "-s", "decimal comma off",
+    "-s", "fractions off",
+    "-s", "precision 6",
+    "-s", "save definitions no",
+    "-s", "save mode no",
+    "-s", "unicode on",
+    "-s", "update exchange rates 0",
+]
 
 PATTERN = "^({})".format("|".join((
     r"-?\.?\d",  # Number
@@ -68,9 +67,9 @@ class CalculatorPlugin(Plugin):
     def search(self, query):
         query = query.strip()
         if re.match(PATTERN, query) is None: return
-        command = COMMAND.format(query.replace("'", r"\'"))
-        process = subprocess.run(command, shell=True, capture_output=True)
-        output = process.stdout.decode("utf-8")
+        if not shutil.which("qalc"): return
+        process = subprocess.run([*COMMAND, query], capture_output=True, encoding="utf-8")
+        output = process.stdout
         if not output: return
         self.debug(f"Got {output!r} for {query!r}")
         output = output.splitlines()[0].strip()
@@ -95,7 +94,8 @@ class CalculatorPlugin(Plugin):
 
     def update_exchange_rates(self):
         # Update exchange rates about once a week and check a conversion.
-        command = "qalc -s 'update exchange rates 7' '1 USD to EUR'"
-        process = subprocess.run(command, shell=True, capture_output=True)
-        output = process.stdout.decode("utf-8").strip()
+        if not shutil.which("qalc"): return
+        command = ["qalc", "-s", "update exchange rates 7", "1 USD to EUR"]
+        process = subprocess.run(command, capture_output=True, encoding="utf-8")
+        output = process.stdout.strip()
         self.debug(f"Updated exchange rates: {output!r}")

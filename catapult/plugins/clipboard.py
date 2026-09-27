@@ -15,6 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
+import os
 import shutil
 import subprocess
 
@@ -128,8 +129,7 @@ class ClipboardPlugin(Plugin):
             return reply is not None and reply.unpack()[0]
         if self.conf.source == "gpaste" and shutil.which("gpaste-client"):
             self.debug(f"Deleting {id!r}")
-            command = f"gpaste-client delete {id}"
-            completed_process = subprocess.run(command, shell=True)
+            completed_process = subprocess.run(["gpaste-client", "delete", id])
             return completed_process.returncode == 0
 
     def launch(self, window, id):
@@ -144,9 +144,12 @@ class ClipboardPlugin(Plugin):
             for id, text in reply.unpack()[0]:
                 items[str(id)] = text
         if self.conf.source == "gpaste" and shutil.which("gpaste-client"):
-            command = "LANG=C gpaste-client history --zero"
-            process = subprocess.run(command, shell=True, capture_output=True)
-            output = process.stdout.decode("utf-8")
+            process = subprocess.run(["gpaste-client", "history", "--zero"],
+                                     capture_output=True,
+                                     encoding="utf-8",
+                                     env={**os.environ, "LANG": "C"})
+
+            output = process.stdout
             for line in output.split("\x00"):
                 if len(items) >= 100: break
                 if not line.strip(): continue
