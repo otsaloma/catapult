@@ -27,7 +27,6 @@ from gi.repository import Gdk
 from gi.repository import GdkPixbuf
 from gi.repository import Gio
 from gi.repository import GLib
-from gi.repository import GObject
 from gi.repository import Gtk
 from gi.repository import Pango
 
@@ -36,7 +35,7 @@ ICON_SIZE_PX = 48
 class SearchResultRow(Gtk.ListBoxRow):
 
     def __init__(self):
-        GObject.GObject.__init__(self)
+        super().__init__()
         self.query = None
         self.result = None
         self.icon = Gtk.Image()
@@ -108,7 +107,7 @@ class SearchResultRow(Gtk.ListBoxRow):
 class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
 
     def __init__(self):
-        GObject.GObject.__init__(self)
+        super().__init__()
         self._css_provider = None
         self._icon_theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default())
         self._icon_theme_handler_id = None

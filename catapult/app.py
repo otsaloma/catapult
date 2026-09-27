@@ -21,13 +21,12 @@ import logging
 from argparse import ArgumentParser
 from catapult.i18n import _
 from gi.repository import Gio
-from gi.repository import GObject
 from gi.repository import Gtk
 
 class Application(Gtk.Application):
 
     def __init__(self, args):
-        GObject.GObject.__init__(self)
+        super().__init__()
         self.set_application_id("io.otsaloma.catapult")
         self.set_flags(Gio.ApplicationFlags.FLAGS_NONE)
         self.connect("activate", self._on_activate, args)

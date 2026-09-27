@@ -32,14 +32,13 @@ from catapult.i18n import _
 from catapult.i18n import __
 from dataclasses import dataclass
 from gi.repository import Gio
-from gi.repository import GObject
 from gi.repository import Gtk
 from pathlib import Path
 
 class PatternEditDialog(Gtk.Dialog):
 
     def __init__(self, parent, text=""):
-        GObject.GObject.__init__(self, use_header_bar=True)
+        super().__init__(use_header_bar=True)
         self.add_button(_("_Cancel"), Gtk.ResponseType.CANCEL)
         self.add_button(_("_OK"), Gtk.ResponseType.OK)
         self.set_default_response(Gtk.ResponseType.OK)

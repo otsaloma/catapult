@@ -18,13 +18,12 @@
 import catapult
 
 from catapult.i18n  import _
-from gi.repository import GObject
 from gi.repository import Gtk
 
 class AboutDialog(Gtk.AboutDialog):
 
     def __init__(self, parent):
-        GObject.GObject.__init__(self)
+        super().__init__()
         self.set_artists(("Osmo Salomaa <otsaloma@iki.fi>",))
         self.set_authors(("Osmo Salomaa <otsaloma@iki.fi>",))
         self.set_comments(_("App launcher"))

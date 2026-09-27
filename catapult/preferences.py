@@ -20,7 +20,6 @@ import catapult
 import logging
 
 from catapult.i18n import _
-from gi.repository import GObject
 from gi.repository import Gtk
 
 class PreferencesItem:
@@ -99,7 +98,7 @@ class TogglePlugin(PreferencesItem):
 class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
 
     def __init__(self, window):
-        GObject.GObject.__init__(self, use_header_bar=True)
+        super().__init__(use_header_bar=True)
         self.items = []
         self.main_window = window
         self.set_default_size(-1, 400)
