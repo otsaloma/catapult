@@ -23,6 +23,7 @@ from catapult.api import SearchResult
 from catapult.i18n import _
 from catapult.i18n import __
 from gi.repository import Gio
+from gi.repository import GioUnix
 from gi.repository import Gtk
 
 
@@ -88,7 +89,7 @@ class AppsPlugin(Plugin):
 
     def search(self, query):
         query = query.lower().strip()
-        results = Gio.DesktopAppInfo.search(query)
+        results = GioUnix.DesktopAppInfo.search(query)
         for i, batch in enumerate(results):
             for id in batch:
                 if id not in self._index: continue

@@ -20,6 +20,7 @@ from catapult.api import SearchResult
 from catapult.i18n import _
 from catapult.i18n import __
 from gi.repository import Gio
+from gi.repository import GioUnix
 from gi.repository import GLib
 
 class WindowsPlugin(Plugin):
@@ -81,7 +82,7 @@ class WindowsPlugin(Plugin):
         windows = [x for x in reply.unpack()[0] if x[2] != "io.otsaloma.catapult.desktop"]
         for i, (id, title, app_id, app_name) in enumerate(windows):
             try:
-                app = Gio.DesktopAppInfo.new(app_id)
+                app = GioUnix.DesktopAppInfo.new(app_id)
             except TypeError:
                 # The app ID may not resolve to a desktop file.
                 app = None

@@ -27,6 +27,7 @@ Catapult requires the following.
 | Dependency       | Version |
 | :--------------- | :------ |
 | Python           | ≥ 3.9   |
+| GLib             | ≥ 2.80  |
 | PyGObject        | ≥ 3.40  |
 | GTK              | ≥ 4.12  |
 | Cairo            |         |

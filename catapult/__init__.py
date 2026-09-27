@@ -23,6 +23,7 @@ import sys
 
 gi.require_version("Gdk", "4.0")
 gi.require_version("Gio", "2.0")
+gi.require_version("GioUnix", "2.0")
 gi.require_version("GObject", "2.0")
 gi.require_version("Gtk", "4.0")
 gi.require_version("Pango", "1.0")

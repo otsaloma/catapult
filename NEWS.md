@@ -12,6 +12,7 @@
 - Fix theme reloading to replace the previous CSS
 - Fix Python 3.15 compatibility
 - Raise GTK dependency to ≥ 4.12
+- Raise GLib dependency to ≥ 2.80
 - Update `Makefile` so that `make build` takes no variables and only
   `make install` takes `PREFIX` and `DESTDIR`
 

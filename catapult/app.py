@@ -28,7 +28,7 @@ class Application(Gtk.Application):
     def __init__(self, args):
         super().__init__()
         self.set_application_id("io.otsaloma.catapult")
-        self.set_flags(Gio.ApplicationFlags.FLAGS_NONE)
+        self.set_flags(Gio.ApplicationFlags.DEFAULT_FLAGS)
         self.connect("activate", self._on_activate, args)
 
     def _on_activate(self, app, args):
