@@ -43,8 +43,10 @@
     <release version="0.1.1" date="2021-03-17"/>
     <release version="0.1"   date="2021-03-16"/>
   </releases>
-  <project_license>GPL-3.0+</project_license>
-  <developer_name>Osmo Salomaa</developer_name>
+  <project_license>GPL-3.0-or-later</project_license>
+  <developer id="io.otsaloma">
+    <name>Osmo Salomaa</name>
+  </developer>
   <screenshots>
     <screenshot type="default">
       <image>https://otsaloma.io/catapult/screenshot-appdata.jpg</image>
