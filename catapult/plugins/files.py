@@ -87,7 +87,7 @@ class FilesPatterns(PreferencesItem):
         dialog = PatternEditDialog(self.parent, text)
         dialog.set_modal(True)
         dialog.connect("response", self._on_response)
-        dialog.show()
+        dialog.present()
 
     def _on_response(self, dialog, response):
         if response == Gtk.ResponseType.OK:

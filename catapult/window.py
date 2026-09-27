@@ -27,6 +27,7 @@ from gi.repository import Gdk
 from gi.repository import GdkPixbuf
 from gi.repository import Gio
 from gi.repository import GLib
+from gi.repository import Graphene
 from gi.repository import Gtk
 from gi.repository import Pango
 
@@ -194,7 +195,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             self._result_rows.append(row)
         self._result_scroller.set_child(self._result_list)
         body.append(self._result_scroller)
-        self._result_scroller.hide()
+        self._result_scroller.set_visible(False)
         self.set_child(body)
 
     def activate_plugin(self, name):
@@ -255,7 +256,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             except Exception:
                 logging.exception(f"on_window_hide failed for {plugin.name}")
         self._result_list.unselect_all()
-        super().hide()
+        self.set_visible(False)
 
     def _hide_if_inactive(self):
         if self.is_visible() and not self.is_active():
@@ -370,7 +371,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
     def open_about_dialog(self):
         self.hide()
         dialog = catapult.AboutDialog(self)
-        dialog.show()
+        dialog.present()
 
     def open_preferences_dialog(self):
         def on_close_request(dialog, *args, **kwargs):
@@ -380,7 +381,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self.hide()
         dialog = catapult.PreferencesDialog(self)
         dialog.connect("close-request", on_close_request)
-        dialog.show()
+        dialog.present()
 
     def quit(self):
         self.hide()
@@ -400,7 +401,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
 
     def _scroll_to_row(self, row):
         if not row.is_visible(): return
-        x, y = row.translate_coordinates(self._result_list, 0, 0)
+        y = row.compute_point(self._result_list, Graphene.Point().init(0, 0))[1].y
         row_height = row.get_preferred_size()[1].height
         list_height = self._result_scroller.get_preferred_size()[1].height
         adjustment = self._result_scroller.get_vadjustment()
@@ -463,14 +464,13 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self.set_sensitive(True)
         self.present()
         self._result_list.unselect_all()
-        self._result_scroller.hide()
+        self._result_scroller.set_visible(False)
         self._prev_query = None
         self._input_entry.set_text("")
         # Run blank query search, which we don't get from the entry
         # text notify signal if the text already was blank.
         self._on_input_entry_notify_text_do()
         self._input_entry.grab_focus()
-        super().show()
 
     def toggle(self, *args, **kwargs):
         self.hide() if self.is_visible() else self.show()

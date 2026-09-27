@@ -137,7 +137,6 @@ class PreferencesDialog(Gtk.Dialog, catapult.DebugMixin):
         grid.attach(sidebar, 0, 0, 1, 1)
         grid.attach(stack, 1, 0, 1, 1)
         content.append(grid)
-        self.show()
 
     def get_page(self, items, info=""):
         grid = Gtk.Grid()
