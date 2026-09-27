@@ -16,11 +16,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-import array
 import cairo
 import catapult
 import itertools
 import logging
+import sys
 
 from catapult import util
 from gi.repository import Gdk
@@ -67,21 +67,17 @@ class SearchResultRow(Gtk.ListBoxRow):
     def set_icon(self, icon, default="application-x-executable"):
         if isinstance(icon, cairo.ImageSurface):
             try:
-                # Convert Cairo BGRA to GdkPixbuf RGBA.
-                raw = icon.get_data()
-                data = array.array("B")
-                for i in range(0, len(raw), 4):
-                    b, g, r, a = raw[i:i+4]
-                    data.extend([r, g, b, a])
-                pixbuf = GdkPixbuf.Pixbuf.new_from_data(data=data,
-                                                        colorspace=GdkPixbuf.Colorspace.RGB,
-                                                        has_alpha=True,
-                                                        bits_per_sample=8,
-                                                        width=icon.get_width(),
-                                                        height=icon.get_height(),
-                                                        rowstride=icon.get_stride())
+                # Cairo ARGB32 is premultiplied ARGB in native byte order.
+                icon.flush()
+                texture = Gdk.MemoryTexture.new(icon.get_width(),
+                                                icon.get_height(),
+                                                Gdk.MemoryFormat.B8G8R8A8_PREMULTIPLIED
+                                                if sys.byteorder == "little" else
+                                                Gdk.MemoryFormat.A8R8G8B8_PREMULTIPLIED,
+                                                GLib.Bytes.new(bytes(icon.get_data())),
+                                                icon.get_stride())
 
-                self.icon.set_from_pixbuf(pixbuf)
+                self.icon.set_from_paintable(texture)
             except Exception:
                 logging.exception("Failed to set icon from cairo.ImageSurface")
                 self.icon.set_from_icon_name(default)
@@ -97,7 +93,15 @@ class SearchResultRow(Gtk.ListBoxRow):
                 loader.write(data)
                 loader.close()
                 pixbuf = loader.get_pixbuf()
-                self.icon.set_from_pixbuf(pixbuf)
+                texture = Gdk.MemoryTexture.new(pixbuf.get_width(),
+                                                pixbuf.get_height(),
+                                                Gdk.MemoryFormat.R8G8B8A8
+                                                if pixbuf.get_has_alpha() else
+                                                Gdk.MemoryFormat.R8G8B8,
+                                                pixbuf.read_pixel_bytes(),
+                                                pixbuf.get_rowstride())
+
+                self.icon.set_from_paintable(texture)
             except Exception:
                 logging.exception("Failed to set icon from SVG string")
                 self.icon.set_from_icon_name(default)
