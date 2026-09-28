@@ -48,21 +48,17 @@ class Application(Gtk.Application):
         parser = ArgumentParser(usage=_("catapult [OPTION...]"))
         parser.add_argument("--debug",
                             action="store_true",
-                            dest="debug",
-                            default=False,
                             help=_("print details of indexing and search results"))
 
         parser.add_argument("--hide",
                             action="store_true",
-                            dest="hide",
-                            default=False,
                             help=_("start, but don't show window"))
 
         parser.add_argument("--version",
                             action="version",
                             version=f"catapult {catapult.__version__}")
 
-        args = parser.parse_args()
+        args = parser.parse_args(args)
         catapult.DEBUG = args.debug
         if catapult.DEBUG:
             logger = logging.getLogger()
