@@ -64,9 +64,9 @@ class SearchResultRow(Gtk.ListBoxRow):
         hbox.append(vbox)
         self.set_child(hbox)
 
-    def set_icon(self, icon, default="application-x-executable"):
-        if isinstance(icon, cairo.ImageSurface):
-            try:
+    def set_icon(self, icon):
+        try:
+            if isinstance(icon, cairo.ImageSurface):
                 # Cairo ARGB32 is premultiplied ARGB in native byte order.
                 icon.flush()
                 texture = Gdk.MemoryTexture.new(icon.get_width(),
@@ -78,13 +78,9 @@ class SearchResultRow(Gtk.ListBoxRow):
                                                 icon.get_stride())
 
                 self.icon.set_from_paintable(texture)
-            except Exception:
-                logging.exception("Failed to set icon from cairo.ImageSurface")
-                self.icon.set_from_icon_name(default)
-        elif isinstance(icon, Gio.Icon):
-            self.icon.set_from_gicon(icon)
-        elif isinstance(icon, str) and icon.startswith("<svg"):
-            try:
+            elif isinstance(icon, Gio.Icon):
+                self.icon.set_from_gicon(icon)
+            elif isinstance(icon, str) and icon.startswith("<svg"):
                 data = icon.encode("utf-8")
                 loader = GdkPixbuf.PixbufLoader.new_with_type("svg")
                 scale_factor = self.get_scale_factor()
@@ -102,12 +98,11 @@ class SearchResultRow(Gtk.ListBoxRow):
                                                 pixbuf.get_rowstride())
 
                 self.icon.set_from_paintable(texture)
-            except Exception:
-                logging.exception("Failed to set icon from SVG string")
-                self.icon.set_from_icon_name(default)
-        elif isinstance(icon, str):
-            self.icon.set_from_icon_name(icon)
-        self.icon.set_icon_size(Gtk.IconSize.LARGE)
+            elif isinstance(icon, str):
+                self.icon.set_from_icon_name(icon)
+        except Exception:
+            logging.exception("Failed to set icon")
+            self.icon.set_from_icon_name("application-x-executable")
 
 class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
 
@@ -170,7 +165,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
             "system-search",
             "edit-find",
         ) or "")
-        input_icon.set_icon_size(Gtk.IconSize.LARGE)
         input_icon.add_css_class("catapult-input-icon")
         self._input_entry.add_css_class("catapult-input-entry")
         self._input_entry.set_hexpand(True)
