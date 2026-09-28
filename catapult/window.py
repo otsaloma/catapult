@@ -110,7 +110,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         super().__init__()
         self._css_provider = None
         self._icon_theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default())
-        self._icon_theme_handler_id = None
         self._input_entry = Gtk.Entry()
         self._plugins = []
         self._prev_query = ""
@@ -149,7 +148,7 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
         self._input_entry.connect("notify::text", self._on_input_entry_notify_text)
         self._result_list.connect("row-activated", self._on_result_list_row_activated)
         self._result_list.connect("row-selected", self._on_result_list_row_selected)
-        self._icon_theme_handler_id = self._icon_theme.connect("changed", self._on_icon_theme_changed)
+        self._icon_theme.connect("changed", self._on_icon_theme_changed)
         controller = Gtk.EventControllerKey()
         controller.set_propagation_phase(Gtk.PropagationPhase.CAPTURE)
         self.add_controller(controller)
@@ -292,9 +291,6 @@ class Window(Gtk.ApplicationWindow, catapult.DebugMixin):
 
     def _on_icon_theme_changed(self, icon_theme):
         self.debug("Icon theme changed")
-        self._icon_theme.disconnect(self._icon_theme_handler_id)
-        self._icon_theme = icon_theme
-        self._icon_theme_handler_id = self._icon_theme.connect("changed", self._on_icon_theme_changed)
         catapult.util.lookup_icon.cache_clear()
 
     def _on_input_entry_notify_text(self, *args, **kwargs):
