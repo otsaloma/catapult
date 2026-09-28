@@ -75,9 +75,7 @@ def init_logging():
                         handlers=[logging.StreamHandler(), f])
 
 def main(args):
-    global app
     init_logging()
     conf.read()
     i18n.bind()
-    app = Application(args)
-    raise SystemExit(app.run())
+    raise SystemExit(Application(args).run())
