@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Heimen Stoffels <vistausss@fastmail.com>, 2025
+# Heimen Stoffels <vistausss@fastmail.com>, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-20 21:20+0300\n"
+"POT-Creation-Date: 2026-10-01 21:52+0300\n"
 "PO-Revision-Date: 2021-03-10 20:25+0000\n"
-"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>, 2025\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>, 2026\n"
 "Language-Team: Dutch (https://app.transifex.com/otsaloma/teams/118053/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,11 +21,11 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: catapult/about.py:30 data/io.otsaloma.catapult.appdata.xml.in:7
+#: catapult/about.py:29 data/io.otsaloma.catapult.appdata.xml.in:7
 msgid "App launcher"
 msgstr "Programmastarter"
 
-#: catapult/about.py:35 catapult/plugins/builtins.py:25
+#: catapult/about.py:34 catapult/plugins/builtins.py:25
 msgid "About Catapult"
 msgstr "Over Catapult"
 
@@ -35,27 +35,27 @@ msgstr "Over Catapult"
 #. address. You can also include other translators who have contributed
 #. to this translation; in that case, please write them on separate
 #. lines seperated by newlines (\n).
-#: catapult/about.py:46
+#: catapult/about.py:45
 msgid "translator-credits"
 msgstr "Heimen Stoffels <vistausss@fastmail.com>"
 
-#: catapult/app.py:44
+#: catapult/app.py:43
 msgid "Catapult ready"
 msgstr "Catapult is klaar voor gebruik"
 
-#: catapult/app.py:45
+#: catapult/app.py:44
 msgid "See the documentation on how to activate Catapult:"
 msgstr "Bekĳk de documentatie om te zien hoe je Catapult kunt starten:"
 
-#: catapult/app.py:49
+#: catapult/app.py:48
 msgid "catapult [OPTION...]"
 msgstr "catapult [OPTIE…]"
 
-#: catapult/app.py:54
+#: catapult/app.py:51
 msgid "print details of indexing and search results"
 msgstr "Toon de details van geïndexeerde en zoekresultaten"
 
-#: catapult/app.py:60
+#: catapult/app.py:55
 msgid "start, but don't show window"
 msgstr "geminimaliseerd opstarten"
 
@@ -63,20 +63,20 @@ msgstr "geminimaliseerd opstarten"
 msgid "Untitled"
 msgstr "Naamloos"
 
-#: catapult/preferences.py:43
+#: catapult/preferences.py:42
 msgid "Theme"
 msgstr "Thema"
 
-#: catapult/preferences.py:65
+#: catapult/preferences.py:64
 #, python-brace-format
 msgid "{} plugin"
 msgstr "{}-plug-in"
 
-#: catapult/preferences.py:106
+#: catapult/preferences.py:105
 msgid "Preferences"
 msgstr "Instellingen"
 
-#: catapult/preferences.py:114
+#: catapult/preferences.py:113
 msgid "General"
 msgstr "Algemeen"
 
@@ -84,15 +84,15 @@ msgstr "Algemeen"
 #. and show all apps in all desktops.
 #. https://specifications.freedesktop.org/desktop-entry-
 #. spec/latest/recognized-keys.html
-#: catapult/plugins/apps.py:36
+#: catapult/plugins/apps.py:37
 msgid "Show foreign platform apps"
 msgstr "Programma's van andere systemen tonen"
 
-#: catapult/plugins/apps.py:51
+#: catapult/plugins/apps.py:52
 msgid "Apps"
 msgstr "Programma's"
 
-#: catapult/plugins/apps.py:69
+#: catapult/plugins/apps.py:70
 #, python-brace-format
 msgid "{} apps indexed"
 msgstr "{} programma's geïndexeerd"
@@ -117,16 +117,16 @@ msgstr "Thema herladen"
 msgid "Update search index"
 msgstr "Zoekindex bĳwerken"
 
-#: catapult/plugins/calculator.py:52
+#: catapult/plugins/calculator.py:51
 msgid "Calculator"
 msgstr "Rekenmachine"
 
-#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:122
+#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:129
 #, python-brace-format
 msgid "Using {}"
 msgstr "Gebruikmakend van {}"
 
-#: catapult/plugins/calculator.py:61 catapult/plugins/characters.py:123
+#: catapult/plugins/calculator.py:61 catapult/plugins/characters.py:130
 #, python-brace-format
 msgid "{} not found"
 msgstr "{} is niet aangetroffen"
@@ -135,74 +135,82 @@ msgstr "{} is niet aangetroffen"
 msgid "Characters"
 msgstr "Tekens"
 
-#: catapult/plugins/characters.py:126
+#: catapult/plugins/characters.py:122
 #, python-brace-format
 msgid "{} characters indexed"
 msgstr "{} tekens geïndexeerd"
 
-#: catapult/plugins/characters.py:127
+#: catapult/plugins/characters.py:123
 #, python-brace-format
 msgid "{} emojis indexed"
 msgstr "{} emoji's geïndexeerd"
 
-#: catapult/plugins/clipboard.py:36
+#: catapult/plugins/clipboard.py:39
 msgid "Source"
 msgstr "Bron"
 
-#: catapult/plugins/clipboard.py:55
+#: catapult/plugins/clipboard.py:58
 msgid "Trigger"
 msgstr "Activering"
 
-#: catapult/plugins/clipboard.py:71
+#: catapult/plugins/clipboard.py:74
 msgid "Clipboard"
 msgstr "Klembord"
 
-#: catapult/plugins/clipboard.py:93
+#: catapult/plugins/clipboard.py:114
 #, python-brace-format
 msgid "{} items in clipboard history"
 msgstr "{} items in de klembordgeschiedenis"
 
-#: catapult/plugins/files.py:43
+#: catapult/plugins/clipboard.py:120 catapult/plugins/windows.py:59
+msgid "Requires GNOME Shell"
+msgstr "Vereist GNOME Shell"
+
+#: catapult/plugins/clipboard.py:121
+msgid "And the Catapult Clipboard extension"
+msgstr ""
+
+#: catapult/plugins/files.py:42
 msgid "_Cancel"
 msgstr "_Annuleren"
 
-#: catapult/plugins/files.py:44
+#: catapult/plugins/files.py:43
 msgid "_OK"
 msgstr "_Oké"
 
-#: catapult/plugins/files.py:50
+#: catapult/plugins/files.py:49
 msgid "Edit File Patterns"
 msgstr "Bestandspatronen aanpassen"
 
-#: catapult/plugins/files.py:51
+#: catapult/plugins/files.py:50
 msgid "Use shell-style wildcards * and **"
 msgstr "Shell-achtige jokertekens gebruiken (* en **)"
 
-#: catapult/plugins/files.py:83
+#: catapult/plugins/files.py:82
 msgid "Edit"
 msgstr "Aanpassen"
 
-#: catapult/plugins/files.py:103
+#: catapult/plugins/files.py:102
 msgid "Include patterns"
 msgstr "Opgenomen patronen"
 
-#: catapult/plugins/files.py:108
+#: catapult/plugins/files.py:107
 msgid "Exclude patterns"
 msgstr "Uitgesloten patronen"
 
-#: catapult/plugins/files.py:114
+#: catapult/plugins/files.py:113
 msgid "Scan interval"
 msgstr "Scanschema"
 
-#: catapult/plugins/files.py:118
+#: catapult/plugins/files.py:117
 msgid "minutes"
 msgstr "minuten"
 
-#: catapult/plugins/files.py:152
+#: catapult/plugins/files.py:151
 msgid "Files"
 msgstr "Bestanden"
 
-#: catapult/plugins/files.py:175
+#: catapult/plugins/files.py:174
 #, python-brace-format
 msgid "{} files indexed"
 msgstr "{} bestanden geïndexeerd"
@@ -231,31 +239,27 @@ msgstr "Herstarten;Opnieuw opstarten;"
 msgid "Session"
 msgstr "Sessie"
 
-#: catapult/plugins/session.py:56
+#: catapult/plugins/session.py:57
 msgid "Supported desktops:"
 msgstr "Ondersteunde werkomgevingen:"
 
-#: catapult/plugins/windows.py:28
+#: catapult/plugins/windows.py:29
 msgid "Windows"
-msgstr ""
+msgstr "Vensters"
 
-#: catapult/plugins/windows.py:61
-msgid "Requires GNOME Shell"
-msgstr ""
-
-#: catapult/plugins/windows.py:62
+#: catapult/plugins/windows.py:60
 msgid "And the Catapult Windows extension"
-msgstr ""
+msgstr "En de Catapult-vensteruitbreiding"
 
 #: data/io.otsaloma.catapult.appdata.xml.in:9
 msgid ""
 "Catapult allows you to easily launch apps, open files and do basic "
 "calculations with a keyboard-driven user interface."
 msgstr ""
-"Met Catapult kun je snel programma's starten, bestanden openen en "
+"Met Catapult kun je razendsnel programma's starten, bestanden openen en "
 "rekensommen verwerken met het toetsenbord."
 
-#: data/io.otsaloma.catapult.appdata.xml.in:51
+#: data/io.otsaloma.catapult.appdata.xml.in:53
 msgid "Main window"
 msgstr "Hoofdvenster"
 
@@ -267,4 +271,4 @@ msgstr "Start programma's en open bestanden"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/io.otsaloma.catapult.desktop.in:9
 msgid "launcher;"
-msgstr "starter;programma;launcher;toepassing;"
+msgstr "starter;programma;launcher;toepassing;applicatie;app;"

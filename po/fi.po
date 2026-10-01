@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Osmo Salomaa <otsaloma@iki.fi>, 2025
+# Osmo Salomaa <otsaloma@iki.fi>, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-20 21:20+0300\n"
-"PO-Revision-Date: 2026-09-20 21:21+0300\n"
-"Last-Translator: Osmo Salomaa <otsaloma@iki.fi>, 2025\n"
+"POT-Creation-Date: 2026-10-01 21:52+0300\n"
+"PO-Revision-Date: 2026-10-01 21:54+0300\n"
+"Last-Translator: Osmo Salomaa <otsaloma@iki.fi>, 2026\n"
 "Language-Team: Finnish (https://app.transifex.com/otsaloma/teams/118053/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,11 +21,11 @@ msgstr ""
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: catapult/about.py:30 data/io.otsaloma.catapult.appdata.xml.in:7
+#: catapult/about.py:29 data/io.otsaloma.catapult.appdata.xml.in:7
 msgid "App launcher"
 msgstr "Sovelluskäynnistin"
 
-#: catapult/about.py:35 catapult/plugins/builtins.py:25
+#: catapult/about.py:34 catapult/plugins/builtins.py:25
 msgid "About Catapult"
 msgstr "Tietoja Catapultista"
 
@@ -35,27 +35,27 @@ msgstr "Tietoja Catapultista"
 #. address. You can also include other translators who have contributed
 #. to this translation; in that case, please write them on separate
 #. lines seperated by newlines (\n).
-#: catapult/about.py:46
+#: catapult/about.py:45
 msgid "translator-credits"
 msgstr "Osmo Salomaa <otsaloma@iki.fi>"
 
-#: catapult/app.py:44
+#: catapult/app.py:43
 msgid "Catapult ready"
 msgstr "Catapult valmis"
 
-#: catapult/app.py:45
+#: catapult/app.py:44
 msgid "See the documentation on how to activate Catapult:"
 msgstr "Katso dokumentaatiosta miten Catapult aktivoidaan:"
 
-#: catapult/app.py:49
+#: catapult/app.py:48
 msgid "catapult [OPTION...]"
 msgstr "catapult [VALITSIN...]"
 
-#: catapult/app.py:54
+#: catapult/app.py:51
 msgid "print details of indexing and search results"
 msgstr "tulosta yksityiskohtia indeksoinnista ja hakutuloksista"
 
-#: catapult/app.py:60
+#: catapult/app.py:55
 msgid "start, but don't show window"
 msgstr "käynnistä, mutta älä näytä ikkunaa"
 
@@ -63,20 +63,20 @@ msgstr "käynnistä, mutta älä näytä ikkunaa"
 msgid "Untitled"
 msgstr "Nimetön"
 
-#: catapult/preferences.py:43
+#: catapult/preferences.py:42
 msgid "Theme"
 msgstr "Teema"
 
-#: catapult/preferences.py:65
+#: catapult/preferences.py:64
 #, python-brace-format
 msgid "{} plugin"
 msgstr "{} plugin"
 
-#: catapult/preferences.py:106
+#: catapult/preferences.py:105
 msgid "Preferences"
 msgstr "Asetukset"
 
-#: catapult/preferences.py:114
+#: catapult/preferences.py:113
 msgid "General"
 msgstr "Yleinen"
 
@@ -84,15 +84,15 @@ msgstr "Yleinen"
 #. and show all apps in all desktops.
 #. https://specifications.freedesktop.org/desktop-entry-
 #. spec/latest/recognized-keys.html
-#: catapult/plugins/apps.py:36
+#: catapult/plugins/apps.py:37
 msgid "Show foreign platform apps"
 msgstr "Näytä vieraat alustasovellukset"
 
-#: catapult/plugins/apps.py:51
+#: catapult/plugins/apps.py:52
 msgid "Apps"
 msgstr "Sovellukset"
 
-#: catapult/plugins/apps.py:69
+#: catapult/plugins/apps.py:70
 #, python-brace-format
 msgid "{} apps indexed"
 msgstr "{} sovellusta indeksoitu"
@@ -117,16 +117,16 @@ msgstr "Uudelleenlataa teema"
 msgid "Update search index"
 msgstr "Päivitä hakuindeksi"
 
-#: catapult/plugins/calculator.py:52
+#: catapult/plugins/calculator.py:51
 msgid "Calculator"
 msgstr "Laskin"
 
-#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:122
+#: catapult/plugins/calculator.py:60 catapult/plugins/characters.py:129
 #, python-brace-format
 msgid "Using {}"
 msgstr "Käytetään {}"
 
-#: catapult/plugins/calculator.py:61 catapult/plugins/characters.py:123
+#: catapult/plugins/calculator.py:61 catapult/plugins/characters.py:130
 #, python-brace-format
 msgid "{} not found"
 msgstr "{} ei löydetty"
@@ -135,74 +135,82 @@ msgstr "{} ei löydetty"
 msgid "Characters"
 msgstr "Merkit"
 
-#: catapult/plugins/characters.py:126
+#: catapult/plugins/characters.py:122
 #, python-brace-format
 msgid "{} characters indexed"
 msgstr "{} merkkiä indeksoitu"
 
-#: catapult/plugins/characters.py:127
+#: catapult/plugins/characters.py:123
 #, python-brace-format
 msgid "{} emojis indexed"
 msgstr "{} emojia indeksoitu"
 
-#: catapult/plugins/clipboard.py:36
+#: catapult/plugins/clipboard.py:39
 msgid "Source"
 msgstr "Lähde"
 
-#: catapult/plugins/clipboard.py:55
+#: catapult/plugins/clipboard.py:58
 msgid "Trigger"
 msgstr "Kytkin"
 
-#: catapult/plugins/clipboard.py:71
+#: catapult/plugins/clipboard.py:74
 msgid "Clipboard"
 msgstr "Leikepöytä"
 
-#: catapult/plugins/clipboard.py:93
+#: catapult/plugins/clipboard.py:114
 #, python-brace-format
 msgid "{} items in clipboard history"
 msgstr "{} kohdetta leikepöydän historiassa"
 
-#: catapult/plugins/files.py:43
+#: catapult/plugins/clipboard.py:120 catapult/plugins/windows.py:59
+msgid "Requires GNOME Shell"
+msgstr "Vaatii GNOME Shellin"
+
+#: catapult/plugins/clipboard.py:121
+msgid "And the Catapult Clipboard extension"
+msgstr "Ja Catapult Clipboard lisäosan"
+
+#: catapult/plugins/files.py:42
 msgid "_Cancel"
 msgstr "_Peruuta"
 
-#: catapult/plugins/files.py:44
+#: catapult/plugins/files.py:43
 msgid "_OK"
 msgstr "_OK"
 
-#: catapult/plugins/files.py:50
+#: catapult/plugins/files.py:49
 msgid "Edit File Patterns"
 msgstr "Muokkaa tiedostojen hakulausekkeita"
 
-#: catapult/plugins/files.py:51
+#: catapult/plugins/files.py:50
 msgid "Use shell-style wildcards * and **"
 msgstr "Käytä komentotulkin hakumerkkejä * ja **"
 
-#: catapult/plugins/files.py:83
+#: catapult/plugins/files.py:82
 msgid "Edit"
 msgstr "Muokkaa"
 
-#: catapult/plugins/files.py:103
+#: catapult/plugins/files.py:102
 msgid "Include patterns"
 msgstr "Sisällytyslausekkeet"
 
-#: catapult/plugins/files.py:108
+#: catapult/plugins/files.py:107
 msgid "Exclude patterns"
 msgstr "Ohituslausekkeet"
 
-#: catapult/plugins/files.py:114
+#: catapult/plugins/files.py:113
 msgid "Scan interval"
 msgstr "Päivitysväli"
 
-#: catapult/plugins/files.py:118
+#: catapult/plugins/files.py:117
 msgid "minutes"
 msgstr "minuuttia"
 
-#: catapult/plugins/files.py:152
+#: catapult/plugins/files.py:151
 msgid "Files"
 msgstr "Tiedostot"
 
-#: catapult/plugins/files.py:175
+#: catapult/plugins/files.py:174
 #, python-brace-format
 msgid "{} files indexed"
 msgstr "{} tiedostoa indeksoitu"
@@ -231,19 +239,15 @@ msgstr "Uudelleenkäynnistä"
 msgid "Session"
 msgstr "Istunto"
 
-#: catapult/plugins/session.py:56
+#: catapult/plugins/session.py:57
 msgid "Supported desktops:"
 msgstr "Tuetut työpöydät:"
 
-#: catapult/plugins/windows.py:28
+#: catapult/plugins/windows.py:29
 msgid "Windows"
 msgstr "Ikkunat"
 
-#: catapult/plugins/windows.py:61
-msgid "Requires GNOME Shell"
-msgstr "Vaatii GNOME Shellin"
-
-#: catapult/plugins/windows.py:62
+#: catapult/plugins/windows.py:60
 msgid "And the Catapult Windows extension"
 msgstr "Ja Catapult Windows lisäosan"
 
@@ -256,7 +260,7 @@ msgstr ""
 "avaamisen ja pienten laskujen tekemisen näppäimistöpohjaisella "
 "käyttöliittymällä."
 
-#: data/io.otsaloma.catapult.appdata.xml.in:51
+#: data/io.otsaloma.catapult.appdata.xml.in:53
 msgid "Main window"
 msgstr "Pääikkuna"
 
