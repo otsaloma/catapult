@@ -1,4 +1,4 @@
-# PENDING: Catapult 1.5
+# 2026-10-01: Catapult 1.5
 
 - Add windows plugin to list open windows on the current workspace (like
   Alt+Tab), when the search query is blank (requires GNOME Shell and
