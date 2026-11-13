@@ -2,7 +2,7 @@
   "name": "Catapult Windows",
   "description": "Provide a D-Bus interface for the Catapult launcher to list and activate windows.",
   "uuid": "catapult-windows@otsaloma.io",
-  "shell-version": ["49", "50"],
+  "shell-version": ["49", "50", "51"],
   "url": "https://github.com/otsaloma/catapult",
   "donations": {"paypal": "otsaloma"}
 }
