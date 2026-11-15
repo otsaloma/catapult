@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-01 21:52+0300\n"
-"PO-Revision-Date: 2026-10-01 21:54+0300\n"
+"POT-Creation-Date: 2026-11-15 16:20+0200\n"
+"PO-Revision-Date: 2026-11-15 16:20+0200\n"
 "Last-Translator: Osmo Salomaa <otsaloma@iki.fi>, 2026\n"
 "Language-Team: Finnish (https://app.transifex.com/otsaloma/teams/118053/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -260,7 +260,7 @@ msgstr ""
 "avaamisen ja pienten laskujen tekemisen näppäimistöpohjaisella "
 "käyttöliittymällä."
 
-#: data/io.otsaloma.catapult.appdata.xml.in:53
+#: data/io.otsaloma.catapult.appdata.xml.in:54
 msgid "Main window"
 msgstr "Pääikkuna"
 

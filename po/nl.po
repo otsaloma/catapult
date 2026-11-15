@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-01 21:52+0300\n"
+"POT-Creation-Date: 2026-11-15 16:20+0200\n"
 "PO-Revision-Date: 2021-03-10 20:25+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>, 2026\n"
 "Language-Team: Dutch (https://app.transifex.com/otsaloma/teams/118053/nl/)\n"
@@ -168,7 +168,7 @@ msgstr "Vereist GNOME Shell"
 
 #: catapult/plugins/clipboard.py:121
 msgid "And the Catapult Clipboard extension"
-msgstr ""
+msgstr "En de Catapult-klemborduitbreiding"
 
 #: catapult/plugins/files.py:42
 msgid "_Cancel"
@@ -259,7 +259,7 @@ msgstr ""
 "Met Catapult kun je razendsnel programma's starten, bestanden openen en "
 "rekensommen verwerken met het toetsenbord."
 
-#: data/io.otsaloma.catapult.appdata.xml.in:53
+#: data/io.otsaloma.catapult.appdata.xml.in:54
 msgid "Main window"
 msgstr "Hoofdvenster"
 
