@@ -1,3 +1,7 @@
+# 2026-11-15: Catapult 1.5.1
+
+- Mark gnome-shell extensions compatible with 51
+
 # 2026-10-01: Catapult 1.5
 
 - Add windows plugin to list open windows on the current workspace (like
